@@ -1,10 +1,11 @@
 #include "srybexe.h"
-#include <QtGui/QApplication>
+#include <QApplication>
 
 int main(int argc, char *argv[])
 {
-	QApplication::setGraphicsSystem("raster");
-	QApplication a(argc, argv);
+// not in Qt5
+//    QApplication::setGraphicsSystem("raster");
+    QApplication a(argc, argv);
 
 // 	// splash screen
 // 	QPixmap pixmap("H:\\Photos\\2011-11-01\\2011-10-30-19-09 DSC_7758.JPG");

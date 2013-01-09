@@ -29,7 +29,7 @@ SUBDIRS += SrYbExe/SrYbExe.pro \
 #    ../../LabExe-UserPlugins/UserProjects/RollingStatsPlugin/RollingStatsPlugin.pro \
 #    ../UserDefinedPlugins/ImageStackerPlugin/ImageStackerPlugin.pro \
 #    ../UserDefinedPlugins/BetterAbsorptionImagePlugin/BetterAbsorptionImagePlugin.pro \
-    ../../LabExe-UserPlugins/UserProjects/Pupin632MonitorPlugin/Pupin632MonitorPlugin.pro \
+#    ../../LabExe-UserPlugins/UserProjects/Pupin632MonitorPlugin/Pupin632MonitorPlugin.pro \
 #    ../../LabExe-UserPlugins/UserProjects/LockingSlapperPlugin/LockingSlapperPlugin.pro \
 #    ../../LabExe-UserPlugins/UserProjects/StepperPlugin/StepperPlugin.pro \
 #    ../../LabExe-UserPlugins/UserProjects/Plot1DPlugin/Plot1DPlugin.pro \
@@ -42,4 +42,4 @@ SUBDIRS += SrYbExe/SrYbExe.pro \
 #    ../src/LabExeOptimizing/LabExeOptimizing.pro \
 #    ../Deployement/UserPluginWizard/UserPluginWizard.pro \
 #    ../src/LabExeSequencer/LabExeSequencer.pro \
-    ../../LabExe-UserPlugins/UserProjects/Scroller2DPlugin/Scroller2DPlugin.pro
+#    ../../LabExe-UserPlugins/UserProjects/Scroller2DPlugin/Scroller2DPlugin.pro
