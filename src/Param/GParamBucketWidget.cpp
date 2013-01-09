@@ -2,6 +2,7 @@
 #include "GParamManager.h"
 #include "GParamLabel.h"
 #include "param.h"
+#include <QtWidgets>
 
 GParamBucketWidget::GParamBucketWidget(QWidget *parent, GParamBucket* theBucket, Qt::Orientation orientation /*= Qt::Vertical*/)
 	: QGroupBox(parent)

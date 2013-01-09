@@ -2,7 +2,7 @@
 #define GDEVICEWIDGET_H
 #include "labexe_global.h"
 
-#include <QtGui>
+#include <QtWidgets>
 
 class GDevice;
 class GDeviceWidgetImpl;

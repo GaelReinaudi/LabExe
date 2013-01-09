@@ -225,7 +225,7 @@ void GSerializable::SetFile( const QString fileName )
 	}
 	FileInfo.setFile(file);
 	if(!FileInfo.exists()) {
-		qCritical("The file \"%s\" does not seem to be on your system.", fileName);
+        qCritical("The file \"%s\" does not seem to be on your system.", fileName.data());
 		return;
 	}
 	if(m_pSettings)

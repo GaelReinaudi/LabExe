@@ -25,7 +25,7 @@ struct MyObjectFactoryError
 		QString mess("The object type \"%1\" has not been registered with the ObjectFactory.");
 			mess += "\r\n You should use the Macro G_REGISTER_IN_FACTORY_WITH_PARENT_TYPE(%1, ParentType) in the corresponding .cpp file.";
 			mess = mess.arg(QString(s));
-		qCritical(mess.toAscii());
+        qCritical(mess.toUtf8());
 		return 0;
 	}
 };
@@ -103,7 +103,7 @@ namespace																		\
 			mess += "\r\n Check that \"%1\" and \"%2\" uses the Q_OBJECT macro.";			\
 			mess += "\r\n Check your use of the Macro G_REGISTER_IN_FACTORY_WITH_PARENT_TYPE(%1, ParentType) in the corresponding .cpp file.";	\
 			mess = mess.arg(# ClassName).arg(# ParentType);						\
-			qCritical(mess.toAscii());											\
+            qCritical(mess.toUtf8());											\
 		}																		\
 		else 																	\
 			return new ClassName(pParentObj);									\

@@ -1,5 +1,6 @@
 #include "GParamLabel.h"
 #include "GParam.h"
+#include <QApplication>
 
 GParamLabel::GParamLabel(GParam* pTheParam, QWidget *parent )
 	: QLabel(pTheParam->Name(), parent)

@@ -1,7 +1,7 @@
 #include "GParamBool.h"
 #include "GParamManager.h"
 #include <QPushButton>
-#include <QtGui>
+#include <QtWidgets>
 
 G_REGISTER_NEW_PARAM_CLASS(GParamBool);
  

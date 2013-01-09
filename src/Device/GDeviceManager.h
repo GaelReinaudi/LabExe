@@ -34,7 +34,7 @@ struct MyDeviceFactoryError
 		QString mess("The device type \"%1\" has not been registered with the DeviceFacory.");
 			mess += "\r\n You should use the Macro G_REGISTER_HARD_DEVICE_CLASS(%1) in the corresponding .cpp file.";
 			mess = mess.arg(QString(s));
-		qCritical(mess.toAscii());
+        qCritical(mess.toUtf8());
 		return 0;
 	}
 };

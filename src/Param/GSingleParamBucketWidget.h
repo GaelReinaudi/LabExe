@@ -2,7 +2,7 @@
 #define GSINGLEPARAMBUCKETWIDGET_H
 
 #include "GParamBucketWidget.h"
-#include <QtGui>
+#include <QtWidgets>
 
 class GSingleParamBucket;
 

@@ -6,23 +6,23 @@ TEMPLATE = app
 TARGET = SrYbExe
 DESTDIR = ../../bin
 QT += core gui
-CONFIG += debug
+CONFIG += release
 DEFINES += QT_LARGEFILE_SUPPORT QT_DLL
 INCLUDEPATH += ./../../../LabExe/src \
     ./../../../LabExe/include \
     ./GeneratedFiles \
-    ./GeneratedFiles/Debug \
+    ./GeneratedFiles/Release \
     .
 LIBS += -L"./../../../LabExe/lib" \
     -L"./../../../LabExe/bin" \
     -L"." \
-    -llabexe_D
+    -llabexe
 #    -llabexeImaging \
 #    -llabexeOptimizing \
 #    -llabexeSequencer
 DEPENDPATH += .
-MOC_DIR += ./GeneratedFiles/debug
-OBJECTS_DIR += debug
+MOC_DIR += ./GeneratedFiles/release
+OBJECTS_DIR += release
 UI_DIR += ./GeneratedFiles
 RCC_DIR += ./GeneratedFiles
 include(SrYbExe.pri)

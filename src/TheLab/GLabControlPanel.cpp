@@ -9,6 +9,7 @@
 
 #include "GWorkBench.h"
 #include <QDir>
+#include <qapplication.h>
 
 bool m_CloseWorkBenchWhenDeletedFromList = true;
 GLabControlPanel* GLabControlPanel::m_LabInstance = 0;
@@ -24,7 +25,7 @@ GLabControlPanel::GLabControlPanel(QWidget *parent)
 	, m_DefaultSavingDir(QDir::home())
 	, m_pProgDeviceShelf(new GDeviceShelf(0))
 {
-	ui = new Ui::GLabControlPanelClass();
+    ui = new Ui::GLabControlPanelClass();
 	ui->setupUi(this);
 	ui->pMenuView->addAction(DebugDockWidget()->toggleViewAction());
 
@@ -40,8 +41,8 @@ GLabControlPanel::GLabControlPanel(QWidget *parent)
 	// to handle Qt warning and other messages (like the one generated when qDebug, qWarning and qCritical are used):
 	//	QErrorMessage::qtHandler();
 	// or this, for more flexible behavior, like sending Debug messages to a special QTextEdit.
-	qInstallMsgHandler(GLabControlPanel::DebugMessageHandler);
-	connect(this, SIGNAL(OtherThreadDebugMessage(int, QByteArray)), this, SLOT(ToStaticDebugMessageHandler(int, QByteArray)), Qt::QueuedConnection); // queued!
+    qInstallMessageHandler(GLabControlPanel::DebugMessageHandler);
+    connect(this, SIGNAL(OtherThreadDebugMessage(int, QMessageLogContext*, QString)), this, SLOT(ToStaticDebugMessageHandler(int, QMessageLogContext*, QString)), Qt::QueuedConnection); // queued!
 	m_LabInstance = this;
 
 	connect(ui->pButtonCreateNewWorkBench, SIGNAL(clicked()), this, SLOT(MakeNewWorkBench()));
@@ -167,7 +168,7 @@ void GLabControlPanel::closeEvent(QCloseEvent *event)
 	qApp->closeAllWindows();
 	QTimer::singleShot(1000, qApp, SLOT(closeAllWindows()));
 
-	qInstallMsgHandler(0);
+    qInstallMessageHandler(0);
 
 	QMainWindow::closeEvent(event);
 }
@@ -263,7 +264,7 @@ void GLabControlPanel::InsertWorkBenchInList( GWorkBench* pWB )
 	connect(pWB, SIGNAL(Saved()), this, SLOT(Save()));
 }
 
-void GLabControlPanel::DebugMessageHandler(QtMsgType type, const char *msg)
+void GLabControlPanel::DebugMessageHandler(QtMsgType type, const QMessageLogContext & context, const QString & msg)
 {
 	if(!m_AcceptDebugMessages)
 		return;
@@ -271,8 +272,9 @@ void GLabControlPanel::DebugMessageHandler(QtMsgType type, const char *msg)
 	if(!QCoreApplication::instance())
 		return;
 	if(QThread::currentThread() != QCoreApplication::instance()->thread()) {
-		QByteArray messageByteArray(msg);
-		emit m_LabInstance->OtherThreadDebugMessage(type, messageByteArray);
+        QByteArray messageByteArray(msg.toUtf8());
+        // due to QT5, may be unsafe to use this pointer but I had ne choice because it the copy ctor is private.
+        emit m_LabInstance->OtherThreadDebugMessage(type, const_cast<QMessageLogContext*>(&context), messageByteArray);
 		return;
 	}
 	QErrorMessage* pErMess = new QErrorMessage(0);
@@ -307,9 +309,10 @@ void GLabControlPanel::DebugMessageHandler(QtMsgType type, const char *msg)
 	}
 }
 
-void GLabControlPanel::ToStaticDebugMessageHandler( int type, QByteArray messageByteArray ) const
+void GLabControlPanel::ToStaticDebugMessageHandler(int type, QMessageLogContext * context, const QString & msg) const
 {
-	DebugMessageHandler(static_cast<QtMsgType>(type), messageByteArray);
+    // Unsafe due to QT5 making the reference un-copiable!!!!
+    DebugMessageHandler(static_cast<QtMsgType>(type), *context, msg);
 }
 
 void GLabControlPanel::SaveAllWorkbenches()

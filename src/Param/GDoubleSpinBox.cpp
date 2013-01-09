@@ -1,5 +1,6 @@
 #include "GDoubleSpinBox.h"
 #include "GParamNum.h"
+#include <QApplication>
 
 GDoubleSpinBox::GDoubleSpinBox(QWidget *parent)
 	: QDoubleSpinBox(parent)

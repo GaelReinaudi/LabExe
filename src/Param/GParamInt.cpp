@@ -1,6 +1,7 @@
 #include "GParamInt.h"
 #include "GParamManager.h"
 #include "GDoubleSpinBox.h"
+#include <QComboBox>
 
 G_REGISTER_NEW_PARAM_CLASS(GParamInt);
 
