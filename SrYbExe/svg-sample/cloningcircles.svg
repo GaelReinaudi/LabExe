@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+xmlns:xlink="http://www.w3.org/1999/xlink">
+<script>
+
+<![CDATA[
+
+var Root=document.documentElement
+var currentObj
+
+function clone(evt){
+  var CL=document.getElementById("myCircle")
+  NC=CL.cloneNode(false)
+  NC.setAttributeNS(null,"cx",evt.clientX)
+  NC.setAttributeNS(null,"cy",evt.clientY)
+  NC.setAttributeNS(null,"fill",color())
+  Root.appendChild(NC)
+  startMove(evt)
+}
+
+function startMove(evt)
+{
+  currentObj=evt.target
+  Root.appendChild(currentObj)
+  Root.setAttributeNS(null,"onmousemove","move(evt)")
+  Root.setAttributeNS(null,"onmouseup","drop()")
+  evt.stopPropagation()
+} 
+
+function move(evt)
+{
+  currentObj.setAttributeNS(null,"cx",evt.clientX)
+  currentObj.setAttributeNS(null,"cy",evt.clientY)
+}
+
+function drop()
+{
+  Root.setAttributeNS(null, "onmousemove",null)
+}
+
+function color(){
+  var r=Math.random()*4096
+  return "#"+Math.floor(r).toString(16)
+}
+
+]]>
+
+</script>
+
+
+<rect x="0" y="0" width="100%" 
+  height="100%" fill="white"/>
+<circle cx="60" cy="60" r="50" id="myCircle" 
+  onmousedown="clone(evt)"
+  fill="blue" stroke="black" opacity="0.7"
+  stroke-width="3" />
+
+</svg>
+

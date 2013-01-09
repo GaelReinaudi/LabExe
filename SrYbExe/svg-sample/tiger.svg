@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" xmlns:xlink="http://www.w3.org/1999/xlink" 
+        onload="start(evt)" onmousemove="intercept(evt,w,h)">
+<!-- This is a modified version from 
+     http://srufaculty.sru.edu/david.dailey/svg/clipdrag12.svg -->
+
+<script><![CDATA[
+xmlns="http://www.w3.org/2000/svg"
+xlink="http://www.w3.org/1999/xlink" 
+var Root=document.documentElement
+var I
+var w
+var h
+var GP
+var Screen
+var left=0
+
+function start(evt){
+ var R=document.getElementById("IPP")
+ w=parseInt(R.getAttribute("width"))
+ h=parseInt(R.getAttribute("height"))
+ Root.setAttribute("onmousemove","intercept(evt,w,h)")
+ Screen=getRect()
+}
+
+function intercept(evt,w,h){
+ GP=document.getElementsByTagName("g")
+ var ax
+ var x=Math.ceil(evt.clientX)
+ var y=Math.ceil(evt.clientY)
+ l=left
+ I=GP.item(0).getElementsByTagName("image")
+ var ax=Math.ceil(w*x/Screen.x)
+ var ay=Math.ceil(h*y/Screen.y+100)
+ move(ax,ay,I,l,w,h)
+}
+ 
+function getRect(){
+ rect={x: window.innerWidth,y:window.innerHeight}
+ return rect
+}
+
+function move(x,y,I,lft,w,h){
+//x is between 0 and w ; y is between 100 and h
+ y1=100
+ xm=lft+w/2
+ x2=lft+w
+ ym=100+h/2
+ y2=100+h
+//triangle 1
+  a=2*x/w
+  b=(2*y - 2*ym)/(w)
+  M=a+" "+b+" 0 1 "+lft*(1-a)+" "+(-b)*lft
+  I.item(0).setAttribute("transform", "matrix("+M+")")
+//triangle 2
+  d=(2*y - 200)/h
+  c=(2*x - w)/(h)
+  M="1 0 "+c+" "+d+" "+y1*(-c)+" "+y1*(1 - d)
+  I.item(1).setAttribute("transform", "matrix("+M+")")
+//triangle 3
+  a=(2*w - 2*x)/w
+  b=(2*ym - 2*y)/(w)
+  M=a+" "+b+" 0 1 "+(x2)*(1-a)+" "+(-b)*(x2)
+  I.item(2).setAttribute("transform", "matrix("+M+")")
+//triangle 4
+  d=(2*y2 - 2*y)/h
+  c=(w - 2*x)/h
+  M="1 0 "+c+" "+d +" "+y2*(-c)+" "+y2 *(1-d)
+  I.item(3).setAttribute("transform", "matrix("+M+")")
+ 
+}
+
+]]>
+
+</script>
+
+<defs id="DEF">
+ <rect id="R" stroke="#706" fill="none" stroke-width="3" width="260" height="340" x="25" y="100"/>
+ <path d="M 25 100 25 440 155 270 z" id="P1"/>
+ <path d="M 25 100 285 100 155 270 z" id="P2"/>
+ <path d="M 285 100 285 440 155 270 z" id="P3"/>
+ <path d="M 25 440 285 440 155 270 z" id="P4"/>
+
+</defs>
+
+<rect width="100%" height="100%" fill="rgb(255,255,255)"/>
+
+<text x="25" y="60" font-size="35px" color="blue">SVG Tiger</text>
+
+<clipPath id="cp1">
+<use xlink:href="#P1" transform="translate(-25)"/></clipPath>
+<clipPath id="cp2">
+<use xlink:href="#P2" transform="translate(-25)"/></clipPath>
+<clipPath id="cp3">
+<use xlink:href="#P3" transform="translate(-25)"/></clipPath>
+<clipPath id="cp4">
+<use xlink:href="#P4" transform="translate(-25)"/></clipPath>
+
+<g>
+<image id="IPP" xlink:href="../images/tiger.jpg" clip-path="url(#cp1)" preserveAspectRatio="none" width="260" height="340" x="25" y="100" transform="matrix(1.17692, -0.407692, 0, 1, 0, 0)"/>
+<image id="IPP" xlink:href="../images/tiger.jpg" clip-path="url(#cp2)" preserveAspectRatio="none" width="260" height="340" x="25" y="100" transform="matrix(1, 0, 0.135294, 0.688235, -13.5294, 31.1765)"/>
+<image id="IPP" xlink:href="../images/tiger.jpg" clip-path="url(#cp3)" preserveAspectRatio="none" width="260" height="340" x="25" y="100" transform="matrix(0.823077, 0.407692, 0, 1, 46, -106)"/>
+<image id="IPP" xlink:href="../images/tiger.jpg" clip-path="url(#cp4)" preserveAspectRatio="none" width="260" height="340" x="25" y="100" transform="matrix(1, 0, -0.135294, 1.31176, 59.5294, -137.176)"/>
+</g>
+
+
+</svg>

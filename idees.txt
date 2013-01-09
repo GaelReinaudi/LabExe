@@ -1,0 +1,44 @@
+Highlight device containing the hovered param
+
+lever les G petit a petit
+
+donner noms plus explicites aux plugins
+
+obliger l'API a fournir une description et un use case "s'utilise typiquement" et une instance de l'interface pour les devices. un screenshot pour les e-Device.
+
+icon  prgm, devices et edevices
+
+eDevice shelves : titre fenetre, focus par default devant?, dimensions fenetre + gde par default, 2 colonnes noms plugins (grid plutot)
+
+double clic sur edevice => install it on last active bench ?
+
+description pour hierarchie de device au dessus des sous devices
+
+pourquoi pas un navigateur de device, avec un choix entre arboresence et back button comm pour des dossiers (genre Qt Demo app)
+- 1 click: selection et affichage description
+- 2 clicks: sous devices
+
+categories (ou peutetre tags) pour les eDevices
+
+hide button pour les docks et close with confirmation for deletion
+
+long terme: 
+- un watcher pour prevenir des connections entre param: cyclique, ou en conflit, ou edevice cachee ou sur un autre bench
+- passage de parametres d'un ordi a un autre.
+
+changement de nom de param. l'API doit fournir la possibilite de demander un renomage force (comme pour param creator)
+
+information utilisation:
+choisir une police, italique...
+ex: param settings: "those settings will be saved when the window loses focus"
+
+type du bench dans la barre du bench
+
+wb par default: "workbench"
+
+degager la barre avec un point, ou comprene\dre a quoi ca porrait servir:
+en fait, peutetre un typr d'icone par device, clicks pour montrer, cacher les devices. click milieux: delete avec confirm. Hover: change couleur dans gui et reaffiche temporairement pour les cachees
+
+deuxieme fenetre qui show hide les bench independament du control panel.
+
+decrire les cas typique de choix d'un type de bench. ajouter a la descr des devices que "works only on an imaging bench".

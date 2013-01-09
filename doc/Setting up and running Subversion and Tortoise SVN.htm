@@ -1,0 +1,1055 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:m="http://schemas.microsoft.com/office/2004/12/omml" xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+<title>Setting up and running Subversion and Tortoise SVN
+with Visual Studio and .NET</title>
+<link href="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/westwindarticles.css" type="text/css" rel="stylesheet">
+<meta name="Keyword" content="Subversion,Tortoise,SVN,Source Control,.NET,ASP.NET,Visual Studio">
+<meta name="Description" content="A quick step by step guide for setting up Subversion for Source Control using Tortoise SVN for configuration and administration.">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+ p.MsoNormal
+	{margin-bottom:.0001pt;
+	line-height:135%;
+	font-size:10.0pt;
+	font-family:"Verdana","sans-serif";
+		margin-left: 0in;
+	margin-right: 0in;
+	margin-top: 0in;
+}
+p
+	{margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+		margin-left: 0in;
+	margin-right: 0in;
+	margin-top: 0in;
+}
+p.Intro
+	{margin-bottom:.0001pt;
+	line-height:normal;
+	font-size:10.0pt;
+	font-family:"Verdana","sans-serif";
+	color:#993300;
+	font-weight:bold;
+		margin-left: 0in;
+	margin-right: 0in;
+	margin-top: 0in;
+}
+span.IntroremainingChar
+	{font-family:"Verdana","sans-serif";
+	color:#993300;
+	font-weight:bold;
+}
+p.MsoListParagraphCxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:10.0pt;
+	font-family:"Verdana","sans-serif";
+	}
+p.MsoListParagraphCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:10.0pt;
+	font-family:"Verdana","sans-serif";
+	}
+p.MsoListParagraphCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:10.0pt;
+	font-family:"Verdana","sans-serif";
+	}
+p.FigureCaption
+	{margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:10.0pt;
+	font-family:"Verdana","sans-serif";
+	font-style:italic;
+		margin-left: 0in;
+	margin-right: 0in;
+	margin-top: 0in;
+}
+p.CodeListingHeader
+	{border-style: none;
+	border-color: inherit;
+	border-width: medium;
+	margin: 2.0pt 0in 0in 5px;
+	line-height:115%;
+		background:#002060;
+		padding:0in;
+		font-size:10.0pt;
+		font-family:"Verdana","sans-serif";
+		color:white;
+		font-weight:bold;
+	}
+p.CodeListing
+	{margin-bottom:.0001pt;
+	line-height:115%;
+	background:#EEECE1;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	color:#002060;
+	margin-left: 0in;
+	margin-right: 0in;
+	margin-top: 0in;
+}
+p.CodeSnippet
+	{margin-top:0in;
+	margin-right:.25in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	background:#EEECE1;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	color:#002060;
+}
+span.MsoPlaceholderText
+	{color:gray;
+}
+span.msoIns
+	{text-decoration:underline;
+	text-underline:single;
+	color:teal;
+}
+.sidebartext
+{
+}
+.style2
+{
+	color: #FFCC00;
+}
+.style3
+{
+	text-indent: -.25in;
+	line-height: 115%;
+	font-size: 10.0pt;
+	font-family: Verdana, sans-serif;
+	margin-left: .5in;
+	margin-right: 0in;
+	margin-top: 0in;
+	margin-bottom: .0001pt;
+}
+.style4
+{
+	font-family: Verdana, sans-serif;
+	font-weight: bold;
+	color: #993300;
+}
+</style>
+</head><body>
+<div><img src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/wwtoollogo.jpg"></div>
+<div class="banner" style="padding-top: 4px;">
+            <div style="float: left; padding-left: 8px;" class="style2">Getting started with Subversion</div>
+            <div style="color: white; float: right; padding-right: 10px;" id="Div1">
+            <a class="bannertext" href="http://www.west-wind.com/articles.asp" title="White Papers">White Papers</a> | 
+            <a class="bannertext" href="http://www.west-wind.com/weblog" title="WebLog">WebLog</a> | 
+            <a class="bannertext" href="http://www.west-wind.com/DotNetTools.asp" title="Free Tools">Free Tools</a> | 
+            <a class="bannertext" href="http://www.west-wind.com/pricing.asp" title="Products">Products</a> | 
+            <a class="bannertext" href="http://www.west-wind.com/wwThreads/" title="Support">Message Board</a> | 
+            <a class="bannertext" href="http://www.west-wind.com/westwindnews.wst" title="News">News</a> |
+     </div>
+</div>
+
+<table width="100%">
+<tbody><tr>
+<!-- Spacer panel -->
+<td style="width: 30px;">
+</td>
+
+<!-- Content Panel -->
+<td style="padding: 30px; width: 890px;">
+
+<div style="margin-left: auto; margin-right: auto; text-align: center;">
+<script type="text/javascript"> 
+<!-- 
+lqm_channel=1;
+lqm_publisher=110;
+lqm_zone=1;
+lqm_format=8;
+//-->
+</script>
+<script type="text/javascript" src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/s.js"></script> 
+</div>
+
+<br>
+<br>
+
+<h1>Setting up and running Subversion and Tortoise SVN<br>with Visual Studio and .NET</h1>
+	by Rick Strahl<br>
+<a href="http://www.west-wind.com/weblog">www.west-wind.com/weblog</a> <br>
+	<br>
+	<br>
+	<b>Last Update:</b><br>
+Updated: August 25th, 2007
+	<br>
+	<br>
+<br>
+	<span class="style4">This article is a quick step by step for setting up 
+	Subversion </span><span class="IntroremainingChar">
+	<span style="">
+		with Tortoise SVN. This walkthrough is general with a slight side 
+focus on operation with .NET and Visual 
+	Studio projects. It covers repository creation, creating new source 
+control branches for projects, creating a local copy and the basics of 
+common operations. 
+	Focus is on getting up and running quickly with the essential steps.<br>
+	<br>
+
+<a href="http://www.dotnetkicks.com/kick/?url=http://www.west-wind.com/presentations/subversion/"><img src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/KickItImageGenerator.png" alt="kick it on DotNetKicks.com" border="0"></a>
+
+<br style="">
+</span></span><br>
+<strong>What's covered:</strong>
+<ul><li><a href="#Installation">Introduction to Subversion</a></li><li>
+		<a href="#Installation">Installation</a></li><li>
+		<a href="#Adding_Projects_and_Files_to_Source_Control">Adding Projects and 
+	Files to Source Control</a></li><li><a href="#CreatingLocalCopy">Creating a local Copy from the Repository</a></li><li>
+		<a href="#Up_and_Running_with_Tortoise_and_Subversion">Up 
+	and Running with Subversion and Tortoise SVN</a></li><li>
+		<a href="#Subversion_and_Visual_Studio">Subversion and Visual Studio</a></li></ul>
+		<br>
+	<a href="http://www.west-wind.com/weblog/posts/131093.aspx">Discuss this article</a><br>
+	<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+	<table id="table3" style="border-collapse: collapse;" align="right" border="2" cellpadding="5" width="333">
+		<tbody><tr>
+			<td bgcolor="#b5c7d6">
+			<input name="encrypted" value="-----BEGIN PKCS7-----
+MIIHNwYJKoZIhvcNAQcEoIIHKDCCByQCAQExggEwMIIBLAIBADCBlDCBjjELMAkG
+A1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQw
+EgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UE
+AxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJ
+KoZIhvcNAQEBBQAEgYCS/Nte+8uwV4ILkTs5pi2yawKzC7xkXZReyWnnVirjKjv0
+uXyfrvcpuLDDuwrn+ML8GrN5RLOlnCunn98srXTQTI8anqkoPjgVT8XfgfrpDY7c
+fj1fVSOlaAveNjL8wrJEZyfFQHHq+/fsK7TyAg6ZNxsrW1yqeKWHqh6qlbPCvTEL
+MAkGBSsOAwIaBQAwgbQGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQIUG9NsrdtZVSA
+gZCCbo1xbnWfp4HNyavvY8dIZ4tIFKNhQojVX+xC7d4iyzwmA4myyJcpc+pXk2R4
+Frf7j8rHYQJ8iMpBw1LAVNqZikMXhv39jVbZkMYFXlD2hMPQTH1wMBL7EN+cOXrc
+e7Sj1Egik14ZsGR6pop+WgjOVG/FhCbfMJAKBbJC4SZIzR804/rypqhszhK6lXKS
+026gggOHMIIDgzCCAuygAwIBAgIBADANBgkqhkiG9w0BAQUFADCBjjELMAkGA1UE
+BhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYD
+VQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQI
+bGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20wHhcNMDQwMjEz
+MTAxMzE1WhcNMzUwMjEzMTAxMzE1WjCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgT
+AkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5j
+LjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkq
+hkiG9w0BCQEWDXJlQHBheXBhbC5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJ
+AoGBAMFHTt38RMxLXJyO2SmS+Ndl72T7oKJ4u4uw+6awntALWh03PewmIJuzbALS
+csTS4sZoS1fKciBGoh11gIfHzylvkdNe/hJl66/RGqrj5rFb08sAABNTzDTiqqNp
+JeBsYs/c2aiGozptX2RlnBktH+SUNpAajW724Nv2Wvhif6sFAgMBAAGjge4wgesw
+HQYDVR0OBBYEFJaffLvGbxe9WT9S1wob7BDWZJRrMIG7BgNVHSMEgbMwgbCAFJaf
+fLvGbxe9WT9S1wob7BDWZJRroYGUpIGRMIGOMQswCQYDVQQGEwJVUzELMAkGA1UE
+CBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJ
+bmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoG
+CSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbYIBADAMBgNVHRMEBTADAQH/MA0GCSqG
+SIb3DQEBBQUAA4GBAIFfOlaagFrl71+jq6OKidbWFSE+Q4FqROvdgIONth+8kSK/
+/Y/4ihuE4Ymvzn5ceE3S/iBSQQMjyvb+s2TWbQYDwcp129OPIbD9epdr4tJOUNiS
+ojw7BHwYRiPh58S1xGlFgHFXwrEBb3dgNbMUa+u4qectsMAXpVHnD9wIyfmHMYIB
+mjCCAZYCAQEwgZQwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UE
+BxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsU
+CmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1y
+ZUBwYXlwYWwuY29tAgEAMAkGBSsOAwIaBQCgXTAYBgkqhkiG9w0BCQMxCwYJKoZI
+hvcNAQcBMBwGCSqGSIb3DQEJBTEPFw0wNDAyMjAyMjA0NThaMCMGCSqGSIb3DQEJ
+BDEWBBTskrbker+szqbC4TtfX5f8oh1WGDANBgkqhkiG9w0BAQEFAASBgHqz2/eL
+5ibQ+REzs2P0oq0BFD+nJFG2E7fCLEY0LCjmfNGI55W/RAcPQ1AXyhAGgOu3atrU
+xJ2vaS2uBtIrxx2i/I6LIVTlMlad9BqPcLwkjSqgT9WWaVjWXKHq/TBCozJy5Hs1
+NlMD07JJ8RVXtTeYnG/0p9uig+PlJ4Dc/+8a
+-----END PKCS7-----
+" type="hidden"><input name="cmd" value="_s-xclick" type="hidden">
+			<input src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/paypaldonate.gif" name="I1" alt="Make a donation to West Wind Technologies with PayPal - it's fast, free and secure!" align="left" border="0" hspace="4" type="image">
+			<span style="font-size: 8pt;">If you find this article useful, 
+			consider making a small donation to show your support&nbsp; for this Web 
+			site and its content.</span></td>
+		</tr>
+	</tbody></table>
+	<br clear="all">
+	<p class="MsoNormal">
+	<o:p>&nbsp;</o:p></p>
+	<p class="Intro">&nbsp;</p>
+	<h3context sensitive="" resource="" access="">
+	<o:p&nbsp;></o:p&nbsp;>
+	<o:p&nbsp;></o:p&nbsp;>
+	<p class="MsoNormal">This document describes the steps to install and 
+	configure Subversion, create a new repository and then walks through the basic steps required to set 
+	up local Visual Studio projects using Tortoise SVN. </p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">This isn’t meant to be an all comprehensive tutorial on 
+	Subversion, but rather a quick step by step of the essential things to 
+	install and configure to get up and running. For more detail you can use the 
+	excellent Subversion and Tortoise SVN documentation. </p>
+	<h3>Introduction for Subversion </h3>
+	<p class="MsoNormal">Subversion is an open source control repository tool. 
+	It is widely used by many open source projects and increasingly by many 
+	large development teams in general. It’s fast and efficient, small and easy 
+	to install and because it’s open source – it’s also free. Subversion is file 
+	based and keeps it repository in a simple directory structure that can be 
+	copied and backed up easily.</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">Subversion can be graphically accessed via Tortoise SVN 
+	which is an Explorer Shell Extension that provides access to most of 
+	Subversion’s command line interface through Explorer Context menus and 
+	overlay icons for files under source control. This actually is very powerful 
+	as it lets you use familiar Explorer as your source code browser and more 
+	importantly because it very easily lets you see source control files in 
+	relation to the actual directory structure and what is and isn’t under 
+	source control.</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">Subversion subscribes to the Copy Modify Merge 
+	philosophy of source control which means that files are never locked and 
+	nobody usually ‘owns’ a file. Rather Subversion manages changes by merging 
+	source files with any changes made and only notifies you of conflicts if 
+	there are changes that cannot be merged (ie. changes to the same line of 
+	code typically). </p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">Coming from a background of using integrated security 
+	in Visual Studio I at first had my doubts about the merge approach. However, 
+	I’m finding that it allows considerably smoother development as you don’t 
+	have to worry about constant checkout/checkin scenarios and simply work on 
+	your code. You can go out and check in all changes using Tortoise SVN. Not 
+	having source control inside of Visual Studio may sound like blasphemy if 
+	you’ve used it before and I was skeptical about that as well when I started 
+	out. But I find I really don’t miss the integration with VS. More importantly 
+	I don’t miss the problems that go with integrated source control in Visual 
+	Studio with the provider manager often getting confused especially in 
+	complex project and shared project scenarios. Subversion has actually made 
+	many scenarios that used to royally suck in Visual Studio much easier.</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">Also because Subversion is basically a file system 
+	tracking mechanism it is essentially tool agnostic. In fact I use Subversion 
+	now with my .NET projects as well as with my FoxPro projects – the process 
+	is no different which is great for consistency and making sure I use Source 
+	Control more consistently for all of my development regardless of tool 
+	choice.</p>
+	<br>
+		<center>
+<script type="text/javascript"><!--
+google_ad_client = "pub-2013123155768157";
+google_ad_width = 729;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript" src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/show_ads.js">
+</script>
+	</center><br>
+
+	<h3><a name="Installation">Installation</a></h3>
+	<p class="MsoNormal">First step is to install Subversion. You should 
+	download Subversion and Tortoise SVN and install both. </p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">Get Subversion from here:</p>
+	<p class="MsoNormal"><a href="http://subversion.tigris.org/">
+	http://subversion.tigris.org/</a></p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">Get Tortoise SVN from here:</p>
+	<p class="MsoNormal"><a href="http://tortoisesvn.tigris.org/">
+	http://tortoisesvn.tigris.org/</a></p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">If you want Visual Studio Integration, check out 
+	VisualSVN ($49) or the free Ankh tool:</p>
+	<p class="MsoNormal"><a href="http://www.visualsvn.com/">
+	http://www.VisualSvn.com/</a><span style="">&nbsp;&nbsp;&nbsp;
+	</span><a href="http://ankhsvn.tigris.org/">http://ankhsvn.tigris.org/</a>
+	</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">Start by installing Subversion, followed by 
+	installation of Tortoise SVN. Tortoise works as a front end UI to Subversion 
+	and both need to be compatible so you should always install the latest 
+	version of each.</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal"><b style="">Configuration 
+	for Tortoise SVN<o:p></o:p></b></p>
+	<p class="MsoNormal">Before doing anything else I suggest that you make one 
+	small configuration change in Tortoise SVN, changing the name of the local 
+	svn repositories from .svn to _svn. </p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">Make sure Tortoise SVN is installed and then go into 
+	Explorer and right click anywhere on a file or folder and<span style="">&nbsp;
+	</span>go to TortoiseSVN | Settings and check the use _svn instead of .svn 
+	checkbox on the General tab:</p>
+	<p class="MsoNormal">&nbsp;</p>
+	<p class="MsoNormal">
+	<img alt="" src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/_svnExtension.png" height="470" width="669"></p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">Visual Studio has issues with folders that start with a 
+	period so it’s best to use the _svn prefix, especially if you decide later 
+	on to use a tool that integrates with Visual Studio.</p>
+	<p class="MsoNormal">&nbsp;<b style=""><o:p>&nbsp;</o:p></b></p>
+	<p class="MsoNormal"><b style="">Create a new 
+	Repository with Tortoise SVN<o:p></o:p></b></p>
+	<p class="MsoNormal">Next I’ll walk you through the process of creating a 
+	new repository and then adding a Solution with a couple of projects to it.</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">If you are not setting up a new project and just are 
+	accessing a Subversion repository just skip ahead to the
+	<a href="#_Creating_a_Local">Creating a local Copy section</a>.</p>
+	<p class="MsoNormal">&nbsp;</p>
+	<p class="MsoNormal">You’re ready to create a new repository. The repository 
+	is a storage location on disk where all the versioned data is stored - think 
+	of it as the 'database' for version info. The repository can be stored on 
+	your local machine or a remote server where it can be accessed either 
+	through the Subversion Daemon service or through Http via an Apache module 
+	(separate install). <span style="">&nbsp;</span>The key is that 
+	you need to be able to create the repository on that machine. I'll use 
+	Tortoise SVN to create as it's the easiest way to do this without digging 
+	into command line tools.</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<span style="font-size: 10pt; line-height: 115%; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">To create a repository, create a main folder for your 
+	main Subversion repository. I prefer to use a top level folder so it’s easy 
+	to find and backup. So choose something like d:\subversion and:</span><p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoListParagraphCxSpFirst"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Create Folder d:\subversion</p>
+	<p class="MsoListParagraphCxSpMiddle"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Right Click | TortoiseSVN | Create Repository 
+	here</p>
+	<p class="MsoListParagraphCxSpLast"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Set up permissions for this this repository</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">To do the latter you need to configure 
+	d:\subversion\conf\svnserve.conf and password.</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">In SvnServe.conf:<br>
+	</p>
+	<p class="CodeSnippet">[general]</p>
+	<p class="CodeSnippet"># anon-access = read</p>
+	<p class="CodeSnippet">auth-access = write</p>
+	<p class="CodeSnippet">password-db = passwd</p>
+	<p class="CodeSnippet">realm = SummaLp</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">This enables only authenticated access to the 
+	repository and provides write access for authenticated users.</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">Next edit the password file (password) and add any 
+	names you want to allow as key value pairs. For example:</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="CodeSnippet">[users]</p>
+	<p class="CodeSnippet">ricks = wonkiewind</p>
+	<p class="CodeSnippet">billp = haggard</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal"><b style="">Setting up to 
+	run Subversion as a Service<o:p></o:p></b></p>
+	<p class="MsoNormal">Once the repository is created the next step is to make 
+	accessible remotely. Subversion comes with a built-in Daemon server that can 
+	serve your repository data over a TCP/IP connection (port 3690 by default). 
+	Alternately you can use Apache and an Apache module to connect to the 
+	repository over HTTP.</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">I’ll only describe how to use the TCP/IP Daemon service 
+	here (for now). The service is provided by SvnServe.exe in the BIN directory 
+	of the Subversion installation. While you can run the Exe explicitly to 
+	start the server you’ll want to install it as a service. To do this you can 
+	run the following (I suggest putting it in a batch file) (all on one line!)</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="CodeSnippet">sc create svn binpath= "\"c:\program 
+	files\subversion\bin\svnserve.exe\" </p>
+	<p class="CodeSnippet">--service -rd:\subversion" displayname= "Subversion 
+	Server" </p>
+	<p class="CodeSnippet">depend= Tcpip start= auto</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">You should ensure that the paths in this command line 
+	match your installation and repository paths. Also note the spaces in the 
+	command line! They are not optional – I had trouble getting things to work 
+	until the spaces were added.</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">If you want to use a different port add –listen-port=nn 
+	for the port id. Check for other options in the documentation.</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">Next you need to start the service through the Service 
+	Manager or from the command prompt:</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="CodeSnippet">sc start svn</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal"><b style="">Check the 
+	Repository<o:p></o:p></b></p>
+	<p class="MsoNormal">Your next step is to make sure the repository is 
+	working. Easiest way to do this is fire up TortoiseSVN from anywhere and try 
+	to connect to your IP address or host name. Simply open explorer and right 
+	click then choose TortoiseSVN | RepoBrowser. Type in svn://&lt;youripaddress|hostname&gt;/ 
+	and you should land at your repository.</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">Open up the repository by double clicking and ensure 
+	you don’t get an error message – if you do the repository is not accessible. 
+	If you opened the repository from a local machine this should definitely 
+	work. If it doesn’t make sure your repository and the path specified in for 
+	the service start up match!</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">If you’re remotely connecting and you have a failure 
+	make sure that your firewall is not blocking the port selected (3690 by default unless 
+	you explicitly specified something else in the service command line).</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">And voila you are now set up for source control.</p>
+	<h3><a name="Adding_Projects_and_Files_to_Source_Control">Adding Projects and Files to Source Control</a></h3>
+	<p class="MsoNormal">The next step is to actually add Visual Studio projects 
+	to source control. As mentioned Tortoise SVN doesn’t use any Visual Studio 
+	integration and so source control is managed at the directory and file 
+	level. Basically any file or directory can be added to source control which 
+	means you can use Subversion with any type of tool that has files related to 
+	it. </p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">The first thing to do is decide on how to layout the 
+	repository. If you have many projects it’s probably a good idea to have a 
+	layout that groups things nicely. I like to use:</p>
+	<p class="MsoNormal">Repository</p>
+	<p class="MsoNormal">-- ProjectGroup1 (ie. Solution level or group of 
+	Solutions leve)</p>
+	<p class="MsoNormal">----Project</p>
+	<p class="MsoNormal">----Project</p>
+	<p class="MsoNormal">----Project</p>
+	<p class="MsoNormal">----Project</p>
+	<p class="MsoNormal">--ProjectGroup2</p>
+	<p class="MsoNormal">----Project</p>
+	<p class="MsoNormal">----Project</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">But that’s entirely up to you. I like the Project Group 
+	type folder so it can be used to hold Solution files and as a ‘header’ 
+	folder that serves as a grouping for the subprojects. Otherwise it’s too 
+	easy to end up with a deep mess of project level folders.</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">So given a starting folder structure of:</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">Root</p>
+	<p class="MsoNormal">-- SummaLp</p>
+	<p class="MsoNormal">---- SummaLpManager</p>
+	<p class="MsoNormal">---- SummaLpBusiness</p>
+	<p class="MsoNormal">---- SupportAssemblies</p>
+	<p class="MsoNormal"><o:p></o:p>
+	</p>
+	<p class="MsoNormal">let<o:p>'s see how to add this structure to a 
+	Subversion&nbsp;repository.</o:p></p>
+	<p class="MsoNormal">
+	<o:p></o:p></p>
+	<p class="MsoNormal"><b style="">Creating a new 
+	Top Level Folder<o:p></o:p></b></p>
+	<p class="MsoNormal">Creating projects is a little bit convoluted IMHO with 
+	Tortoise, because while you can easily import content into SVN on the 
+	server, the Import option doesn’t automatically check out the content locally. You 
+	also can’t immediately Checkout after you’ve imported because Tortoise will 
+	not allow you to overwrite existing files that are not under source control.</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">So – it took me a while to find a way that didn't 
+	involve importing first, then deleting or renaming the local path and then 
+	doing a Checkout which feels like a lot of steps to go through for the 
+	simple task of creating a new folder in the repository.</p>
+	<p class="MsoNormal">&nbsp;</p>
+	<p class="MsoNormal">But there's an easier way although it's not quite 
+	intuitive either:</p>
+	<ul>
+		<li>
+		<p class="MsoNormal">Create a new folder in the repository</p>
+		</li>
+		<li>
+		<p class="MsoNormal">Find the folder to your project in Explorer</p>
+		</li>
+		<li>
+		<p class="MsoNormal">Use Tortoise to CheckOut the newly created 
+		repository folder</p>
+		</li>
+		<li>
+		<p class="MsoNormal">Add Files from Explorer with Tortoise</p>
+		</li>
+		<li>
+		<p class="MsoNormal">Commit Changes</p>
+		</li>
+	</ul>
+	<p class="MsoNormal">So let's do it step by step. Assume the top level folder is SummaLp as shown in the screen 
+	shots:</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoListParagraphCxSpFirst"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Go into TortoiseSVN and select Repo Browser 
+	(right click Tortoise | Repo Browser)</p>
+	<p class="MsoListParagraphCxSpLast"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Use the <i style="">
+	Create Folder</i> option to create a new top level folder just beneath the 
+	main repository (I’ll name it SummaLp).<br>
+	<o:p><br>
+	</o:p>
+	<img alt="" src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/CheckRepository.png" height="489" width="639"><br>
+	<br>
+	<img alt="" src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/NewTopFolder.png" height="489" width="639"></p>
+	<p class="MsoNormal"><span style=""><v:shape id="Picture_x0020_5" o:spid="_x0000_i1026" type="#_x0000_t75" style="width: 468pt; height: 357.75pt; visibility: visible;">
+ <v:imagedata src="../../../temp/msohtmlclip1/01/clip_image002.png" o:title="NewTopFolder">
+</v:imagedata></v:shape></span></p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoListParagraphCxSpFirst"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Go back to Explorer and goto or create your 
+	project SummaLp Folder</p>
+	<p class="MsoListParagraphCxSpMiddle"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Right click on the folder and select CheckOut</p>
+	<p class="MsoListParagraphCxSpMiddle"><span style=""><v:shape id="Picture_x0020_7" o:spid="_x0000_i1027" type="#_x0000_t75" alt="CheckOut.png" style="width: 206.25pt; height: 175.5pt; visibility: visible;">
+ <v:imagedata src="../../../temp/msohtmlclip1/01/clip_image003.png" o:title="CheckOut">
+</v:imagedata></v:shape></span></p>
+	<p class="MsoListParagraphCxSpLast"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Select the top level folder in the repository 
+	and point at the corresponding local path<br>
+	</p>
+	<p class="MsoListParagraphCxSpLast">
+	<img alt="" src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/CheckOut.png" height="234" width="275"><br>
+	<v:shape id="Picture_x0020_4" o:spid="_x0000_i1028" type="#_x0000_t75" style="width: 342pt; height: 235.5pt; visibility: visible;">
+ <v:imagedata src="../../../temp/msohtmlclip1/01/clip_image004.png" o:title="CheckOutTopFolder">
+</v:imagedata>
+	<o:p>&nbsp;</o:p></v:shape></p>
+	<p style="" class="style3"><!--[if !supportLists]-->
+	&nbsp;&nbsp;  <span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->This basically puts the root folder under 
+	source control so you can now add individual files or other folders more 
+	easily. Nothing’s really checked out yet – this only marks the folder for 
+	being able watched by Subversion.<img alt="" src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/CheckOutTopFolder.png" height="314" width="456"><br style="">
+	<!--[if !supportLineBreakNewLine]-->
+	<br style="">
+	<!--[endif]--></p>
+	<p class="MsoListParagraphCxSpFirst"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Go back to Explorer and check the folder – it 
+	should have a green icon with it now.<br>
+	<br>
+	<img alt="" src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/TopLevelExplore.png" height="307" width="557"></p>
+	<p class="MsoListParagraphCxSpMiddle"><span style=""><v:shape id="Picture_x0020_11" o:spid="_x0000_i1029" type="#_x0000_t75" alt="TopLevelExplore.png" style="width: 417.75pt; height: 230.25pt; visibility: visible;">
+ <v:imagedata src="../../../temp/msohtmlclip1/01/clip_image005.png" o:title="TopLevelExplore">
+</v:imagedata></v:shape></span></p>
+	<p class="MsoListParagraphCxSpMiddle"><o:p>&nbsp;</o:p></p>
+	<p class="MsoListParagraphCxSpMiddle"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->But don’t just start importing everything 
+	below in one pop – it’ll be much easier to create folders in the repository 
+	first <br>
+&nbsp;&nbsp;&nbsp;&nbsp; then add the individual files once the folder is under source 
+	control.<br style="">
+	</p>
+	<p class="MsoListParagraphCxSpMiddle"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Select one of the project folders and 
+	basically follow that same routine:</p>
+	<p class="MsoListParagraphCxSpMiddle"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Go into Tortoise and browse to your 
+	repository.</p>
+	<p class="MsoListParagraphCxSpMiddle"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Create a folder with the project name below 
+	the SummaLp folder (SummaLpManager)</p>
+	<p class="MsoListParagraphCxSpMiddle"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Go into Explorer and CheckOut into the 
+	corresponding folder</p>
+	<p class="MsoListParagraphCxSpMiddle"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->This puts the project folder under source 
+	control</p>
+	<p class="MsoListParagraphCxSpMiddle"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Select files and folders, right click and add<br>
+	<br>
+	<img alt="" src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/AddFiles.png" height="204" width="198"><br>
+	<br>
+	<span style=""><v:shape id="Picture_x0020_12" o:spid="_x0000_i1030" type="#_x0000_t75" alt="AddFiles.png" style="width: 148.5pt; height: 153pt; visibility: visible;">
+ <v:imagedata src="../../../temp/msohtmlclip1/01/clip_image006.png" o:title="AddFiles">
+</v:imagedata></v:shape></span></p>
+	<p class="MsoListParagraphCxSpMiddle"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Be selective and if necessary add files 
+	individually rather than full subfolders. You’ll want to skip over things 
+	like the obj folder and notes and log files etc. for example.</p>
+	<p class="MsoListParagraphCxSpMiddle"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Once you’ve done this you’ll see a directory 
+	full of files with + signs next to them. This means the files have been 
+	added to the local store but not synched with the server.</p>
+	<p class="MsoListParagraphCxSpMiddle"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->To sync with the server right click and 
+	select SVN Commit on the project folder<br>
+	<br>
+	<span style=""><v:shape id="Picture_x0020_13" o:spid="_x0000_i1031" type="#_x0000_t75" alt="SvnCommit.png" style="width: 206.25pt; height: 156pt; visibility: visible;">
+ <v:imagedata src="../../../temp/msohtmlclip1/01/clip_image007.png" o:title="SvnCommit">
+</v:imagedata></v:shape></span><img alt="" src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/SvnCommit.png" height="208" width="275"></p>
+	<p class="MsoListParagraphCxSpMiddle"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->This basically tries to synch all the local 
+	changes to the server and in this case copies the files to the server into 
+	the repository.</p>
+	<p class="MsoListParagraphCxSpMiddle"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Once you’ve done this your local copy should 
+	now show as up to date<br>
+	</p>
+	<p class="MsoListParagraphCxSpMiddle">
+	<img alt="" src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/UptoDate.png" height="539" width="743"><br>
+	<br>
+	<span style=""><v:shape id="Picture_x0020_14" o:spid="_x0000_i1032" type="#_x0000_t75" alt="UptoDate.png" style="width: 468pt; height: 339.75pt; visibility: visible;">
+ <v:imagedata src="../../../temp/msohtmlclip1/01/clip_image008.png" o:title="UptoDate">
+</v:imagedata></v:shape></span></p>
+	<p class="MsoListParagraphCxSpMiddle"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Your repository now holds the same set of 
+	files</p>
+	<p class="MsoListParagraphCxSpLast"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Your repository should now look like this:<br><br><img alt="" src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/ReposityBrowser_full.png" height="489" width="639"></p>
+	<p class="MsoNormal"><span style=""><v:shape id="Picture_x0020_6" o:spid="_x0000_i1033" type="#_x0000_t75" style="width: 468pt; height: 357.75pt; visibility: visible;">
+ <v:imagedata src="../../../temp/msohtmlclip1/01/clip_image009.png" o:title="ReposityBrowser_full">
+</v:imagedata></v:shape></span></p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoListParagraphCxSpFirst"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->You then repeat this process for each of the 
+	other project folders.</p>
+	<p class="MsoListParagraphCxSpLast"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->You’ll also want to add the Solution file to 
+	source control. Just Add and Commit if it wasn’t among the files you already&nbsp;&nbsp;&nbsp;&nbsp; </p>
+	<p class="MsoListParagraphCxSpLast">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; checked in.</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">And there you have it. A repository is set up and ready 
+	for use. </p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">The key thing to remember when creating new branches 
+	and adding new files in the repository is:</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoListParagraphCxSpFirst"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Create Folder in Repository first</p>
+	<p class="MsoListParagraphCxSpMiddle"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Checkout just the Folder to your local folder</p>
+	<p class="MsoListParagraphCxSpMiddle"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Add Files with Tortoise in Explorer</p>
+	<p class="MsoListParagraphCxSpLast"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Commit changes </p>
+	<p class="MsoNormal"><o:p></o:p>
+	</p>
+	<p class="MsoNormal">
+	<o:p>&nbsp;</o:p></p>
+	<h3><a name="CreatingLocalCopy"></a><a name="_Creating_a_Local"></a>
+	<span style="">Creating a Local Copy from the 
+	Repository</span></h3>
+	<p class="MsoNormal">What I’ve described above is a bit of work but it only 
+	needs to happen once when the repository is first created. If you are 
+	developer who’s simply connecting to get the latest revision for a local 
+	copy down to a local machine for working the process is much easier.</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">In this case:</p>
+	<p class="MsoListParagraphCxSpFirst"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Pick a directory where you would like to 
+	create the local copy</p>
+	<p class="MsoListParagraphCxSpLast"><!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Right click and choose CheckOut<br>
+	<br>
+	<img alt="" src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/CheckOut.png" height="234" width="275"><br>
+	<v:shape id="Picture_x0020_18" o:spid="_x0000_i1034" type="#_x0000_t75" alt="CheckOut.png" style="width: 206.25pt; height: 175.5pt; visibility: visible;">
+ <v:imagedata src="../../../temp/msohtmlclip1/01/clip_image003.png" o:title="CheckOut">
+</v:imagedata>
+	<!--[if !supportLists]-->
+	<span style="font-family: Symbol;"><span style="">·<span style="font: 7pt &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span><!--[endif]-->Pick the repository and ProjectGroup Folder 
+	and the local folder that will receive the result. In the example above I 
+	could&nbsp;&nbsp; choose SummaLp (the top level folder) and Checkout and it brings down 
+	the entire project and the Solution file ready to go.</v:shape></p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<h3><a name="Up_and_Running_with_Tortoise_and_Subversion">Up and Running with Tortoise and Subversion</a></h3>
+	<p class="MsoNormal">You’re now set up for source control. Remember that 
+	Subversion uses Copy-Modify-Merge style, which means that files are never 
+	locked and you can freely change source files. </p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">You can simply edit files and Subversion will keep 
+	track of the changes for you. You can use Tortoise SVN in explorer any time 
+	to see any changes that have been made to files. Any changed files will show 
+	with as a red warning icon which means you’ve made changes to the file that 
+	haven’t been updated onto the server.</p>
+	<p class="MsoNormal">&nbsp;</p>
+	<p class="MsoNormal">
+	<img alt="" src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/OutofSync.png" height="304" width="485"></p>
+	<p class="MsoNormal"><span style=""><v:shape id="Picture_x0020_16" o:spid="_x0000_i1035" type="#_x0000_t75" alt="OutofSync.png" style="width: 363.75pt; height: 228pt; visibility: visible;">
+ <v:imagedata src="../../../temp/msohtmlclip1/01/clip_image010.png" o:title="OutofSync">
+</v:imagedata></v:shape></span></p>
+	<p class="MsoNormal">The red icons appear next to files as well as folders. 
+	If there’s a folder that has unsubmitted changes that folder will 
+	recursively show the red icon. Note that the red icon does not tell you 
+	whether the file has been changed by anybody else! It only tells you that 
+	you have changed the file and need to commit it.</p>
+	<p class="MsoNormal">&nbsp;</p>
+	<p class="MsoNormal">
+	<img alt="" src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/SvnCommit.png" height="208" width="275"></p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">To update your changes to the Subversion server you use 
+	the Commit option to synch with the server.</p>
+	<p class="MsoNormal"><span style=""><v:shape id="Picture_x0020_17" o:spid="_x0000_i1036" type="#_x0000_t75" alt="SvnCommit.png" style="width: 206.25pt; height: 156pt; visibility: visible;">
+ <v:imagedata src="../../../temp/msohtmlclip1/01/clip_image007.png" o:title="SvnCommit">
+</v:imagedata></v:shape></span></p>
+	<p class="MsoNormal">You’ll get a dialog that let’s you quickly see all the 
+	files that are going to be updated by the commit. You can also selectively 
+	unselect files which is useful if you have one or two files that you might 
+	not usually update like say web.config/app.config or your project file if 
+	you have special build steps.</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal"><v:shape id="_x0000_i1037" type="#_x0000_t75" style="width: 349.5pt; height: 368.25pt;">
+ <v:imagedata src="../../../temp/msohtmlclip1/01/clip_image011.png" o:title="CommitChangesDialog">
+</v:imagedata></v:shape></p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p><img alt="" src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/CommitChangesDialog.png" height="491" width="466"></p>
+	<p class="MsoNormal">&nbsp;</p>
+	<p class="MsoNormal">You commit updates your changes to the server, but in 
+	order to receive changes that other users have made and have committed to 
+	the server repository you need to explicitly call Update either on an 
+	individual file or a directory.<br style="">
+	<!--[if !supportLineBreakNewLine]-->
+	<br style="">
+	<!--[endif]--><img alt="" src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/SvnUpdate.png" height="228" width="275"></p>
+	<p class="MsoNormal"><v:shape id="Picture_x0020_15" o:spid="_x0000_i1038" type="#_x0000_t75" alt="SvnUpdate.png" style="width: 206.25pt; height: 171pt; visibility: visible;">
+ <v:imagedata src="../../../temp/msohtmlclip1/01/clip_image012.png" o:title="SvnUpdate">
+</v:imagedata>
+	</v:shape></p>
+	<p class="MsoNormal">
+	<v:shape id="Picture_x0020_15" o:spid="_x0000_i1038" type="#_x0000_t75" alt="SvnUpdate.png" style="width: 206.25pt; height: 171pt; visibility: visible;">
+</v:shape></p>
+	<p class="MsoNormal">Update will get the latest changes and automatically 
+	merge any changes from the server with your code. There’s no update warning 
+	or notification unless there’s a conflict and a change that cannot be 
+	automatically merged.</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">If you need to see differences you can check the 
+	repository against your local copy and compare. There are two options that 
+	are useful: Check for Modifications and Diff both of which let you know that 
+	things have changed.<br>
+	</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p><img alt="" src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/DiffMenu.png" height="412" width="200"></p>
+	<p class="MsoNormal"><span style=""><v:shape id="Picture_x0020_20" o:spid="_x0000_i1039" type="#_x0000_t75" alt="DiffMenu.png" style="width: 150pt; height: 309pt; visibility: visible;">
+ <v:imagedata src="../../../temp/msohtmlclip1/01/clip_image013.png" o:title="DiffMenu">
+</v:imagedata></v:shape></span></p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">Check for modifications shows you all files that are 
+	different between local and remote. The Diff tool shows a side by side view 
+	of the differences between your local copy and the server copy.</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal"><span style=""><v:shape id="Picture_x0020_21" o:spid="_x0000_i1040" type="#_x0000_t75" alt="DiffTool.png" style="width: 468pt; height: 231.75pt; visibility: visible;">
+ <v:imagedata src="../../../temp/msohtmlclip1/01/clip_image014.png" o:title="DiffTool">
+</v:imagedata></v:shape></span></p>
+	<p class="MsoNormal">
+	<img alt="" src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/DiffTool.png" height="395" width="800"></p>
+	<p class="MsoNormal"><br>
+	The tool above is the default diff tool, but you can also specify a custom 
+	diff tool like Beyond Compare for example.</p>
+	<h3><a name="Subversion_and_Visual_Studio">Subversion and Visual Studio</a></h3>
+	<p class="MsoNormal">There’s really not much to say about Visual Studio 
+	support because using Subversion and Tortoise don’t work inside of Visual 
+	Studio. When you’re dealing with projects and solutions you might want to 
+	carefully consider whether project and solution settings affect other users. 
+	If your local paths are not the same as the projects in the repository for 
+	example, you may have to check out the project and solution files and leave 
+	them checked out permanently.</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">For Web applications often the web.config file might 
+	require some careful consideration if there are machine specific settings in 
+	the file. For example, if you’re running IIS 7 and you download a project 
+	that’s was created with IIS 6 the project file will be changed potentially 
+	to point at system module and handler references in different locations. Or 
+	you may have a connection string pointing to a different server than the 
+	original web.config file. Here too the solution is to download the file 
+	originally and then keep the file checked out locally and remember not to 
+	update it.</p>
+	<h3>Visual SVN</h3>
+	<p class="MsoNormal">If you prefer to have Visual Studio integration for 
+	source control you can check out VisualSvn (<a href="http://www.visualsvn.com/">http://www.visualsvn.com/</a>) 
+	which provides integration with TortoiseSVN directly from within Visual 
+	Studio. Visual SVN works with your existing Subversion folders so it doesn’t 
+	use Visual Studio version control provider (a good thing IMHO). Rather it 
+	talks to the TortoiseSVN APIs and gets its data directly from the file 
+	store. I haven’t used Visual SVN for long but so far it looks nice, although 
+	I’ve gotten so used to using Explorer for source control it doesn’t help 
+	significantly to have the integration. </p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">One thing that’s definitely easier is creation of new 
+	projects – you can just use Add to Subversion and VSVN will take care of 
+	creating the branch and checking out the files for you. </p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">It’s definitely nice to see the status of files right 
+	in the IDE and it’s also nice if you frequently add new files to the system 
+	as VSVN knows about Visual Studio file associations and automatically adds 
+	all related files.</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">
+	<o:p></o:p><img alt="" src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/VisualSvn.png" height="715" width="307"><br>
+	</p>
+	<p class="MsoNormal"><span style=""><v:shape id="Picture_x0020_0" o:spid="_x0000_i1041" type="#_x0000_t75" alt="VisualSvn.png" style="width: 230.25pt; height: 536.25pt; visibility: visible;">
+ <v:imagedata src="../../../temp/msohtmlclip1/01/clip_image015.png" o:title="VisualSvn">
+</v:imagedata></v:shape></span></p>
+	<p class="MsoNormal">This tool isn’t free but it's cheap – it costs $49 per 
+	user which is worth it if you think you need the Visual Studio integration.</p>
+	<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+	<p class="MsoNormal">There are several other add-ins available including 
+	Ankh, but I had a number of issues with it so I didn’t spend much time with 
+	it. Visual SVN seems smooth and unobtrusive and feels more like an extension 
+	of Tortoise SVN that works inside of Visual studio which is great.</p>
+	<p class="MsoNormal">&nbsp;</p>
+
+	<h3>Subversive Development</h3>
+	<p class="MsoNormal">Subversion has been a great boon for me. How can it not 
+	be with such a subversive name? I’ve teetered back and forth between using 
+	source control and not using it in the past, because I’ve had my share of 
+	problems with various Visual Studio source control providers. I’ve used 
+	several different tools on projects and in my own work but most of the 
+	problems seem to originate not with the tools but within Visual Studio 
+	itself. The end result was that I’d use source control for a while and then 
+	give up because it got in the way.</p>
+	<p class="MsoNormal">&nbsp;</p>
+	<p class="MsoNormal">Since I started working with Subversion I’ve had no 
+	complaints about problems or compatibility in projects even when using 
+	projects across multiple source control repositories, and that’s as it 
+	should be. I now use source control on every project even if it’s purely 
+	local and for myself. Source control should be an unobtrusive tool that 
+	helps you be more productive and not get in your way and Subversion fits 
+	that bill nicely for me.</p>
+	<p class="MsoNormal">&nbsp;</p>
+	<p class="MsoNormal">In this article I’ve only covered the basics of getting 
+	up and running. Subversion supports all of the advanced features you’d 
+	expect of a top notch source control system. If you need that functionality 
+	it’s there for you. But if you’re just getting started stick with the basics 
+	until you get familiar with Subversion and how it works – even the basic 
+	features take you a long way towards source code security and proper sharing 
+	between multiple developers.</p>
+	<p class="MsoNormal">There’s much more functionality to cover and if you 
+	want to find out more you can read through the very comprehensive and even 
+	very readable Subversion and Tortoise documentation. Check it out and get 
+	Subversive yourself.</p>
+
+	<h3>
+	<o:p>&nbsp;</o:p></h3>
+	<br>
+			<br>
+		<center>
+<script type="text/javascript"><!--
+google_ad_client = "pub-2013123155768157";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript" src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/show_ads.js">
+</script>
+	</center><br>
+
+	<br>
+
+<br>
+<div class="banner" style="padding-top: 4px;">
+            <div style="float: left; color: rgb(255, 204, 0); padding-left: 8px;">Getting 
+				started with Subversion</div>
+            <div style="color: white; float: right; padding-right: 10px;" id="Div1">
+            <a class="bannertext" href="http://www.west-wind.com/articles.asp" title="White Papers">
+			White Papers</a> | 
+            <a class="bannertext" href="http://www.west-wind.com/weblog" title="WebLog">WebLog</a> | 
+            <a class="bannertext" href="http://www.west-wind.com/DotNetTools.asp" title="Free Tools">
+			Free Tools</a> | 
+            <a class="bannertext" href="http://www.west-wind.com/pricing.asp" title="Products">Products</a> 
+			| 
+            <a class="bannertext" href="http://www.west-wind.com/wwThreads/" title="Support">Message 
+			Board</a> | 
+            <a class="bannertext" href="http://www.west-wind.com/westwindnews.wst" title="News">News</a> 
+			|
+     </div>
+</div>
+
+</h3context></form></td>
+
+<!-- Sidebar Panel -->
+<td style="width: 190px; border-left: 1px solid darkblue; padding: 20px; vertical-align: top;" id="sidebar">
+<center>
+<img src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/RickAuthor2.jpg" border="0">
+</center>
+<br>
+<strong>By Rick Strahl</strong> <br>
+<div style="text-align: justify; font-size: 8pt;">
+Rick Strahl is president of West Wind Technologies on Maui, Hawaii where
+ his company specializes in Web and distributed application development,
+ develops several commercial and free tools, does training and mentoring
+ with focus on .NET, IIS and Visual Studio. Rick's a C# Microsoft MVP, a
+ frequent contributor to magazines and books, and has spoken at over 100
+ developer conferences over the last 10 years. He is also co-publisher 
+of CoDe magazine. For more information please visit:
+<a href="http://www.west-wind.com/weblog/">http://www.west-wind.com/weblog/</a>&nbsp; or contact Rick at 
+<a href="mailto:rstrahl@west-wind.com">rstrahl@west-wind.com</a>.</div>
+
+<br>
+<br>
+<br>
+
+<a href="javascript:PrinterFriendly();">Printer Friendly View</a>
+<script type="text/javascript">
+function PrinterFriendly()
+{
+	document.getElementById('sidebar').style.display='none';
+}
+</script>
+
+<br>
+<br>
+<center>
+<script type="text/javascript"> 
+<!-- 
+lqm_channel=1;
+lqm_publisher=110;
+lqm_zone=1;
+lqm_format=5;
+//-->
+</script>
+<script type="text/javascript" src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/s.js"></script>
+<br>
+<br>
+<script type="text/javascript"><!--
+google_ad_client = "pub-2013123155768157";
+/* 160x600, created 2/5/08 */
+google_ad_slot = "7424551463";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript" src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/show_ads.js">
+</script>
+</center>
+
+
+<div style="margin-top: 1000px;">
+<center>
+<script type="text/javascript"> 
+lqm_channel=1;
+lqm_publisher=110;
+lqm_zone=1;
+lqm_format=18;
+</script>
+<script type="text/javascript" src="Setting%20up%20and%20running%20Subversion%20and%20Tortoise%20SVN_files/s.js"></script>
+</center>
+</div>
+
+</td>
+</tr>
+</tbody></table>
+
+</body></html>

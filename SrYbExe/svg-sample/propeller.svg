@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+xmlns:xlink="http://www.w3.org/1999/xlink" onload="setBlade()">
+<script><![CDATA[
+xmlns="http://www.w3.org/2000/svg"
+xlinkns="http://www.w3.org/1999/xlink"
+function setBlade()
+{
+  var secondBlade = document.getElementById("secondBlade")
+  var thirdBlade = document.getElementById("thirdBlade")
+  var angle2 =120
+  var angle3 =-120
+
+  secondBlade.setAttribute("transform","rotate("+ angle2.toString()+")")
+  thirdBlade.setAttribute("transform","rotate("+ angle3.toString()+")")
+}
+
+]]>
+
+</script>
+
+
+  <defs
+     id="defs5107">
+    <linearGradient
+       id="linearGradient5974">
+      <stop
+         id="stop5976"
+         style="stop-color:#4d4d4d;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop5978"
+         style="stop-color:#4d4d4d;stop-opacity:0"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient5966">
+      <stop
+         id="stop5968"
+         style="stop-color:#808080;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop5970"
+         style="stop-color:#808080;stop-opacity:0"
+         offset="1" />
+    </linearGradient>
+    <radialGradient
+       cx="0"
+       cy="-0.2167702"
+       r="10.601525"
+       fx="0"
+       fy="-0.2167702"
+       id="radialGradient5972"
+       xlink:href="#linearGradient5966"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       x1="-73.736061"
+       y1="-0.2167702"
+       x2="73.736061"
+       y2="-0.2167702"
+       id="linearGradient5980"
+       xlink:href="#linearGradient5974"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     id="layer1" transform="translate(150,150)">
+
+    <path
+       d="m 73.236061,-0.2167702 a 73.236061,73.236061 0 1 1 -146.472122,0 73.236061,73.236061 0 1 1 146.472122,0 z"
+       id="path5946"
+       style="fill:url(#linearGradient5980);fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+    <path
+       d="m 59.093925,-0.2167702 a 59.093925,60.104076 0 1 1 -118.18785,0 59.093925,60.104076 0 1 1 118.18785,0 z"
+       transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,-0.15327968,-0.37004988)"
+       id="path5962"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       d="m 10.101525,-0.2167702 a 10.101525,10.101525 0 1 1 -20.20305,0 10.101525,10.101525 0 1 1 20.20305,0 z"
+       id="path5964"
+       style="fill:url(#radialGradient5972);fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <g
+       id="firstBlade">
+      <path
+         d="m 5.0507627,34.633492 a 5.0507627,32.324883 0 1 1 -10.1015254,0 5.0507627,32.324883 0 1 1 10.1015254,0 z"
+         id="path12001"
+         style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <animateTransform
+         id="animateTransform12003"
+         by="360"
+         dur="1s"
+         repeatCount="indefinite"
+         type="rotate"
+         attributeName="transform" />
+    </g>
+    <g
+       id="secondBlade">
+      <path
+         d="m 5.0507627,34.633492 a 5.0507627,32.324883 0 1 1 -10.1015254,0 5.0507627,32.324883 0 1 1 10.1015254,0 z"
+         id="path12006"
+         style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <animateTransform
+         id="animateTransform12008"
+         by="360"
+         dur="1s"
+         repeatCount="indefinite"
+         type="rotate"
+         attributeName="transform" />
+    </g>
+    <g
+       id="thirdBlade">
+      <path
+         d="m 5.0507627,34.633492 a 5.0507627,32.324883 0 1 1 -10.1015254,0 5.0507627,32.324883 0 1 1 10.1015254,0 z"
+         id="path12011"
+         style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <animateTransform
+         id="animateTransform12013"
+         by="360"
+         dur="1s"
+         repeatCount="indefinite"
+         type="rotate"
+         attributeName="transform" />
+    </g>
+  </g>
+</svg>

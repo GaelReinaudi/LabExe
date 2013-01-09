@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/SVG/DTD/svg10.dtd" >
+
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="100%"
+   height="100%"
+   xml:space="preserve"
+   onload = "startup(evt)">
+
+<script>
+
+<![CDATA[
+
+var xmlns="http://www.w3.org/2000/svg";
+var xlinkns = "http://www.w3.org/1999/xlink"; 
+
+var stageText;
+var circlesText;
+var totalCirclesText;
+var redStop;
+
+var drawingScale = 200*15;
+var circles = new Array();
+
+var curvaturePool = [-1];
+var circlesMap = [3,1,2,5,4];
+
+var O = {};
+
+var currentCircle = 1;
+var lenTangentArray = 3;
+
+
+var nStage = 0;
+
+
+function startup(evt)
+{
+	init();
+
+	// Setting up initial configuration
+      // 1st circle at the origin (0,0). Vertex A
+	// The center of circle 2 and 3 are B and C, respectively.
+
+      var Ax = 0.0;
+      var Ay = 0.0;
+
+	// The three curvatures are:
+      var curvA = 32;
+	var curvB = 32;
+    	var curvC = 33;
+
+      // The three radii are:
+      var ra = 1/curvA;
+	var rb = 1/curvB;
+	var rc = 1/curvC;
+
+ 	var Bx = ra+rb;
+	var By = 0.0;
+
+	// sides of the triangles with 3 vertices
+	var sideA = rb + rc;
+	var sideB = ra + rc;
+	var sideC = ra + rb;
+
+	// angles
+	var angleA = angle(1,sideA,sideB,sideC);
+	var angleB = angle(2,sideA,sideB,sideC);
+	var angleC = angle(3,sideA,sideB,sideC);
+
+	/* To calculate the center position of circle 3 (C),
+	   we need the angle A */ 
+
+	var Cx = sideB*Math.cos(angleA);
+	var Cy = sideB*Math.sin(angleA);
+
+	// Area of the triangle
+	delta = getTriangleArea(sideA,sideB,sideC);
+
+      // three points on the Soddy lines, not needed for this example
+	midSideAx = rb*Math.cos(angleB);
+	midSideAy = rb*Math.sin(angleB);
+	midSideBx = ra*Math.cos(angleA);
+	midSideBy = ra*Math.sin(angleA);
+	midSideCx = ra;
+	midSideCy = 0;
+
+   	// The distance from midC (midSideCx,midSideCy) 
+	// is the y-coordinates of Inner Soddy center
+ 
+	// center of the  Inner Soddy circle
+	Dx = ra;
+	Dy = trilinear(sideA,sideB,sideC);
+
+  	// curvature of the inner Soddy circle
+	var curvD=soddy(ra,rb,rc,5);
+
+	// center of the outer circumcircle
+
+
+  	O = {x:0, y:0, curvature:0, tangents:[], stage:0};
+  	circles[0]= O; //junk 
+
+      // valid index starts from 1 not 0
+
+  	O = {x:Ax, y:Ay, curvature:curvA, tangents:[2,3,4], stage:0};
+  	circles[1]= O;
+
+  	O = {x:Bx, y:By, curvature:curvB, tangents:[1,3,4], stage:0};
+  	circles[2]= O; 
+ 
+  	O = {x:Cx, y:Cy, curvature:curvC, tangents:[1,2,4], stage:0};
+  	circles[3]= O; 
+
+      // 4th circle: inner circle
+  	O = {x:Dx, y:Dy, curvature:curvD, tangents:[1,2,3], stage:0};
+  	circles[4]= O;
+
+      // Apollonian 5th 
+  	O = {x:0, y:0, curvature:0, tangents:[],  stage:0};
+  	circles[5]= O;  
+
+	circles[5].curvature=soddy(1/circles[1].curvature,1/circles[2].curvature,1/circles[3].curvature,4);
+      
+      // Now we have a configuration to start  
+
+	// To get coordinates of the 5th circle, 
+	currentCircle = 5;
+	findApollonian(1,2,3,4,currentCircle);
+	
+	for(i=1;i<=currentCircle;i++) {
+      	drawCircle(i);
+		curvaturePool.push(circles[i].curvature);
+	}
+
+	displayStatus();
+}
+
+function trilinear(a,b,c)
+{
+	// angles
+	var A = angle(1,a,b,c);
+	var B = angle(2,a,b,c);
+	var C = angle(3,a,b,c);
+
+	// trilinear coordinates
+	alpha = 1/Math.cos(A/2)*Math.cos(B/2)*Math.cos(C/2)+1;
+	beta = 1/Math.cos(B/2)*Math.cos(C/2)*Math.cos(A/2)+1;
+	gamma = 1/Math.cos(C/2)*Math.cos(A/2)*Math.cos(B/2)+1;
+
+	//area
+	var delta = getTriangleArea(a,b,c);
+
+	var k = 2*delta/(alpha*a+beta*b+gamma*c);
+
+	// In this case, we need to return c' i.e. k*gamma
+	return k*gamma;
+}
+
+function getTriangleArea(a,b,c)
+{
+	s = (a+b+c)/2;
+	area = Math.sqrt( s*(s-a)*(s-b)*(s-c) );
+	return area;
+}
+
+function angle(n,a,b,c)
+{
+	var cos;
+	if(n==1) 
+		cos = (-a*a+b*b+c*c)/(2*b*c);		
+	else if(n==2)
+		cos = (a*a-b*b+c*c)/(2*a*c);
+	else if(n==3)
+		cos = (a*a+b*b-c*c)/(2*a*b);
+	
+	return Math.acos(cos);
+}
+
+function soddy(r1,r2,r3,n)
+{
+	var r;
+	
+  	if(n==4) {
+		r = r1*r2*r3/
+		( (r1*r2+r2*r3+r1*r3) - 2*Math.sqrt(r1*r2*r3*(r1+r2+r3)) )
+	}
+  	if(n==5) {
+		r = r1*r2*r3/
+		((r1*r2+r2*r3+r1*r3) + 2*Math.sqrt(r1*r2*r3*(r1+r2+r3)))
+	}
+
+	curv = 1/r
+	return curv;	
+}
+
+function stageUp()
+{
+	nStage++;
+/*
+	if(nStage>=4) alert("It will be getting slower and slower.\n If you see the red highlight at the center of the button, it is telling you it's done for the stage");
+*/
+	nextCircle(currentCircle);
+	displayStatus();
+}
+
+function init()
+{
+	stageText = document.getElementById("stage"); 
+	stageText.firstChild.nodeValue=0;
+	circlesText = document.getElementById("circles"); 
+	circlesText.firstChild.nodeValue=5;
+	totalCirclesText = document.getElementById("totalCircles"); 
+	totalCirclesText.firstChild.nodeValue=5;
+	redStop = document.getElementById("RedStop");
+}
+
+function displayStatus()
+{
+	stageText.firstChild.nodeValue=nStage;
+	if(nStage==0) {
+		circlesText.firstChild.nodeValue=5;
+		totalCirclesText.firstChild.nodeValue=5;
+	}
+	else {
+		circlesText.firstChild.nodeValue=Math.pow(3,nStage)*2;
+		totalCirclesText.firstChild.nodeValue=Math.pow(3,nStage+1)+2;
+	}
+}
+
+function nextCircle()
+{	
+	var fourCircles = [];
+ 	var iStartingCircle = [];
+  	var nSC = 0;
+		
+	ilen = 1;
+      for(var i=1;i<=currentCircle;i++) {
+		if(circles[i].tangents.length >= lenTangentArray) {
+			lenTangentArray = circles[i].tangents.length;
+		}
+	}
+
+ 	for(var i=1;i<=currentCircle;i++) { 
+		if(circles[i].tangents.length < lenTangentArray) {
+			iStartingCircle[nSC] = i;
+			nSC++;
+		}
+	}
+
+	for(var ns=0;ns<nSC;ns++) 
+ 	{
+        iStart = iStartingCircle[ns];
+	  ilen = circles[iStart].tangents.length;
+	  var isThere = 0;
+	  var isTangent = 1;
+	  var isNewFour = 1;
+
+	  for(var i=0;i<ilen;i++) {
+		i1 = iStart;
+		//i4 as one Apollonian
+		i4 = circles[iStart].tangents[i]; 
+		for(var j=0;j<ilen;j++) {
+ 			if(j==i) {
+				continue;
+			}
+			i2 = circles[iStart].tangents[j];
+			for(var k=0;k<ilen;k++) {
+				if(k==j || k==i) {
+					continue;
+				}
+				i3 = circles[iStart].tangents[k];
+				/* (1) Check if the first three circles (i1,i2,i3) are neighbors. i1 has i2,i3 but i2 and i3 may not touching each other (2) Check if i4 touches i1,i2,i3.*/
+				isTangent = checkTangency(i1,i2,i3,i4);
+
+				if(isTangent==0) {
+					continue;
+				}
+				var curv = getCurvature(i1,i2,i3,i4);
+
+				// Check if this circle has been made in the previous stages.
+				isThere=checkCurvature(curv);
+				if(isThere==1) {
+					st1=circles[i1].stage;
+					st2=circles[i2].stage;
+					st3=circles[i3].stage;
+					st4=circles[i4].stage;
+
+					if( st1!=nStage-1 && st2!=nStage-1 && st3!=nStage-1 && st3!=nStage-1) continue;
+				}
+
+				//Check if the 4 circles are in current set
+				
+				if(fourCircles.length>0){
+				 isNewFour = checkFourCircles(i1,i2,i3,i4,fourCircles);
+				}
+				if(isNewFour==0) {
+				  continue;
+				}
+
+				fourCircles.push(i1);
+				fourCircles.push(i2);
+				fourCircles.push(i3);
+				fourCircles.push(i4);
+			}
+		}
+ 	  }
+	}
+
+	nset = fourCircles.length/4;
+
+	for(var i=0;i<nset;i++) {
+
+		currentCircle++;
+
+		O = {x:0, y:0, curvature:1, tangents:[]};
+
+		circles[currentCircle] = O;
+
+		i1 = fourCircles[4*i];
+		i2 = fourCircles[4*i+1];
+		i3 = fourCircles[4*i+2];
+		i4 = fourCircles[4*i+3];
+		
+		findApollonian(i1,i2,i3,i4,currentCircle);
+		drawCircle(currentCircle);
+		curvaturePool.push(circles[currentCircle].curvature);
+	}
+	
+}
+
+/* Check if a set of 4 circles are already in the set */
+function checkFourCircles(n0,n1,n2,n3,cset)
+{
+	// return 0: duplicate
+	//        1: new - OK to put it into the list 
+	nset = cset.length/4;
+  	narr = [n0,n1,n2];
+	narr.sort();
+	for(var i=0;i<nset;i++) {
+		// compare Apollonian first
+		// if it's different, the two can't be the same
+		if(n3!=cset[4*i+3]) continue;
+		var carr = [cset[4*i],cset[4*i+1],cset[4*i+2]];
+		carr.sort();
+		if(narr[0]==carr[0]&&
+			narr[1]==carr[1]&&
+				narr[2]==carr[2]) {
+			return 0;
+		}
+	}
+  	return 1;
+}
+
+/* Check (1) circle n3 is in the tangents array of n2, vise versa.
+	   (2) circles n1, n2 and n3 shares n4
+   The conditions (1) and (2) should be met to get an Apollonian */ 
+function checkTangency(n1,n2,n3,n4)
+{
+	var pass = 0;
+      var passlimit = 12;
+
+	// n1 in n2
+	for(var i=0;i<circles[n2].tangents.length;i++) {
+		if(n1==circles[n2].tangents[i]) {
+			pass++;
+			break;
+		}	
+	}
+      // n1 in n3
+	for(var i=0;i<circles[n3].tangents.length;i++) {
+		if(n1==circles[n3].tangents[i]) {
+			pass++;
+			break;
+		}	
+	}
+      // n1 in n4
+	for(var i=0;i<circles[n4].tangents.length;i++) {
+		if(n1==circles[n4].tangents[i]) {
+			pass++;
+			break;
+		}	
+	}
+	// n2 in n1
+	for(var i=0;i<circles[n1].tangents.length;i++) {
+		if(n2==circles[n1].tangents[i]) {
+			pass++;
+			break;
+		}	
+	}
+	// n2 in n3
+	for(var i=0;i<circles[n3].tangents.length;i++) {
+		if(n2==circles[n3].tangents[i]) {
+			pass++;
+			break;
+		}	
+	}
+	// n2 in n4
+	for(var i=0;i<circles[n4].tangents.length;i++) {
+		if(n2==circles[n4].tangents[i]) {	
+			pass++;
+			break;
+		}
+	}
+	// n3 in n1
+	for(var i=0;i<circles[n1].tangents.length;i++) {
+		if(n3==circles[n1].tangents[i]) {
+			pass++;
+			break;
+		}	
+	}
+	// n3 in n2
+	for(var i=0;i<circles[n2].tangents.length;i++) {
+		if(n3==circles[n2].tangents[i]) {	
+			pass++;
+			break;
+		}
+	}
+	// n3 in n4
+	for(var i=0;i<circles[n4].tangents.length;i++) {
+		if(n3==circles[n4].tangents[i]) {	
+			pass++;
+			break;
+		}
+	}
+	// n4 in n1
+	for(var i=0;i<circles[n1].tangents.length;i++) {
+		if(n4==circles[n1].tangents[i]) {	
+			pass++;
+			break;
+		}
+	}
+	// n4 in n2
+	for(var i=0;i<circles[n2].tangents.length;i++) {
+		if(n4==circles[n2].tangents[i]) {	
+			pass++;
+			break;
+		}
+	}
+	// n4 in n3
+	for(var i=0;i<circles[n3].tangents.length;i++) {
+		if(n4==circles[n3].tangents[i]) {	
+			pass++;
+			break;
+		}
+	}
+	if(pass>=passlimit) {
+   	  return 1;
+	}
+	return 0;
+}
+
+// Check if a circle already been made in the previous stages. 
+// It's done by comparing the curvatures.
+function checkCurvature(cv)
+{
+	for(var i=0;i<curvaturePool.length;i++) {
+		if( Math.round(cv) == Math.round(curvaturePool[i]) ) return 1;
+	}
+	return 0;
+}
+
+
+// input: 	i1,i2,i3 = tangent circles
+//		i4 = one of Apollonian cicle 
+
+function findApollonian(i1,i2,i3,i4,iApollo)
+{
+  	var curv = getCurvature(i1,i2,i3,i4);
+
+	circles[iApollo].curvature = curv;
+
+	var realx = getCoord(1,i1,i2,i3,i4,iApollo);	
+
+	circles[iApollo].x = realx;
+	var imagy = getCoord(2,i1,i2,i3,i4,iApollo);
+
+	circles[iApollo].y = imagy;
+   
+	// setup tangents 
+ 	//new circle
+	circles[iApollo].tangents.push(i1);
+	circles[iApollo].tangents.push(i2);
+	circles[iApollo].tangents.push(i3);
+	// updates existing tangents of existing circles
+	circles[i1].tangents.push(iApollo);
+	circles[i2].tangents.push(iApollo);
+	circles[i3].tangents.push(iApollo);
+	// stage
+	circles[iApollo].stage = nStage;
+
+   	circlesMap.push(iApollo);
+	circlesMap.push(i1);
+	circlesMap.push(i2);
+	circlesMap.push(i3);
+	circlesMap.push(i4);
+}
+
+function getCoord(flag,i1,i2,i3,i4,i4prime)
+{
+      b1 = circles[i1].curvature;
+  	b2 = circles[i2].curvature;
+	b3 = circles[i3].curvature;
+	b4 = circles[i4].curvature;
+	b4prime = circles[i4prime].curvature;
+ 
+	if(flag==1) 
+	{
+      	z1 = circles[i1].x;
+  		z2 = circles[i2].x;
+		z3 = circles[i3].x;
+		z4 = circles[i4].x;
+	}
+	else
+	{
+      	z1 = circles[i1].y;
+  		z2 = circles[i2].y;
+		z3 = circles[i3].y;
+		z4 = circles[i4].y;
+	}
+
+  	z4prime = (2*b1*z1+2*b2*z2+2*b3*z3-b4*z4)/b4prime;
+	return z4prime;
+ 
+}
+
+function getCurvature(i1,i2,i3,i4)
+{
+      b1 = circles[i1].curvature;
+  	b2 = circles[i2].curvature;
+	b3 = circles[i3].curvature;
+	b4 = circles[i4].curvature;
+
+  	b4prime = 2*b1+2*b2+2*b3-b4;
+	return b4prime;
+}
+
+
+function heron(a,b,c)
+{
+	var s = 0.5 * (a + b + c);
+	var delta = Math.sqrt(s*(s-a)*(s-b)*(s-c));
+	return delta;
+}
+
+function drawCircle(i)
+{
+  	var obj = document.createElementNS(xmlns,"circle");
+  	obj.setAttributeNS(null,"id","circle"+i);
+  	obj.setAttributeNS(null,"cx",drawingScale*circles[i].x);
+  	obj.setAttributeNS(null,"cy",drawingScale*circles[i].y);
+  	obj.setAttributeNS(null,"r",drawingScale*Math.abs(1/circles[i].curvature));
+  	obj.setAttributeNS(null,"fill","none");
+  	obj.setAttributeNS(null,"stroke","black");
+	if(nStage==1) obj.setAttributeNS(null,"stroke","red");
+	if(nStage==2) obj.setAttributeNS(null,"stroke","green");
+	if(nStage==3) obj.setAttributeNS(null,"stroke","blue");
+	if(nStage==4) obj.setAttributeNS(null,"stroke","purple");
+  	obj.setAttributeNS(null,"stroke-width","1");
+  	document.getElementById("Apollo").appendChild(obj);
+ /*
+  	if(parseInt(circles[i].curvature) > 0) {
+  		var label = document.createElementNS(xmlns,"text");
+  		label.setAttributeNS(null,"id","label"+i);
+  		label.setAttributeNS(null,"x",drawingScale*circles[i].x);
+  		label.setAttributeNS(null,"y",drawingScale*circles[i].y);
+  		label.setAttributeNS(null,"font-size","12");
+  		label.setAttributeNS(null,"fill","black");
+  		//var txtNode = document.createTextNode(circles[i].curvature);
+  		var txtNode = document.createTextNode(i);
+  		label.appendChild(txtNode);
+  		if(nStage<3) document.getElementById("Apollo").appendChild(label);
+ 	}
+*/
+ 
+	
+}
+
+
+function mouseOverRed()
+{
+  redStop.setAttributeNS(null,"stop-color", "white"); 
+}
+
+function mouseOutRed()
+{
+  redStop.setAttributeNS(null,"stop-color", "red"); 
+}
+
+]]>
+
+</script> 
+
+<g id="title">
+  <text id="category" font-size="40"
+   x="40" y="50">
+  Apollonian Gasket (-15,32,32,33) 
+  </text>
+</g>
+
+<g id="Apollo" transform="translate(200,220)">
+</g>
+
+
+<text id="status" y="480" font-size="20">
+   <tspan x="100" dy="1em">Current Stage (usually up to 5-7): </tspan><tspan id="stage"> 0</tspan>
+   <tspan x="100" dy="1em">Circles at This Stage: </tspan><tspan id="circles"> 5</tspan>
+   <tspan x="100" dy="1em">Total Circles:</tspan><tspan id="totalCircles"> 5</tspan>
+ </text>
+
+<!-- button -->
+<defs>
+<radialGradient id="RedG">
+   <stop id="RedStop" stop-color="red" offset="0"/>
+   <stop stop-color="white" offset="80%"/>
+   <stop stop-color="red" offset="100%"/>
+ </radialGradient>
+</defs>
+
+<g id="upButton" transform="translate(0,445)"
+			onclick="stageUp()" 
+               onmouseover="mouseOverRed()" 
+               onmouseout="mouseOutRed()">
+
+  <circle id="StageCircle" cx = "50" cy="50" r="20" fill="url(#RedG)" />
+  <path d="M 50 40 L 50 60 M 40 50 L 60 50" fill="none" stroke="black" stroke-width="3"/>
+</g>
+ 
+
+<g id="subNote">
+  <text font-size="14" y="560">
+   <tspan x="100" dy="0em">
+  Note: As the stage number going up, it's getting slower and slower. 
+   </tspan>
+   <tspan x="100" dy="1em">
+  Since it's generating circles on the fly, your browser may suffer at higher stage.
+   </tspan>
+   <tspan x="100" dy="1em">
+  I haven't got to stage 8 with my algorithm. It seems to take forever.
+   </tspan>
+  </text>
+</g>
+</svg>
+

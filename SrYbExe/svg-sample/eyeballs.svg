@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+xmlns:xlink="http://www.w3.org/1999/xlink"
+   width="100%" height="100%" 
+   onload = "startup()"
+   onmousemove = "move(evt)">
+ 
+<script>
+
+<![CDATA[
+
+var Eye = new Array(2)
+var EyeBall = new Array(2)
+var rEyeBall=50
+var x0 = new Array(2)
+var y0 = new Array(2)
+
+x0[0]=200,y0[0]=100
+x0[1]=400,y0[1]=100
+var aa=60,bb=30
+
+function startup()
+{
+  Eye[0]=document.getElementById("myEyeA")
+  Eye[0].setAttributeNS(null,"cx",x0[0])
+  Eye[0].setAttributeNS(null,"cy",y0[0])
+  Eye[0].setAttributeNS(null,"rx",aa)
+  Eye[0].setAttributeNS(null,"ry",bb)
+
+  EyeBall[0] = document.getElementById("myEyeBallA")
+  EyeBall[0].setAttributeNS(null,"cx",x0[0])
+  EyeBall[0].setAttributeNS(null,"cy",y0[0])
+  EyeBall[0].setAttributeNS(null,"cy",rEyeBall)
+
+  Eye[1] = document.getElementById("myEyeB")
+  Eye[1].setAttributeNS(null,"cx",x0[1])
+  Eye[1].setAttributeNS(null,"cy",y0[1])
+  Eye[1].setAttributeNS(null,"rx",aa)
+  Eye[1].setAttributeNS(null,"ry",bb)
+
+  EyeBall[1] = document.getElementById("myEyeBallB")
+  EyeBall[1].setAttributeNS(null,"cx",x0[1])
+  EyeBall[1].setAttributeNS(null,"cy",y0[1])
+  EyeBall[1].setAttributeNS(null,"cy",rEyeBall)
+}
+
+function move(evt)
+{
+
+  var xm = evt.clientX
+  var ym=  evt.clientY
+
+  /* If mouse is outside of the eye, 
+     put the center of eyeball at the boundary 
+     with an offset. 
+     Actually, ficticious ellipse with smaller axes.
+     Otherwise, eye center is at the mouse
+  */
+
+  a = 0.8*aa
+  b = 0.8*bb
+  var coefx,coefy 
+  
+  for(i=0;i<2;i++) 
+  {
+   if( (x0[i]-xm)*(x0[i]-xm)/(a*a)+ (y0[i]-ym)*(y0[i]-ym)/(b*b)> 1) 
+   {
+     if( xm > x0[i]) {
+       coefx = 1/(a*a)
+               + 1/(b*b)*(ym-y0[i])*(ym-y0[i])/((xm-x0[i])*(xm-x0[i]))
+       new_cx = x0[i] + Math.sqrt(1/coefx)
+     }
+     else if( xm < x0[i]) {
+       coefx = 1/(a*a)
+               + 1/(b*b)*(ym-y0[i])*(ym-y0[i])/((xm-x0[i])*(xm-x0[i]))
+       new_cx = x0[i] - Math.sqrt(1/coefx)
+     }
+     else {
+       new_cx = x0[i] 
+     }
+    
+     if( ym > y0[i]) {
+       coefy = 1/(a*a)*(xm-x0[i])*(xm-x0[i])
+                       /((ym-y0[i])*(ym-y0[i]))+1/(b*b)
+       new_cy = y0[i] + Math.sqrt(1/coefy)
+     }
+     else if( ym < y0[i]) {
+       coefy = 1/(a*a)*(xm-x0[i])*(xm-x0[i])
+                       /((ym-y0[i])*(ym-y0[i]))+1/(b*b)
+       new_cy = y0[i] - Math.sqrt(1/coefy)
+     }
+     else {
+       new_cy = y0[i] 
+     }
+     EyeBall[i].setAttributeNS(null,"cx",new_cx)
+     EyeBall[i].setAttributeNS(null,"cy",new_cy)
+
+   }
+   // inside of the eye
+   else
+   {
+     EyeBall[i].setAttributeNS(null,"cx",evt.clientX)
+     EyeBall[i].setAttributeNS(null,"cy",evt.clientY)
+   }
+
+  }
+}
+
+
+]]>
+
+</script>
+
+<defs>
+  <ellipse id="myEyeA"  fill="white" stroke="black" opacity="1.0"
+   stroke-width="3" />
+  <ellipse id="myEyeB"  fill="white" stroke="black" opacity="1.0"
+   stroke-width="3" />
+  <radialGradient id="eyeGradient">
+            <stop offset="4%" stop-color="black" />
+            <stop offset="5%" stop-color="goldenrod" />
+            <stop offset="8%" stop-color="khaki" />
+            <stop offset="9%" stop-color="lightgray" />
+            <stop offset="10%" stop-color="blue" />
+            <stop offset="13%" stop-color="mediumblue" />
+            <stop offset="15%" stop-color="midnightblue" />
+            <stop offset="16%" stop-color="honeydew" />
+            <stop offset="90%" stop-color="white" />
+  </radialGradient>
+</defs>
+
+<rect width="100%" height="100%" fill="white"/>
+
+<clipPath id="eyeClipA">
+  <use xlink:href="#myEyeA"/>
+</clipPath>
+<clipPath id="eyeClipB">
+  <use xlink:href="#myEyeB"/>
+</clipPath>
+
+ 
+ <use xlink:href="#myEyeA"/>
+ <use xlink:href="#myEyeB"/>
+
+<circle id="myEyeBallA" r="200" 
+  clip-path="url(#eyeClipA)" 
+  fill="url(#eyeGradient)" opacity="0.7"/>
+ 
+<circle id="myEyeBallB" r="200" 
+  clip-path="url(#eyeClipB)" 
+  fill="url(#eyeGradient)" opacity="0.7"/>
+
+ 
+</svg>
+

@@ -1,0 +1,108 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg 
+xmlns="http://www.w3.org/2000/svg"
+xmlns:xlink="http://www.w3.org/1999/xlink"
+xmlns:ev="http://www.w3.org/2001/xml-events"
+>
+
+
+<script>
+
+<![CDATA[  
+
+var svgns = "http://www.w3.org/2000/svg";
+var xlinkns = "http://www.w3.org/1999/xlink"; 
+
+function startup()
+{
+ myC=document.getElementById("myCircle")
+ myT=document.getElementById("myText")
+ myLE=document.getElementById("myLeftEye")
+ myRE=document.getElementById("myRightEye")
+ document.documentElement.setAttribute("onmousemove","startMove(evt)")
+
+}
+
+function startMove(evt)
+{ 
+ // set new postion for circle
+ myC.setAttributeNS(null,"cx",evt.clientX)  
+ myC.setAttributeNS(null,"cy",evt.clientY)
+
+
+ // store the center coordinates and radius
+ var clientx = parseInt(evt.clientX)
+ var clienty = parseInt(evt.clientY)
+
+ // set new color for circle
+ for (var i=0;i<3;i++)
+ {  
+     S=document.getElementById("stop"+i) 
+     S.setAttributeNS(null,"stop-color",color())  
+ }
+
+ // set new positon for eyes
+ var lEyeX = clientx - 30
+ var rEyeX = clientx + 30
+ var lEyeY = clienty - 30
+ var rEyeY = lEyeY
+ myLE.setAttributeNS(null,"cx",lEyeX.toString())
+ myLE.setAttributeNS(null,"cy",lEyeY.toString())
+ myRE.setAttributeNS(null,"cx",rEyeX.toString())
+ myRE.setAttributeNS(null,"cy",rEyeY.toString())
+
+
+ // set new text
+
+ var textx = clientx - 45
+ var texty = clienty - 120
+ myT.setAttributeNS(null,"x",textx.toString())
+ myT.setAttributeNS(null,"y",texty.toString())
+ myT.setAttributeNS(null,"fill","red")
+
+}
+
+function drop()
+{ 
+ document.documentElement.setAttributeNS(null, "onmousemove",null)
+  myT.setAttributeNS(null,"fill","none")
+}
+
+function color()
+{
+  r=Math.random()*4096 
+  return "#"+Math.floor(r).toString(16)
+}
+
+
+]]>
+
+</script>
+
+
+<radialGradient id="radGrad"> 
+<stop id="stop0" offset="0" stop-color="pink"/> 
+<stop id="stop1" offset=".5" stop-color="red"/> 
+<stop id="stop2" offset="1" stop-color="pink"/>
+</radialGradient>
+
+<circle cx="150" cy="150" r="120" fill="white"   
+  stroke="black" stroke-width="2"/>
+<g id="myGroup" onmousedown="startup()" onmouseup="drop()">
+  <circle id="myCircle" cx="150" cy="150" r="100" fill="url(#radGrad)"  
+    opacity="0.7" stroke="darkgrey" stroke-width="5"/>
+  <circle id="myLeftEye" cx="120" cy="120" r="10" fill="black" />  
+  <circle id="myRightEye" cx="180" cy="120" r="10" fill="black" /> 
+  <text id="myText" x="220" y="300" font-size="14pt" fill="none"> 
+     "Fantastic!"</text>
+</g>
+
+<text id="text0" x="70" y="300" font-size="14pt" fill="blue"> 
+     "Drag me somewhere!"</text>
+
+
+
+</svg>

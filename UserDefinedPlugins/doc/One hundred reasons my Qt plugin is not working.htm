@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- saved from url=(0064)http://www.dtic.upf.edu/~dgarcia/Codders/qtpluginnotloading.html -->
+<HTML xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
+<TITLE>codders: One hundred reasons my Qt plugin is not working</TITLE>
+<LINK rel="stylesheet" href="./One hundred reasons my Qt plugin is not working_files/xtail.css" type="text/css">
+<!-- Autor: David 'Vokimon' Garcia -->
+</HEAD><BODY>
+
+<DIV class="head"><A href="http://www.dtic.upf.edu/~dgarcia/Codders/index.html"><IMG alt="Codders, resources for programmers by Vokimon" src="./One hundred reasons my Qt plugin is not working_files/banner.png"></A></DIV>
+<DIV class="body">
+
+<H1 id="toc_1"> One hundred reasons my Qt plugin is not working </H1>
+
+
+<P>
+<B>Author: David Garcia Garzon</B> /
+<A href="http://www.dtic.upf.edu/~dgarcia/Codders/content/qtpluginnotloading.wiki">Wiki source</A>
+</P>
+
+
+<P>
+When I was developing widgets plugins for Qt Designer,
+I encountered too many of reasons for a plugin to not work properly.
+Even worse, all that reasons are really obscure and silent.
+Designer, at least in its vanila version, doesn't offer any hint
+why it is not loading a given plugin.
+This article tries to give some light to those reasons
+and gives some tricks to spot them.
+</P>
+
+
+<P>
+The context of this article is Qt4 and Linux.
+Feel free to send me your own experiences on other contexts.
+</P>
+
+
+<P>
+</P><H2>Index</H2>
+<DIV class="toc">
+<UL>
+<LI><A href="http://www.dtic.upf.edu/~dgarcia/Codders/qtpluginnotloading.html#toc_1"> One hundred reasons my Qt plugin is not working </A></LI>
+<UL>
+<LI><A href="http://www.dtic.upf.edu/~dgarcia/Codders/qtpluginnotloading.html#toc_2"> A symbol is missing </A></LI>
+<LI><A href="http://www.dtic.upf.edu/~dgarcia/Codders/qtpluginnotloading.html#toc_3"> Not at the proper path </A></LI>
+<LI><A href="http://www.dtic.upf.edu/~dgarcia/Codders/qtpluginnotloading.html#toc_4"> Coliding libraries </A></LI>
+<LI><A href="http://www.dtic.upf.edu/~dgarcia/Codders/qtpluginnotloading.html#toc_5"> Not the proper compilation mode </A></LI>
+<LI><A href="http://www.dtic.upf.edu/~dgarcia/Codders/qtpluginnotloading.html#toc_6"> Bad init xml </A></LI>
+<LI><A href="http://www.dtic.upf.edu/~dgarcia/Codders/qtpluginnotloading.html#toc_7"> Missing Q_OBJECT </A></LI>
+<LI><A href="http://www.dtic.upf.edu/~dgarcia/Codders/qtpluginnotloading.html#toc_8"> Things that do not interfer plugin loading </A></LI>
+<LI><A href="http://www.dtic.upf.edu/~dgarcia/Codders/qtpluginnotloading.html#toc_9"> Conclusions </A></LI>
+</UL>
+</UL>
+</DIV>
+<P></P>
+
+<H2 id="toc_2"> A symbol is missing </H2>
+
+
+<P>
+This error should be the first to be explained because
+a symbol missing in the plugin is so common
+and you won't get any feedback when it happens.
+When you build the plugin, the linker won't complaint about missing symbols
+as it is a dynamic library pending to be linked on runtime.
+Later, when the plugin host (either designer or a QUiLoader based app)
+tries to load it and fails, it does not complain at all neither.
+Just that the plugin won't be available but no error message is displayed.
+</P>
+
+
+
+<P>
+Fortunately there is a quick way of checking if this is happening.
+Just build an empty main function like this:
+</P>
+
+<PRE> // plugintest.cxx
+ int main() { return 0; }
+</PRE>
+
+<P>
+and do:
+</P>
+
+<PRE> $ g++ plugintest.cxx libMyPlugin.so
+</PRE>
+
+
+<P>
+If the linker complains about missing symbols,
+those missing symbols are the ones preventing the plugin to load.
+</P>
+
+
+
+<P>
+Remember that Qt plugins must be linked to any symbols they use.
+So you must link also:
+</P>
+<UL>
+	<LI> the cxx of the widget (the plugin cxx is not enough)</LI>
+	<LI> the moc of the widget (even if the plugin is just a hxx it may generate a moc cxx)</LI>
+	<LI> any link dependency of the widget</LI>
+	<LI> any library needed by your plugin (this includes Qt ones; if you use QtOpenGL for example, don't miss it!)</LI>
+</UL>
+
+
+<H2 id="toc_3"> Not at the proper path </H2>
+
+
+<P>
+The plugin must be in some place that designer
+or a QUiLoader based app could find it.
+Of course, no message will be given to you
+if you place it in the wrong location.
+</P>
+
+
+<P>
+There is a good way to check whether you are not placing the plugin on the proper location.
+Take some of the plugins designer already loads (see About/Plugins)
+and move it to the location you are placing your own widget.
+If you stop seeing it, you have a location problem.
+</P>
+
+
+<P>
+Hosts search for plugins in a sequence of locations.
+Designer plugins must be placed inside the 'designer' folder within such location.
+For example, if the host looks for plugins at  <TT>/some/location/for/plugins</TT>,
+designer plugins should be at <TT>/some/location/for/plugins/designer</TT>.
+<B>So don't forget the <TT>designer</TT> folder!</B>
+</P>
+
+
+<P>
+Which are those locations?
+</P>
+
+
+<P>
+The first location is the standard path where the plugins are placed on your system.
+Normally at <TT>$QTDIR/plugins</TT>, which depends on the actual value 
+of <TT>QTDIR</TT> environment variable in your system.
+So the final path for your widgets plugin <TT>libMyPlugin.so</TT> will be
+</P>
+
+<PRE> $QTDIR/plugins/designer/libMyPlugin.so
+</PRE>
+
+<P>
+If you don't know where the <TT>QTDIR</TT> var points to, just look for
+some plugin that comes with Qt such as <TT>libqt3supportplugin.so</TT>.
+</P>
+
+
+<P>
+The second location to place the plugin is
+in the same path where the host is.
+So, if you binary is in <TT>/some/path/hostbinary</TT>,
+the designer plugin you should be at <TT>/some/path/designer/libMyPlugin.so</TT>.
+In Unix, this is not useful to run Designer
+because you cannot place a 'designer' folder
+in the same folder that the 'designer' binary is.
+But it is very useful for a host application while you are developing it,
+because you don't have to install the plugin as root every time.
+</P>
+
+
+<P>
+Finally, qt uses an environment variable named 'QT_PLUGIN_PATH'.
+It contains a list of plugin directories using
+the same syntax than the PATH variable in your system,
+that is separated by colons in Linux and semicolons in windows.
+Beware that such paths should be the ones without the 'designer' folder.
+If you place your plugin at /the/location/designer/libMyPlugin.so,
+the QT_PLUGIN_PATH should contain /the/location without the designer path.
+</P>
+
+
+<P>
+If you don't want to rely on those paths you can force a path using
+<TT>QCoreApplication::addLibraryPath</TT> or
+<TT>QUiLoader::addPluginPath</TT>.
+See QCoreApplication and QUiLoader API's for details.
+</P>
+
+
+<P>
+If you want to know the complete list of paths your plugins are being searched in
+execute the following code in your host: 
+</P>
+
+
+<PRE> QStringList paths = QCoreApplication::libraryPaths();
+ for (QStringList::iterator it = paths.begin(); it!=paths.end(); it++)
+ {
+    std::cout
+		 &lt;&lt; "Looking for plugins at path: "
+		&lt;&lt; it-&gt;toStdString() &lt;&lt; std::endl;
+ }
+</PRE>
+
+
+
+<H2 id="toc_4"> Coliding libraries </H2>
+
+
+<P>
+Because different locations are available, is common that
+different versions of the library are placed in different places.
+This generates no problem when they are the same version.
+But when different versions are available all of them are loaded.
+</P>
+
+
+<P>
+To spot this reason, remove the library.
+If after that it still loads, it is loading a dupped library anywhere else.
+</P>
+
+
+<H2 id="toc_5"> Not the proper compilation mode </H2>
+
+
+<P>
+Double check whether you are compiling with the same
+Qt debug or Qt release mode than the host application.
+Normally designer is compiled in release mode, that means
+that your plugin and  your host should be both compiled
+with the -DQT_NO_DEBUG option enabled and
+that they must be linked against the release version of the Qt libraries.
+Note that debug version of Qt4 libraries normally has a suffix ('d' on windows, or '_debug' in linux).
+</P>
+
+
+<P>
+In Linux, you can use the <TT>ldd</TT> command to list the libraries a built binary is linking to.
+</P>
+
+<H2 id="toc_6"> Bad init xml </H2>
+
+
+<P>
+Maybe your plugin loads but you don't see some of the widgets.
+Note that if you do not return a correct xml on the reimplementation
+of the <TT>QDesignerCustomWidgetInterface::domXml</TT> method,
+your widget may be instanciated but it won't appear on the designer widget toolbox.
+</P>
+
+
+<P>
+That means that an .ui file containing the widget will display it properly
+but that the widget toolbox has no entry to add it.
+So, the spotting procedure is a little trickier:
+</P>
+
+<UL>
+	<LI> build an ui file with some working Qt plugin widget (not the standard widgets, but a qt3suport or an arthur one, which are plugins),</LI>
+	<LI> edit the xml by hand, changing the inserted widget class by the one not appearing</LI>
+	<UL>
+		<LI> Note: You should change it in two places, the custom widget declaration and the widget you inserted</LI>
+	</UL>
+	<LI> if you load the ui on the designer and it appears, then the xmlDom is wrong.</LI>
+</UL>
+
+<H2 id="toc_7"> Missing Q_OBJECT </H2>
+
+
+<P>
+Sometimes your plugin loads well and you can even use it from the designer.
+But once you save the .ui file and you try to load it again, you see that your widget
+has promoted to some base class such as QWidget, loosing any any specific properties.
+</P>
+
+
+<P>
+This is a symptom that you didn't place the Q_OBJECT macro on the widget class declaration.
+</P>
+
+
+<P>
+A widget without Q_OBJECT macro in its declaration may work properly.
+It just uses the Metaobject information of the base class.
+But designer uses such metaobject information to writedown the ui file.
+It takes the class name, the properties...
+But the metaobject information says that it is a QWidget and not YourWidget
+and this is what the ui file will contain.
+When you load it, any trace of YourWidget has dissapeared.
+</P>
+
+
+<H2 id="toc_8"> Things that do not interfer plugin loading </H2>
+
+
+<P>
+While trying to find out the reasons the plugins don't load,
+I also tried some apparent failure reasons.
+After having the plugin working i tried again most of the hypothesis.
+Here is a list with the things that do not interfere with the loading.
+(Tested just in Linux)
+</P>
+
+<UL>
+	<LI> You can change the name of the library</LI>
+	<LI> You can even avoid using the 'lib' prefix (but the '.so' suffix is mandatory)</LI>
+	<LI> You can duplicate the library, on different locations or names as long as they are the same version</LI>
+	<LI> You can use whatever name as the first argument for the Q_EXPORT_PLUGIN2 macro</LI>
+</UL>
+
+
+
+<P>
+<!--
+TODO: Other things to check
+Previous causes have been tested to fail. The following ones are still pending of a test:
+</p>
+<ul>
+	<li> Working on linux but not Windows -> Not placing the QDESIGNER_WIDGET_EXPORT</li>
+</ul>
+
+<p>
+-->
+</P>
+
+<H2 id="toc_9"> Conclusions </H2>
+
+
+<P>
+Qt comes with a lot of examples that work out the box.
+But as soon you try to modify them, you come up with those problems.
+This is more noticeable, when you are using a different build chain than
+qmake <A href="http://www.dtic.upf.edu/~dgarcia/Codders/sconstools.html">as it was my case</A>.
+</P>
+
+
+<P>
+Of course that 'a hundred reasons' was an exaggeration.
+But when you have no feedback on what's happening even one reason
+is worth ten.
+It would be nicer that Qt would give you some kind of warning
+when any of the problems is happening, such as the missing symbols or the
+bad xml one.
+Meanwhile, I hope the insight collected in this article
+will help you to solve your Qt plugins problems.
+</P>
+
+
+
+
+
+
+
+
+
+
+</DIV>
+
+<DIV class="footer">
+<DIV class="copyright">© David García Garzón, 1996-2006</DIV>
+<DIV class="email">dgarcia (a) iua.upf.edu</DIV>
+<DIV class="banners">
+<!--Creative Commons License-->
+<!--/Creative Commons License-->
+<!-- <rdf:RDF xmlns="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="">
+<license rdf:resource="http://creativecommons.org/licenses/by-nc-sa/2.5/" />
+<dc:type rdf:resource="http://purl.org/dc/dcmitype/InteractiveResource" />
+</Work>
+<License rdf:about="http://creativecommons.org/licenses/by-nc-sa/2.5/"><permits rdf:resource="http://web.resource.org/cc/Reproduction"/><permits rdf:resource="http://web.resource.org/cc/Distribution"/><requires rdf:resource="http://web.resource.org/cc/Notice"/><requires rdf:resource="http://web.resource.org/cc/Attribution"/><prohibits rdf:resource="http://web.resource.org/cc/CommercialUse"/><permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/><requires rdf:resource="http://web.resource.org/cc/ShareAlike"/></License></rdf:RDF> -->
+<A rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/"><IMG alt="Creative Commons License" src="./One hundred reasons my Qt plugin is not working_files/somerights20.png"></A>
+<A href="http://www.vim.org/"><IMG src="./One hundred reasons my Qt plugin is not working_files/created-with-vim.png" alt="Vim"></A>
+<A href="http://www.inkscape.org/"><IMG src="./One hundred reasons my Qt plugin is not working_files/gfx_by_inkscape.jpg" alt="InkScape"></A>
+<A href="http://www.gimp.org/"><IMG src="./One hundred reasons my Qt plugin is not working_files/gimp.gif" alt="Gimp"></A>
+<A href="http://validator.w3.org/check?uri=referer"><IMG src="./One hundred reasons my Qt plugin is not working_files/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88"></A>
+<A href="http://jigsaw.w3.org/css-validator/check/referer"><IMG src="./One hundred reasons my Qt plugin is not working_files/vcss" alt="Valid CSS 2.0" height="31" width="88"></A>
+<A href="http://my.statcounter.com/project/standard/stats.php?project_id=1479804&guest=1">
+<IMG src="./One hundred reasons my Qt plugin is not working_files/counter.php" alt="website statistics"></A>
+</DIV>
+</DIV>
+
+
+
+
+</BODY></HTML>

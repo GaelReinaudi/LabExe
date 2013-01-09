@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<svg width="100%" height="100%"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   onload="startUp()"
+   onresize="resize()">
+
+<script>
+
+<![CDATA[
+
+var xmlns="http://www.w3.org/2000/svg";
+var xlinkns = "http://www.w3.org/1999/xlink"; 
+
+var object = new Array();
+ 
+var nw = nh = 0 ;
+
+var time = 0.0;
+var timeInc = 100;
+// steps needed to fly across the browser
+var nStep = 1000;   
+var Mach = 0.5;
+
+var planeSpeed = 1.0;
+var soundSpeed = 1.0;
+var plane;
+
+var xPos = 0.0;
+var nWave = 0;
+var eps = 0.000001;
+
+function startUp() 
+{
+	init();
+}
+
+function init()
+{
+	resize();
+
+	soundSpeed = nw*1.0/nStep*timeInc/1000.;
+
+      setParams();
+	setInterval("movePlane()",timeInc);
+}
+
+function setParams()
+{
+	time = 0.0;
+	
+	planeSpeed = soundSpeed * Mach;
+ 	document.getElementById("machLabel").firstChild.nodeValue = "Mach: "+ Mach.toFixed(1);
+}
+
+function movePlane()
+{
+	xPos = planeSpeed*time; 
+
+  	plane = document.getElementById("plane");
+	plane.setAttributeNS(null,"transform","translate("+xPos+",0)");
+	
+	object[nWave] = new makeWave()
+	for (i=0;i<object.length;i++) {
+		object[i].moveWave();
+	}
+
+	nWave++;
+	time += timeInc;
+}
+
+function makeWave()
+{
+	this.wave = document.createElementNS(xmlns,"circle");
+ 	document.getElementById("GroupOfWaves").appendChild(this.wave);
+ 
+	this.r = 0.0;
+	this.x = xPos;
+	this.y = 0;
+
+  	this.moveWave = function(){
+    		with(this){
+			r += soundSpeed*timeInc;
+      		wave.setAttributeNS(null,"r",r);
+ 		}
+  	}
+    	this.wave.setAttributeNS(null,"cx",this.x);
+  	this.wave.setAttributeNS(null,"cy",this.y);
+	this.wave.setAttributeNS(null,"fill","none");
+	this.wave.setAttributeNS(null,"stroke","green");
+	this.wave.setAttributeNS(null,"stroke-width","1");
+}
+
+function resize()
+{
+     	nw  = window.innerWidth;
+	nh  = window.innerHeight;
+}
+
+function MachUp()
+{
+	if(Mach >= (1.0-eps)) {
+		Mach += 0.5;
+	}
+	else if(Mach <= (0.9+eps)) {
+		Mach +=0.1;
+	}
+    	remove();
+	setParams();
+}
+
+function MachDown()
+{
+	if(Mach>1.0) Mach -= 0.5;
+	else if(Mach<=1.0) Mach -=0.1;
+	if(Mach<0.1) Mach=0.1;
+	remove();
+	setParams();
+}
+
+function remove(){
+ 	var GChildren=document.getElementById("GroupOfWaves").childNodes;
+ 	for (var i=GChildren.length-1;i>=0;i--){
+ 	var anyChild=GChildren.item(i)
+ 	document.getElementById("GroupOfWaves").removeChild(anyChild);
+ }
+}
+
+function mouseOverRed()
+{
+  document.getElementById("RedStop").setAttributeNS(null,"stop-color", "white"); 
+}
+
+function mouseOverGreen()
+{
+  document.getElementById("GreenStop").setAttributeNS(null,"stop-color", "white"); 
+}
+
+function mouseOutRed()
+{
+  document.getElementById("RedStop").setAttributeNS(null,"stop-color", "red"); 
+}
+
+function mouseOutGreen()
+{
+  document.getElementById("GreenStop").setAttributeNS(null,"stop-color", "green"); 
+}
+
+]]>
+
+</script>
+
+<rect height="100%" width="100%" fill="white"/>
+
+<g id="SpeedofSound" transform="translate(200,200)">
+ <g id="GroupOfWaves">
+ </g>
+
+ <g id="plane" >
+   <g id="planeInit"  transform="scale(0.5)">
+    <path
+       d="M -58.044107,0.26904364 0.09133928,0.09846479 c 0,0 -6.48936928,-6.31739969 -20.41572828,-7.54695579 -16.622795,-1.4676241 -9.962229,0.7509972 -27.346556,-3.379336 -6.336304,-1.50544 -11.338107,-13.991707 -11.338107,-13.991707 l -6.754618,-1.929891 7.719563,27.01846864 z"
+       id="planePath"
+       style="fill:red;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+   </g>
+ </g>
+
+  <g
+     id="girl" transform="translate(200,300)">
+    <path
+       d="M -0.24123634,0.08928235 C -6.2721448,-8.1127531 -6.5133811,-8.1127531 -6.5133811,-8.1127531 l -6.9958539,8.44327178"
+       id="path2824"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       d="m -6.5133811,-8.1127531 0,-11.3381079 -7.7195629,5.548436"
+       id="path2826"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       d="M -6.0309084,-19.450861 0,-14.384898"
+       id="path2828"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       d="m -68.028646,4.5521545 a 1.6886543,0.12061817 0 0 1 -0.0046,0.00891"
+       id="path3632"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <rect
+       width="15.680362"
+       height="14.232944"
+       x="-51.624577"
+       y="-3.5292628"
+       id="rect3657"
+       style="opacity:0.01000001;color:#000000;fill:none;stroke:#b30000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+    <path
+       d="m -44.387486,-19.933334 a 9.4082174,8.9257441 0 1 1 -18.816435,0 9.4082174,8.9257441 0 1 1 18.816435,0 z"
+       transform="matrix(0.57416661,0,0,0.56466206,24.253697,-14.226172)"
+       id="path3689"
+       style="fill:#fffbc6;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       d="m -58.620429,-14.023044 a 0.48247269,0.12061817 0 1 1 -0.964945,0 0.48247269,0.12061817 0 1 1 0.964945,0 z"
+       transform="translate(50.418394,-12.061817)"
+       id="path3697"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       d="m -58.620429,-14.023044 a 0.48247269,0.12061817 0 1 1 -0.964945,0 0.48247269,0.12061817 0 1 1 0.964945,0 z"
+       transform="translate(54.278175,-11.941198)"
+       id="path3697-1"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       d="m -6.5133811,-11.490062 c 0,-8.925744 0,-8.925744 0,-8.925744"
+       id="path3729"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       d="m -6.7309182,-30.330195 c -8.7569858,2.329371 -4.8649928,12.591687 -4.8649928,12.591687"
+       id="path3731"
+       style="fill:none;stroke:#000000;stroke-width:0.95260161px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       d="m -6.568473,-30.306495 c 6.99585339,0.176002 5.3071987,12.785525 5.3071987,12.785525"
+       id="path3731-7"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       d="m -9.5106917,-23.413117 c 3.230624,2.270409 6.235857,0 6.235857,0"
+       id="path3759"
+       style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+  </g>
+</g>
+
+<linearGradient id="groundGradient">
+<stop offset="0" stop-color="maroon"/>
+<stop offset="1" stop-color="olive"/>
+</linearGradient>
+
+ <g id="Ground" transform="translate(0,500)">
+   <rect x="0" y="0" height="100%" width="100%" fill="url(#groundGradient)" />
+ </g>
+
+ <g id="titleTextArea">
+	<rect x ="50" y="20" width="250" height="50" fill="white"/>
+	<text id="title" x="50" y="60" font-size="40"> 
+	<tspan x="70" dy="0"> Sonic Boom </tspan>
+ 	</text>
+ </g>
+
+
+<!-- buttons -->
+<radialGradient id="RedG">
+   <stop id="RedStop" stop-color="red" offset="0"/>
+   <stop stop-color="white" offset="80%"/>
+   <stop stop-color="red" offset="100%"/>
+ </radialGradient>
+<radialGradient id="GreenG">
+   <stop id="GreenStop" stop-color="green" offset="0"/>
+   <stop stop-color="white" offset="80%"/>
+   <stop stop-color="green" offset="100%"/>
+ </radialGradient>
+
+ <g id="buttonArea">
+	<rect x ="10" y="420" width="260" height="60" stroke="blue" stroke-width="2" fill="white"/>
+
+ <!--Mach-->
+<g transform="translate(120,400)">
+    <text id="machLabel" x="-90" y="60" font-size="24" fill="black">
+Mach:
+    </text>
+    <g id="MachUp" onclick="MachUp()" 
+               onmouseover="mouseOverGreen()" 
+               onmouseout="mouseOutGreen()" >
+
+      <circle id="MachUpCircle" cx = "50" cy="50" r="20" fill="url(#GreenG)" />
+      <path d="M 50 40 L 50 60 M 40 50 L 60 50" fill="none" stroke="black" stroke-width="3"/>
+    </g>
+
+    <g id="MachDown" onclick="MachDown()"
+               onmouseover="mouseOverRed()" 
+               onmouseout="mouseOutRed()">
+      <circle id="MachCircle" cx = "100" cy="50" r="20" fill="url(#RedG)" />
+      <path d="M 90 50 L 110 50" fill="none" stroke="black" stroke-width="3"/>
+    </g>
+  </g>
+
+
+ </g>
+</svg>

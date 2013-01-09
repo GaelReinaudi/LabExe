@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>  <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/SVG/DTD/svg10.dtd" >  <svg    xmlns:svg="http://www.w3.org/2000/svg"    xmlns="http://www.w3.org/2000/svg"    version="1.1"    width="100%"    height="100%"    xml:space="preserve"    onresize="resize()"    onload = "startup(evt)">  <script>  <![CDATA[  var xmlns="http://www.w3.org/2000/svg"; var xlinkns = "http://www.w3.org/1999/xlink";  
+var object = new Array(); var wWidth; var wHeight;
+var xs, ys;  // start of domain
+var xe, ye;  // end of domain
+var hSpan = 16;
+var vSpan = 14;
+var hStart = 3;
+var vStart = 5;
+var refLength;
+var jump = 2;
+var iCell;
+var jCell;
+var nNeedle = 0;
+var timeInc = 100;
+var tryCount = 0;
+var touchCount = 0;  var txtResult;
+var plotResult;
+var plotAxis;
+var plotPathString="";
+var amplitude = 30;  function startup(evt) {      	wWidth  = window.innerWidth; 	wHeight  = window.innerHeight;
+
+	// length of cell = BarDistance / 2
+	refLength = wHeight / vSpan;
+
+	xs = wWidth*hStart/hSpan;
+	ys = wHeight*vStart/vSpan;
+
+	xe = wWidth*(hSpan-1)/hSpan;
+	ye = wHeight*(vSpan-1)/vSpan;
+
+	bar1 = document.getElementById("Bar1");
+	bar2 = document.getElementById("Bar2");
+	bar3 = document.getElementById("Bar3");
+	bar4 = document.getElementById("Bar4");
+	bar5 = document.getElementById("Bar5");
+	
+	bar1.setAttributeNS(null,"x1", wWidth*hStart/hSpan);
+	bar1.setAttributeNS(null,"x2", wWidth*(hSpan-1)/hSpan);
+	bar1.setAttributeNS(null,"y1", wHeight*vStart/vSpan);
+	bar1.setAttributeNS(null,"y2", wHeight*vStart/vSpan);
+
+	bar2.setAttributeNS(null,"x1", wWidth*hStart/hSpan);
+	bar2.setAttributeNS(null,"x2", wWidth*(hSpan-1)/hSpan);
+	bar2.setAttributeNS(null,"y1", wHeight*(vStart+2)/vSpan);
+	bar2.setAttributeNS(null,"y2", wHeight*(vStart+2)/vSpan);
+
+	bar3.setAttributeNS(null,"x1", wWidth*hStart/hSpan);
+	bar3.setAttributeNS(null,"x2", wWidth*(hSpan-1)/hSpan);
+	bar3.setAttributeNS(null,"y1", wHeight*(vStart+4)/vSpan);
+	bar3.setAttributeNS(null,"y2", wHeight*(vStart+4)/vSpan);
+
+	bar4.setAttributeNS(null,"x1", wWidth*hStart/hSpan);
+	bar4.setAttributeNS(null,"x2", wWidth*(hSpan-1)/hSpan);
+	bar4.setAttributeNS(null,"y1", wHeight*(vStart+6)/vSpan);
+	bar4.setAttributeNS(null,"y2", wHeight*(vStart+6)/vSpan);
+ 
+	bar5.setAttributeNS(null,"x1", wWidth*hStart/hSpan);
+	bar5.setAttributeNS(null,"x2", wWidth*(hSpan-1)/hSpan);
+	bar5.setAttributeNS(null,"y1", wHeight*(vStart+8)/vSpan);
+	bar5.setAttributeNS(null,"y2", wHeight*(vStart+8)/vSpan);
+ 
+	txtResult = document.getElementById("updateTxt");
+        plotResult= document.getElementById("updatePlot");
+
+	ypos = 3.141593*amplitude;
+	xpos = 0.0;
+
+ 	plotAxis = document.getElementById("axis");
+
+	plotAxis.setAttributeNS(null,"x1", xpos);
+	plotAxis.setAttributeNS(null,"x2", xe - 350);
+	plotAxis.setAttributeNS(null,"y1", ypos);
+	plotAxis.setAttributeNS(null,"y2", ypos);
+
+	var xResult = 0;
+	var yResult = 0;
+	plotPathString ="M"+Math.round(xResult)+","+Math.round(yResult);
+
+	object[nNeedle++] = new tossNeedle();
+	 }
+ function tossNeedle()
+{
+	setInterval("makeNeedle()",timeInc);
+}
+
+function makeNeedle()
+{
+	tryCount++;
+	var intMax = 1000000;
+
+	var center, theta, endPoint, distance;
+	var ang = Math.floor(Math.random()*intMax)/(intMax+0.0)*180.0;	
+	var sign = -1;
+	if(ang < 90) sign = 1;
+
+	var xc = Math.floor(Math.random()*(xe-xs)) + xs;
+	var yc = Math.floor(Math.random()*(ye-ys)) + ys;
+
+	center = (Math.random() * intMax) / (intMax + 0.0);
+	theta = (Math.random() * intMax) / (intMax + 0.0);
+
+	xne = xc + sign*Math.sin(theta*Math.PI)*refLength;
+	yne = yc - sign*Math.cos(theta*Math.PI)*refLength;
+
+	xns = xc - sign*Math.sin(theta*Math.PI)*refLength;
+	yns = yc + sign*Math.cos(theta*Math.PI)*refLength;
+
+
+	this.needle = document.createElementNS(xmlns,"line");
+ 	document.getElementById("GroupOfNeedles").appendChild(this.needle);
+
+  	this.needle.setAttributeNS(null,"x1",xns);
+	this.needle.setAttributeNS(null,"y1",yns);
+	this.needle.setAttributeNS(null,"x2",xne);
+	this.needle.setAttributeNS(null,"y2",yne);
+
+	this.needle.setAttributeNS(null,"stroke-width","1");
+	this.needle.setAttributeNS(null,"stroke","blue");
+
+	endPoint = Math.sin(theta*Math.PI/2.);
+	distance = 1.0 - center;
+	if(endPoint > distance) touchCount++;	
+
+	var result =  2.0 / (touchCount/ (tryCount+0.0)); 
+  	txtResult.firstChild.nodeValue = "try:" + tryCount + ",   value: " + result.toFixed(5);
+	var xResult = tryCount;
+	var yResult = result*amplitude;
+
+	plotPathString +=" L"+Math.round(xResult)+","+Math.round(yResult); 	plotResult.setAttributeNS(null,"d",plotPathString);
+}
+ function resize() {      	wWidth  = window.innerWidth; 	wHeight  = window.innerHeight; }  ]]>  </script>   <g id="title">   <text font-size="40" x="20" y="50">Buffon's Needle    </text>
+  <text font-size="20" x="20" y="70" fill="green">value is getting closer to 3.14159..   </text>
+  <text id="updateTxt" x="20" y="90" font-size="20" fill="purple"> 	try: 0,  value: 0   </text>
+  <text id="notice" x="20" y="110" font-size="15" fill="black">
+If you don't see the graph, just refresh the browser!   </text>
+</g>
+ 
+  <line id="Bar1" stroke-width="1" stroke="green" fill="none"/>
+  <line id="Bar2" stroke-width="1" stroke="green" fill="none"/>
+  <line id="Bar3" stroke-width="1" stroke="green" fill="none"/>
+  <line id="Bar4" stroke-width="1" stroke="green" fill="none"/>
+  <line id="Bar5" stroke-width="1" stroke="green" fill="none"/>
+
+ <g id="GroupOfNeedles">  </g>
+
+<g id="MyResult" transform="translate(350,50)">   <path id="updatePlot" stroke-width="2" stroke="red" fill="none"/>
+  <line id="axis" stroke-width="1" stroke="black" fill="none"/> </g>  
+ </svg>  
