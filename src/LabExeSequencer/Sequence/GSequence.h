@@ -41,7 +41,10 @@ public:
 
 
 	//! Implemented
-	virtual bool InjectInitializationData(const QVariantList & theDataList) {return false;}
+	virtual bool InjectInitializationData(const QVariantList & theDataList) {
+		Q_UNUSED(theDataList);
+		return false;
+	}
 	//! Implemented
 	virtual QVariantList ProvideInitializationData() {return QVariantList();}
 

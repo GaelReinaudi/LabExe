@@ -2,7 +2,6 @@
 #define GSEQNODE_H
 
 #include <QObject>
-#include <QDomNode>
 
 // CRTP !
 template<typename DerivedClass, typename BaseNode>
@@ -19,19 +18,19 @@ private:
 	
 };
 
-class GSeqNode : public QObject, public GNode<GSeqNode, QDomNode>
-{
-public:
-	GSeqNode(QObject *parent, GSeqNode* parentNode) 
-		: QObject(parent)
-		, GNode<GSeqNode, QDomNode>(parent)
-	{
-	}
-	~GSeqNode() {
-	}
-
-private:
-
-};
+//class GSeqNode : public QObject, public GNode<GSeqNode, QDomNode>
+//{
+//public:
+//	GSeqNode(QObject *parent, GSeqNode* parentNode) 
+//		: QObject(parent)
+//		, GNode<GSeqNode, QDomNode>(parent)
+//	{
+//	}
+//	~GSeqNode() {
+//	}
+//
+//private:
+//
+//};
 
 #endif // GSEQNODE_H

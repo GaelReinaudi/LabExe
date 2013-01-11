@@ -2,6 +2,7 @@
 #define GSequenceScene_H
 
 #include <QtGui>
+#include <QGraphicsLinearLayout>
 #include "../../MapExe/src/SceneView/GMapGraphicsScene.h"
 
 class GSequence;

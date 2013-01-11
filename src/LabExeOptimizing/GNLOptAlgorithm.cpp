@@ -1,6 +1,6 @@
 #include "GNLOptAlgorithm.h"
 #include "GOptimizer.h"
-#include <QtCore>
+#include <QtConcurrent>
 
 
 double GlobalNLoptEvaluationFunction(const std::vector<double> &x, std::vector<double> &grad, void* f_data) 

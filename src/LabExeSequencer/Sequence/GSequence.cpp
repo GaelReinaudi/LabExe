@@ -4,7 +4,7 @@
 #include "GnewChannelSynchEvent.h"
 #include "GnewInstruction.h"
 #include "GnewSynchEventGraphicsItem.h"
-#include "GSequenceEventItem.h"
+//#include "GSequenceEventItem.h"
 
 GSequence::GSequence(QObject *parent)
 	: GContentAgent<GSequence, GSequenceGraphicsItem>(parent)

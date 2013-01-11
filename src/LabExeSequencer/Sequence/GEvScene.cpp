@@ -2,6 +2,7 @@
 #include "GSequence.h"
 #include "GnewChannel.h"
 #include "GSynchEvent.h"
+#include <QGraphicsSceneMouseEvent>
 
 GEvScene::GEvScene(GSequence *parentSeq)
 	: QGraphicsScene(parentSeq)

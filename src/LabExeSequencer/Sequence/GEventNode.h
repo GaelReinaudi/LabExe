@@ -36,11 +36,11 @@ public:
 
 
 	//! Implemented
-	virtual bool InjectInitializationData(const QVariantList & theDataList) {return false;}
+	virtual bool InjectInitializationData(const QVariantList & theDataList) {Q_UNUSED(theDataList); return false;}
 	//! Implemented
 	virtual QVariantList ProvideInitializationData() {return QVariantList();}
 	//! Implemented
-	virtual QGraphicsItem* NewContentItem(GAgentWrapitem* pParentItem) {return new QGraphicsLineItem(0.0, 0.0, 0.0, 100.0);}
+	virtual QGraphicsItem* NewContentItem(GAgentWrapitem* pParentItem) {Q_UNUSED(pParentItem);return new QGraphicsLineItem(0.0, 0.0, 0.0, 100.0);}
 
 	//! Re-implemented to add the new ID in the EventManagerInstance(). It doesn't remove the previous one.
 	void Event_UniqueSystemIDChanged(const QString & newSystemID);

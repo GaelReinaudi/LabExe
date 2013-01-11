@@ -1,5 +1,6 @@
 #include "GEventGraphicsLine.h"
 #include "GSequenceEventItem.h"
+#include <QGraphicsProxyWidget>
 
 GEventGraphicsLine::GEventGraphicsLine(GSequenceEventItem* pEvent, QGraphicsItem* parent)
 	: QGraphicsLineItem(parent)

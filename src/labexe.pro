@@ -3,7 +3,7 @@
 # ------------------------------------------------------
 
 TEMPLATE = lib
-TARGET = labexe_D
+TARGET = labexe
 DESTDIR = ../bin
 QT += core gui script widgets
 CONFIG += debug

@@ -3,7 +3,7 @@
 #include "GEoEvalFunctor.h"
 #include "GEoGeneticAlgorithmWidget.h"
 
-#include <QtCore>
+#include <QtConcurrent>
 #include <QDebug>
 
 GEoGeneticAlgorithm::GEoGeneticAlgorithm(GOptimizer* parentOptimizer)

@@ -52,7 +52,7 @@ protected:
 	//! Re-implemented
 	void InterpretSettings(QSettings& fromQsettings);
 	//! Re-implemented
-	void PopulateDeviceWidget(GDeviceWidget* theDeviceWidget) {}
+	void PopulateDeviceWidget(GDeviceWidget* theDeviceWidget) {Q_UNUSED(theDeviceWidget)}
 	//! updates the Fitness value with the content of the bucket (plus the sign for maximizing or minimizing)
 	double UpdateFitnessValue();
 

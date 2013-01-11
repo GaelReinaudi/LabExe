@@ -1,6 +1,7 @@
 #include "GnewChannelGraphicsItem.h"
 #include "GnewChannel.h"
 #include "Sequence/GSequence.h"
+#include <QGraphicsSceneMouseEvent>
 
 double CHANNEL_GRAPHICS_ITEM_VERTICAL_SIZE = 10.0;
 
