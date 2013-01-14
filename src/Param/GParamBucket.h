@@ -14,15 +14,16 @@ class GParamString;
 class GParamInt;
 
 /////////////////////////////////////////////////////////////////////
-//! \brief The GParamBucket class defines an object that is made to receive a param
+//! \brief The GParamBucket class defines an object that is made to hold a param
 /*!
 It allows the user to drag and drop a param into a provided widget
-and would handle it by forwarding some signals and slots to some other use. Sounds a bit abstract? 
-well here are some examples of classes that could benefit of using the GParamBucket:
-- an optimizer could have a GParamBucket so that the user can drop a param to be optimized and displayed.
-- it would also have a GParamBucket (or many) for the variable parameters.
-- a formula widget could have several GParamBucket in order to associate a name to theme like "x", or "y"
-- a feedback loop, just like the optimizer.
+and would handle it by forwarding some signals and slots to some other use. 
+Sounds a bit abstract? 
+well here are some examples of classes that could benefit from using the GParamBucket:
+- a plotter device would have a bucket where one would drag and drop whatever parameter (s)he wants to plot,
+- an optimizer has a bucket so that the user can drop a parameter to be optimized from another device,
+- it would also has a bucket for the variables.
+- a formula has a bucket that associate dropped parameters with a variable name that can be scripted into a formula, like "x", or "y"
 
 In order to extend the functionalities of the bucket, one can use the function 
 AddExtraFieldBool() or AddExtraFieldString(). 
@@ -30,7 +31,7 @@ This will append a new field associated with each param present in the bucket. T
 GParam object that can be obtained latter by using the function ExtraParam() in which you must 
 specify the parameter it is associated with as well as the given field.
 the convenience function ExtraParamBool(), ExtraParamNum() and ExtraParamString() return 
-a conversion to the right param class if it makes sens.
+a conversion to the right param class when it makes sens.
 */
 class LABEXE_EXPORT GParamBucket : public GParam
 {
@@ -41,9 +42,8 @@ public:
 
 	~GParamBucket();
 
-	//! test to make GParamBucket inherited from GParam
+	//! Re-implemeted from GParam
 	QWidget* ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid = Default);
-
 	//! Provides a widget that will accept drops of GParam.
 	virtual GParamBucketWidget* ProvideParamBucketWidget(QWidget* parentWidget, Qt::Orientation orientation = Qt::Vertical);
 	//! Provides a tree widget that will accept drops of GParam.
@@ -67,7 +67,7 @@ public:
 	int ParamCount() const { return Params().count(); }
 	//! Freezes the bucket, making it an editable by dropping/removing params. Useful when you want the bucket to be seen as a fixed bunch of parameters.
 	void Freeze(bool doFreeze = true);
-	//! Returns true if the bucket is freezed.
+	//! Returns true if the bucket is freez`ed.
 	bool IsFreezed() const { return m_IsFreezed; }
 	//! returns the 0 based index of the pParam in the bucket.
 	int IndexParam(GParam* pParam) {return Params().indexOf(pParam);}
@@ -82,6 +82,7 @@ protected:
 	//! Re-implemented
 	virtual void InterpretSettings(QSettings& fromQsettings);
 
+	///////////////////////////////////////////////////
 	// those are related to extra field functionalities
 public:
 	//! Names of the extra fields
@@ -185,7 +186,7 @@ private:
 	//! When an BucketUpdatedValues() is going to be sent through queued connection, the time that we should delay it, so that other parameter could be given a chance to update too.
 	int m_DelayUpdateSignal;
 
-	//! TEST in order to add field to the bucket for each parameters inside it. Should be something like ["GParamBool", "GParamString", "GParamString", etc...]
+	//! In order to add field to the bucket for each parameters inside it. Should be something like ["GParamBool", "GParamString", "GParamString", etc...]
 	QList<QString> m_ExtraFieldsClass;
 	//! Names associated with the extra fields
 	QList<QString> m_ExtraFieldsName;

@@ -4,7 +4,6 @@
 
 // #include "GParamManager.h"
 #include "ToolBox/GSerializable.h"
-// #include "GParamLabel.h"
 #include <QObject>
 #include <QVariant>
 #include <QSettings>
@@ -15,20 +14,14 @@
 #include <QLabel>
 #include <QDoubleSpinBox>
 
-class GParamSettingsWidget;
-
 typedef QWidget GParamControlWidget;
-
 typedef QVector<double> GVectorDouble;
-
-// namespace ControlWidget {
-// 	enum Options {InheritedFromParam = 0x1000, NoOption = 0x00, ReadOnly = 0x01};
-// }
 
 namespace LabelWidget {
 enum Options {NoOption = 0x00};
 }
 
+class GParamSettingsWidget;
 class GParam;
 class GParamLabel;
 class GParamManager;
@@ -39,17 +32,16 @@ LABEXE_EXPORT GParam* GetParamFromParamManager(QString uniqueID);
 //! Adds the param to the param manager's list of params.
 LABEXE_EXPORT void AddToParamManager(GParam* pParam); 
 
-
 /////////////////////////////////////////////////////////////////////
 //! \brief The GParam class defines a parameter of the program (e.g.: an output value, an input value, a program setting).
 /*!
 A GParam can be associated with a (or many) GParamLabel (inherits QLabel) that 
 are provided by the function ProvideNewLabel(). The GParamLabel display a name and can be used 
-e.g. for draging and droping the GParam in useful widgets (like GVariatorWidgetContainer).
+e.g. for draging and droping the GParam in useful widgets (like a GParamPlotter or GFormula).
 
 Each GParam has a unique identifier that is used for:
-	- serializing the GParam,
-	- and also for making easy the drag and drop operation through the MIME data
+	- serializing/deserializing the GParam,
+	- and also for making easy the drag and drop operation through the use of MIME data
 
 	After a GParam has been asked to change value, it will emit a signal ParamUpdateCompletion(). 
 	This signal can be customize by the user, i.e. emitted when an external 
@@ -66,15 +58,14 @@ class LABEXE_EXPORT GParam : public QObject, protected QVariant, public GSeriali
 public:
 	// options for the parameter
 	enum Properties {NoOption = 0x00, ReadOnly = 0x01, HiddenText = 0x02};//, StringUpdateOnlyWhenFinishedEditing = 0x04};
-	// options when requesting a widget
-	enum WidgetOptions {Default, Minimal, Blabla};
+	// options when requesting a widget from this param
+	enum WidgetOptions {Default, Minimal};
 	GParam::Properties Options() const { return m_Options; }
 	void SetOptions(GParam::Properties val) { m_Options = val; }
 
-	//! Creates a param with the given name. The name should be meaningful.
+	//! Creates a param with the given name. The name should be meaningful since it will be used to automatically serialize this param upon exit.
 	GParam(QString theName, QObject *parent, GParam::Properties paramOptions = NoOption);
-
-	~GParam();
+	virtual ~GParam();
 
 	//! Returns the name of the param
 	QString Name() const;
@@ -96,11 +87,15 @@ public:
 
 	//! Displays the widget containing the settings for this param. Returns the widget so that re-implementations can add more content to the layout.
 	virtual GParamSettingsWidget* PopupSettingWidget();
+	//! Provides a widget that will be used to control (read or modify) the param.
+	virtual GParamControlWidget* ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid = Default) = 0; 
+	//! Provides a label that will be used to display the name, or Drag&Drop the param (e.g. to a GVariator).
+	virtual QLabel* ProvideNewLabel(QWidget* forWhichParent, LabelWidget::Options someOptions = LabelWidget::NoOption);
 
 protected:
-	//! Reimplemented from GSerializable. Writes the settings to permanent storage using the provided QSettings. 
+	//! Re-implemented from GSerializable. Writes the settings to permanent storage using the provided QSettings. 
 	virtual void PopulateSettings(QSettings& inQsettings);
-	//! Reimplemented from GSerializable. Reads the settings from permanent storage using the provided QSettings. 
+	//! Re-implemented from GSerializable. Reads the settings from permanent storage using the provided QSettings. 
 	virtual void InterpretSettings(QSettings& fromQsettings);
 
 public slots:
@@ -114,14 +109,6 @@ protected slots:
 protected:
 	//! Populates the context menu that was provided by ProvideParamMenu().
 	virtual void PopulateParamMenu(QMenu* pTheMenu, GParamLabel* pSenderLabel = 0) const;
-
-public:
-	//! Provides a widget that will be used to control (read or modify) the param.
-	virtual GParamControlWidget* ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid = Default) = 0; 
-	//! Provides a label that will be used to display the name, or Drag&Drop the param (e.g. to a GVariator).
-	virtual QLabel* ProvideNewLabel(QWidget* forWhichParent, LabelWidget::Options someOptions = LabelWidget::NoOption);
-	//! Appends the packed-up label and widget in a layout. If it is a form-layout, it will put the label in the appropriate zone
-//	void ProvideNewWidgetLabeledInLayout(QLayout* pLayout);
 
 signals:
 	//! Emitted when the name of the param changed.

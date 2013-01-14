@@ -65,8 +65,9 @@ public:
 	GDevice(QString uniqueIdentifierName, QObject *parent);
 	virtual ~GDevice();
 
+	//! \todo{make pure virtual.}
 	//! Tells if the device is able to work (eg: is present and is properly controlled). false by default! ?
-	virtual bool IsAble() const {return false;} //TODO make pure virtual.
+	virtual bool IsAble() const {return false;} 
 	//! Returns the name that is useful for the user.
 	QString Name() const { return objectName(); }
 	//! Provides a list of the sub-devices managed by this one. May be empty.
