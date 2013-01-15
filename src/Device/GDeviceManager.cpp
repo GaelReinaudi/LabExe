@@ -95,19 +95,20 @@ void GDeviceManager::LoadDevicePlugins()
 	QStringList pluginFileNames;
 	// code taken from the plug and paint Qt example !
 	QDir pluginsDir = QDir(qApp->applicationDirPath());
-    qDebug() << pluginsDir;
+//	qDebug() << pluginsDir;
 
 #if defined(Q_OS_WIN)
-// 	if (pluginsDir.dirName().toLower() == "debug" || pluginsDir.dirName().toLower() == "release")
- 		pluginsDir.cdUp();
+	pluginsDir.cdUp();
+#elif defined(Q_OS_LINUX)
+	pluginsDir.cdUp();
 #elif defined(Q_OS_MAC)
-    if (pluginsDir.dirName() == "MacOS") {
+	if (pluginsDir.dirName() == "MacOS") {
 // 		pluginsDir.cdUp();
     pluginsDir.cdUp();
     //pluginsDir.cdUp();
     }
 #endif
-    qDebug()<<pluginsDir;
+//	qDebug()<<pluginsDir;
 
 	pluginsDir.cd("plugins");
 	qDebug() << "Loading plugins from: " << pluginsDir.path();

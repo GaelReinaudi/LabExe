@@ -32,7 +32,7 @@ private:
 	friend class GDeviceManager;
 };
 
-Q_DECLARE_INTERFACE(GDevicePlugin, "Gael.GDevicePlugin/1.0")
+Q_DECLARE_INTERFACE(GDevicePlugin, "Gael.GDevicePlugin/2.0")
 
 /*! \def G_REGISTER_PLUGIN_HARD_DEVICE(ClassName)
 \brief This is the Macro that makes your derived class from GDevice available to the device factory. 
