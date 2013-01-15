@@ -11,6 +11,7 @@ GDoubleSpinBox::GDoubleSpinBox(QWidget *parent)
 
 GDoubleSpinBox::GDoubleSpinBox( GParamNum* theControlledParam, QWidget *parent )
 {
+	Q_UNUSED(parent);
 	m_pParam = theControlledParam;
 	Init();
 }

@@ -16,7 +16,8 @@ GEventNode::GEventNode(GEventNode* pParentNode)
 // 	, GSerializable()
 	, QGraphicsLineItem(pParentNode)
 {
-	pParentNode->InsertChildEvent(this);
+	if(pParentNode)
+		pParentNode->InsertChildEvent(this);
 
 	QPen ChannelPen(Qt::red, 2);
 	// Next line ensures the width of the line is always the same on the screen, no matter what scale or zooming you use.

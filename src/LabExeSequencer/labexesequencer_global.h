@@ -1,7 +1,7 @@
 #ifndef LABEXESEQUENCER_GLOBAL_H
 #define LABEXESEQUENCER_GLOBAL_H
 
-#include <QGlobal.h>
+#include <QtGlobal>
 
 #ifdef LABEXESEQUENCER_LIB
 # define LABEXESEQUENCER_EXPORT Q_DECL_EXPORT

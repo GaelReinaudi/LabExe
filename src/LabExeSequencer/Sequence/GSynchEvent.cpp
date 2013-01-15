@@ -4,6 +4,8 @@
 #include "Param/GDoubleSpinBox.h"
 #include "ToolBox/GObjectFactory.h"
 
+#include <QGraphicsSceneContextMenuEvent>
+
 G_REGISTER_IN_FACTORY_WITH_PARENT_TYPE(GSynchEvent, GSynchEvent)
 
 GSynchEvent::GSynchEvent(GSynchEvent* parentEventSynchro)

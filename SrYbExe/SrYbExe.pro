@@ -4,6 +4,7 @@ SUBDIRS += \
 	../src/labexe.pro \
 	../src/LabExeImaging/LabExeImaging.pro \
 	../src/LabExeSequencer/LabExeSequencer.pro \
+	../../MapExe/src/LabExeGraphicsMap.pro
 #    ../UserDefinedPlugins/ImagePixelAdderPlugin/ImagePixelAdderPlugin.pro \
 #    ../UserDefinedPlugins/ImageSaverPlugin/ImageSaverPlugin.pro \
 #    ../UserDefinedPlugins/ParamPlotterPlugin/ParamPlotterPlugin.pro \
