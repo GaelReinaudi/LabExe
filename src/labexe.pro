@@ -2,7 +2,7 @@ TEMPLATE = lib
 DESTDIR = ../bin
 TARGET = labexe
 QT += core gui script widgets
-DEFINES += LABEXE_LIB QT_SCRIPT_LIB
+DEFINES += LABEXE_LIB
 INCLUDEPATH += \
 	./../include \
     ./GeneratedFiles \
