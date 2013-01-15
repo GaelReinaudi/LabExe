@@ -1,7 +1,7 @@
 #ifndef LABEXEIMAGING_GLOBAL_H
 #define LABEXEIMAGING_GLOBAL_H
 
-#include <QGlobal.h>
+#include <QtGlobal>
 
 #ifdef LABEXEIMAGING_LIB
 # define LABEXEIMAGING_EXPORT Q_DECL_EXPORT

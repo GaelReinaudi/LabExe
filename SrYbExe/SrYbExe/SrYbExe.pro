@@ -3,27 +3,29 @@
 # ------------------------------------------------------
 
 TEMPLATE = app
-TARGET = SrYbExe
 DESTDIR = ../../bin
+
 QT += core gui widgets
-CONFIG += release
-DEFINES += QT_LARGEFILE_SUPPORT QT_DLL
-INCLUDEPATH += ./../../../LabExe/src \
-    ./../../../LabExe/include \
-    ./GeneratedFiles \
-    ./GeneratedFiles/Release \
-    .
-LIBS += -L"./../../../LabExe/lib" \
-    -L"./../../../LabExe/bin" \
-    -L"." \
-    -llabexe_D
-#    -llabexeImaging \
-#    -llabexeOptimizing \
-#    -llabexeSequencer
-DEPENDPATH += .
-MOC_DIR += ./GeneratedFiles/release
-OBJECTS_DIR += release
+
+INCLUDEPATH += \
+	./../../../LabExe/src \
+	./../../../LabExe/include \
+	./GeneratedFiles \
+	./GeneratedFiles/Release \
+	.
+
+LIBS += \
+	-L"./../../../LabExe/lib" \
+	-L"./../../../LabExe/bin" \
+	-L"." \
+	-llabexe \
+	-lLabExeImaging
+	-llabexeOptimizing \
+#	-llabexeSequencer
+
+#DEPENDPATH += .
+MOC_DIR += ./GeneratedFiles
 UI_DIR += ./GeneratedFiles
 RCC_DIR += ./GeneratedFiles
+
 include(SrYbExe.pri)
-win32:RC_FILE = SrYbExe.rc

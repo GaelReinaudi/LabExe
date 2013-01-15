@@ -21,7 +21,7 @@ void GImageGraphicsScene::SetImage(QImage image)
 	colorTable[255] = qRgb(255, 0, 0);
 	image.setColorTable(colorTable);
 
-	setBackgroundBrush(QBrush::QBrush(image));
+    setBackgroundBrush(QBrush(image));
 	setSceneRect(0, 0, image.width(), image.height());
 }
 

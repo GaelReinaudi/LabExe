@@ -65,9 +65,12 @@ public slots:
 	
 protected:
 	//! Has to be re-implemented to process the full captured image while still specifying what is the Area Of Interest of the image processor. if the AOI is the whole picture, an invalid QRect() will be passed.
-	virtual void ProcessImageFull(const GImageDouble & fullImage, const QRect & theAoiInTheFullImage) {}
+	virtual void ProcessImageFull(const GImageDouble & fullImage, const QRect & theAoiInTheFullImage) {
+		Q_UNUSED(fullImage);
+		Q_UNUSED(theAoiInTheFullImage);
+	}
 	//! Has to be re-implemented to process the image truncated by the AOI. It is called by InputImageDouble(). The aoiRect is the QRect corresponding to the AOI in the original picture. You have to call IncrementCountProcessed() to update the spin box in the widgets.
-	virtual void ProcessImageAOIed(const GImageDouble & aoiImage) {}
+	virtual void ProcessImageAOIed(const GImageDouble & aoiImage) {Q_UNUSED(aoiImage);}
 	//! Called when the AOI changed. Re-implement to perform custom actions. Default implementation emits the signal AoiChanged().
 	virtual void EventAoiChanged(QRectF theAoiRect) {emit AoiChanged(theAoiRect.toRect());}
 

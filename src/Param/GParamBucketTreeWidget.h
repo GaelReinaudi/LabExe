@@ -28,7 +28,7 @@ public:
 
 	enum Column{Label, Widget, Extra};
 	//! intended to be compatible with the old QGroupBox widget, to provide a Title
-	void setTitle(QString newTitle) {}
+    void setTitle(QString newTitle) {Q_UNUSED(newTitle);}
 	void UseHighLightDecay(bool) {}
 	//! Shows an extra line in the bucket that contains some info like the number of times it was triggered and by how many updating parameters at once
 	void ShowInfoItem(bool doShow);

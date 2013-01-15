@@ -5,9 +5,9 @@
 TEMPLATE = lib
 TARGET = LabExeImaging
 DESTDIR = ../../bin
-QT += core gui
-CONFIG += release
-DEFINES += QT_LARGEFILE_SUPPORT LABEXEIMAGING_LIB
+QT += core gui widgets
+#CONFIG += release
+DEFINES += LABEXEIMAGING_LIB
 INCLUDEPATH += ./../../include \
     ./../../src \
     ./GeneratedFiles \
@@ -15,10 +15,10 @@ INCLUDEPATH += ./../../include \
     .
 LIBS += -L"./../../lib" \
     -L"./../../bin" \
-    -llabexe
+	-llabexe
 DEPENDPATH += .
-MOC_DIR += ./GeneratedFiles/release
-OBJECTS_DIR += release
-UI_DIR += ./GeneratedFiles
-RCC_DIR += ./GeneratedFiles
+#MOC_DIR += ./GeneratedFiles/release
+#OBJECTS_DIR += release
+#UI_DIR += ./GeneratedFiles
+#RCC_DIR += ./GeneratedFiles
 include(LabExeImaging.pri)

@@ -3,22 +3,26 @@
 # ------------------------------------------------------
 
 TEMPLATE = lib
-TARGET = LabExeSequencer
 DESTDIR = ../../bin
-QT += core gui
-CONFIG += release
-DEFINES += QT_LARGEFILE_SUPPORT LABEXESEQUENCER_LIB
-INCLUDEPATH += ./../../include \
-    ./../../src \
-    ./GeneratedFiles \
-    ./GeneratedFiles/Release \
-    .
-LIBS += -L"./../../lib" \
-    -L"./../../bin" \
-    -llabexe
-DEPENDPATH += .
-MOC_DIR += ./GeneratedFiles/release
-OBJECTS_DIR += release
+
+QT += core gui widgets
+DEFINES += LABEXESEQUENCER_LIB
+
+INCLUDEPATH += \
+	./../../include \
+	./../../src \
+	./GeneratedFiles \
+	./GeneratedFiles/Release \
+	.
+
+LIBS += \
+	-L"./../../lib" \
+	-L"./../../bin" \
+	-llabexe
+
+#DEPENDPATH += .
+MOC_DIR += ./GeneratedFiles
 UI_DIR += ./GeneratedFiles
 RCC_DIR += ./GeneratedFiles
+
 include(LabExeSequencer.pri)
