@@ -26,7 +26,7 @@ SUBDIRS += \
 #    ../../LabExe-UserPlugins/UserProjects/Pupin632MonitorPlugin/Pupin632MonitorPlugin.pro \
 #    ../../LabExe-UserPlugins/UserProjects/LockingSlapperPlugin/LockingSlapperPlugin.pro \
 #    ../../LabExe-UserPlugins/UserProjects/StepperPlugin/StepperPlugin.pro \
-	../../LabExe-UserPlugins/UserProjects/Plot1DPlugin/Plot1DPlugin.pro
+	../../LabExe-UserPlugins/UserProjects/DevicePlugins.pro
 #    ../../LabExe-UserPlugins/UserProjects/MonteCarloLogNormalPricerPlugin/MonteCarloLogNormalPricerPlugin.pro \
 #    ../UserDefinedPlugins/YoutubePlugin/YoutubePlugin.pro \
 #    ../UserDefinedDevice/PxiSystem/PxiLabexe.pro \
