@@ -15,8 +15,9 @@ LIBS += \
 	-L"./../../../MapExe/lib" \
 	-L"./../../../MapExe/bin" \
 	-L"." \
-	-llabexe \
-	-lLabExeImaging \
+        -llabexe \
+        -lLabExeImaging \
+        -lLabExeOptimizing \
 	-lLabExeGraphicsMap \
 	-lLabExeSequencer
 
