@@ -103,7 +103,7 @@ namespace																		\
 			mess += "\r\n Check that \"%1\" and \"%2\" uses the Q_OBJECT macro.";			\
 			mess += "\r\n Check your use of the Macro G_REGISTER_IN_FACTORY_WITH_PARENT_TYPE(%1, ParentType) in the corresponding .cpp file.";	\
 			mess = mess.arg(# ClassName).arg(# ParentType);						\
-			qCritical(mess.toAscii());											\
+            qCritical(mess.toUtf8());											\
 		}																		\
 		else 																	\
 			return new ClassName(pParentObj);									\
