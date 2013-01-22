@@ -106,6 +106,7 @@ void GImagingBench::SetMainImageProvider( GImageProcessor* pNewMainImageProvider
 
 GBenchDockWidget* GImagingBench::AddDeviceInNewDock( GDevice* pTheDevice, bool putOnStack /*= true*/ )
 {
+	Q_UNUSED(putOnStack);
 	GDeviceWidget* pDevWid = AddDevice(pTheDevice);
 	if(!pDevWid)
 		return 0;

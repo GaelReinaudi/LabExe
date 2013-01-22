@@ -1,6 +1,19 @@
 TEMPLATE = lib
 DESTDIR = ../bin
-TARGET = labexe
+
+#CONFIG(debug, debug|release) {
+#    DLLDESTDIR += $$quote(../../../Jane/Jane/Build/debug)
+#    message("Copying to Jane Debug Directory.")
+#} else {
+#    DLLDESTDIR += $$quote(../../../Jane/Jane/Build/release)
+#    message("Copying to Jane Release Directory.")
+#}
+CONFIG(debug, debug|release) {
+#	mac: TARGET = $$join(TARGET,,,_debug)
+#	win32: TARGET = $$join(TARGET,,,_D)
+	TARGET = $$join(TARGET,,,_D)
+}
+
 
 QT += core gui script widgets
 INCLUDEPATH += \

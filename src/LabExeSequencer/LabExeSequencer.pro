@@ -1,6 +1,6 @@
 TEMPLATE = lib
 DESTDIR = ../../bin
-TARGET = LabExeSequencer
+#TARGET = LabExeSequencer
 
 QT += core gui widgets qml declarative
 
@@ -16,13 +16,23 @@ INCLUDEPATH += \
 LIBS += \
 	-L"./../../lib" \
 	-L"./../../bin" \
-	-L"./../../../MapExe/bin" \
-	-llabexe \
-	-lLabExeGraphicsMap
+	-L"./../../../MapExe/bin"
 
 MOC_DIR += ./GeneratedFiles
 OBJECTS_DIR += ./GeneratedFiles/Obj
 UI_DIR += ./GeneratedFiles
 RCC_DIR += ./GeneratedFiles
+
+
+CONFIG(debug, debug|release) {
+	TARGET = $$join(TARGET,,,_D)
+}
+CONFIG(debug, debug|release) {
+	LIBS += -llabexe_D \
+	-lLabExeGraphicsMap_D
+} else {
+	LIBS += -llabexe \
+	-lLabExeGraphicsMap
+}
 
 include(LabExeSequencer.pri)

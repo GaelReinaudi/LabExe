@@ -1,5 +1,8 @@
 TEMPLATE = lib
 DESTDIR = ../../bin
+CONFIG(debug, debug|release) {
+	TARGET = $$join(TARGET,,,_D)
+}
 
 QT += core gui widgets
 
@@ -13,8 +16,13 @@ INCLUDEPATH += \
 
 LIBS += \
 	-L"./../../lib" \
-	-L"./../../bin" \
-	-llabexe
+	-L"./../../bin"
+
+CONFIG(debug, debug|release) {
+	LIBS += -llabexe_D
+} else {
+	LIBS += -llabexe
+}
 
 MOC_DIR += ./GeneratedFiles
 OBJECTS_DIR += ./GeneratedFiles/Obj
