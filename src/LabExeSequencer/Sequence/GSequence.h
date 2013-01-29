@@ -5,6 +5,7 @@
 #include "GEvScene.h"
 #include "ToolBox/GSerializable.h"
 #include "GSequence.h"
+#include "param.h"
 
 #include "GSequenceGraphicsItem.h"
 
@@ -72,9 +73,9 @@ public:
 	virtual void InterpretSettings( QSettings& fromQsettings );
 
 	//! Convenient function to return a list of GnewChannel out of a list of various graphics items in a GEvScene
-	static QList<GnewChannel*> GetChannels(QList<QGraphicsItem*> listItems);
+	static QList<GnewChannel*> FilterItemChannels(QList<QGraphicsItem*> listItems);
 	//! Convenient function to return a list of GSynchEvent out of a list of various graphics items, e.g. from a selection in a GEvScene
-	static QList<GSynchEvent*> GetEvents(QList<QGraphicsItem*> listItems);
+	static QList<GSynchEvent*> FilterItemEvents(QList<QGraphicsItem*> listItems);
 
 signals:
 	//! emitted when the Length() of the sequence changed.
@@ -97,6 +98,9 @@ public:
 	QAction* m_pActionNewChannel;
 	//! action to make and add a new event to this sequence.  Will call CreateNewEvent().
 	QAction* m_pActionNewEvent;
+
+public:
+	GParamDouble m_Length;
 
 	friend class GEvScene;
 };

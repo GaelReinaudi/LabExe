@@ -10,8 +10,11 @@ GSequence::GSequence(QObject *parent)
 	: GContentAgent<GSequence, GSequenceGraphicsItem>(parent)
 	, m_pEventTreeScene(new GEvScene(this))
 	, m_pChannelScene(new GEvScene(this))
+	, m_Length("lenght", this)
 {
 	createActions();
+
+	connect(&m_Length, SIGNAL(ValueUpdated(double)), this, SIGNAL(LengthChanged(double)));
 
 	emit LengthChanged(Length());
 }
@@ -75,8 +78,8 @@ GSynchEvent* GSequence::CreateNewEvent( GSynchEvent* pParentEvent /*= 0*/, GnewC
 
 	// if an event and a channel is selected in the GEvScene, let's use those to make a new event assigned to the channel
 	QList<QGraphicsItem*> listGraphicsItemSelected = ChannelScene()->selectedItems() + EventTreeScene()->selectedItems();
-	QList<GSynchEvent*> listEventItem = GSequence::GetEvents(listGraphicsItemSelected);
-	QList<GnewChannel*> listChannelItem = GSequence::GetChannels(listGraphicsItemSelected);
+	QList<GSynchEvent*> listEventItem = GSequence::FilterItemEvents(listGraphicsItemSelected);
+	QList<GnewChannel*> listChannelItem = GSequence::FilterItemChannels(listGraphicsItemSelected);
 
 	// if no event and no channel defined
 	if(!pParentEvent && !pAssignedChannelForGraphics) {
@@ -102,7 +105,7 @@ GSynchEvent* GSequence::CreateNewEvent( GSynchEvent* pParentEvent /*= 0*/, GnewC
 	return CreateNewEvent(RootTimeEvent(), pAssignedChannelForGraphics);
 }
 
-QList<GnewChannel*> GSequence::GetChannels( QList<QGraphicsItem*> listItems )
+QList<GnewChannel*> GSequence::FilterItemChannels( QList<QGraphicsItem*> listItems )
 {
 	QList<GnewChannel*> listChannelsToReturn;
 	foreach(QGraphicsItem* pItem, listItems) {
@@ -113,7 +116,7 @@ QList<GnewChannel*> GSequence::GetChannels( QList<QGraphicsItem*> listItems )
 	return listChannelsToReturn;
 }
 
-QList<GSynchEvent*> GSequence::GetEvents( QList<QGraphicsItem*> listItems)
+QList<GSynchEvent*> GSequence::FilterItemEvents( QList<QGraphicsItem*> listItems)
 {
 	QList<GSynchEvent*> listEventsToReturn;
 	foreach(QGraphicsItem* pItem, listItems) {
@@ -138,7 +141,7 @@ void GSequence::AddChannel( GnewChannel* pChan )
 GSynchEvent* GSequence::GetTheSelectedEvent()
 {
 	GSynchEvent* pEventToReturn = 0;
-	QList<GSynchEvent*> listEv = GetEvents(EventTreeScene()->selectedItems());
+	QList<GSynchEvent*> listEv = FilterItemEvents(EventTreeScene()->selectedItems());
 	if(listEv.count() == 1)
 		pEventToReturn = listEv.at(0);
 	return pEventToReturn;

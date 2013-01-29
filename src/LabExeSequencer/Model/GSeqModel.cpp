@@ -34,11 +34,11 @@ QVariant GSeqModel::data(const QModelIndex &index, int role) const
 
 	switch(index.column()) {
 		 case 0:
-			 return node->data();
-		 case 1:
-			 return rowForNode(node);
-		 case 2:
 			 return node->UniqueSystemID();
+		 case 1:
+			 return node->data();
+		 case 2:
+			 return rowForNode(node);
 		 default:
 			 return QVariant();
 	}
