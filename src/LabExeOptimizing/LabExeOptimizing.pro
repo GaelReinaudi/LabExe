@@ -1,6 +1,8 @@
 TEMPLATE = lib
 DESTDIR = ../../bin
-TARGET = LabExeOptimizing
+CONFIG(debug, debug|release) {
+	TARGET = $$join(TARGET,,,_D)
+}
 
 QT += core gui widgets concurrent
 

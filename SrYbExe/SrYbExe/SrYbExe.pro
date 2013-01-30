@@ -14,12 +14,21 @@ LIBS += \
 	-L"./../../../LabExe/bin" \
 	-L"./../../../MapExe/lib" \
 	-L"./../../../MapExe/bin" \
-	-L"." \
-        -llabexe \
-        -lLabExeImaging \
-        -lLabExeOptimizing \
+	-L"."
+
+CONFIG(debug, debug|release) {
+	LIBS += -llabexe_D \
+	-lLabExeImaging_D \
+	-lLabExeOptimizing_D \
+	-lLabExeGraphicsMap_D \
+	-lLabExeSequencer_D
+} else {
+	LIBS += -llabexe \
+	-lLabExeImaging \
+	-lLabExeOptimizing \
 	-lLabExeGraphicsMap \
 	-lLabExeSequencer
+}
 
 MOC_DIR += ./GeneratedFiles
 OBJECTS_DIR += ./GeneratedFiles/Obj
