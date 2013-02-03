@@ -68,7 +68,7 @@ GDeviceWidget* GSequencer::ProvideNewDeviceGroupBox( QWidget* inWhichWidget, QBo
 	// TRY BASALT
 	GMapGraphicsView* m_pView = qobject_cast<GMapGraphicsView*>(MakeGraphicsView(inWhichWidget, m_pScene));
 	pWid->pSeqViewLayout->addWidget(m_pView);
-	m_pView->SetZoom(0.05);
+	m_pView->SetZoom(1);
 
 	return pWid;
 }

@@ -5,6 +5,7 @@
 #include "../../../MapExe/src/agent.h"
 
 class GSequence;
+class QDeclarativeItem;
 // TRY BASALT
 class GSequenceGraphicsItem : public QObject, public QGraphicsRectItem 
 {
@@ -16,12 +17,14 @@ public:
 
 protected slots:
 	void Event_ChildAgentAdded(GAgent* pAgentAdded);
+	void AddQmlToScene();
 
 signals:
-	void a();
+	void aaaaaaaaaaaaaaaaaaa();
 
 private:
 	GSequence* m_pSeq;
+	QDeclarativeItem* m_pQMLitem;
 };
 
 #endif // GSEQUENCEGRAPHICSITEM_H

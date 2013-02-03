@@ -60,7 +60,7 @@ GDevice::GDevice(QString uniqueIdentifierName, QObject *parent)
 	// warn if parent = 0. Added to a cleanup list to insure will be destroyed.
 	if(!parent) {
 		DeviceManagerInstance()->m_CleanUpDevices.add(this);
-		qDebug() << "device" << metaObject()->className() << UniqueSystemID() << "Created with parent = 0.";
+//		qDebug() << "device" << metaObject()->className() << UniqueSystemID() << "Created with parent = 0.";
 	}
 	connect(this, SIGNAL(PrivateTriggerLatterInitialization()), this, SLOT(LatterInitialization()), Qt::QueuedConnection);
 	emit PrivateTriggerLatterInitialization();

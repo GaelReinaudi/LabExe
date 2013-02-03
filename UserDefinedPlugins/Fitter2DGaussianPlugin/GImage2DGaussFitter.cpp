@@ -378,10 +378,5 @@ void Fit( GImageDouble imageIn, GImage2DGaussFitter* ptr )
 
 void GImage2DGaussFitter::UpdateFinalResultValues( GVectorDouble finalValues ) 
 {
-	for(int i = 0; i < 6 ; i++) {
-		if(!m_FitMask[i]) {
-			finalValues[i] = m_Variables.ParamNum(i)->DoubleValue();
-		}
-	}
 	m_Variables.SetValues(finalValues, m_FitMask);
 }

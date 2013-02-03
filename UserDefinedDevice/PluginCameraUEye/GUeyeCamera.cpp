@@ -83,7 +83,7 @@ bool GUeyeCamera::OpenCamera()
 //	m_CamHandle = (HIDS) (0 | IS_USE_DEVICE_ID);  
 	int nRet = is_InitCamera(&m_CamHandle, NULL);
 	if (nRet != IS_SUCCESS) {
-		qDebug() << "initialization failed" << UniqueSystemID();
+//		qDebug() << "initialization failed" << UniqueSystemID();
 		return false;
 	}
 	else
@@ -274,10 +274,7 @@ void GUeyeCamera::UseExternalTrigger( bool yesORno )
 {
 	int nTriggerMode = yesORno ? IS_SET_TRIGGER_LO_HI : IS_SET_TRIGGER_OFF;
 	int ret = is_SetExternalTrigger (m_CamHandle, nTriggerMode);
-	qDebug() << "Use trigger set to" << nTriggerMode;
-// 	// 2011-04-04 to try to have the camera grab continuously when trigger mode is changed during acquisition.
-// 	ContinuousShot(false);
-// 	ContinuousShot(true);
+//	qDebug() << "Use trigger set to" << nTriggerMode;
 }
 
 void GUeyeCamera::ContinuousShot(bool StartOrStop)

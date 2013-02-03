@@ -48,7 +48,7 @@ public:
 
 
 	//! Returns the length (duration) of the sequence.
-	double Length() const {return 53.14159;}
+	Q_INVOKABLE double Length() const {return 53.14159;}
 	//! Convenient function to return a pointer to the only selected GSynchEvent in the tree-scene. If more than one, or none, returns 0.
 	GSynchEvent* GetTheSelectedEvent();
 	//! Returns the scene that holds the event items in a tree structure.

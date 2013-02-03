@@ -36,7 +36,7 @@ QVariant GSeqModel::data(const QModelIndex &index, int role) const
 		 case 0:
 			 return node->UniqueSystemID();
 		 case 1:
-			 return node->data();
+			 return node->data();//5555555
 		 case 2:
 			 return rowForNode(node);
 		 default:
