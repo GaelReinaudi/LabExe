@@ -2,6 +2,7 @@
 #include "GnewSequencerWidget.h"
 #include "Sequence/GSequence.h"
 #include "Model/GEventGraphicsView.h"
+#include "../../MapExe/src/SceneView/GMapGraphicsView.h"
 
 G_REGISTER_PROG_DEVICE_CLASS(GSequencer)
 
@@ -61,9 +62,13 @@ GDeviceWidget* GSequencer::ProvideNewDeviceGroupBox( QWidget* inWhichWidget, QBo
 // 	connect(treeview2, SIGNAL(clicked(QModelIndex)), this, SLOT(DebugIndex(QModelIndex)));
 	connect(treeview, SIGNAL(clicked(QModelIndex)), this, SLOT(DebugIndex(QModelIndex)));
 
+	if(m_pSequence)
+		pWid->pSeqViewLayout->addWidget(m_pSequence->m_Length.ProvideNewParamSpinBox(inWhichWidget));
+
 	// TRY BASALT
-	QGraphicsView* m_pView = MakeGraphicsView(inWhichWidget, m_pScene);
+	GMapGraphicsView* m_pView = qobject_cast<GMapGraphicsView*>(MakeGraphicsView(inWhichWidget, m_pScene));
 	pWid->pSeqViewLayout->addWidget(m_pView);
+	m_pView->SetZoom(1);
 
 	return pWid;
 }
