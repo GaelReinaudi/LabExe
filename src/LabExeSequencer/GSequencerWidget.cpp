@@ -1,7 +1,7 @@
-#include "GnewSequencerWidget.h"
+#include "GSequencerWidget.h"
 #include "Sequence/GSequence.h"
 
-GnewSequencerWidget::GnewSequencerWidget(GSequencer* pTheSeq, QWidget* parent /*= 0*/)
+GSequencerWidget::GSequencerWidget(GSequencer* pTheSeq, QWidget* parent /*= 0*/)
 	: GDeviceWidget(pTheSeq, parent)
 	, m_pSequencer(pTheSeq)
 {
@@ -18,7 +18,7 @@ GnewSequencerWidget::GnewSequencerWidget(GSequencer* pTheSeq, QWidget* parent /*
 	connect(pButtonNewEvent, SIGNAL(clicked()), m_pSequencer->Sequence(), SLOT(CreateNewEvent()));
 }
 
-GnewSequencerWidget::~GnewSequencerWidget()
+GSequencerWidget::~GSequencerWidget()
 {
 
 }

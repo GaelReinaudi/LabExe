@@ -1,6 +1,6 @@
 #include "GSequencingBench.h"
 #include "GSequencer.h"
-#include "GnewSequencerWidget.h"
+#include "GSequencerWidget.h"
 #include "Sequence/GSequence.h"
 
 G_REGISTER_WORKBENCH_CLASS(GSequencingBench)

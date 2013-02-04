@@ -20,7 +20,7 @@ public:
 
 	//! Returns the sequence of this sequencer
 	GSequence* Sequence() const { return m_pSequence; }
-	//! Reimplemented to provide a GnewSequencerWidget
+	//! Reimplemented to provide a GSequencerWidget
 	GDeviceWidget* ProvideNewDeviceGroupBox(QWidget* inWhichWidget, QBoxLayout::Direction orientation = QBoxLayout::LeftToRight);
 
 public:
@@ -44,7 +44,7 @@ private:
 
 	GMapGraphicsScene* m_pScene;
 
-	friend class GnewSequencerWidget;
+	friend class GSequencerWidget;
 };
 
 #endif // GSequencer_H

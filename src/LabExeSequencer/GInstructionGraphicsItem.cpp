@@ -1,9 +1,9 @@
-#include "GnewInstructionGraphicsItem.h"
-#include "Sequence/GnewSynchEventGraphicsItem.h"
-#include "GnewInstruction.h"
-#include "GnewChannel.h"
+#include "GInstructionGraphicsItem.h"
+#include "Sequence/GSynchEventGraphicsItem.h"
+#include "GInstruction.h"
+#include "GChannel.h"
 
-GnewInstructionGraphicsItem::GnewInstructionGraphicsItem(GnewInstruction* pInstruction)
+GInstructionGraphicsItem::GInstructionGraphicsItem(GInstruction* pInstruction)
 	: QGraphicsRectItem(pInstruction ? pInstruction->m_pEventGraphicsItem : 0)
 	, m_pInstruction(pInstruction)
 {
@@ -19,7 +19,7 @@ GnewInstructionGraphicsItem::GnewInstructionGraphicsItem(GnewInstruction* pInstr
 	setBrush(QBrush(Qt::white));
 }
 
-GnewInstructionGraphicsItem::~GnewInstructionGraphicsItem()
+GInstructionGraphicsItem::~GInstructionGraphicsItem()
 {
 
 }

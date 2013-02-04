@@ -1,5 +1,5 @@
 #include "GSequencer.h"
-#include "GnewSequencerWidget.h"
+#include "GSequencerWidget.h"
 #include "Sequence/GSequence.h"
 #include "Model/GEventGraphicsView.h"
 #include "../../MapExe/src/SceneView/GMapGraphicsView.h"
@@ -34,7 +34,7 @@ GSequencer::~GSequencer()
 
 GDeviceWidget* GSequencer::ProvideNewDeviceGroupBox( QWidget* inWhichWidget, QBoxLayout::Direction orientation /*= QBoxLayout::LeftToRight*/ )
 {
-	GnewSequencerWidget* pWid = new GnewSequencerWidget(this, inWhichWidget);
+	GSequencerWidget* pWid = new GSequencerWidget(this, inWhichWidget);
 
 	QTreeView* treeview = new QTreeView(pWid);
 // 	treeview->setAcceptDrops(true);

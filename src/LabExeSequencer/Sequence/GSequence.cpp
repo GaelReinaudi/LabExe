@@ -1,9 +1,9 @@
 #include "GSequence.h"
-#include "GnewChannel.h"
+#include "GChannel.h"
 #include "GSynchEvent.h"
-#include "GnewChannelSynchEvent.h"
-#include "GnewInstruction.h"
-#include "GnewSynchEventGraphicsItem.h"
+#include "GChannelSynchEvent.h"
+#include "GInstruction.h"
+#include "GSynchEventGraphicsItem.h"
 #include "GSequenceEventItem.h"
 
 GSequence::GSequence(QObject *parent)
@@ -34,9 +34,9 @@ void GSequence::createActions()
 	connect(m_pActionNewEvent, SIGNAL(triggered()), this, SLOT(CreateNewEvent()));
 }
 
-GnewChannel* GSequence::CreateNewChannel( ChannelType theType /*= ChannelType::AskType*/ )
+GChannel* GSequence::CreateNewChannel( ChannelType theType /*= ChannelType::AskType*/ )
 {
-	GnewChannel* pChan = new GnewChannel(this);
+	GChannel* pChan = new GChannel(this);
 //not necessary 	AddChannel(pChan);
 
 	return pChan;
@@ -46,7 +46,7 @@ void GSequence::PopulateSettings( QSettings& inQsettings )
 {
 	GContentAgent<GSequence, GSequenceGraphicsItem>::PopulateSettings(inQsettings);
 	// channels		///////////////////////////////////////////////////////////////////////////////////////////
-	GSerializable::SaveListAndItems<GnewChannel>(inQsettings, "Channels/List-Channel-ID", m_ChannelList);
+	GSerializable::SaveListAndItems<GChannel>(inQsettings, "Channels/List-Channel-ID", m_ChannelList);
 	// events		///////////////////////////////////////////////////////////////////////////////////////////
 	QList<GSynchEvent*> listEvents = RootTimeEvent()->ChildrenEvents();
 	GSerializable::SaveListAndItems<GSynchEvent>(inQsettings, "RootEvent/Children", listEvents);
@@ -59,10 +59,10 @@ void GSequence::InterpretSettings( QSettings& fromQsettings )
 }
 
 // TOGO for context menu in sequenceview and channel items
-GSynchEvent* GSequence::CreateNewEvent( GSynchEvent* pParentEvent /*= 0*/, GnewChannel* pAssignedChannelForGraphics /*= 0*/ )
+GSynchEvent* GSequence::CreateNewEvent( GSynchEvent* pParentEvent /*= 0*/, GChannel* pAssignedChannelForGraphics /*= 0*/ )
 {
 	if(pParentEvent && pAssignedChannelForGraphics)  {
-		return new GnewChannelSynchEvent(pParentEvent, pAssignedChannelForGraphics);
+		return new GChannelSynchEvent(pParentEvent, pAssignedChannelForGraphics);
 	}
 	
 	if(pParentEvent && !pAssignedChannelForGraphics) {
@@ -79,7 +79,7 @@ GSynchEvent* GSequence::CreateNewEvent( GSynchEvent* pParentEvent /*= 0*/, GnewC
 	// if an event and a channel is selected in the GEvScene, let's use those to make a new event assigned to the channel
 	QList<QGraphicsItem*> listGraphicsItemSelected = ChannelScene()->selectedItems() + EventTreeScene()->selectedItems();
 	QList<GSynchEvent*> listEventItem = GSequence::FilterItemEvents(listGraphicsItemSelected);
-	QList<GnewChannel*> listChannelItem = GSequence::FilterItemChannels(listGraphicsItemSelected);
+	QList<GChannel*> listChannelItem = GSequence::FilterItemChannels(listGraphicsItemSelected);
 
 	// if no event and no channel defined
 	if(!pParentEvent && !pAssignedChannelForGraphics) {
@@ -105,11 +105,11 @@ GSynchEvent* GSequence::CreateNewEvent( GSynchEvent* pParentEvent /*= 0*/, GnewC
 	return CreateNewEvent(RootTimeEvent(), pAssignedChannelForGraphics);
 }
 
-QList<GnewChannel*> GSequence::FilterItemChannels( QList<QGraphicsItem*> listItems )
+QList<GChannel*> GSequence::FilterItemChannels( QList<QGraphicsItem*> listItems )
 {
-	QList<GnewChannel*> listChannelsToReturn;
+	QList<GChannel*> listChannelsToReturn;
 	foreach(QGraphicsItem* pItem, listItems) {
-		GnewChannelGraphicsItem* pChanItem = dynamic_cast<GnewChannelGraphicsItem*>(pItem);
+		GChannelGraphicsItem* pChanItem = dynamic_cast<GChannelGraphicsItem*>(pItem);
 		if(pChanItem && pChanItem->Channel())
 			listChannelsToReturn.append(pChanItem->Channel());
 	}
@@ -120,8 +120,8 @@ QList<GSynchEvent*> GSequence::FilterItemEvents( QList<QGraphicsItem*> listItems
 {
 	QList<GSynchEvent*> listEventsToReturn;
 	foreach(QGraphicsItem* pItem, listItems) {
-		// if it is a GnewSynchEventGraphicsItem, it should have a pointer to its event
-		GnewSynchEventGraphicsItem* pSyncItem = dynamic_cast<GnewSynchEventGraphicsItem*>(pItem);
+		// if it is a GSynchEventGraphicsItem, it should have a pointer to its event
+		GSynchEventGraphicsItem* pSyncItem = dynamic_cast<GSynchEventGraphicsItem*>(pItem);
 		// else if this is a GSynchEvent
 		GSynchEvent* pSyncEvent = dynamic_cast<GSynchEvent*>(static_cast<GSynchEvent*>(dynamic_cast<GEventNode*>(pItem)));
 		if(pSyncItem && pSyncItem->Event())
@@ -132,7 +132,7 @@ QList<GSynchEvent*> GSequence::FilterItemEvents( QList<QGraphicsItem*> listItems
 	return listEventsToReturn;
 }
 
-void GSequence::AddChannel( GnewChannel* pChan )
+void GSequence::AddChannel( GChannel* pChan )
 {
 	m_ChannelList.append(pChan);
 	ChannelScene()->InsertChannelItem(pChan);

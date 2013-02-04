@@ -1,16 +1,16 @@
-#include "GnewChannelSynchEvent.h"
-#include "Sequence/GnewSynchEventGraphicsItem.h"
+#include "GChannelSynchEvent.h"
+#include "Sequence/GSynchEventGraphicsItem.h"
 #include "Sequence/GSequence.h"
-#include "GnewChannel.h"
+#include "GChannel.h"
 #include "../ToolBox/GObjectFactory.h"
 
-G_REGISTER_IN_FACTORY_WITH_PARENT_TYPE(GnewChannelSynchEvent, GSynchEvent)
+G_REGISTER_IN_FACTORY_WITH_PARENT_TYPE(GChannelSynchEvent, GSynchEvent)
 
 
-GnewChannelSynchEvent::GnewChannelSynchEvent(GSynchEvent* parentEventSynchro, GnewChannel* pAssignedChannel /*= 0*/)
+GChannelSynchEvent::GChannelSynchEvent(GSynchEvent* parentEventSynchro, GChannel* pAssignedChannel /*= 0*/)
 	: GSynchEvent(parentEventSynchro)
 	, m_pChannel(pAssignedChannel)
-	, m_pEventGraphicsItem(new GnewSynchEventGraphicsItem(this, 0))
+	, m_pEventGraphicsItem(new GSynchEventGraphicsItem(this, 0))
 {
 	setFlag(ItemSendsScenePositionChanges);
 	connect(this, SIGNAL(AbsoluteTimeChanged(double)), this, SLOT(UpdatePositionChannelEventItem(double)));
@@ -20,34 +20,34 @@ GnewChannelSynchEvent::GnewChannelSynchEvent(GSynchEvent* parentEventSynchro, Gn
 	}
 }
 
-GnewChannelSynchEvent::~GnewChannelSynchEvent()
+GChannelSynchEvent::~GChannelSynchEvent()
 {
 
 }
 
-void GnewChannelSynchEvent::PopulateSettings( QSettings& inQsettings )
+void GChannelSynchEvent::PopulateSettings( QSettings& inQsettings )
 {
 	if(m_pChannel)
 		inQsettings.setValue("AssignedChannel", m_pChannel->UniqueSystemID());
 	GSynchEvent::PopulateSettings(inQsettings);
 }
 
-void GnewChannelSynchEvent::InterpretSettings( QSettings& fromQsettings )
+void GChannelSynchEvent::InterpretSettings( QSettings& fromQsettings )
 {
 	QString strChanID = fromQsettings.value("AssignedChannel").toString();
-	GnewChannel* pChan = qobject_cast<GnewChannel*>(GSerializable::RestoredObject(strChanID));
+	GChannel* pChan = qobject_cast<GChannel*>(GSerializable::RestoredObject(strChanID));
 	AssignChannel(pChan);
 	GSynchEvent::InterpretSettings(fromQsettings);
 }
 
-void GnewChannelSynchEvent::AssignChannel( GnewChannel* pChan )
+void GChannelSynchEvent::AssignChannel( GChannel* pChan )
 {
 	m_pChannel = pChan;
 	if(m_pChannel)
 		m_pEventGraphicsItem->setParentItem(pChan->ChannelGraphicsItem());
 }
 
-void GnewChannelSynchEvent::UpdatePositionChannelEventItem( double newAbsoluteTime )
+void GChannelSynchEvent::UpdatePositionChannelEventItem( double newAbsoluteTime )
 {
 	m_pEventGraphicsItem->setX(newAbsoluteTime);
 }

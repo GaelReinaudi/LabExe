@@ -3,24 +3,24 @@
 
 #include <QGraphicsRectItem>
 #include <QGraphicsLayoutItem>
-class GnewChannel;
+class GChannel;
 class GSynchEvent;
 
 /////////////////////////////////////////////////////////////////////
-//! \brief The GnewChannelGraphicsItem class defines defines the graphical representation of a Channel for the GSequenceGraphicsScene. 
+//! \brief The GChannelGraphicsItem class defines defines the graphical representation of a Channel for the GSequenceGraphicsScene. 
 /*!
 It inherits QGraphicsLayoutItem so that it can be placed in a layout in the scene. 
 It resize itself to fill the whole GSequence::Length() in the GSequenceScene. For this, sizeHint() and setGeometry() have been reimplemented.
 */
-class GnewChannelGraphicsItem : public QGraphicsRectItem, public QGraphicsLayoutItem
+class GChannelGraphicsItem : public QGraphicsRectItem, public QGraphicsLayoutItem
 {
 public:
 	//! ctor. You must pass the Channel represented by this GraphicsRectItem.
-	GnewChannelGraphicsItem(GnewChannel* theChannel);
-	~GnewChannelGraphicsItem();
+	GChannelGraphicsItem(GChannel* theChannel);
+	~GChannelGraphicsItem();
 
 	//! Returns a pointer to the Channel represented by this GraphicsRectItem.
-	GnewChannel* Channel() const { return m_pChannel; }
+	GChannel* Channel() const { return m_pChannel; }
 
 public:
 	//! reimplemented from QGraphicsLayoutItem
@@ -31,12 +31,10 @@ protected:
 	virtual QSizeF sizeHint( Qt::SizeHint which, const QSizeF & constraint = QSizeF() ) const;
 	//! reimplemented from QGraphicsItem
 	virtual void mousePressEvent( QGraphicsSceneMouseEvent * event );
-	//! Reimplemented from QGraphicsItem. Calls the GnewChannel function to handle that.
-	void contextMenuEvent(QGraphicsSceneContextMenuEvent *event);
 
 private:
 	//! pointer to the Channel represented by this GraphicsRectItem.
-	GnewChannel* m_pChannel;
+	GChannel* m_pChannel;
 };
 
 #endif // GCHANNELGRAPHICSITEM_H
