@@ -1,9 +1,9 @@
-#include "GnewSynchEventGraphicsItem.h"
+#include "GSynchEventGraphicsItem.h"
 #include "GSynchEvent.h"
 #include <QPen>
 #include <QGraphicsScene>
 
-GnewSynchEventGraphicsItem::GnewSynchEventGraphicsItem(GSynchEvent* pEvent, QGraphicsItem* pParentNode)
+GSynchEventGraphicsItem::GSynchEventGraphicsItem(GSynchEvent* pEvent, QGraphicsItem* pParentNode)
 	: //GEventNode(pParentNode)
 	 QObject(0)
 	, QGraphicsLineItem(pParentNode)
@@ -17,11 +17,11 @@ GnewSynchEventGraphicsItem::GnewSynchEventGraphicsItem(GSynchEvent* pEvent, QGra
 	UpdateXPosition();
 }
 
-GnewSynchEventGraphicsItem::~GnewSynchEventGraphicsItem()
+GSynchEventGraphicsItem::~GSynchEventGraphicsItem()
 {
 }
 
-void GnewSynchEventGraphicsItem::UpdateXPosition()
+void GSynchEventGraphicsItem::UpdateXPosition()
 {
 	double parentPos = 0.0;
 	double delay = 0.0;
@@ -35,7 +35,7 @@ void GnewSynchEventGraphicsItem::UpdateXPosition()
 	setX(parentPos + delay);
 }
 
-QVariant GnewSynchEventGraphicsItem::itemChange( QGraphicsItem::GraphicsItemChange change, const QVariant &value )
+QVariant GSynchEventGraphicsItem::itemChange( QGraphicsItem::GraphicsItemChange change, const QVariant &value )
 {
 	// to prevent the selection of the channel synchevent item in the sequence view, but select the one in the event tree view instead
 	if(change == ItemSelectedChange) {

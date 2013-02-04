@@ -1,6 +1,6 @@
 #include "GEvScene.h"
 #include "GSequence.h"
-#include "GnewChannel.h"
+#include "GChannel.h"
 #include "GSynchEvent.h"
 #include <QGraphicsSceneMouseEvent>
 
@@ -36,10 +36,10 @@ GEvScene::~GEvScene()
 
 }
 
-void GEvScene::InsertChannelItem( GnewChannel* pNewChan )
+void GEvScene::InsertChannelItem( GChannel* pNewChan )
 {
 	if(!pNewChan)
-		return qWarning("GnewChannel was NULL! 2368233");
+		return qWarning("GChannel was NULL! 2368233");
 
 	int indexNewChannel = m_pSeq->m_ChannelList.indexOf(pNewChan);
 

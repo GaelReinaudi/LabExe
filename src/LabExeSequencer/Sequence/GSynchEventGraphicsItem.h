@@ -6,14 +6,14 @@
 class GSynchEvent;
 
 /////////////////////////////////////////////////////////////////////
-//! \brief The GnewSynchEventGraphicsItem class represents a line graphics item that is drawn in the GSequenceGraphicsScene.
+//! \brief The GSynchEventGraphicsItem class represents a line graphics item that is drawn in the GSequenceGraphicsScene.
 /*
 It is meant to visualize the event as a vertical line, and to forward some 
 user interaction to the actual GSynchEvent it represents.
 
 TO UPDATE ????
 
-The parentItem() of the GnewSynchEventGraphicsItem object does not necessarily corresponds 
+The parentItem() of the GSynchEventGraphicsItem object does not necessarily corresponds 
 to the Event()->parent(). This is because the graphics object might 
 be better represented by having a GChannelGraphicsItem in the sequence scene as parent. It is then 
 easy to draw the event in the GChannelGraphicsItem, but some update mechanism has to 
@@ -27,13 +27,13 @@ In other word, let's consider this situation:
 PS: we could also consider the case where event "B" would be assigned to the whole 
 sequence (no specific channel assigned) it could then be drawn with the sequence scene as parent (to be clarified actually). 
 */
-class GnewSynchEventGraphicsItem : public QObject, public QGraphicsLineItem
+class GSynchEventGraphicsItem : public QObject, public QGraphicsLineItem
 {
 
 public:
 	//! constructor that gives the parent event and the parent item for drawing, i.e. the item in wich the event will be drawn vertically-wise.
-	GnewSynchEventGraphicsItem(GSynchEvent* pEvent, QGraphicsItem* pParentNode);
-	~GnewSynchEventGraphicsItem();
+	GSynchEventGraphicsItem(GSynchEvent* pEvent, QGraphicsItem* pParentNode);
+	~GSynchEventGraphicsItem();
 
 	void UpdateXPosition();
 

@@ -10,7 +10,7 @@ import QtQuick 1.0
      Column {
          id: chanels
          Repeater {
-             model: 3//seq.NumChanels()
+             model: seq.NumChannels()
              Rectangle {
                  width: 1000; height: 40
                  border.width: 1

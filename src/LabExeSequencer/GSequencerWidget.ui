@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>GnewSequencerWidget</class>
- <widget class="QWidget" name="GnewSequencerWidget">
+ <class>GSequencerWidget</class>
+ <widget class="QWidget" name="GSequencerWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -14,7 +14,7 @@
    <bool>false</bool>
   </property>
   <property name="windowTitle">
-   <string>GnewSequencerWidget</string>
+   <string>GSequencerWidget</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,1">
    <item>

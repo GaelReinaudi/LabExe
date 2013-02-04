@@ -6,7 +6,7 @@
 #include "../../MapExe/src/SceneView/GMapGraphicsScene.h"
 
 class GSequence;
-class GnewChannel;
+class GChannel;
 class GSynchEvent;
 
 /////////////////////////////////////////////////////////////////////
@@ -44,7 +44,7 @@ public slots:
 
 public:
 	//! Will insert the Channel RectItem in the scene m_pChannelLayout.
-	void InsertChannelItem(GnewChannel* pNewChan);
+	void InsertChannelItem(GChannel* pNewChan);
 
 private:
 	//! the parent sequence, that is represented in this scene
