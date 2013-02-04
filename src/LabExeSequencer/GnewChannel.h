@@ -42,22 +42,11 @@ public slots:
 	//! Creates and adds a new instruction to the sequence using the registered type of instruction. registered means declared with G_REGISTER_IN_FACTORY_WITH_PARENT_TYPE(GDerivateInstruction, GSynchEvent). Returns the new instruction, 0 if not successful.
 	GnewInstruction* CreateNewInstruction(QString strRegisteredType = "", GSynchEvent* pParentEvent = 0);
 
-// protected:
-// 	//! Takes care of the contextMenuEvent coming from the GnewChannelGraphicsItem
-// 	virtual void ContextMenuEvent( QGraphicsSceneContextMenuEvent * event );
-
 public:
 	//! Reimplemented from GSerializable. Writes the settings to permanent storage using the provided QSettings. 
 	void PopulateSettings(QSettings& inQsettings);
 	//! Reimplemented from GSerializable. Reads the settings from permanent storage using the provided QSettings. 
 	void InterpretSettings(QSettings& fromQsettings);
-
-public:
-	// TO MOVE TO A CLASS GMenuPopulator ?
-	//! Populate a QMenu to allow some action to be executed on this channel. Can (Should) be re-implemented to reflect more action for derived channels.
-	virtual void PopulateContextMenu(QMenu* pMenu);
-	// TO MOVE TO A CLASS GMenuPopulator ?
-	QMenu m_Menu;
 
 private:
 	//! Makes some actions that can be triggered e.g. by a QMenu.

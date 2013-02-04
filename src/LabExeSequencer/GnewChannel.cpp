@@ -39,26 +39,6 @@ void GnewChannel::createActions()
 	connect(m_pActionNewInstruction, SIGNAL(triggered()), this, SLOT(CreateNewInstruction()));
 }
 
-void GnewChannel::PopulateContextMenu( QMenu* pMenu )
-{
-	pMenu->addAction(m_pActionNewEvent);
-	pMenu->addAction(m_pActionNewInstruction);
-	// test the insertion of an action and providing data through the action setData. data will be retrieved by sender()->data()
-	m_Menu.clear();
-	m_Menu.addSeparator();
-	// sets the title
-	m_Menu.setTitle(QString("Channel: %1").arg(objectName()));
-	// sets the new channel-synch-event action
-	QAction* pNewEventAction = m_Menu.addAction("New synch-event", this, SLOT(CreateNewSynchEvent()));
-
-	// sets the new instruction action
-	QAction* pNewInsAction = m_Menu.addAction("New digital instruction", this, SLOT(CreateNewInstruction()));
-	pNewInsAction->setData("GDigitalInstruction");
-
-//	pMenu->addMenu(&m_Menu);
-	pMenu->addActions(m_Menu.actions());
-}
-
 void GnewChannel::PopulateSettings( QSettings& inQsettings )
 {
 }
