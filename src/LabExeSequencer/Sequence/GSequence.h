@@ -85,7 +85,7 @@ public:
 signals:
 	//! emitted when the Length() of the sequence changed.
 	void LengthChanged(double newLength);
-	//! emitted when the number of chanels changed
+	//! emitted when the number of channels changed
 	void NumChannelsChanged(int newNumChannels);
 
 private:
