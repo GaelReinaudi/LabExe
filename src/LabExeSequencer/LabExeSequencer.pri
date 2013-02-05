@@ -7,16 +7,16 @@ HEADERS += ./Model/GEventGraphicsLine.h \
     ./labexesequencer_global.h \
     ./Model/GSeqModel.h \
     ./Model/GSequenceEventItem.h \
-    ./GnewChannel.h \
-    ./GnewChannelGraphicsItem.h \
-    ./GnewChannelSynchEvent.h \
-    ./GnewInstruction.h \
-    ./GnewInstructionGraphicsItem.h \
-    ./GnewSequencerWidget.h \
+    ./GChannel.h \
+    ./GChannelGraphicsItem.h \
+    ./GChannelSynchEvent.h \
+    ./GInstruction.h \
+    ./GInstructionGraphicsItem.h \
+    ./GSequencerWidget.h \
     ./Model/GSeqNode.h \
     ./Sequence/GEventNode.h \
     ./Sequence/GEvScene.h \
-    ./Sequence/GnewSynchEventGraphicsItem.h \
+    ./Sequence/GSynchEventGraphicsItem.h \
     ./Sequence/GSequence.h \
     ./Sequence/GSequenceGraphicsItem.h \
     ./Sequence/GSynchEvent.h
@@ -28,17 +28,20 @@ SOURCES += ./Model/GEventGraphicsLine.cpp \
     ./labexesequencer.cpp \
     ./Model/GSeqModel.cpp \
     ./Model/GSequenceEventItem.cpp \
-    ./GnewChannel.cpp \
-    ./GnewChannelGraphicsItem.cpp \
-    ./GnewChannelSynchEvent.cpp \
-    ./GnewInstruction.cpp \
-    ./GnewInstructionGraphicsItem.cpp \
-    ./GnewSequencerWidget.cpp \
+    ./GChannel.cpp \
+    ./GChannelGraphicsItem.cpp \
+    ./GChannelSynchEvent.cpp \
+    ./GInstruction.cpp \
+    ./GInstructionGraphicsItem.cpp \
+    ./GSequencerWidget.cpp \
     ./Model/GSeqNode.cpp \
     ./Sequence/GEventNode.cpp \
     ./Sequence/GEvScene.cpp \
-    ./Sequence/GnewSynchEventGraphicsItem.cpp \
+    ./Sequence/GSynchEventGraphicsItem.cpp \
     ./Sequence/GSequence.cpp \
     ./Sequence/GSequenceGraphicsItem.cpp \
     ./Sequence/GSynchEvent.cpp
-FORMS += ./GnewSequencerWidget.ui
+FORMS += ./GSequencerWidget.ui
+
+OTHER_FILES += \
+    QML/sequence.qml
