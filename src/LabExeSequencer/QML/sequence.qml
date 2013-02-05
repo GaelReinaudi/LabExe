@@ -5,7 +5,7 @@ import QtQuick 1.0
  Rectangle {
      width: chanels.width//seq.Length()
      height: 200
-     ColorAnimation on color { to: "red"; duration: 1000 }
+     ColorAnimation on color { to: "green"; duration: 1000 }
 
      MouseArea {
          anchors.fill: parent

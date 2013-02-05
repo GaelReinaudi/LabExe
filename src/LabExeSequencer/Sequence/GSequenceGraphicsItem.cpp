@@ -19,10 +19,6 @@ GSequenceGraphicsItem::GSequenceGraphicsItem( GSequence* pSeq, QGraphicsItem* pP
 
 //	m_pSeq->RootTimeEvent()->ProvideNewAgentWrappingItem(this);
 
-	m_pEngine = new QDeclarativeEngine;
-	m_pEngine->rootContext()->setContextProperty("seq", m_pSeq);
-
-
 	//QMetaObject::invokeMethod(this, "AddQmlToScene", Qt::QueuedConnection);
 	// for debugging we try to reload the qml so that we can see the changes as we save the qml file
 	QTimer* pReloaderTimer = new QTimer(this);
@@ -52,6 +48,13 @@ void GSequenceGraphicsItem::AddQmlToScene()
 		delete m_pQMLitem;
 		m_pQMLitem = 0;
 	}
+	// just for debugging we make a new engine (don't delete it...) in order to reload the qml several times
+	if(m_pEngine) {
+//		delete m_pEngine;
+		m_pEngine = 0;
+	}
+	m_pEngine = new QDeclarativeEngine;
+	m_pEngine->rootContext()->setContextProperty("seq", m_pSeq);
 
 	QDeclarativeComponent component(m_pEngine, pathSeqQML);
 	QObject *myObject = component.create();

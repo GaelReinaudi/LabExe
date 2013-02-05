@@ -13,8 +13,8 @@ GSequencer::GSequencer(QObject* pParent, QString uniqueIdentifierName /*= ""*/)
 	, m_pSeq(0)
 {
 	if(!IsShelvedInstance()) {
-		m_pSequence = new GSequence(this);
-		m_pSeq = new GSequence(this);
+		m_pSequence = new GSequence(0);
+// 		m_pSeq = new GSequence(this);
 	}
 	if(m_pSequence) {
 		m_pModel = new GSeqModel(m_pSequence, this);

@@ -8,7 +8,7 @@
  
 #ifdef Q_OS_WIN32
 namespace{ 
-// int uhgf = _crtBreakAlloc = 872437;
+// int uhgf = _crtBreakAlloc = 0x75b9c41f;
 //	int gfd = _CrtSetDbgFlag(0);
 }
 #endif
