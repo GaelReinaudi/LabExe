@@ -6,6 +6,7 @@
 
 class GSequence;
 class QDeclarativeItem;
+class QDeclarativeEngine;
 // TRY BASALT
 class GSequenceGraphicsItem : public QObject, public QGraphicsRectItem 
 {
@@ -25,6 +26,7 @@ signals:
 private:
 	GSequence* m_pSeq;
 	QDeclarativeItem* m_pQMLitem;
+	QDeclarativeEngine* m_pEngine;
 };
 
 #endif // GSEQUENCEGRAPHICSITEM_H

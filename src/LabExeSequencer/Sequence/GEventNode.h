@@ -14,17 +14,6 @@ class GParam;
 
 //! Returns the device manager
 LABEXESEQUENCER_EXPORT GEventManager* EventManagerInstance(); 
-////! Loads the plugins in the Agent manager
-//LABEXE_EXPORT void LoadPluginsInDeviceManager(); 
-////! Returns the device whose uniqueIdentifierName matches in the device manager, 0 otherwise.
-//LABEXE_EXPORT GDevice* GetDeviceFromDeviceManager(QString uniqueIdentifierName); 
-////! Adds the device to the hard device shelf.
-//LABEXE_EXPORT void AddToDeviceShelf(GDevice* pDevice); 
-////! Registers the device into the device manager.
-//LABEXE_EXPORT bool RegisterHardDeviceInManager(const QString & className, GDevice*(deviceCreator)(QString, QObject*));
-////! Registers the prog device into the device manager.
-//LABEXE_EXPORT bool RegisterProgDeviceInManager(const QString & className, GDevice*(deviceCreator)(QString, QObject*)); 
-
 
 class GEventNode : public GAgent, protected QGraphicsLineItem
 {
@@ -32,7 +21,7 @@ class GEventNode : public GAgent, protected QGraphicsLineItem
 
 public:
 	GEventNode(GEventNode* pParentNode);
-	~GEventNode();
+	virtual ~GEventNode();
 
 
 	//! Implemented

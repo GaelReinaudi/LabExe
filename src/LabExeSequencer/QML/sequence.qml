@@ -5,19 +5,7 @@ import QtQuick 1.0
  Rectangle {
      width: chanels.width//seq.Length()
      height: 200
-     ColorAnimation on color { to: "yellow"; duration: 1000 }
-
-     Column {
-         id: chanels
-         Repeater {
-             model: seq.NumChannels()
-             Rectangle {
-                 width: 1000; height: 40
-                 border.width: 1
-                 color: "blue"
-             }
-         }
-     }
+     ColorAnimation on color { to: "red"; duration: 1000 }
 
      MouseArea {
          anchors.fill: parent
@@ -25,4 +13,23 @@ import QtQuick 1.0
              parent.color = "green"
          }
      }
+
+     Column {
+         id: chanels
+         Repeater {
+             model: seq.numChannels
+             Rectangle {
+                 width: 1000; height: 40
+                 border.width: 1
+                 color: "blue"
+                 MouseArea {
+                     anchors.fill: parent
+                     onClicked: {
+                         parent.color = "red"
+                     }
+                 }
+             }
+         }
+     }
+
  }
