@@ -1,7 +1,6 @@
 #include "GChannel.h"
 #include "Sequence/GSequence.h"
 #include "Sequence/GSynchEvent.h"
-#include "GInstruction.h"
 #include "../ToolBox/GObjectFactory.h"
 
 G_REGISTER_IN_FACTORY_WITH_PARENT_TYPE(GChannel, GSequence)

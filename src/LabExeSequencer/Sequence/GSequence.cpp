@@ -1,8 +1,6 @@
 #include "GSequence.h"
 #include "GChannel.h"
 #include "GSynchEvent.h"
-#include "GChannelSynchEvent.h"
-#include "GInstruction.h"
 #include "GSynchEventGraphicsItem.h"
 //#include "GSequenceEventItem.h"
 
@@ -61,9 +59,9 @@ void GSequence::InterpretSettings( QSettings& fromQsettings )
 // TOGO for context menu in sequenceview and channel items
 GSynchEvent* GSequence::CreateNewEvent( GSynchEvent* pParentEvent /*= 0*/, GChannel* pAssignedChannelForGraphics /*= 0*/ )
 {
-	if(pParentEvent && pAssignedChannelForGraphics)  {
-		return new GChannelSynchEvent(pParentEvent, pAssignedChannelForGraphics);
-	}
+// 	if(pParentEvent && pAssignedChannelForGraphics)  {
+// 		return new GChannelSynchEvent(pParentEvent, pAssignedChannelForGraphics);
+// 	}
 	
 	if(pParentEvent && !pAssignedChannelForGraphics) {
 //
@@ -136,6 +134,8 @@ void GSequence::AddChannel( GChannel* pChan )
 {
 	m_ChannelList.append(pChan);
 	ChannelScene()->InsertChannelItem(pChan);
+
+	emit NumChannelsChanged(NumChannels());
 }
 
 GSynchEvent* GSequence::GetTheSelectedEvent()

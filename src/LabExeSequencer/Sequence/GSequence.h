@@ -52,8 +52,11 @@ public:
 
 	//! Returns the length (duration) of the sequence.
 	Q_INVOKABLE double Length() const {return 53.14159;}
+
 	//! Returns the length (duration) of the sequence.
-	Q_INVOKABLE int NumChannels() const {return m_ChannelList.size();}
+	Q_PROPERTY(int numChannels READ NumChannels NOTIFY NumChannelsChanged)
+	int NumChannels() const {return m_ChannelList.size();}
+
 	//! Convenient function to return a pointer to the only selected GSynchEvent in the tree-scene. If more than one, or none, returns 0.
 	GSynchEvent* GetTheSelectedEvent();
 	//! Returns the scene that holds the event items in a tree structure.
@@ -85,6 +88,8 @@ public:
 signals:
 	//! emitted when the Length() of the sequence changed.
 	void LengthChanged(double newLength);
+	//! emitted when the number of chanels changed
+	void NumChannelsChanged(int newNumChannels);
 
 private:
 	//! The list of GChannel`s managed by this sequence.
