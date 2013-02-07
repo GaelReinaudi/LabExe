@@ -2,7 +2,6 @@
 #include "GChannel.h"
 #include "GSynchEvent.h"
 #include "GSynchEventGraphicsItem.h"
-//#include "GSequenceEventItem.h"
 
 GSequence::GSequence(QObject *parent)
 	: GContentAgent<GSequence, GSequenceGraphicsItem>(parent)

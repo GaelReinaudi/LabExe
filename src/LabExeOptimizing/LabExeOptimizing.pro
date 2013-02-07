@@ -18,14 +18,19 @@ INCLUDEPATH += \
 LIBS += \
     -L"./../../lib" \
     -L"./../../bin" \
-    -L"./../../lib/eo" \
-    -llabexe \
-    -leo_d \
-    -leoutils_d \
-    -les_d \
-    -lga_d \
-    -lcma_d \
-    -llibnlopt-0
+	-L"./../../lib/eo"
+
+CONFIG(debug, debug|release) {
+	LIBS += -llabexe_D \
+	-leo_d \
+	-leoutils_d \
+	-les_d \
+	-lga_d \
+	-lcma_d \
+	-llibnlopt-0
+} else {
+	LIBS += -llabexe
+}
 
 MOC_DIR += ./GeneratedFiles
 OBJECTS_DIR += ./GeneratedFiles/Obj

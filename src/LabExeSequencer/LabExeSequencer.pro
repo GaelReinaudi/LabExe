@@ -1,8 +1,7 @@
 TEMPLATE = lib
 DESTDIR = ../../bin
-#TARGET = LabExeSequencer
 
-QT += core gui widgets qml declarative
+QT += core gui widgets declarative
 
 DEFINES += LABEXESEQUENCER_LIB
 

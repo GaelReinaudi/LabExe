@@ -8,12 +8,8 @@ HEADERS += ./Model/GEventGraphicsLine.h \
     ./Model/GSeqModel.h \
     ./Model/GSequenceEventItem.h \
     ./GChannel.h \
-    ./GChannelGraphicsItem.h \
-    ./GChannelSynchEvent.h \
-    ./GInstruction.h \
-    ./GInstructionGraphicsItem.h \
-    ./GSequencerWidget.h \
-    ./Model/GSeqNode.h \
+	./GChannelGraphicsItem.h \
+	./GSequencerWidget.h \
     ./Sequence/GEventNode.h \
     ./Sequence/GEvScene.h \
     ./Sequence/GSynchEventGraphicsItem.h \
@@ -29,12 +25,8 @@ SOURCES += ./Model/GEventGraphicsLine.cpp \
     ./Model/GSeqModel.cpp \
     ./Model/GSequenceEventItem.cpp \
     ./GChannel.cpp \
-    ./GChannelGraphicsItem.cpp \
-    ./GChannelSynchEvent.cpp \
-    ./GInstruction.cpp \
-    ./GInstructionGraphicsItem.cpp \
-    ./GSequencerWidget.cpp \
-    ./Model/GSeqNode.cpp \
+	./GChannelGraphicsItem.cpp \
+	./GSequencerWidget.cpp \
     ./Sequence/GEventNode.cpp \
     ./Sequence/GEvScene.cpp \
     ./Sequence/GSynchEventGraphicsItem.cpp \
