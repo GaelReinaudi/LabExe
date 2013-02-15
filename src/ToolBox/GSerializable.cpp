@@ -65,27 +65,27 @@ GSerializable::GSerializable( const QString & relativeID, GSerializable* pParent
 	, m_pObjectForConnections(0)
 	, m_pIsRelativeTo_ParentSerializable(0)
 {
-	// This makes the unique m_uniqueKey that can be used conveniently in a hash
-	UniqueSystemKey();
-
 	Q_ASSERT_X(false, "GSerializable::GSerializable", "You might want to check that you should go there. 567613");
-	m_pObjectForConnections = new GPrivateQObjectInGSerializable(this);
-	QString ID;
-	if(!pParentSerializable) {
-		qWarning() << "The parent for defining a global Identifier is NULL in GSerializable::GSerializable";
-		ID = "NoParentSerializable";
-	}
-	else {
-		m_pIsRelativeTo_ParentSerializable = pParentSerializable;
-		ID = pParentSerializable->UniqueSystemID();
-	}
-
-	if(ID == "") {
-		qWarning() << "The parent has no ID";
-		ID = "ParentWithoutID";
-	}
-	ID += relativeID != "" ? relativeID : QUuid::createUuid().toString();
-	ChangeUniqueSystemID(ID);
+// 	// This makes the unique m_uniqueKey that can be used conveniently in a hash
+// 	UniqueSystemKey();
+// 
+// 	m_pObjectForConnections = new GPrivateQObjectInGSerializable(this);
+// 	QString ID;
+// 	if(!pParentSerializable) {
+// 		qWarning() << "The parent for defining a global Identifier is NULL in GSerializable::GSerializable";
+// 		ID = "NoParentSerializable";
+// 	}
+// 	else {
+// 		m_pIsRelativeTo_ParentSerializable = pParentSerializable;
+// 		ID = pParentSerializable->UniqueSystemID();
+// 	}
+// 
+// 	if(ID == "") {
+// 		qWarning() << "The parent has no ID";
+// 		ID = "ParentWithoutID";
+// 	}
+// 	ID += relativeID != "" ? relativeID : QUuid::createUuid().toString();
+// 	ChangeUniqueSystemID(ID);
 }
 
 GSerializable::GSerializable( const QString & relativeID, QObject* pObjSerializable )
@@ -111,11 +111,24 @@ GSerializable::GSerializable( const QString & relativeID, QObject* pObjSerializa
 
 	if(!m_pIsRelativeTo_ParentSerializable) {
 		ID = parentID;
+		ID += ChildSeparator;
 	}
-// 	ID += ChildSeparator;
-	ID += relativeID != "" ? relativeID : QUuid::createUuid().toString();
+
+	ID += (relativeID != "") ? relativeID : QUuid::createUuid().toString();
 	m_UniqueSystemID = ID;
-	Event_UniqueSystemIDChanged(UniqueSystemID());
+	Event_UniqueSystemIDChanged();
+
+	// if the parent ID changes and our ID is relative to it, we could schedule an update so 
+	// that Event_UniqueSystemIDChanged() gets called and applies necessary changes
+	if(m_pIsRelativeTo_ParentSerializable && this->m_pObjectForConnections && m_pIsRelativeTo_ParentSerializable->m_pObjectForConnections) {
+		QObject::connect(
+			  m_pIsRelativeTo_ParentSerializable->m_pObjectForConnections
+			, SIGNAL(UniqueSystemIdChanged())
+			, this->m_pObjectForConnections
+			, SIGNAL(UniqueSystemIdChanged())
+//			, Qt::QueuedConnection
+			);
+	}
 }
 
 GSerializable::~GSerializable()
@@ -134,11 +147,15 @@ void GSerializable::ChangeUniqueSystemID(const QString & uniqueIdentifierName)
 		return;
 	m_pIsRelativeTo_ParentSerializable = 0;
 	m_UniqueSystemID = uniqueIdentifierName; 
-	Event_UniqueSystemIDChanged(UniqueSystemID());
+// 	Event_UniqueSystemIDChanged();
+	
+	if(m_pObjectForConnections)
+		emit m_pObjectForConnections->UniqueSystemIdChanged();
 }
 
 QString GSerializable::UniqueSystemID() const
 {
+	QString theCurrentUniqueID;
 // 	return m_UniqueSystemID;
 // 
 	if(!m_pIsRelativeTo_ParentSerializable)

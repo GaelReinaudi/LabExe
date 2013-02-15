@@ -73,6 +73,8 @@ public slots:
 	virtual void SetParamValue(const int& theNewValue, bool sendUpdateSignals = true, bool sendDisplayUpdateSignal = true);
 	//! Sets a new value. If sendUpdateSignals, it will emit the signal ValueUpdated() and ValueDidChange() if it did change. If sendDisplayUpdateSignal, it will emit the signal ValueUpdateForDisplay().
 	virtual void SetParamValue(const double& theNewValue, bool sendUpdateSignals = true, bool sendDisplayUpdateSignal = true);
+	//! Implemented 
+	virtual void SetParamValue( QVariant varVal ) { SetParamValue(varVal.toDouble()); }
 	//! Restores the settings of the param from the registry if any. See SaveParamSettingsToRegistry().
 	void RestoreParamSettingsFromRegistry();
 	//! TEMPORARY workaround to emit many values in a single call that emits the ManyValuesAvailable() signal

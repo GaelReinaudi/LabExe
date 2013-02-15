@@ -32,7 +32,7 @@ public:
 	virtual QGraphicsItem* NewContentItem(GAgentWrapitem* pParentItem) {return new QGraphicsLineItem(0.0, 0.0, 0.0, 100.0);}
 
 	//! Re-implemented to add the new ID in the EventManagerInstance(). It doesn't remove the previous one.
-	void Event_UniqueSystemIDChanged(const QString & newSystemID);
+	void Event_UniqueSystemIDChanged();
 	
 
 	void SetParent(GEventNode* pParent) {

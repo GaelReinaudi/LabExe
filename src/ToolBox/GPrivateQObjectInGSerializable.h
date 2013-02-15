@@ -24,12 +24,16 @@ private slots:
 	void OpenGroupInQsettingsForLatterReadCurrentGroup(QSettings* pFromQsettings, QString strCurrentGroupAtTimeOfCall);
 	//! Used to assign a new unique ID after the object has been fully constructed
 	void LatterAssignNewUniqueID();
+	//! used to forward the signal up to the serializable
+	void Event_UniqueSystemIDChanged();
 
 signals:
 	//! Emitted in the InterpretSettings() function. The strCurrentGroupAtTimeOfCall has to be the group in the QSetting object that was explored when PopulateSettings() was called and triggered this signal.
 	void RequestLatterReadSettings(QSettings* pFromQsettings, QString strCurrentGroupAtTimeOfCall);
 	//! Emitted in GSerializable constructor in order to assign a new unique ID after the object has been fully constructed
 	void RequestLatterAssignNewUniqueID();
+	//! 
+	void UniqueSystemIdChanged();
 
 private:
 	GSerializable* m_ParentSerializable;

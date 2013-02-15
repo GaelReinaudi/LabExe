@@ -16,6 +16,12 @@ GParamLabel::GParamLabel(GParam* pTheParam, QWidget *parent )
 	connect(m_pParam, SIGNAL(MouseExitedParamLabel()), this, SLOT(StopHighlight()));
 
 	m_InititalPalette = palette();
+
+#ifdef QT_DEBUG
+// 	setToolTip(m_pParam->UniqueSystemID());
+	setStatusTip(m_pParam->UniqueSystemID());
+// 	setWhatsThis(m_pParam->UniqueSystemID());
+#endif
 }
 
 GParamLabel::~GParamLabel()
@@ -56,6 +62,10 @@ void GParamLabel::mouseMoveEvent(QMouseEvent *event)
 	// we store the UniqueSystemID() in the mime's "LabExe/parameter.single"
 	QDataStream streamParamName(&encodedData, QIODevice::WriteOnly);
 	QString paramUniqueID = m_pParam->UniqueSystemID();
+	// lets check that it is in the Param manager so that it can be used by whoever will read this ID
+	if(!GetParamFromParamManager(paramUniqueID)) {
+		qDebug() << paramUniqueID << " is not in the Param Manager";
+	}
 	if(paramUniqueID != "") {
 		streamParamName << paramUniqueID;
 	}

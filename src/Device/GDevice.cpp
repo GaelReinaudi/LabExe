@@ -182,7 +182,7 @@ QList<GParam*> GDevice::ChildParams() const
 	return listParamChildren;
 }
 
-void GDevice::Event_UniqueSystemIDChanged(const QString & newSystemID)
+void GDevice::Event_UniqueSystemIDChanged()
 {
 	AddToDeviceManager();
 }

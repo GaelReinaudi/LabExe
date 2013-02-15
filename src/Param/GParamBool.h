@@ -47,6 +47,8 @@ public:
 public slots:
 	//! Sets a new value and emits the signal ValueUpdated(bool) 
 	virtual void SetParamValue(bool theNewValue);
+	//! Implemented 
+	virtual void SetParamValue( QVariant varVal ) { SetParamValue(varVal.toBool()); }
 
 signals:
 	//! Emitted when the value was updated (i.e. SetParamValue() was called).

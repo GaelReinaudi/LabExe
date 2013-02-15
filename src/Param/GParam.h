@@ -101,6 +101,8 @@ protected:
 public slots:
 	//! Renames the param
 	void SetName(QString theName);
+	//! generic way to set the value using a QVariant
+	virtual void SetParamValue( QVariant varVal ) = 0;
 
 protected slots:
 	//! Displays a context menu that will be populated by the reimplemented PopulateContextMenu(). pos is the position of the context menu event that the widget received.  
@@ -109,6 +111,8 @@ protected slots:
 protected:
 	//! Populates the context menu that was provided by ProvideParamMenu().
 	virtual void PopulateParamMenu(QMenu* pTheMenu, GParamLabel* pSenderLabel = 0) const;
+	//! Re-implemented to add the new ID in the ParamManagerInstance(). It doesn't remove the previous one.
+	void Event_UniqueSystemIDChanged();
 
 signals:
 	//! Emitted when the name of the param changed.

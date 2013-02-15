@@ -173,6 +173,10 @@ QString GParam::StringContent( char format /*= 'g'*/, int precision /*= 6*/ )
 	return "";
 }
 
+void GParam::Event_UniqueSystemIDChanged()
+{
+	AddToParamManager(this);
+}
 
 
 

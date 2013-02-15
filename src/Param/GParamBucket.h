@@ -58,6 +58,14 @@ public:
 	GVectorDouble const DoubleValues(const QString & boolMaskField = QString()) const;
 	//! Sets new values to the parameters in the bucket. Values assigned to a none GParamNum will do nothing and be discarded.
 	void SetValues(const GVectorDouble & theValuesToSet, const QVector<bool> & accessMask = QVector<bool>());
+	//! Implemented 
+	virtual void SetParamValue( QVariant varVal ) { 
+		QVariantList varList = varVal.toList();
+		foreach(GParam* pPar, Params()) {
+			if(!varList.isEmpty())
+				pPar->SetParamValue(varList.takeFirst());
+		} 
+	}
 
 	//! Returns true if the bucket is empty.
 	bool IsEmpty() const { return Params().isEmpty(); }

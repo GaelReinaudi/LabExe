@@ -198,11 +198,17 @@ void GParamBucket::PopulateSettings( QSettings& inQsettings )
 	inQsettings.beginGroup("extras");
 	// if some params are child of this bucket, it saves them (just like GDevice does)
 	foreach(GParam* pPar, findChildren<GParam*>()) {
-// 		pPar->PopulateSettings(inQsettings);
 		pPar->SaveDeviceSettings(inQsettings);
 	}
+	// TRY compactifies the saving/restoring of extra params BUT redondent with the previous foreach
+	foreach(QString field, ExtraFieldsName()) {
+		QVariantList allValuesForField;
+		foreach(GParam* pExtPar, ExtraParamList(field)) {
+			allValuesForField << *pExtPar;
+		}
+		inQsettings.setValue(field, allValuesForField);
+	}
 	inQsettings.endGroup();
-// 	inQsettings.endGroup();
 }
 
 void GParamBucket::InterpretSettings( QSettings& fromQsettings )
@@ -229,7 +235,8 @@ void GParamBucket::InterpretSettings( QSettings& fromQsettings )
 // 	}																	//
 // 	//////////////////////////////////////////////////////////////////////
 	fromQsettings.beginGroup("extras");
-	// if params are child of this bucket, it restores them (just like GDevice does). but latter so that the params are existing already.
+	// if params are child of this bucket, it restores them (just like GDevice does),
+	// but latter so that the params are existing already.
 	LatterReadCurrentGroup(fromQsettings);
 	fromQsettings.endGroup();
 
@@ -240,19 +247,18 @@ void GParamBucket::DelayedInterpretSettings( QSettings& fromQsettings )
 {
 	GParam::DelayedInterpretSettings(fromQsettings);
 	foreach(GParam* pPar, findChildren<GParam*>()) {
-// 		pPar->InterpretSettings(fromQsettings);
-		//TOGO: false just for compatibility with previous version
 		pPar->ReadDeviceSettings(fromQsettings);
 	}
-}
 
-// bool GParamBucket::IsParamTriggering( GParam* pParam )
-// {
-// 	bool wasConnected = disconnect(pParam, SIGNAL(ValueUpdated(double)), this, SLOT(EventSomeValueUpdated()));
-// 	if(wasConnected)
-// 		connect(pParam, SIGNAL(ValueUpdated(double)), this, SLOT(EventSomeValueUpdated()), Qt::UniqueConnection);
-// 	return wasConnected;
-// }
+	// TRY compactifies the saving/restoring of extra params
+	foreach(QString field, ExtraFieldsName()) {
+		QVariantList allValuesForField = fromQsettings.value(field).toList();
+		foreach(GParam* pExtPar, ExtraParamList(field)) {
+			if(!allValuesForField.isEmpty())
+				pExtPar->SetParamValue(allValuesForField.takeFirst());
+		}
+	}
+}
 
 void GParamBucket::EventSomeValueUpdated()
 {

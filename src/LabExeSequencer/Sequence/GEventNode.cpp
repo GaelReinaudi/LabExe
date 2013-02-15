@@ -128,7 +128,7 @@ QList<GParam*> GEventNode::ChildParams() const
 	return listParamChildren;
 }
 
-void GEventNode::Event_UniqueSystemIDChanged( const QString & newSystemID )
+void GEventNode::Event_UniqueSystemIDChanged()
 {
 	EventManagerInstance()->Add(this);
 }
