@@ -11,9 +11,8 @@ GEventManager* EventManagerInstance()
 // G_REGISTER_IN_FACTORY_WITH_PARENT_TYPE(GEventNode, GEventNode)
 
 GEventNode::GEventNode(GEventNode* pParentNode)
-	: GAgent(pParentNode)
-// 	QObject(pParentNode) // object parent at least for now because of the auto saving thing (object factory)
-// 	, GSerializable()
+	: QObject(pParentNode) // object parent at least for now because of the auto saving thing (object factory)
+ 	, GSerializable()
 	, QGraphicsLineItem(pParentNode)
 {
 	if(pParentNode)

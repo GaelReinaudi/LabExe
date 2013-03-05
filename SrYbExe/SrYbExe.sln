@@ -190,7 +190,6 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LabExeSequencer", "..\src\LabExeSequencer\LabExeSequencer.vcproj", "{65429E2D-EFC3-443F-9AF7-FCC6501A4D63}"
 	ProjectSection(ProjectDependencies) = postProject
 		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-		{70DCD992-D850-4017-85D2-5E6E256255B5} = {70DCD992-D850-4017-85D2-5E6E256255B5}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LabNotesLoggerPlugin", "..\..\LabExe-UserPlugins\UserProjects\LabNotesLoggerPlugin\LabNotesLoggerPlugin.vcproj", "{43E4D739-DCF5-40CB-B4B8-FEB8CB4FB8ED}"
@@ -771,7 +770,7 @@ Global
 		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D} = {BB1F5885-8E0B-4B01-B6F1-A72599FC97D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		BuildVersion_UpdateFileVersion = True
 		QtVersion = $(DefaultQtVersion)
+		BuildVersion_UpdateFileVersion = True
 	EndGlobalSection
 EndGlobal

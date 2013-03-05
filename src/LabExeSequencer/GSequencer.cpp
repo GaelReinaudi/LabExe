@@ -9,20 +9,18 @@ GSequencer::GSequencer(QObject* pParent, QString uniqueIdentifierName /*= ""*/)
 	: GProgDevice(pParent, uniqueIdentifierName)
 	, m_pSequence(0)
 	, m_pModel(0)
-	, m_pSeq(0)
 {
 	if(!IsShelvedInstance()) {
 		m_pSequence = new GSequence(0);
-// 		m_pSeq = new GSequence(this);
 	}
 	if(m_pSequence) {
 		m_pModel = new GSeqModel(m_pSequence, this);
 	}
 
-	// TRY BASALT
 	m_pScene = new QGraphicsScene(this);
 	if(!IsShelvedInstance()) {
-		m_pSequence->ProvideNewAgentWrappingItem(m_pScene);
+		GSequenceGraphicsItem* pSeqGraph = new GSequenceGraphicsItem(m_pSequence, 0);
+		m_pScene->addItem(pSeqGraph);
 	}
 }
 
@@ -64,7 +62,6 @@ GDeviceWidget* GSequencer::ProvideNewDeviceGroupBox( QWidget* inWhichWidget, QBo
 	if(m_pSequence)
 		pWid->pSeqViewLayout->addWidget(m_pSequence->m_Length.ProvideNewParamSpinBox(inWhichWidget));
 
-	// TRY BASALT
 	QGraphicsView* m_pView = new QGraphicsView(inWhichWidget);
 	m_pView->setScene(m_pScene);
 	pWid->pSeqViewLayout->addWidget(m_pView);

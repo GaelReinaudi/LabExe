@@ -5,7 +5,7 @@
 #include "GSequenceEventItem.h"
 
 GSequence::GSequence(QObject *parent)
-	: GContentAgent<GSequence, GSequenceGraphicsItem>(parent)
+	: QObject(parent)
 	, m_pEventTreeScene(new GEvScene(this))
 	, m_pChannelScene(new GEvScene(this))
 	, m_Length("lenght", this)
@@ -42,7 +42,6 @@ GChannel* GSequence::CreateNewChannel( ChannelType theType /*= ChannelType::AskT
 
 void GSequence::PopulateSettings( QSettings& inQsettings )
 {
-	GContentAgent<GSequence, GSequenceGraphicsItem>::PopulateSettings(inQsettings);
 	// channels		///////////////////////////////////////////////////////////////////////////////////////////
 	GSerializable::SaveListAndItems<GChannel>(inQsettings, "Channels/List-Channel-ID", m_ChannelList);
 	// events		///////////////////////////////////////////////////////////////////////////////////////////

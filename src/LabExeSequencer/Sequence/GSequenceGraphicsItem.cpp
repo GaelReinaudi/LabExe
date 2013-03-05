@@ -68,13 +68,6 @@ void GSequenceGraphicsItem::AddQmlToScene()
 	scene()->addItem(m_pQMLitem);
 }
 
-void GSequenceGraphicsItem::Event_ChildAgentAdded( GAgent* pAgentAdded )
-{
-	qDebug() << "Event_ChildAgentAdded" << pAgentAdded;
-	pAgentAdded->ProvideNewAgentWrappingItem(this);
-}
-
-
 
 
 

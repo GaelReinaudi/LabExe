@@ -26,7 +26,7 @@ There are actually two scenes associated with a GSequence:
 - one is for the representation of the GSynchEvent`s, GChannel`s and GInstruction`s and allows some more display and user interactions through a GSequenceGraphicsView.
 - those 2 scenes are coupled together to reflect the same information, e.g. have a sceneRect() that reflects the sequence Length().
 */
-class GSequence : public GContentAgent<GSequence, GSequenceGraphicsItem>
+class GSequence : public QObject
 {
 	Q_OBJECT
 	
@@ -36,13 +36,6 @@ public:
 public:
 	GSequence(QObject *parent = 0);
 	~GSequence();
-
-
-	//! Implemented
-	virtual bool InjectInitializationData(const QVariantList & theDataList) {return false;}
-	//! Implemented
-	virtual QVariantList ProvideInitializationData() {return QVariantList();}
-
 
 	//! Returns the length (duration) of the sequence.
 	Q_INVOKABLE double Length() const {return 53.14159;}

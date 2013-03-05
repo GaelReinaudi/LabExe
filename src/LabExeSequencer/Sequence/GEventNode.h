@@ -12,7 +12,7 @@ class GParam;
 //! Returns the device manager
 LABEXESEQUENCER_EXPORT GEventManager* EventManagerInstance(); 
 
-class GEventNode : protected QGraphicsLineItem
+class GEventNode : public QObject, public GSerializable, protected QGraphicsLineItem
 {
 	Q_OBJECT
 

@@ -272,18 +272,10 @@
 					RelativePath=".\Model\GSeqModel.cpp"
 					>
 				</File>
-				<File
-					RelativePath=".\Model\GSequenceEventItem.cpp"
-					>
-				</File>
 			</Filter>
 			<Filter
 				Name="old"
 				>
-				<File
-					RelativePath=".\GChannelGraphicsItem.cpp"
-					>
-				</File>
 				<File
 					RelativePath=".\GSequencerWidget.cpp"
 					>
@@ -318,10 +310,6 @@
 				</File>
 				<File
 					RelativePath=".\Sequence\GSynchEvent.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Sequence\GSynchEventGraphicsItem.cpp"
 					>
 				</File>
 			</Filter>
@@ -531,18 +519,10 @@
 						/>
 					</FileConfiguration>
 				</File>
-				<File
-					RelativePath=".\Model\GSequenceEventItem.h"
-					>
-				</File>
 			</Filter>
 			<Filter
 				Name="old"
 				>
-				<File
-					RelativePath=".\GChannelGraphicsItem.h"
-					>
-				</File>
 				<File
 					RelativePath=".\GSequencerWidget.h"
 					>
@@ -809,10 +789,6 @@
 							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 						/>
 					</FileConfiguration>
-				</File>
-				<File
-					RelativePath=".\Sequence\GSynchEventGraphicsItem.h"
-					>
 				</File>
 			</Filter>
 		</Filter>

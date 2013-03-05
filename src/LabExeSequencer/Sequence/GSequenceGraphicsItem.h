@@ -1,6 +1,7 @@
 #ifndef GSEQUENCEGRAPHICSITEM_H
 #define GSEQUENCEGRAPHICSITEM_H
 #include <QObject>
+#include <QGraphicsRectItem>
 
 class GSequence;
 class QDeclarativeItem;

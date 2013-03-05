@@ -35,7 +35,6 @@ protected slots:
 private:
 	//! this sequencer has one unique sequence.
 	GSequence* m_pSequence;
-	GSequence* m_pSeq;
 	GSeqModel* m_pModel;
 
 	QGraphicsScene* m_pScene;
