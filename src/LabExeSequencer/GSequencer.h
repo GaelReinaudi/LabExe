@@ -4,10 +4,6 @@
 #include "Device/GProgDevice.h"
 #include "Model/GSeqModel.h"
 
-// TRY BASALT
-#include "../../../MapExe/src/agent.h"
-
-class GSequence;
 class GSequence;
 
 class GSequencer : public GProgDevice
@@ -42,7 +38,7 @@ private:
 	GSequence* m_pSeq;
 	GSeqModel* m_pModel;
 
-	GMapGraphicsScene* m_pScene;
+	QGraphicsScene* m_pScene;
 
 	friend class GSequencerWidget;
 };

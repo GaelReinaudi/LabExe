@@ -9,9 +9,6 @@
 
 #include "GSequenceGraphicsItem.h"
 
-// TRY BASALT
-#include "../../../MapExe/src/agent.h"
-
 class GChannel;
 class GSynchEvent;
 class GEventNode;

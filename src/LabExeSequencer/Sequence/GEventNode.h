@@ -7,29 +7,18 @@
 #include "ToolBox/GSerializable.h"
 #include "GEventManager.h"
 
-// TRY BASALT
-#include "../../../MapExe/src/agent.h"
-
 class GParam;
 
 //! Returns the device manager
 LABEXESEQUENCER_EXPORT GEventManager* EventManagerInstance(); 
 
-class GEventNode : public GAgent, protected QGraphicsLineItem
+class GEventNode : protected QGraphicsLineItem
 {
 	Q_OBJECT
 
 public:
 	GEventNode(GEventNode* pParentNode);
 	virtual ~GEventNode();
-
-
-	//! Implemented
-	virtual bool InjectInitializationData(const QVariantList & theDataList) {return false;}
-	//! Implemented
-	virtual QVariantList ProvideInitializationData() {return QVariantList();}
-	//! Implemented
-	virtual QGraphicsItem* NewContentItem(GAgentWrapitem* pParentItem) {return new QGraphicsLineItem(0.0, 0.0, 0.0, 100.0);}
 
 	//! Re-implemented to add the new ID in the EventManagerInstance(). It doesn't remove the previous one.
 	void Event_UniqueSystemIDChanged();

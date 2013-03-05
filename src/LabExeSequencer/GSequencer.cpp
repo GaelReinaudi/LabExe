@@ -2,7 +2,6 @@
 #include "GSequencerWidget.h"
 #include "Sequence/GSequence.h"
 #include "Model/GEventGraphicsView.h"
-#include "../../MapExe/src/SceneView/GMapGraphicsView.h"
 
 G_REGISTER_PROG_DEVICE_CLASS(GSequencer)
 
@@ -21,7 +20,7 @@ GSequencer::GSequencer(QObject* pParent, QString uniqueIdentifierName /*= ""*/)
 	}
 
 	// TRY BASALT
-	m_pScene = MakeGraphicsMap(this);
+	m_pScene = new QGraphicsScene(this);
 	if(!IsShelvedInstance()) {
 		m_pSequence->ProvideNewAgentWrappingItem(m_pScene);
 	}
@@ -66,9 +65,9 @@ GDeviceWidget* GSequencer::ProvideNewDeviceGroupBox( QWidget* inWhichWidget, QBo
 		pWid->pSeqViewLayout->addWidget(m_pSequence->m_Length.ProvideNewParamSpinBox(inWhichWidget));
 
 	// TRY BASALT
-	GMapGraphicsView* m_pView = qobject_cast<GMapGraphicsView*>(MakeGraphicsView(inWhichWidget, m_pScene));
+	QGraphicsView* m_pView = new QGraphicsView(inWhichWidget);
+	m_pView->setScene(m_pScene);
 	pWid->pSeqViewLayout->addWidget(m_pView);
-	m_pView->SetZoom(1);
 
 	return pWid;
 }
