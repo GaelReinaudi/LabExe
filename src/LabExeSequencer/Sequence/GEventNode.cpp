@@ -85,8 +85,6 @@ const QList<GEventNode*> GEventNode::ChildNodes() const
 {
 	QList<GEventNode*> theNodeList;
 	foreach(QObject* item, QObject::children()) {
-//	foreach(QGraphicsItem* item, childItems()) {
-// 		GEventNode* pNode = qgraphicsitem_cast<GEventNode*>(item);
 		GEventNode* pNode = qobject_cast<GEventNode*>(item);
 		if(pNode)
 			theNodeList.append(pNode);

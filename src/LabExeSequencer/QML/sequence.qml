@@ -3,9 +3,9 @@ import QtQuick 1.0
 //import GSequence 1.0 as Sequence
 
  Rectangle {
-     width: 2 * channels.width//seq.Length()
-     height: 2000
-     ColorAnimation on color { to: "green"; duration: 500 }
+     width: 3*seq.length
+     height: 200
+     ColorAnimation on color { to: "green"; duration: 50 }
 
      MouseArea {
          anchors.fill: parent
@@ -17,9 +17,9 @@ import QtQuick 1.0
      Column {
          id: channels
          Repeater {
-             model: 200//seq.numChannels
+             model: seq.channelCount
              Rectangle {
-                 width: 100.5; height: 5.0
+                 width: 100.5; height: 25.0
                  radius: 2
                  //border.width: 1
                  color: "blue"
@@ -36,12 +36,11 @@ import QtQuick 1.0
                      anchors.centerIn: parent
                      text: "hello"
                      font.pointSize: 12
-                     scale: .2
+                     scale: 1.0
                  }
                  scale: 1
              }
 
          }
      }
-
  }

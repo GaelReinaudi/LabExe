@@ -7,7 +7,6 @@ G_REGISTER_IN_FACTORY_WITH_PARENT_TYPE(GChannel, GSequence)
 
 GChannel::GChannel(GSequence* parentSequence)
 	: QObject(parentSequence)
-	, m_pChannelItem(new GChannelGraphicsItem(this))
 {
 	if(!parentSequence)
 		qCritical() << "The GSequence for the GChannel can't be a zero pointer! 1561746";

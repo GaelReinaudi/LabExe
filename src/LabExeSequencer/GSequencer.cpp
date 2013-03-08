@@ -43,20 +43,6 @@ GDeviceWidget* GSequencer::ProvideNewDeviceGroupBox( QWidget* inWhichWidget, QBo
 	QTimer::singleShot(50, treeview, SLOT(expandAll()));
 	pWid->pTreeViewLayout->addWidget(treeview);
 	
-// 	GEventTreeView* treeview2 = new GEventTreeView(pWid);
-// 	if(m_pSequence)
-// 		treeview2->setModel(&m_pSequence->m_Seq);
-// // 	treeview2->setModel(m_pSeq);
-// 	treeview2->setDragDropMode(QAbstractItemView::InternalMove);
-// 	pWid->pTreeViewLayout->addWidget(treeview2);
-// 
-// 	GEventGraphicsView* pView2 = new GEventGraphicsView(pWid);
-// 	if(m_pSequence)
-// 		pView2->setModel(&m_pSequence->m_Seq);
-// 	pWid->pSeqViewLayout->addWidget(pView2);
-
-	// debugs
-// 	connect(treeview2, SIGNAL(clicked(QModelIndex)), this, SLOT(DebugIndex(QModelIndex)));
 	connect(treeview, SIGNAL(clicked(QModelIndex)), this, SLOT(DebugIndex(QModelIndex)));
 
 	if(m_pSequence)
