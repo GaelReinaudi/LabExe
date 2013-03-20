@@ -1,6 +1,6 @@
 import QtQuick 1.0
 
-//import GSequence 1.0 as Sequence
+import GSequence 1.0 as Sequence
 
  Rectangle {
      width: 3*seq.length
@@ -12,6 +12,10 @@ import QtQuick 1.0
          onClicked: {
              parent.color = "green"
          }
+     }
+
+     Sequence {
+
      }
 
      Column {

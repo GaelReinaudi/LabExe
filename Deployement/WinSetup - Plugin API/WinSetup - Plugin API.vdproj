@@ -183,12 +183,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_58D6BC30E1164979BBFDB90F7CF98C8E"
-        "OwnerKey" = "8:_E7ACB533A71A47478FBA1A5A9552D148"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_5C080A208ACB4CD287621652DBF727BB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -232,12 +226,6 @@
         "Entry"
         {
         "MsmKey" = "8:_732AF2C856174A1692045673C53F42D5"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_744976BE91D8476F98D316CFCA5BDFB4"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -429,12 +417,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_E7ACB533A71A47478FBA1A5A9552D148"
-        "OwnerKey" = "8:_ED134BB6F5DB4DAC8F4DCC25AE6998AB"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_EC11C5E9654144B9973E79B838D131D4"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -460,12 +442,6 @@
         "Entry"
         {
         "MsmKey" = "8:_F7480EB19A2744F2B7CF97B9DC489347"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_FF7D31F7963B4C01873490919DEE5E31"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1286,26 +1262,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_744976BE91D8476F98D316CFCA5BDFB4"
-            {
-            "SourcePath" = "8:..\\..\\src\\Param\\GMultiParamBucket.h"
-            "TargetName" = "8:GMultiParamBucket.h"
-            "Tag" = "8:"
-            "Folder" = "8:_0F06102A87EE425096AC21AB8B400A1A"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_74548D68C04946289B941E4C7DE6B31A"
             {
             "SourcePath" = "8:..\\..\\src\\Param\\GParamInt.h"
@@ -2006,26 +1962,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FF7D31F7963B4C01873490919DEE5E31"
-            {
-            "SourcePath" = "8:..\\..\\src\\Param\\GDoubleRange.h"
-            "TargetName" = "8:GDoubleRange.h"
-            "Tag" = "8:"
-            "Folder" = "8:_0F06102A87EE425096AC21AB8B400A1A"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
         }
         "FileType"
         {
@@ -2258,14 +2194,14 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:LabExe - Plugin API"
-        "ProductCode" = "8:{6F95C9BB-0939-413C-AB1D-BCDD9306BAFA}"
-        "PackageCode" = "8:{014D51C4-03AC-423D-A7C2-4F44579A65D7}"
+        "ProductCode" = "8:{CE5A2009-E541-40DB-B78D-7C86EB11A563}"
+        "PackageCode" = "8:{07BADCAB-A9CE-4EB9-86F4-F9703D713A14}"
         "UpgradeCode" = "8:{0A03BC8C-0D8E-4C7D-B816-AACF56363E3D}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:FALSE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:2.12.7"
+        "ProductVersion" = "8:2.16.5"
         "Manufacturer" = "8:LabExe"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -2478,34 +2414,6 @@
         }
         "MergeModule"
         {
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_58D6BC30E1164979BBFDB90F7CF98C8E"
-            {
-            "UseDynamicProperties" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
-            "SourcePath" = "8:microsoft_vc90_debugcrt_x86.msm"
-                "Properties"
-                {
-                }
-            "LanguageId" = "3:0"
-            "Exclude" = "11:FALSE"
-            "Folder" = "8:"
-            "Feature" = "8:"
-            "IsolateTo" = "8:"
-            }
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_E7ACB533A71A47478FBA1A5A9552D148"
-            {
-            "UseDynamicProperties" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
-            "SourcePath" = "8:policy_9_0_Microsoft_VC90_DebugCRT_x86.msm"
-                "Properties"
-                {
-                }
-            "LanguageId" = "3:0"
-            "Exclude" = "11:FALSE"
-            "Folder" = "8:"
-            "Feature" = "8:"
-            "IsolateTo" = "8:"
-            }
         }
         "ProjectOutput"
         {

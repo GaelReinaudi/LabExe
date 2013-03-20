@@ -3,12 +3,16 @@
 #include "GSynchEvent.h"
 #include "GSequenceEventItem.h"
 
+#include <QtDeclarative>
+
 GSequence::GSequence(QObject *parent)
 	: QObject(parent)
 	, m_pEventTreeScene(new GEvScene(this))
 	, m_Length("lenght", this)
 {
 	connect(&m_Length, SIGNAL(ValueUpdated(double)), this, SIGNAL(LengthChanged(double)));
+
+	qmlRegisterType<GSequence>("GSequence", 1, 0, "Sequence");
 
 	emit LengthChanged(Length());
 

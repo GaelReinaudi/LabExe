@@ -2,7 +2,6 @@
 #define GSEQMODEL_H
 
 #include <QAbstractItemModel>
-#include <QDomDocument>
 #include <QModelIndex>
 #include <QVariant>
 

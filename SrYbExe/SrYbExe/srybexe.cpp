@@ -33,7 +33,7 @@ SrYbExe::SrYbExe(QWidget *parent, Qt::WFlags flags)
     win_sparkle_set_appcast_url("http://labexe.com/SrYbExeAutoUpdate.xml");
 	wchar_t company_name[] = L"LabExe";
 	wchar_t app_name[] = L"SrYbExe";
-	wchar_t app_version[] = L"2.16.0";
+	wchar_t app_version[] = L"2.16.5";
     win_sparkle_set_app_details(company_name, app_name, app_version);
     win_sparkle_init();
 #endif

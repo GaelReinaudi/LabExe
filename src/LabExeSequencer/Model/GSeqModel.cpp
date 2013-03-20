@@ -1,5 +1,4 @@
 #include <QtGui>
-#include <QtXml>
 
 #include "GSeqModel.h"
 #include "../Sequence/GEventNode.h"
