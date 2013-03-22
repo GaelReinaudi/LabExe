@@ -12,7 +12,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SrYbExe", "SrYbExe\SrYbExe.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "labexe", "..\src\labexe.vcproj", "{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PxiLabexe", "..\UserDefinedDevice\PxiSystem\PxiLabexe.vcproj", "{53AB0E83-CC92-4010-BBC1-AAC99423C8D8}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PxiLabexe", "..\..\LabExe-UserPlugins\HardwarePlugins\PxiSystem\PxiLabexe.vcproj", "{53AB0E83-CC92-4010-BBC1-AAC99423C8D8}"
 	ProjectSection(ProjectDependencies) = postProject
 		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
 	EndProjectSection
@@ -76,17 +76,17 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlainTextLoggerPlugin", "..
 		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PluginWavelengthHighFinesse", "..\UserDefinedDevice\PluginWavelengthHighFinesse\PluginWavelengthHighFinesse.vcproj", "{8E3B9C15-330F-4593-9616-EED39FEC2568}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PluginWavelengthHighFinesse", "..\..\LabExe-UserPlugins\HardwarePlugins\PluginWavelengthHighFinesse\PluginWavelengthHighFinesse.vcproj", "{8E3B9C15-330F-4593-9616-EED39FEC2568}"
 	ProjectSection(ProjectDependencies) = postProject
 		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PluginPhidgets", "..\UserDefinedDevice\PluginPhidgets\PluginPhidgets.vcproj", "{247CCF2F-0EEE-495C-8AA0-E86617846D74}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PluginPhidgets", "..\..\LabExe-UserPlugins\HardwarePlugins\PluginPhidgets\PluginPhidgets.vcproj", "{247CCF2F-0EEE-495C-8AA0-E86617846D74}"
 	ProjectSection(ProjectDependencies) = postProject
 		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PluginCameraUEye", "..\UserDefinedDevice\PluginCameraUEye\PluginCameraUEye.vcproj", "{4E88E011-1BC3-463D-8573-49C369E473CE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PluginCameraUEye", "..\..\LabExe-UserPlugins\HardwarePlugins\PluginCameraUEye\PluginCameraUEye.vcproj", "{4E88E011-1BC3-463D-8573-49C369E473CE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{65429E2D-EFC3-443F-9AF7-FCC6501F4D63} = {65429E2D-EFC3-443F-9AF7-FCC6501F4D63}
 		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
