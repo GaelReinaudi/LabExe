@@ -21,6 +21,18 @@ public:
 	virtual GParamInt& operator+=(int theAddValue) {SetParamValue(IntValue() + theAddValue); return *this;}
 	virtual operator int() const {return IntValue();}
 
+// 	//! Returns the value as an int. A mutex protects the reading;
+// 	int IntValue() const {
+// 		m_MutexVariant.lock();
+// 		int valCopy = m_valInt;
+// 		m_MutexVariant.unlock();
+// 		return valCopy;
+// 	}
+	//! Re-implemented
+	QVariant ToVariant() const {return QVariant(IntValue());}
+	//! Implemented
+	QString StringContent(char format = 'g', int precision = 6) const { return QString::number(IntValue());}
+
 public:
 	//! For convenience. Just like ProvideNewParamWidget(), but it actually returns a GDoubleSpinBox
 	GDoubleSpinBox* ProvideNewParamSpinBox(QWidget* forWhichParent);
@@ -49,9 +61,10 @@ signals:
 	//! Emitted after ValueUpdated but this should only be connect to display things in the ui, it should not create an other emission from the ui, thus avoiding infinite loops.
 	void ValueUpdateForDisplay(const int& theNewValue);
 
-
 private:
-	
+// 	//! the actual value
+// 	int m_valInt;
+
 };
 
 #endif // GPARAMINT_H

@@ -1,6 +1,6 @@
 import QtQuick 1.0
 
-import GSequence 1.0 as Sequence
+// import GSequence 1.0 as Sequence
 
  Rectangle {
      width: 3*seq.length
@@ -14,9 +14,9 @@ import GSequence 1.0 as Sequence
          }
      }
 
-     Sequence {
-
-     }
+//      Sequence {
+// 
+//      }
 
      Column {
          id: channels

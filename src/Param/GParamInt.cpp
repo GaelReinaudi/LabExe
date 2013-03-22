@@ -6,6 +6,7 @@ G_REGISTER_NEW_PARAM_CLASS(GParamInt);
 
 GParamInt::GParamInt(QString theName, QObject* parent, GParam::Properties paramOptions /*= NoOption*/)
 	: GParamNum(theName, parent, paramOptions)
+// 	, m_valInt(0)
 {
 	SetDisplayDecimals(0);
 }
@@ -84,4 +85,3 @@ void GParamInt::InterpretSettings( QSettings& fromQsettings )
 		fromQsettings.beginGroup(UniqueSystemID());
 	}
 }
-

@@ -24,7 +24,16 @@ public:
 	virtual operator bool() {return BoolValue();}
 
 	//! Returns the value as a bool. A mutex protects the reading;
-	bool BoolValue();
+	bool BoolValue() const {
+		m_MutexVariant.lock();
+		bool valCopy = m_val;
+		m_MutexVariant.unlock();
+		return valCopy;
+	}
+	//! Re-implemented
+	QVariant ToVariant() const {return QVariant(BoolValue());}
+	//! Implemented
+	QString StringContent(char format = 'g', int precision = 6) const { return BoolValue()?"true":"false";}
 
 protected:
 	//! Re-implemented.
@@ -59,6 +68,8 @@ signals:
 	void ValueDidChange(bool theNewValue);
 
 private:
+	//! the actual value
+	bool m_val;
 	//! count of number of times it switched to true
 	int m_SwitchTrueCount;
 	

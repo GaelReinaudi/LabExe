@@ -34,6 +34,20 @@ public:
 	virtual double operator+(double theValue) {return DoubleValue() + theValue;}
 	virtual double operator-(double theValue) {return DoubleValue() - theValue;}
 
+	//! Returns the value as a double. A mutex protects the reading;
+	double DoubleValue() const {
+		m_MutexVariant.lock();
+		double valCopy = m_valDouble;
+		m_MutexVariant.unlock();
+		return valCopy;
+	}
+	//! Returns the value as an int. A mutex protects the reading;
+	int IntValue() const { return qRound(DoubleValue()); }
+	//! Re-implemented
+	QVariant ToVariant() const { return QVariant(DoubleValue()); }
+	//! Implemented
+	QString StringContent(char format = 'g', int precision = 6) const { return QString::number(DoubleValue(), format, precision);}
+
 protected:
 	//! Re-implemented.
 	virtual void PopulateSettings(QSettings& inQsettings);
@@ -41,11 +55,6 @@ protected:
 	virtual void InterpretSettings(QSettings& fromQsettings);
 
 public:
-	//! Returns the value as a double. A mutex protects the reading;
-	double DoubleValue() const;
-	//! Returns the value as an int. A mutex protects the reading;
-	int IntValue() const;
-
 	// Some settings of the GParamNum
 
 	//! Sets the range the Param can never go out of.
@@ -102,6 +111,8 @@ signals:
 private:
 
 protected:
+	//! the actual value
+	double m_valDouble;
 	//! this spinbox is used only to hold certain characteristics of this param, like step-size, decimal number, limits
 	QDoubleSpinBox m_ParamSettings;
 

@@ -8,8 +8,8 @@ G_REGISTER_NEW_PARAM_CLASS(GParamBool);
 GParamBool::GParamBool(QString theName, QObject* parent, GParam::Properties paramOptions /*= NoOption*/)
 	: GParam(theName, parent, paramOptions)
 	, m_SwitchTrueCount(0)
+	, m_val(false)
 {
-	setValue(false);
 	// ValueUpdated(bool) triggers the ParamValueWasUpdated(true) that will trigger (by default) the ParamUpdateCompletion(true), i.e. unless SetExternalCompletionSignal() sets an other signal.
 	connect(this, SIGNAL(ValueUpdated(bool)), this, SIGNAL(ParamValueWasUpdated()));
 }
@@ -30,7 +30,7 @@ void GParamBool::SetParamValue( bool theNewValue )
 			return;
 
 	m_MutexVariant.lock();
-	setValue(theNewValue);
+	m_val = theNewValue;
 	if(theNewValue)
 		m_SwitchTrueCount++;
 	m_MutexVariant.unlock();
@@ -111,14 +111,6 @@ QWidget* GParamBool::ProvideNewParamRadioButtons( QWidget* forWhichParent, QStri
 	pCheckBox->setChecked(BoolValue());
 	pOtherCheckBox->setChecked(!BoolValue());
 	return pContWidget;
-}
-
-bool GParamBool::BoolValue()
-{
-	m_MutexVariant.lock();
-	bool valCopy = toBool();
-	m_MutexVariant.unlock();
-	return valCopy;
 }
 
 void GParamBool::PopulateSettings( QSettings& inQsettings )

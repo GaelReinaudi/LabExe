@@ -159,19 +159,19 @@ void GParam::ShowUnits( bool doShowUnits )
  	emit UnitDisplayChanged(doShowUnits);
 }
 
-QString GParam::StringContent( char format /*= 'g'*/, int precision /*= 6*/ )
-{
-	QVariant::Type theType = type();
-	switch(theType) {
-		case QVariant::Double: 
-			return QString::number(toDouble(), format, precision);
-		case QVariant::String:
-			return toString();
-		case QVariant::Int:
-			return QString::number(toInt());
-	}
-	return "";
-}
+// QString GParam::StringContent( char format /*= 'g'*/, int precision /*= 6*/ )
+// {
+// 	QVariant::Type theType = type();
+// 	switch(theType) {
+// 		case QVariant::Double: 
+// 			return QString::number(toDouble(), format, precision);
+// 		case QVariant::String:
+// 			return toString();
+// 		case QVariant::Int:
+// 			return QString::number(toInt());
+// 	}
+// 	return "";
+// }
 
 void GParam::Event_UniqueSystemIDChanged()
 {

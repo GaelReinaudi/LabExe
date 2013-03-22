@@ -51,7 +51,7 @@ Each GParam has a unique identifier that is used for:
 At creation time, a set of option can be passed to the parameter in order to define its behavior 
 and the behavior of the widget it will provide for representing itself.
 */
-class LABEXE_EXPORT GParam : public QObject, protected QVariant, public GSerializable
+class LABEXE_EXPORT GParam : public QObject, /*protected QVariant,*/ public GSerializable
 {
 	Q_OBJECT
 
@@ -80,7 +80,9 @@ public:
 	//! Returns true if the param is showing its units
 	bool ShowingUnits() const { return m_DisplayUnits; }
 	//! Tries to convert whatever the content is to a string, with a similar signature as QString::number() for when it is dealing with numbers.
-	QString StringContent(char format = 'g', int precision = 6);
+	virtual QString StringContent(char format = 'g', int precision = 6) const { return "StringContent() not implemented."; }
+	//! if we need a QVariant out of the param
+	virtual QVariant ToVariant() const { return QVariant("ToVariant() not implemented."); }
 
 	//! Sets the signal that is going to inform this GParam that the value has been actually successfully updated (like the voltage on an analog voltage output or the position of a motor), or not.
 	bool SetExternalCompletionSignal(const QObject* sender, const char* signal, Qt::ConnectionType type = Qt::AutoConnection);

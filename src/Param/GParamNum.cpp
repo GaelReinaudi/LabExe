@@ -11,12 +11,12 @@ bool gEqual( double val1, double val2 )
 
 GParamNum::GParamNum(QString theName, QObject *parent, GParam::Properties paramOptions /*= NoOption*/)
 	: GParam(theName, parent, paramOptions)
+	, m_valDouble(0.0)
 {
 	m_ParamSettings.setCorrectionMode(QAbstractSpinBox::CorrectToNearestValue);
 	m_ParamSettings.setMinimum(G_DEFAULT_RANGE_MIN);
 	m_ParamSettings.setMaximum(G_DEFAULT_RANGE_MAX);
 
-	setValue(0.0);
 	// ValueUpdated(double) triggers the ParamValueWasUpdated(true) that will trigger (by default) the ParamUpdateCompletion(true), i.e. unless SetExternalCompletionSignal() sets an other signal.
 	connect(this, SIGNAL(ValueUpdated(double)), this, SIGNAL(ParamValueWasUpdated()));
 
@@ -94,7 +94,7 @@ void GParamNum::SetParamValue( const int& theNewValue, bool sendUpdateSignals /*
 		acceptedValue = qBound(int(m_ParamSettings.minimum()), acceptedValue, int(m_ParamSettings.maximum()));
 	}
 
-	setValue(acceptedValue);
+	m_valDouble = acceptedValue;
 
 	// first display to avoid sending the wrong order of signal when setParamValue re-enter itself (e.g. when a device sends a new value to display)
 	if(sendDisplayUpdateSignal) {
@@ -118,7 +118,7 @@ void GParamNum::SetParamValue( const double& theNewValue, bool sendUpdateSignals
 		acceptedValue = qBound(m_ParamSettings.minimum(), acceptedValue, m_ParamSettings.maximum());
 	}
 
-	setValue(acceptedValue);
+	m_valDouble = acceptedValue;
 
 	// first display to avoid sending the wrong order of signal when setParamValue re-enter itself (e.g. when a device sends a new value to display)
 	if(sendDisplayUpdateSignal) {
@@ -132,26 +132,18 @@ void GParamNum::SetParamValue( const double& theNewValue, bool sendUpdateSignals
 	}
 }
 
-double GParamNum::DoubleValue() const
-{
-	m_MutexVariant.lock();
-	double valCopy = toDouble();
-	m_MutexVariant.unlock();
-	return valCopy;
-}
-
 /////////////////////////////////////////////////////////////////////
 /*!
 Returns the value converted to int.
 \return: int : rounded to the nearest integer if the content is a double
 *////////////////////////////////////////////////////////////////////
-int GParamNum::IntValue() const
-{
-	m_MutexVariant.lock();
-	int valCopy = qRound(toDouble());
-	m_MutexVariant.unlock();
-	return valCopy;
-}
+// int GParamNum::IntValue() const
+// {
+// 	m_MutexVariant.lock();
+// 	int valCopy = qRound(DoubleValue());
+// 	m_MutexVariant.unlock();
+// 	return valCopy;
+// }
 
 void GParamNum::PopulateSettings( QSettings& inQsettings )
 {

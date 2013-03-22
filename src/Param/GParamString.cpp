@@ -5,13 +5,12 @@ G_REGISTER_NEW_PARAM_CLASS(GParamString);
 
 GParamString::GParamString(QString theName, QObject* parent, GParam::Properties paramOptions /*= NoOption*/)
 	: GParam(theName, parent, paramOptions)
+	, m_val("")
 {
-	setValue(QString(""));
 }
 
 GParamString::~GParamString()
 {
-
 }
 
 void GParamString::SetParamValue( const QString& theNewValue )
@@ -25,7 +24,7 @@ void GParamString::SetParamValue( const QString& theNewValue )
 			return;
 
 	m_MutexVariant.lock();
-	setValue(theNewValue);
+	m_val = theNewValue;
 	m_MutexVariant.unlock();
 	emit ValueUpdated(theNewValue);
 }
@@ -63,7 +62,7 @@ QLineEdit* GParamString::ProvideNewParamLineEdit( QWidget* forWhichParent)
 QString GParamString::StringValue() const
 {
 	m_MutexVariant.lock();
-	QString valCopy = toString();
+	QString valCopy = m_val;
 	m_MutexVariant.unlock();
 	return valCopy;
 }

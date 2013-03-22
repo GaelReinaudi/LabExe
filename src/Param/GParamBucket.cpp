@@ -204,7 +204,7 @@ void GParamBucket::PopulateSettings( QSettings& inQsettings )
 	foreach(QString field, ExtraFieldsName()) {
 		QVariantList allValuesForField;
 		foreach(GParam* pExtPar, ExtraParamList(field)) {
-			allValuesForField << *pExtPar;
+			allValuesForField << pExtPar->ToVariant();
 		}
 		inQsettings.setValue(field, allValuesForField);
 	}
