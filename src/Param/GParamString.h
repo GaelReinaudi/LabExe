@@ -48,7 +48,7 @@ protected slots:
 	//! Sets a new value and emits the signal ValueUpdatedProgramatically(QString).
 	virtual void SetParamValue(const QString& theNewValue);
 	//! Implemented 
-	virtual void SetParamValue( QVariant varVal ) { SetParamValue(varVal.toString()); }
+	virtual void SetFromVariant( QVariant varVal ) { SetParamValue(varVal.toString()); }
 
 private:
 	//! the actual value

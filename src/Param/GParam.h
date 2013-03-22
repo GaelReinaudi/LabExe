@@ -104,7 +104,7 @@ public slots:
 	//! Renames the param
 	void SetName(QString theName);
 	//! generic way to set the value using a QVariant
-	virtual void SetParamValue( QVariant varVal ) = 0;
+	virtual void SetFromVariant( QVariant varVal ) = 0;
 
 protected slots:
 	//! Displays a context menu that will be populated by the reimplemented PopulateContextMenu(). pos is the position of the context menu event that the widget received.  

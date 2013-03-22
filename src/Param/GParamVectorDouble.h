@@ -11,6 +11,9 @@ public:
 	GParamVectorDouble(QString theName, QObject* parent, GParam::Properties paramOptions = NoOption);
 	~GParamVectorDouble();
 
+	void SetParamValue();
+	void AppendValue(double newVal) {}
+
 private:
 	//! the actual value
 	QVector<double> m_val;

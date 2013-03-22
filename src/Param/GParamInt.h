@@ -45,7 +45,7 @@ public slots:
 	//! Re-implemented. to call the int version
 	void SetParamValue(const double& theNewValue, bool sendUpdateSignals = true, bool sendDisplayUpdateSignal = true);
 	//! Implemented 
-	virtual void SetParamValue( QVariant varVal ) { SetParamValue(varVal.toInt()); }
+	virtual void SetFromVariant( QVariant varVal ) { SetParamValue(varVal.toInt()); }
 
 protected:
 	//! Re-implemented.

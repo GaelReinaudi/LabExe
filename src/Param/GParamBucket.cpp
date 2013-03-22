@@ -255,7 +255,7 @@ void GParamBucket::DelayedInterpretSettings( QSettings& fromQsettings )
 		QVariantList allValuesForField = fromQsettings.value(field).toList();
 		foreach(GParam* pExtPar, ExtraParamList(field)) {
 			if(!allValuesForField.isEmpty())
-				pExtPar->SetParamValue(allValuesForField.takeFirst());
+				pExtPar->SetFromVariant(allValuesForField.takeFirst());
 		}
 	}
 }
