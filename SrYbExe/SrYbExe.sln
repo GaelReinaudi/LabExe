@@ -181,6 +181,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Plot1DPlugin", "..\..\LabEx
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MonteCarloLogNormalPricerPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\MonteCarloLogNormalPricerPlugin\MonteCarloLogNormalPricerPlugin.vcproj", "{82D16223-BD4D-4A0D-AE44-0CC10B4F1F8F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "YoutubePlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\YoutubePlugin\YoutubePlugin.vcproj", "{5CF49A9A-CC02-48F8-94B1-293B22C4DFEF}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -198,8 +201,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LabNotesLoggerPlugin", "..\
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlotXYPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\PlotXYPlugin\PlotXYPlugin.vcproj", "{93F74148-B210-4054-84E0-AF90FA00B42A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EmailMessagerPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\EmailMessagerPlugin\EmailMessagerPlugin.vcproj", "{2F1E98F5-180E-4923-A0A1-A0B5C7DDDBE4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlotYPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\PlotYPlugin\PlotYPlugin.vcproj", "{0B0D450B-1AD4-4077-A6E5-08EB12858048}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -222,6 +231,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ParamSupplierPlugin", "..\.
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Scroller2DPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\Scroller2DPlugin\Scroller2DPlugin.vcproj", "{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -770,7 +782,7 @@ Global
 		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D} = {BB1F5885-8E0B-4B01-B6F1-A72599FC97D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		QtVersion = $(DefaultQtVersion)
 		BuildVersion_UpdateFileVersion = True
+		QtVersion = $(DefaultQtVersion)
 	EndGlobalSection
 EndGlobal
