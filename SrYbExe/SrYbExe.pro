@@ -3,7 +3,7 @@ TEMPLATE = subdirs
 
 SUBDIRS += \
 	../src/labexe.pro \
-	../../MapExe/src/LabExeGraphicsMap.pro \
+#	../../MapExe/src/LabExeGraphicsMap.pro \
 	../src/LabExeImaging \
 	../src/LabExeSequencer \
 	../src/LabExeOptimizing \
