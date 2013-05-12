@@ -10,6 +10,7 @@ class QGroupBox;
 class QLabel;
 class QLineEdit;
 class QRadioButton;
+class QComboBox;
 QT_END_NAMESPACE
 
 //! [0]
@@ -26,6 +27,9 @@ public:
 	//! makes the new plugin project sub-directory in the provided directory. Returns the absolute path of the folder, or "" if couldn't make it.
 	QString MakeProjectDirectory();
 
+protected slots:
+	void ExampleComboSelected(int exampleIndex);
+
 private:
 	//! list of files to copy to the destination directory. Populated by MakeListOfFilesToUse()
 	QStringList m_FilesToCopy;
@@ -34,6 +38,7 @@ private:
 	//! extension of files not to be used
 	QStringList m_ExtensionCopyFilterOut;
 	//! directory from which we take the project to copy
+	QString m_ExampleDirPath;
 	QDir m_FromDir;
 	//! directory into which we put the new project sub-directory
 	QDir m_ToDir;
@@ -42,6 +47,8 @@ private:
 	QString m_ToReplaceWithProjectName;
 	// 	//! extension of the files that have to be scanned and modified for the new project.
 // 	QStringList m_ExtensionCopyFilterOut;
+
+	friend class ClassInfoPage;
 };
 //! [0]
 
@@ -64,12 +71,14 @@ class ClassInfoPage : public QWizardPage
     Q_OBJECT
 
 public:
-    ClassInfoPage(QWidget *parent = 0);
+    ClassInfoPage(UserPluginWizard *parent);
 
 private:
     QLabel *pluginNameLabel;
     QLabel *baseClassLabel;
-    QLineEdit *pluginNameLineEdit;
+	QLabel *pluginToCopyLabel;
+	QComboBox* pluginToCopyCombo;
+	QLineEdit *pluginNameLineEdit;
     QLineEdit *baseClassLineEdit;
     QCheckBox *qobjectMacroCheckBox;
     QGroupBox *groupBox;
@@ -77,6 +86,8 @@ private:
     QRadioButton *qwidgetCtorRadioButton;
     QRadioButton *defaultCtorRadioButton;
     QCheckBox *copyCtorCheckBox;
+	
+	UserPluginWizard* m_Wiz;
 };
 //! [2]
 

@@ -383,8 +383,9 @@ GVectorDouble const GParamBucket::DoubleValues(const QString & boolMaskField /*=
 void GParamBucket::SetValues(const GVectorDouble & theValuesToSet, const QVector<bool> & accessMask /*= QVector<bool>()*/)
 {
 	int i = 0;
+	bool hasNoMask = accessMask.isEmpty();
 	foreach(GParamNum* pParNum, ParamNums()) {
-		if(pParNum && accessMask[i])
+		if(pParNum && (hasNoMask || accessMask[i]))
 			pParNum->SetParamValue(theValuesToSet[i]);
 		++i;
 	}

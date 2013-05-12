@@ -118,7 +118,7 @@ void GEoGeneticAlgorithm::RunOptimization()
 	const unsigned int VEC_SIZE = numVar; // Number of object variables in genotypes
 	const unsigned int POP_SIZE = popSize;//20; // Size of population
 
-	const unsigned int MAX_GEN = 500; // Maximum number of generation before STOP
+	const unsigned int MAX_GEN = 10000; // Maximum number of generation before STOP
 	const unsigned int MIN_GEN = 10;  // Minimum number of generation before ...
 	const unsigned int STEADY_GEN = 100; // stop after STEADY_GEN gen. without improvement
 

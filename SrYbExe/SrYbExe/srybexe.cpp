@@ -1,7 +1,7 @@
 #include "srybexe.h"
 #ifdef Q_OS_WIN32
 #include "LabExeImaging/labexeimaging.h"
-#include "LabExeSequencer/labexesequencer.h"
+//#include "LabExeSequencer/labexesequencer.h"
 #include "LabExeOptimizing/labexeoptimizing.h"
 #include <WinSparkle/winsparkle.h>
 #endif
@@ -24,7 +24,7 @@ SrYbExe::SrYbExe(QWidget *parent, Qt::WFlags flags)
 	// that makes the code enter those respective dlls so that the workbenches get registered.
 #ifdef Q_OS_WIN32
     LabExeImaging();
-    LabExeSequencer();
+//    LabExeSequencer();
     LabExeOptimizing();
 #endif
 

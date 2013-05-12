@@ -6,8 +6,18 @@
 UserPluginWizard::UserPluginWizard(QWidget *parent)
     : QWizard(parent)
 {
+	m_FolderCopyFilterOut << "Debug" << "Release" << "Release with Debug" << "GeneratedFiles";
+	m_ExtensionCopyFilterOut << "ncb" << "suo";// << "png";
+
+	//// sets some variable for a specific porject to copy
+	//m_ToReplaceWithDeviceName = "LowPassFilter";
+	//m_ToReplaceWithPluginName = "LowPassFilterPlugin";
+	//m_ToReplaceWithProjectName = "LowPassFilterPlugin";
+
+	m_ExampleDirPath = "../../../LabExe-UserPlugins/SoftwarePlugins";
+
 	addPage(new IntroPage);
-	addPage(new ClassInfoPage);
+	addPage(new ClassInfoPage(this));
 	addPage(new GParametersPage);
 	addPage(new ConclusionPage);
 
@@ -17,34 +27,41 @@ UserPluginWizard::UserPluginWizard(QWidget *parent)
 	setPixmap(QWizard::BackgroundPixmap, QPixmap(":/images/background.png"));
 
 	setWindowTitle(tr("User Plugin Wizard"));
+}
 
-	m_FolderCopyFilterOut << "Debug" << "Release" << "Release with Debug" << "GeneratedFiles";
-	m_ExtensionCopyFilterOut << "ncb" << "suo";// << "png";
-
+void UserPluginWizard::ExampleComboSelected(int exampleIndex)
+{
+	QComboBox* pBoxEx = qobject_cast<QComboBox*>(sender());
+	if(!pBoxEx)
+		return;
+	QStringList definitionNamesToReplace = pBoxEx->itemData(exampleIndex).toStringList();
+	if(definitionNamesToReplace.size() < 3)
+		return;
 	// sets some variable for a specific porject to copy
-	m_ToReplaceWithDeviceName = "LowPassFilter";
-	m_ToReplaceWithPluginName = "LowPassFilterPlugin";
-	m_ToReplaceWithProjectName = "LowPassFilterPlugin";
+	m_ToReplaceWithDeviceName = definitionNamesToReplace[0];
+	m_ToReplaceWithPluginName = definitionNamesToReplace[1];
+	m_ToReplaceWithProjectName = definitionNamesToReplace[2];
 
 	// try to find the directory of the project to copy
-	m_FromDir = QDir("../../UserDefinedPlugins");
+	m_FromDir = QDir(m_ExampleDirPath);
 	if(m_FromDir.exists() && QDir("../../SrYbExe").exists()){
-		m_ToDir = QDir("../../UserDefinedPlugins");
+		m_ToDir = QDir("../../../LabExe-UserPlugins/SoftwarePlugins");
 	}
 	else {
-		m_FromDir = QDir("../examples");
+		m_ExampleDirPath = "../examples";
+		m_FromDir = QDir(m_ExampleDirPath);
 		m_ToDir = QDir("..");
 		m_ToDir.mkdir("UserProjects");
 		m_ToDir.cd("UserProjects");
 	}
 	if(!m_ToDir.exists()) {
 		QString errmsg = QString("Couldn't enter the destination directory %1").arg(m_ToDir.absolutePath());
-		int ret = QMessageBox::warning(this, "", errmsg, QMessageBox::Cancel);
+		QMessageBox::warning(this, "", errmsg, QMessageBox::Cancel);
 	}
 
 	if(!m_FromDir.cd(m_ToReplaceWithProjectName)) {
 		QString errmsg = QString("Couldn't enter the source directory %1").arg(m_FromDir.absolutePath());
-		int ret = QMessageBox::warning(this, "", errmsg, QMessageBox::Cancel);
+		QMessageBox::warning(this, "", errmsg, QMessageBox::Cancel);
 	}
 }
 
@@ -156,8 +173,9 @@ IntroPage::IntroPage(QWidget *parent)
     setLayout(layout);
 }
 
-ClassInfoPage::ClassInfoPage(QWidget *parent)
+ClassInfoPage::ClassInfoPage(UserPluginWizard *parent)
     : QWizardPage(parent)
+	, m_Wiz(parent)
 {
     setTitle(tr("Plugin Information"));
     setSubTitle(tr("Specify basic information about the plugin for which you "
@@ -167,6 +185,36 @@ ClassInfoPage::ClassInfoPage(QWidget *parent)
     pluginNameLabel = new QLabel(tr("&Plugin name:"));
     pluginNameLineEdit = new QLineEdit;
     pluginNameLabel->setBuddy(pluginNameLineEdit);
+
+	pluginToCopyLabel = new QLabel(tr("Example plugin to copy from"));
+	pluginToCopyCombo = new QComboBox();
+	pluginNameLabel->setBuddy(pluginToCopyLabel);
+
+	QDir examplePluginDir = QDir();
+	examplePluginDir.cd(m_Wiz->m_ExampleDirPath);
+	qDebug() << examplePluginDir;
+	// for the folder and each sub-folders in the example directory
+	foreach(QString dirName, examplePluginDir.entryList(QDir::AllDirs | QDir::NoDotDot | QDir::NoDot)) {
+		QDir TheExPlugDir(examplePluginDir);
+		TheExPlugDir.cd(dirName);
+		// name of the dir without "Plugin"
+		QString plugName = dirName;
+		if(!plugName.contains("Plugin"))
+			continue;
+		plugName = plugName.remove("Plugin");
+		// 		qDebug() << TheExPlugDir.absolutePath();
+		// find the solution file in the example folder
+		foreach(QString fileName, TheExPlugDir.entryList(QStringList() << "*.sln", QDir::Files)) {
+			QFileInfo finfo(fileName);
+			QStringList definitionNameToReplace;
+			definitionNameToReplace << plugName << (plugName + "Plugin") << (plugName + "Plugin");
+			pluginToCopyCombo->addItem(plugName, definitionNameToReplace);
+			break;
+		}
+	}
+	// connect the combo to the slot that prepares the names to be replaced
+	connect(pluginToCopyCombo, SIGNAL(activated(int)), m_Wiz, SLOT(ExampleComboSelected(int)));
+
 
 //     baseClassLabel = new QLabel(tr("B&ase class:"));
 //     baseClassLineEdit = new QLineEdit;
@@ -203,10 +251,13 @@ ClassInfoPage::ClassInfoPage(QWidget *parent)
     QGridLayout *layout = new QGridLayout;
     layout->addWidget(pluginNameLabel, 0, 0);
     layout->addWidget(pluginNameLineEdit, 0, 1);
-// 	layout->addWidget(baseClassLabel, 1, 0);
-//	layout->addWidget(baseClassLineEdit, 1, 1);
+
+	layout->addWidget(pluginToCopyLabel, 1, 0);
+	layout->addWidget(pluginToCopyCombo, 1, 1);
+
 //	layout->addWidget(qobjectMacroCheckBox, 2, 0, 1, 2);
 //	layout->addWidget(groupBox, 3, 0, 1, 2);
+
     setLayout(layout);
 }
 
@@ -239,7 +290,6 @@ ParametersPage::ParametersPage(QWidget *parent)
 	layout->addWidget(pText);
 	layout->addWidget(pIntBox);
 	setLayout(layout);
-
 
 // 	commentCheckBox = new QCheckBox(tr("&Start generated files with a comment"));
 // 	commentCheckBox->setChecked(true);
@@ -281,8 +331,6 @@ ParametersPage::ParametersPage(QWidget *parent)
 
 void ParametersPage::initializePage()
 {
-
-
 // 	QString pluginName = field("pluginName").toString();
 // 	macroNameLineEdit->setText(pluginName.toUpper() + "_H");
 // 
