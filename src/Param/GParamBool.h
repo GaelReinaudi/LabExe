@@ -25,6 +25,7 @@ public:
 
 	//! Returns the value as a bool. A mutex protects the reading;
 	bool BoolValue() const {
+		return m_val;
 		m_MutexVariant.lock();
 		bool valCopy = m_val;
 		m_MutexVariant.unlock();
@@ -43,7 +44,7 @@ protected:
 
 public:
 	//! Provides a widget that will be used to control (read? or modify?) the param.
-	GParamControlWidget* ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid = Default);
+	QWidget* ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid = Default);
 	//! For convenience. Just like ProvideNewParamWidget(), but it actually returns a QPushButton. If theLabel is empty, it uses the name of the param.
 	QPushButton* ProvideNewParamButton(QWidget* forWhichParent, QString theLabel = "");
 	//! For convenience. Just like ProvideNewParamWidget(), but it actually returns a QCheckBox with a label

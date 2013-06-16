@@ -1,5 +1,5 @@
 #include "GDoubleSpinBox.h"
-#include "GParamNum.h"
+#include "GParamDouble.h"
 
 GDoubleSpinBox::GDoubleSpinBox(QWidget *parent)
 	: QDoubleSpinBox(parent)
@@ -8,7 +8,7 @@ GDoubleSpinBox::GDoubleSpinBox(QWidget *parent)
 	Init();
 }
 
-GDoubleSpinBox::GDoubleSpinBox( GParamNum* theControlledParam, QWidget *parent )
+GDoubleSpinBox::GDoubleSpinBox( GParamDouble* theControlledParam, QWidget *parent )
 {
 	m_pParam = theControlledParam;
 	Init();
@@ -70,16 +70,16 @@ void GDoubleSpinBox::SetValue_WithoutSignal(const double& valueToDisplay)
 	m_ShouldEmit_ValueChangedSignificantly = true;
 }
 
-void GDoubleSpinBox::SetValue_WithoutSignal(const int& valueToDisplay)
-{
-	if(valueToDisplay == value())
-		return;
-	m_ShouldEmit_ValueChangedSignificantly = false;
-	setValue(double(valueToDisplay));
-	m_ShouldEmit_ValueChangedSignificantly = true;
-}
+// void GDoubleSpinBox::SetValue_WithoutSignal(const int& valueToDisplay)
+// {
+// 	if(valueToDisplay == value())
+// 		return;
+// 	m_ShouldEmit_ValueChangedSignificantly = false;
+// 	setValue(double(valueToDisplay));
+// 	m_ShouldEmit_ValueChangedSignificantly = true;
+// }
 
-void GDoubleSpinBox::ReProcessValueChangedSiganl( double newValue )
+void GDoubleSpinBox::ReProcessValueChangedSiganl( const double& newValue )
 {
 	if(m_ShouldEmit_ValueChangedSignificantly)
 		emit ValueChangedSignificantly(newValue);

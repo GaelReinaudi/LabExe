@@ -5,6 +5,7 @@
 #include "GParam.h"
 
 class GDoubleSpinBox;
+class GIntSpinBox;
 
 //! function to compare two doubles. Currently, it returns the result of qFuzzyCompare().
 bool LABEXE_EXPORT gEqual(double val1, double val2);
@@ -33,16 +34,17 @@ public:
 	virtual GParamNum& operator-=(double theValue) {SetParamValue(DoubleValue() - theValue); return *this;}
 	virtual double operator+(double theValue) {return DoubleValue() + theValue;}
 	virtual double operator-(double theValue) {return DoubleValue() - theValue;}
+	virtual GParamNum& operator=(int theValue) {SetParamValue(theValue); return *this;}
+	virtual GParamNum& operator+=(int theValue) {SetParamValue(IntValue() + theValue); return *this;}
+	virtual GParamNum& operator-=(int theValue) {SetParamValue(IntValue() - theValue); return *this;}
+	virtual double operator+(int theValue) {return IntValue() + theValue;}
+	virtual double operator-(int theValue) {return IntValue() - theValue;}
 
 	//! Returns the value as a double. A mutex protects the reading;
-	double DoubleValue() const {
-		m_MutexVariant.lock();
-		double valCopy = m_valDouble;
-		m_MutexVariant.unlock();
-		return valCopy;
-	}
+	virtual double DoubleValue() const = 0;
 	//! Returns the value as an int. A mutex protects the reading;
-	int IntValue() const { return qRound(DoubleValue()); }
+	virtual int IntValue() const = 0;
+
 	//! Re-implemented
 	QVariant ToVariant() const { return QVariant(DoubleValue()); }
 	//! Implemented
@@ -75,13 +77,13 @@ public:
 	void SaveParamSettingsToRegistry();
 
 	//! Provides a widget that will be used to control (read? or modify?) the param.
-	GParamControlWidget* ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid = Default);
+	virtual QWidget* ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid = Default) = 0;
 
 public slots:
 	//! Sets a new value. If sendUpdateSignals, it will emit the signal ValueUpdated() and ValueDidChange() if it did change. If sendDisplayUpdateSignal, it will emit the signal ValueUpdateForDisplay().
-	virtual void SetParamValue(const int& theNewValue, bool sendUpdateSignals = true, bool sendDisplayUpdateSignal = true);
+	virtual void SetParamValue(const int& theNewValue, bool sendUpdateSignals = true, bool sendDisplayUpdateSignal = true) = 0;
 	//! Sets a new value. If sendUpdateSignals, it will emit the signal ValueUpdated() and ValueDidChange() if it did change. If sendDisplayUpdateSignal, it will emit the signal ValueUpdateForDisplay().
-	virtual void SetParamValue(const double& theNewValue, bool sendUpdateSignals = true, bool sendDisplayUpdateSignal = true);
+	virtual void SetParamValue(const double& theNewValue, bool sendUpdateSignals = true, bool sendDisplayUpdateSignal = true) = 0;
 	//! Implemented 
 	virtual void SetFromVariant( QVariant varVal ) { SetParamValue(varVal.toDouble()); }
 	//! Restores the settings of the param from the registry if any. See SaveParamSettingsToRegistry().
@@ -96,8 +98,15 @@ signals:
 	void ValueUpdated(const double& theNewValue);
 	//! Emitted after ValueUpdated but only if the value did change, i.e. if(!gEqual(acceptedValue, oldVal))
 	void ValueDidChange(const double& theNewValue);
+	//! Emitted when the value was updated (ie. SetParamValue() was called).
+	void ValueUpdated(const int & theNewValue);
+	//! Emitted after ValueUpdated but only if the value did change, i.e. if(!gEqual(acceptedValue, oldVal))
+	void ValueDidChange(const int& theNewValue);
 	//! Emitted after ValueUpdated but this should only be connect to display things in the ui, it should not create an other emission from the ui, thus avoiding infinite loops.
 	void ValueUpdateForDisplay(const double& theNewValue);
+	//! Emitted after ValueUpdated but this should only be connect to display things in the ui, it should not create an other emission from the ui, thus avoiding infinite loops.
+	void ValueUpdateForDisplay(const int& theNewValue);
+
 	//! Emitted when the hard limits changed.
 	void HardLimitsChanged(double newMin, double newMax);
 	//! Emitted when the decimal number changed.
@@ -111,8 +120,6 @@ signals:
 private:
 
 protected:
-	//! the actual value
-	double m_valDouble;
 	//! this spinbox is used only to hold certain characteristics of this param, like step-size, decimal number, limits
 	QDoubleSpinBox m_ParamSettings;
 

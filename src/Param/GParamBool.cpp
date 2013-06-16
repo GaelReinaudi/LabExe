@@ -41,7 +41,7 @@ void GParamBool::SetParamValue( bool theNewValue )
 	}
 }
 
-GParamControlWidget* GParamBool::ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid /*= Default*/)
+QWidget* GParamBool::ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid /*= Default*/)
 {
 	if(optionWid == Minimal) {
 		return ProvideNewParamCheckBox(forWhichParent, "");

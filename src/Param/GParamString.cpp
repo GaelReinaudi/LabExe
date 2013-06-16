@@ -29,7 +29,7 @@ void GParamString::SetParamValue( const QString& theNewValue )
 	emit ValueUpdated(theNewValue);
 }
 
-GParamControlWidget* GParamString::ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid /*= Default*/)
+QWidget* GParamString::ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid /*= Default*/)
 {
 	GLineEditWithCompare* pLineEdit = new GLineEditWithCompare(forWhichParent);
 	if (Options() & GParam::ReadOnly) {

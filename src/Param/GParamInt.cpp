@@ -1,6 +1,6 @@
 #include "GParamInt.h"
 #include "GParamManager.h"
-#include "GDoubleSpinBox.h"
+#include "GIntSpinBox.h"
 
 G_REGISTER_NEW_PARAM_CLASS(GParamInt);
 
@@ -16,10 +16,32 @@ GParamInt::~GParamInt()
 
 }
 
-GDoubleSpinBox* GParamInt::ProvideNewParamSpinBox( QWidget* forWhichParent )
+QWidget* GParamInt::ProvideNewParamWidget( QWidget* forWhichParent, GParam::WidgetOptions optionWid /*= Default*/ )
 {
-	GDoubleSpinBox* pSpinBox = qobject_cast<GDoubleSpinBox*>(ProvideNewParamWidget(forWhichParent));
+	GIntSpinBox* pSpinBox = new GIntSpinBox(this, forWhichParent);
+	pSpinBox->setValue(IntValue());
+	// set some settings
+	pSpinBox->SetStep(TypicalStep());
+	pSpinBox->SetRange(Minimum(), Maximum(), true);
+
+	if(Options() & GParam::ReadOnly) {
+		pSpinBox->setReadOnly(true);
+		pSpinBox->setButtonSymbols(QAbstractSpinBox::NoButtons);
+	}
+	else {
+		connect(pSpinBox, SIGNAL(ValueChangedSignificantly(int)), this, SLOT(SetParamValue(int)));
+	}
+
+	connect(this, SIGNAL(HardLimitsChanged(double, double)), pSpinBox, SLOT(SetRange(double, double)));
+	connect(this, SIGNAL(TypicalStepChanged(double)), pSpinBox, SLOT(SetStep(double)));
+
 	connect(this, SIGNAL(ValueUpdateForDisplay(int)), pSpinBox, SLOT(SetValue_WithoutSignal(int)));
+	return pSpinBox;
+}
+
+GIntSpinBox* GParamInt::ProvideNewParamSpinBox( QWidget* forWhichParent )
+{
+	GIntSpinBox* pSpinBox = qobject_cast<GIntSpinBox*>(ProvideNewParamWidget(forWhichParent));
 	return pSpinBox;
 }
 
@@ -28,37 +50,11 @@ QComboBox* GParamInt::ProvideNewParamComboBox( QWidget* forWhichParent, QStringL
 	QComboBox* pComboBox = new QComboBox(forWhichParent);
 	pComboBox->addItems(nameList);
 	pComboBox->setCurrentIndex(IntValue());
-	qDebug() << IntValue();
 
-	connect(this, SIGNAL(ValueUpdateForDisplay(int)), pComboBox, SLOT(setCurrentIndex(int)));//, Qt::QueuedConnection);
+	connect(this, SIGNAL(ValueUpdateForDisplay(int)), pComboBox, SLOT(setCurrentIndex(int)));
 	connect(pComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(SetParamValue(int)));
 
 	return pComboBox;
-}
-
-void GParamInt::SetParamValue( const int& theNewValue, bool sendUpdateSignals /*= true*/, bool sendDisplayUpdateSignal /*= true*/ )
-{
-	int oldVal = IntValue();
-	int acceptedValue = theNewValue;
-
-	GParamNum::SetParamValue(theNewValue, sendUpdateSignals, sendDisplayUpdateSignal);
-
-	// first display to avoid sending the wrong order of signal when setParamValue re-enter itself (e.g. when a device sends a new value to display)
-	if(sendDisplayUpdateSignal) {
-		emit ValueUpdateForDisplay(acceptedValue);
-	}
-	if(sendUpdateSignals) {
-		emit ValueUpdated(theNewValue);
-		// if the value really did change
-		if(acceptedValue != oldVal)
-			emit ValueDidChange(acceptedValue);
-	}
-}
-
-void GParamInt::SetParamValue(const double& theNewValue, bool sendUpdateSignals /*= true*/, bool sendDisplayUpdateSignal /*= true*/)
-{
-	SetParamValue(qRound(theNewValue), sendUpdateSignals, sendDisplayUpdateSignal);
-//	qDebug() << theNewValue << int(theNewValue) << qRound(theNewValue);
 }
 
 void GParamInt::PopulateSettings( QSettings& inQsettings )
@@ -83,5 +79,31 @@ void GParamInt::InterpretSettings( QSettings& fromQsettings )
 		fromQsettings.endGroup();
 		SetParamValue(fromQsettings.value(UniqueSystemID(), 0.0).toInt());
 		fromQsettings.beginGroup(UniqueSystemID());
+	}
+}
+
+void GParamInt::SetParamValue( const int& theNewValue, bool sendUpdateSignals /*= true*/, bool sendDisplayUpdateSignal /*= true*/ )
+{
+	int oldVal = IntValue();
+	int acceptedValue = theNewValue;
+	bool didChange = acceptedValue != oldVal;
+
+	// NO RANGE CHECKING FOR NOW. TODO
+	//	acceptedValue = qBound(int(m_ParamSettings.minimum()), acceptedValue, int(m_ParamSettings.maximum()));
+
+	m_valInt = acceptedValue;
+
+	// first display to avoid sending the wrong order of signal when setParamValue re-enter itself (e.g. when a device sends a new value to display)
+	if(sendDisplayUpdateSignal && didChange) {
+		emit ValueUpdateForDisplay(acceptedValue);
+	}
+	if(sendUpdateSignals) {
+		emit ValueUpdated(theNewValue);
+		emit ValueUpdated(double(theNewValue));
+		// if the value really did change
+		if(didChange) {
+			emit ValueDidChange(acceptedValue);
+			emit ValueDidChange(double(theNewValue));
+		}
 	}
 }

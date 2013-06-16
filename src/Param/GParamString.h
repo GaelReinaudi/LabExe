@@ -30,7 +30,7 @@ public:
 
 public:
 	//! Provides a widget that will be used to control (read? or modify?) the param.
-	GParamControlWidget* ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid = Default);
+	QWidget* ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid = Default);
 	//! For convenience. Just like ProvideNewParamWidget(), but it actually returns a QLineEdit
 	QLineEdit* ProvideNewParamLineEdit(QWidget* forWhichParent);
 

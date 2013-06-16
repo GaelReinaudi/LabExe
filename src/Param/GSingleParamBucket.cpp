@@ -3,6 +3,7 @@
 #include "GParamBucketTreeWidget.h"
 #include "GParamManager.h"
 #include "GParamDouble.h"
+#include "GParamInt.h"
 
 G_REGISTER_NEW_PARAM_CLASS(GSingleParamBucket);
 
@@ -31,14 +32,25 @@ bool GSingleParamBucket::AddParam( GParam* pParam )
 		RemoveParam(pOldPar);
 
 	// if numerical, we make some connections
-	GParamNum* pParNum = qobject_cast<GParamNum*>(pParam);
-	if(pParNum) {
-		connect(pParNum, SIGNAL(ValueDidChange(double)), this, SIGNAL(ValueDidChange(double)));
-		connect(pParNum, SIGNAL(ValueUpdated(double)), this, SIGNAL(ValueUpdated(double)));
-		connect(pParNum, SIGNAL(ParamUpdateCompletion(bool)), this, SIGNAL(BucketUpdatedValues()));
-		connect(pParNum, SIGNAL(ManyValuesAvailable(GVectorDouble)), this, SIGNAL(ManyValuesAvailable(GVectorDouble)));
+	GParamDouble* pParDbl = qobject_cast<GParamDouble*>(pParam);
+	if(pParDbl) {
+		connect(pParDbl, SIGNAL(ValueDidChange(double)), this, SIGNAL(ValueDidChange(double)));
+		connect(pParDbl, SIGNAL(ValueUpdated(double)), this, SIGNAL(ValueUpdated(double)));
+		connect(pParDbl, SIGNAL(ParamUpdateCompletion(bool)), this, SIGNAL(BucketUpdatedValues()));
+		connect(pParDbl, SIGNAL(ManyValuesAvailable(GVectorDouble)), this, SIGNAL(ManyValuesAvailable(GVectorDouble)));
 		// we even emit because a new value is there
-		emit ValueUpdated(pParNum->DoubleValue());
+		emit ValueUpdated(pParDbl->DoubleValue());
+	}
+	// if int, we make some connections
+	GParamInt* pParInt = qobject_cast<GParamInt*>(pParam);
+	if(pParInt) {
+		connect(pParInt, SIGNAL(ValueDidChange(double)), this, SIGNAL(ValueDidChange(double)));
+		connect(pParInt, SIGNAL(ValueUpdated(double)), this, SIGNAL(ValueUpdated(double)));
+		connect(pParInt, SIGNAL(ValueDidChange(int)), this, SIGNAL(ValueDidChange(int)));
+		connect(pParInt, SIGNAL(ValueUpdated(int)), this, SIGNAL(ValueUpdated(int)));
+		connect(pParInt, SIGNAL(ParamUpdateCompletion(bool)), this, SIGNAL(BucketUpdatedValues()));
+		// we even emit because a new value is there
+		emit ValueUpdated(pParInt->IntValue());
 	}
 	return true;
 }
@@ -50,10 +62,7 @@ bool GSingleParamBucket::RemoveParam( GParam* pParam )
 
 	// if numerical, we make some dis-connections
 	if(qobject_cast<GParamNum*>(pParam)) {
-		disconnect(pParam, SIGNAL(ValueDidChange(double)), this, SIGNAL(ValueDidChange(double)));
-		disconnect(pParam, SIGNAL(ValueUpdated(double)), this, SIGNAL(ValueUpdated(double)));
-		disconnect(pParam, SIGNAL(ParamUpdateCompletion(bool)), this, SIGNAL(BucketUpdatedValues()));
-		disconnect(pParam, SIGNAL(ManyValuesAvailable(GVectorDouble)), this, SIGNAL(ManyValuesAvailable(GVectorDouble)));
+		disconnect(pParam, 0, this, 0);
 	}
 	return true;
 }

@@ -1,8 +1,8 @@
 #include "GParamBucket.h"
-#include "GParamNum.h"
 #include "GParamString.h"
 #include "GParamBool.h"
 #include "GParamDouble.h"
+#include "GParamInt.h"
 #include "GParamManager.h"
 #include "GParamBucketWidget.h"
 #include "GParamBucketTreeWidget.h"
@@ -128,13 +128,17 @@ void GParamBucket::SetParamTriggeringConnection(GParam* pParam, bool doUseAsTrig
 {
 	if(doUseAsTrigger) {
 		// if numerical, we make some connections
-		if(qobject_cast<GParamNum*>(pParam))
+		if(qobject_cast<GParamDouble*>(pParam))
 			connect(pParam, SIGNAL(ValueUpdated(double)), this, SLOT(EventSomeValueUpdated()), Qt::UniqueConnection);
+		if(qobject_cast<GParamInt*>(pParam))
+			connect(pParam, SIGNAL(ValueUpdated(int)), this, SLOT(EventSomeValueUpdated()), Qt::UniqueConnection);
 	}
 	else {
 		// if numerical, we make some dis-connections
-		if(qobject_cast<GParamNum*>(pParam))
+		if(qobject_cast<GParamDouble*>(pParam))
 			disconnect(pParam, SIGNAL(ValueUpdated(double)), this, SLOT(EventSomeValueUpdated()));
+		if(qobject_cast<GParamInt*>(pParam))
+			disconnect(pParam, SIGNAL(ValueUpdated(int)), this, SLOT(EventSomeValueUpdated()));
 	}
 	GParamBool* pTrigBool = ExtraParamBool(pParam, "trig");
 	if(pTrigBool) {

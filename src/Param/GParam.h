@@ -14,7 +14,6 @@
 #include <QLabel>
 #include <QDoubleSpinBox>
 
-typedef QWidget GParamControlWidget;
 typedef QVector<double> GVectorDouble;
 
 namespace LabelWidget {
@@ -90,7 +89,7 @@ public:
 	//! Displays the widget containing the settings for this param. Returns the widget so that re-implementations can add more content to the layout.
 	virtual GParamSettingsWidget* PopupSettingWidget();
 	//! Provides a widget that will be used to control (read or modify) the param.
-	virtual GParamControlWidget* ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid = Default) = 0; 
+	virtual QWidget* ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid = Default) = 0; 
 	//! Provides a label that will be used to display the name, or Drag&Drop the param (e.g. to a GVariator).
 	virtual QLabel* ProvideNewLabel(QWidget* forWhichParent, LabelWidget::Options someOptions = LabelWidget::NoOption);
 

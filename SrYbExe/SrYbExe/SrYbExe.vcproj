@@ -64,7 +64,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="labexe.lib qtmain.lib QtCore4.lib QtGui4.lib QtWebKit4.lib labexeImaging.lib labexeOptimizing.lib labexeSequencer.lib"
+				AdditionalDependencies="labexe.lib qtmain.lib QtCore4.lib QtGui4.lib QtWebKit4.lib labexeImaging.lib labexeOptimizing.lib"
 				OutputFile="$(OutDir)\WinLabExe.exe"
 				AdditionalLibraryDirectories="..\..\..\LabExe\lib;..\..\..\LabExe\bin;&quot;$(QTDIR)\lib&quot;;"
 				GenerateDebugInformation="false"
@@ -212,7 +212,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="labexe_D.lib qtmaind.lib QtCored4.lib QtGuid4.lib QtWebKitd4.lib labexeImaging_D.lib labexeOptimizing_D.lib labexeSequencer_D.lib"
+				AdditionalDependencies="labexe_D.lib qtmaind.lib QtCored4.lib QtGuid4.lib QtWebKitd4.lib labexeImaging_D.lib labexeOptimizing_D.lib"
 				OutputFile="$(OutDir)\WinLabExe_D.exe"
 				AdditionalLibraryDirectories="..\..\..\LabExe\lib;..\..\..\LabExe\bin;&quot;$(QTDIR)\lib&quot;;"
 				DelayLoadDLLs=""
@@ -365,7 +365,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="labexe_RD.lib qtmain.lib QtCore4.lib QtWebKit4.lib QtGui4.lib labexeImaging_RD.lib labexeOptimizing_RD.lib labexeSequencer_RD.lib"
+				AdditionalDependencies="labexe_RD.lib qtmain.lib QtCore4.lib QtWebKit4.lib QtGui4.lib labexeImaging_RD.lib labexeOptimizing_RD.lib"
 				OutputFile="$(OutDir)\WinLabExe.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="..\..\..\LabExe\lib;..\..\..\LabExe\bin;&quot;$(QTDIR)\lib&quot;;"

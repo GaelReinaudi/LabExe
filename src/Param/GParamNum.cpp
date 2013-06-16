@@ -11,7 +11,6 @@ bool gEqual( double val1, double val2 )
 
 GParamNum::GParamNum(QString theName, QObject *parent, GParam::Properties paramOptions /*= NoOption*/)
 	: GParam(theName, parent, paramOptions)
-	, m_valDouble(0.0)
 {
 	m_ParamSettings.setCorrectionMode(QAbstractSpinBox::CorrectToNearestValue);
 	m_ParamSettings.setMinimum(G_DEFAULT_RANGE_MIN);
@@ -83,66 +82,29 @@ void GParamNum::RestoreParamSettingsFromRegistry()
 	saveInRegistry.endGroup();
 }
 
-void GParamNum::SetParamValue( const int& theNewValue, bool sendUpdateSignals /*= true*/, bool sendDisplayUpdateSignal /*= true*/ )
-{
-	int targetVal = theNewValue;
-	int oldVal = IntValue();
-	int acceptedValue = targetVal;
-
-	// the hard limit is respected
-	if(true) {
-		acceptedValue = qBound(int(m_ParamSettings.minimum()), acceptedValue, int(m_ParamSettings.maximum()));
-	}
-
-	m_valDouble = acceptedValue;
-
-	// first display to avoid sending the wrong order of signal when setParamValue re-enter itself (e.g. when a device sends a new value to display)
-	if(sendDisplayUpdateSignal) {
-		emit ValueUpdateForDisplay(acceptedValue);
-	}
-	if(sendUpdateSignals) {
-		emit ValueUpdated(acceptedValue);
-		// if the value really did change
-		if(acceptedValue != oldVal)
-			emit ValueDidChange(acceptedValue);
-	}
-}
-
-void GParamNum::SetParamValue( const double& theNewValue, bool sendUpdateSignals /*= true*/, bool sendDisplayUpdateSignal /*= true*/ )
-{
-	double oldVal = DoubleValue();
-	double acceptedValue = theNewValue;
-
-	// the hard limit is respected
-	if(true) {
-		acceptedValue = qBound(m_ParamSettings.minimum(), acceptedValue, m_ParamSettings.maximum());
-	}
-
-	m_valDouble = acceptedValue;
-
-	// first display to avoid sending the wrong order of signal when setParamValue re-enter itself (e.g. when a device sends a new value to display)
-	if(sendDisplayUpdateSignal) {
-		emit ValueUpdateForDisplay(acceptedValue);
-	}
-	if(sendUpdateSignals) {
-		emit ValueUpdated(acceptedValue);
-		// if the value really did change
-		if(!gEqual(acceptedValue, oldVal))
-			emit ValueDidChange(acceptedValue);
-	}
-}
-
-/////////////////////////////////////////////////////////////////////
-/*!
-Returns the value converted to int.
-\return: int : rounded to the nearest integer if the content is a double
-*////////////////////////////////////////////////////////////////////
-// int GParamNum::IntValue() const
+// void GParamNum::SetParamValue( const int& theNewValue, bool sendUpdateSignals /*= true*/, bool sendDisplayUpdateSignal /*= true*/ )
 // {
-// 	m_MutexVariant.lock();
-// 	int valCopy = qRound(DoubleValue());
-// 	m_MutexVariant.unlock();
-// 	return valCopy;
+// 	int targetVal = theNewValue;
+// 	int oldVal = IntValue();
+// 	int acceptedValue = targetVal;
+// 
+// 	// the hard limit is respected
+// 	if(true) {
+// 		acceptedValue = qBound(int(m_ParamSettings.minimum()), acceptedValue, int(m_ParamSettings.maximum()));
+// 	}
+// 
+// 	m_valDouble = acceptedValue;
+// 
+// 	// first display to avoid sending the wrong order of signal when setParamValue re-enter itself (e.g. when a device sends a new value to display)
+// 	if(sendDisplayUpdateSignal) {
+// 		emit ValueUpdateForDisplay(acceptedValue);
+// 	}
+// 	if(sendUpdateSignals) {
+// 		emit ValueUpdated(acceptedValue);
+// 		// if the value really did change
+// 		if(acceptedValue != oldVal)
+// 			emit ValueDidChange(acceptedValue);
+// 	}
 // }
 
 void GParamNum::PopulateSettings( QSettings& inQsettings )
@@ -170,28 +132,3 @@ void GParamNum::InterpretSettings( QSettings& fromQsettings )
 	}
 }
 
-GParamControlWidget* GParamNum::ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid /*= Default*/)
-{
-	GDoubleSpinBox* pSpinBox = new GDoubleSpinBox(this, forWhichParent);
-	pSpinBox->setValue(DoubleValue());
-	// set some settings
-	pSpinBox->SetDecimal(DisplayDecimals());
-	pSpinBox->SetStep(TypicalStep());
-	pSpinBox->SetRange(Minimum(), Maximum(), true);
-
-	if(Options() & GParam::ReadOnly) {
-		pSpinBox->setReadOnly(true);
-		pSpinBox->setButtonSymbols(QAbstractSpinBox::NoButtons);
-	}
-	else {
-		// 		connect(pSpinBox, SIGNAL(valueChanged(double)), this, SLOT(SetParamValue(double)));
-		connect(pSpinBox, SIGNAL(ValueChangedSignificantly(double)), this, SLOT(SetParamValue(double)));
-	}
-
-	connect(this, SIGNAL(HardLimitsChanged(double, double)), pSpinBox, SLOT(SetRange(double, double)));
-	connect(this, SIGNAL(DisplayDecimalsChanged(int)), pSpinBox, SLOT(SetDecimal(int)));
-	connect(this, SIGNAL(TypicalStepChanged(double)), pSpinBox, SLOT(SetStep(double)));
-
-	connect(this, SIGNAL(ValueUpdateForDisplay(double)), pSpinBox, SLOT(SetValue_WithoutSignal(double)));
-	return pSpinBox;
-}

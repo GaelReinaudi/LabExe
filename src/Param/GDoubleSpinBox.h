@@ -5,19 +5,19 @@
 #include <QDoubleSpinBox>
 #include <QtGui>
 
-class GParamNum;
+class GParamDouble;
 
 /////////////////////////////////////////////////////////////////////
 //! \brief The GDoubleSpinBox class is a Qt QDoubleSpinBox with some added functionalities...
 /*!
-like being aware of the GParamNum it might be controlling.
+like being aware of the GParamDouble it might be controlling.
 */
 class LABEXE_EXPORT GDoubleSpinBox : public QDoubleSpinBox
 {
 	Q_OBJECT
 public:
 	GDoubleSpinBox(QWidget *parent);
-	GDoubleSpinBox(GParamNum* theControlledParam, QWidget *parent);
+	GDoubleSpinBox(GParamDouble* theControlledParam, QWidget *parent);
 	~GDoubleSpinBox();
 
 protected:
@@ -39,10 +39,10 @@ public slots:
 private slots:
 	//! Slot intended to update the value in the box, but without sending the signal. It prevents infinite updating loops.
 	void SetValue_WithoutSignal(const double& valueToDisplay);
-	//! Slot intended to update the value in the box, but without sending the signal. It prevents infinite updating loops.
-	void SetValue_WithoutSignal(const int& valueToDisplay);
+// 	//! Slot intended to update the value in the box, but without sending the signal. It prevents infinite updating loops.
+// 	void SetValue_WithoutSignal(const int& valueToDisplay);
 	//! This slot is here to process the Qt valueChanged signal and re-emit a ValueChangedSignificantly unless the SetValue_WithoutSignal() slot was called.
-	void ReProcessValueChangedSiganl(double newValue);
+	void ReProcessValueChangedSiganl(const double& newValue);
 
 private:
 	//! is used to emit/not emit ValueChangedSignificantly() when valueChanged(). See SetValue_WithoutSignal().
@@ -55,7 +55,7 @@ signals:
 private:
 	void Init();
 	QPoint m_DragStartPosition;
-	GParamNum* m_pParam;
+	GParamDouble* m_pParam;
 };
 
 #endif // GDOUBLESPINBOX_H

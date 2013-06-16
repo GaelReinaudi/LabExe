@@ -54,6 +54,10 @@ signals:
 	void ValueDidChange(const double& theNewValue);
 	//! Forwarding the param signal GParamNum::ValueUpdated()
 	void ValueUpdated(const double& theNewValue);
+	//! Forwarding the param signal GParamNum::ValueDidChange()
+	void ValueDidChange(const int& theNewValue);
+	//! Forwarding the param signal GParamNum::ValueUpdated()
+	void ValueUpdated(const int& theNewValue);
 	//! TEMPORARY workaround. Forwarding the param signal GParamNum::ManyValuesAvailable()
 	void ManyValuesAvailable(const GVectorDouble & theValues);
 
