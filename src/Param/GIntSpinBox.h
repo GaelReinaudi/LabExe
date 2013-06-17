@@ -31,6 +31,8 @@ public slots:
 private slots:
 	//! Slot intended to update the value in the box, but without sending the signal. It prevents infinite updating loops.
 	void SetValue_WithoutSignal(const int& valueToDisplay);
+	//! Same as SetValue_WithoutSignal(), but gets the value from the param itself.
+	void UpdateValue_WithoutSignal();
 	//! This slot is here to process the Qt valueChanged signal and re-emit a ValueChangedSignificantly unless the SetValue_WithoutSignal() slot was called.
 	void ReProcessValueChangedSiganl(const int& newValue);
 

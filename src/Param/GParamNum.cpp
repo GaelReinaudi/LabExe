@@ -21,6 +21,7 @@ GParamNum::GParamNum(QString theName, QObject *parent, GParam::Properties paramO
 
 	// delay loads the param settings if any in the registry
 	QTimer::singleShot(0, this, SLOT(RestoreParamSettingsFromRegistry()));
+
 }
 
 GParamNum::~GParamNum()

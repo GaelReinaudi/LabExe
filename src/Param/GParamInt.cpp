@@ -36,6 +36,7 @@ QWidget* GParamInt::ProvideNewParamWidget( QWidget* forWhichParent, GParam::Widg
 	connect(this, SIGNAL(TypicalStepChanged(double)), pSpinBox, SLOT(SetStep(double)));
 
 	connect(this, SIGNAL(ValueUpdateForDisplay(int)), pSpinBox, SLOT(SetValue_WithoutSignal(int)));
+	connect(this, SIGNAL(RequestUpdateDisplay()), pSpinBox, SLOT(UpdateValue_WithoutSignal()));
 	return pSpinBox;
 }
 
@@ -84,17 +85,14 @@ void GParamInt::InterpretSettings( QSettings& fromQsettings )
 
 void GParamInt::SetParamValue( const int& theNewValue, bool sendUpdateSignals /*= true*/, bool sendDisplayUpdateSignal /*= true*/ )
 {
-	int oldVal = IntValue();
-	int acceptedValue = theNewValue;
-	bool didChange = acceptedValue != oldVal;
+	// the hard limit is respected
+	int acceptedValue = acceptedValue = qBound(int(m_ParamSettings.minimum()), theNewValue, int(m_ParamSettings.maximum()));
 
-	// NO RANGE CHECKING FOR NOW. TODO
-	//	acceptedValue = qBound(int(m_ParamSettings.minimum()), acceptedValue, int(m_ParamSettings.maximum()));
-
+	bool didChange = (acceptedValue != m_valInt);
 	m_valInt = acceptedValue;
 
 	// first display to avoid sending the wrong order of signal when setParamValue re-enter itself (e.g. when a device sends a new value to display)
-	if(sendDisplayUpdateSignal && didChange) {
+	if(sendDisplayUpdateSignal && didChange && canUpdateGui()) {
 		emit ValueUpdateForDisplay(acceptedValue);
 	}
 	if(sendUpdateSignals) {

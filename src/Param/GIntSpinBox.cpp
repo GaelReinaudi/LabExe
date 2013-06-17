@@ -41,9 +41,14 @@ void GIntSpinBox::SetValue_WithoutSignal(const int& valueToDisplay)
 	m_ShouldEmit_ValueChangedSignificantly = true;
 }
 
+void GIntSpinBox::UpdateValue_WithoutSignal()
+{
+	SetValue_WithoutSignal(m_pParam->IntValue());
+}
+
 void GIntSpinBox::ReProcessValueChangedSiganl( const int& newValue )
 {
-	if(m_ShouldEmit_ValueChangedSignificantly)
+	if(m_ShouldEmit_ValueChangedSignificantly && newValue != m_pParam->IntValue())
 		emit ValueChangedSignificantly(newValue);
 }
 

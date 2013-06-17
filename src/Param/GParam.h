@@ -13,6 +13,8 @@
 #include <QMutex>
 #include <QLabel>
 #include <QDoubleSpinBox>
+#include <QElapsedTimer>
+#include <QBasicTimer>
 
 typedef QVector<double> GVectorDouble;
 
@@ -82,6 +84,8 @@ public:
 	virtual QString StringContent(char format = 'g', int precision = 6) const { return "StringContent() not implemented."; }
 	//! if we need a QVariant out of the param
 	virtual QVariant ToVariant() const { return QVariant("ToVariant() not implemented."); }
+	//! Prevents the update on the gui if it happened less than a given number of milliseconds from the previous gui update.
+	void SetLimitVisualUpdate(int ms) { m_MsLimitVisualUpdate = ms; }
 
 	//! Sets the signal that is going to inform this GParam that the value has been actually successfully updated (like the voltage on an analog voltage output or the position of a motor), or not.
 	bool SetExternalCompletionSignal(const QObject* sender, const char* signal, Qt::ConnectionType type = Qt::AutoConnection);
@@ -114,6 +118,10 @@ protected:
 	virtual void PopulateParamMenu(QMenu* pTheMenu, GParamLabel* pSenderLabel = 0) const;
 	//! Re-implemented to add the new ID in the ParamManagerInstance(). It doesn't remove the previous one.
 	void Event_UniqueSystemIDChanged();
+	//! Tells if it is ok to emit a signal to update the gui based on the m_MsLimitVisualUpdate. It restarts the timer if it hasExpired().
+	bool canUpdateGui();
+	//! implemented to push a gui update of the param
+	void timerEvent(QTimerEvent * event);
 
 signals:
 	//! Emitted when the name of the param changed.
@@ -126,15 +134,21 @@ signals:
 	void UnitsChanged(QString newUnits);
 	//! Emitted when the units displaying of the param changed.
 	void UnitDisplayChanged(bool newDisplayUnits);
-
-signals:
 	//! emitted when one of the label of the param is being hovered (entered actually) by the mouse cursor
 	void MouseEnteredParamLabel();
-	//! emitted when the mouse cursor left the param label
+	//! Emitted when the mouse cursor left the param label
 	void MouseExitedParamLabel();
+	//! Emitted when the param has updates at least once without a gui update (to save cpu) in order to have an up to date value on the screen.
+	void RequestUpdateDisplay();
 
 private:
 	Properties m_Options;
+	//! prevents the update on the gui if it happened less than a given number of milliseconds from the previous gui update.
+	int m_MsLimitVisualUpdate;
+	//! the timer
+	QElapsedTimer m_GuiUpdateTimer;
+	QBasicTimer m_GuiLastUpdater;
+	unsigned int m_CouldUpdateGui;
 	void ParamInit();
 
 protected:

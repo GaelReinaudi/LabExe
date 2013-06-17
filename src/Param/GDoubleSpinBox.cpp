@@ -70,18 +70,14 @@ void GDoubleSpinBox::SetValue_WithoutSignal(const double& valueToDisplay)
 	m_ShouldEmit_ValueChangedSignificantly = true;
 }
 
-// void GDoubleSpinBox::SetValue_WithoutSignal(const int& valueToDisplay)
-// {
-// 	if(valueToDisplay == value())
-// 		return;
-// 	m_ShouldEmit_ValueChangedSignificantly = false;
-// 	setValue(double(valueToDisplay));
-// 	m_ShouldEmit_ValueChangedSignificantly = true;
-// }
+void GDoubleSpinBox::UpdateValue_WithoutSignal()
+{
+	SetValue_WithoutSignal(m_pParam->DoubleValue());
+}
 
 void GDoubleSpinBox::ReProcessValueChangedSiganl( const double& newValue )
 {
-	if(m_ShouldEmit_ValueChangedSignificantly)
+	if(m_ShouldEmit_ValueChangedSignificantly && newValue != m_pParam->DoubleValue())
 		emit ValueChangedSignificantly(newValue);
 }
 

@@ -3,6 +3,9 @@
 /*/GeneratedFiles/
 /*/*/GeneratedFiles/
 
+labexe*.lib
+labexe*.dll
+
 *.suo
 *.res
 *.obj

@@ -38,6 +38,7 @@ QWidget* GParamDouble::ProvideNewParamWidget(QWidget* forWhichParent, GParam::Wi
 	connect(this, SIGNAL(TypicalStepChanged(double)), pSpinBox, SLOT(SetStep(double)));
 
 	connect(this, SIGNAL(ValueUpdateForDisplay(double)), pSpinBox, SLOT(SetValue_WithoutSignal(double)));
+	connect(this, SIGNAL(RequestUpdateDisplay()), pSpinBox, SLOT(UpdateValue_WithoutSignal()));
 	return pSpinBox;
 }
 
@@ -56,17 +57,14 @@ GParamSettingsWidget* GParamDouble::PopupSettingWidget()
 
 void GParamDouble::SetParamValue( const double& theNewValue, bool sendUpdateSignals /*= true*/, bool sendDisplayUpdateSignal /*= true*/ )
 {
-	double oldVal = DoubleValue();
-	double acceptedValue = theNewValue;
-	bool didChange = !gEqual(acceptedValue, oldVal);
-
 	// the hard limit is respected
-	acceptedValue = qBound(m_ParamSettings.minimum(), acceptedValue, m_ParamSettings.maximum());
+	double acceptedValue = qBound(m_ParamSettings.minimum(), theNewValue, m_ParamSettings.maximum());
 
+	bool didChange = !gEqual(acceptedValue, m_valDouble);
 	m_valDouble = acceptedValue;
 
 	// first display to avoid sending the wrong order of signal when setParamValue re-enter itself (e.g. when a device sends a new value to display)
-	if(sendDisplayUpdateSignal && didChange) {
+	if(sendDisplayUpdateSignal && canUpdateGui()) {
 		emit ValueUpdateForDisplay(acceptedValue);
 	}
 	if(sendUpdateSignals) {
