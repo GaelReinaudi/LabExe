@@ -172,8 +172,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StepperPlugin", "..\..\LabE
 		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
 	EndProjectSection
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "WinSetup - Plugin API", "..\Deployement\WinSetup - Plugin API\WinSetup - Plugin API.vdproj", "{6A19B7F7-28C1-4B95-BA22-554C65C59ACA}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UserPluginWizard", "..\Deployement\UserPluginWizard\UserPluginWizard.vcproj", "{3E85C504-34F9-3162-8080-AE81C7C09C27}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Plot1DPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\Plot1DPlugin\Plot1DPlugin.vcproj", "{F603592C-57E2-4EC7-972C-841A8DB285DB}"
@@ -586,19 +584,6 @@ Global
 		{82A33229-229F-4A22-8C2C-E9F41687F60B}.Release|Win32.ActiveCfg = Release|Win32
 		{82A33229-229F-4A22-8C2C-E9F41687F60B}.Release|Win32.Build.0 = Release|Win32
 		{82A33229-229F-4A22-8C2C-E9F41687F60B}.Release|x64.ActiveCfg = Release|Win32
-		{6A19B7F7-28C1-4B95-BA22-554C65C59ACA}.Debug No Plugins|Win32.ActiveCfg = Debug
-		{6A19B7F7-28C1-4B95-BA22-554C65C59ACA}.Debug No Plugins|x64.ActiveCfg = Debug
-		{6A19B7F7-28C1-4B95-BA22-554C65C59ACA}.Debug No Plugins|x64.Build.0 = Debug
-		{6A19B7F7-28C1-4B95-BA22-554C65C59ACA}.Debug|Win32.ActiveCfg = Debug
-		{6A19B7F7-28C1-4B95-BA22-554C65C59ACA}.Debug|x64.ActiveCfg = Debug
-		{6A19B7F7-28C1-4B95-BA22-554C65C59ACA}.Debug|x64.Build.0 = Debug
-		{6A19B7F7-28C1-4B95-BA22-554C65C59ACA}.Release with Debug|Win32.ActiveCfg = Release
-		{6A19B7F7-28C1-4B95-BA22-554C65C59ACA}.Release with Debug|Win32.Build.0 = Release
-		{6A19B7F7-28C1-4B95-BA22-554C65C59ACA}.Release with Debug|x64.ActiveCfg = Release
-		{6A19B7F7-28C1-4B95-BA22-554C65C59ACA}.Release with Debug|x64.Build.0 = Release
-		{6A19B7F7-28C1-4B95-BA22-554C65C59ACA}.Release|Win32.ActiveCfg = Release
-		{6A19B7F7-28C1-4B95-BA22-554C65C59ACA}.Release|x64.ActiveCfg = Release
-		{6A19B7F7-28C1-4B95-BA22-554C65C59ACA}.Release|x64.Build.0 = Release
 		{3E85C504-34F9-3162-8080-AE81C7C09C27}.Debug No Plugins|Win32.ActiveCfg = Debug|Win32
 		{3E85C504-34F9-3162-8080-AE81C7C09C27}.Debug No Plugins|x64.ActiveCfg = Debug|Win32
 		{3E85C504-34F9-3162-8080-AE81C7C09C27}.Debug|Win32.ActiveCfg = Debug|Win32
@@ -802,7 +787,7 @@ Global
 		{2513C7AD-2D4C-429B-B84D-C01FE91A614F} = {BB1F5885-8E0B-4B01-B6F1-A72599FC97D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		QtVersion = $(DefaultQtVersion)
 		BuildVersion_UpdateFileVersion = True
+		QtVersion = $(DefaultQtVersion)
 	EndGlobalSection
 EndGlobal

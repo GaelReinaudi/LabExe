@@ -14,8 +14,6 @@ UserPluginWizard::UserPluginWizard(QWidget *parent)
 	//m_ToReplaceWithPluginName = "LowPassFilterPlugin";
 	//m_ToReplaceWithProjectName = "LowPassFilterPlugin";
 
-	m_ExampleDirPath = "../../../LabExe-UserPlugins/SoftwarePlugins";
-
 	addPage(new IntroPage);
 	addPage(new ClassInfoPage(this));
 	addPage(new GParametersPage);
@@ -48,7 +46,6 @@ void UserPluginWizard::ExampleComboSelected(int exampleIndex)
 		m_ToDir = QDir("../../../LabExe-UserPlugins/SoftwarePlugins");
 	}
 	else {
-		m_ExampleDirPath = "../examples";
 		m_FromDir = QDir(m_ExampleDirPath);
 		m_ToDir = QDir("..");
 		m_ToDir.mkdir("UserProjects");
@@ -191,6 +188,13 @@ ClassInfoPage::ClassInfoPage(UserPluginWizard *parent)
 	pluginNameLabel->setBuddy(pluginToCopyLabel);
 
 	QDir examplePluginDir = QDir();
+	if(QDir("../../SrYbExe").exists()){
+		m_Wiz->m_ExampleDirPath = "../../../LabExe-UserPlugins/SoftwarePlugins";
+	}
+	else {
+		m_Wiz->m_ExampleDirPath = "../UserProjects";
+	}
+
 	examplePluginDir.cd(m_Wiz->m_ExampleDirPath);
 	qDebug() << examplePluginDir;
 	// for the folder and each sub-folders in the example directory
