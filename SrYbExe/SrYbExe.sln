@@ -229,15 +229,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ParamSupplierPlugin", "..\.
 		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Scroller2DPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\Scroller2DPlugin\Scroller2DPlugin.vcproj", "{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TCO13Round1Plugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\TCO13Round1Plugin\TCO13Round1Plugin.vcproj", "{2513C7AD-2D4C-429B-B84D-C01FE91A614F}"
 	ProjectSection(ProjectDependencies) = postProject
 		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Scroller2DPlugin", "..\..\LabExe-UserPlugins\Dev-Plugins\Scroller2DPlugin\Scroller2DPlugin.vcproj", "{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -720,18 +717,6 @@ Global
 		{2FE5A1ED-A914-40BC-8FFD-7599ADA43A44}.Release|Win32.ActiveCfg = Release|Win32
 		{2FE5A1ED-A914-40BC-8FFD-7599ADA43A44}.Release|Win32.Build.0 = Release|Win32
 		{2FE5A1ED-A914-40BC-8FFD-7599ADA43A44}.Release|x64.ActiveCfg = Release|Win32
-		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}.Debug No Plugins|Win32.ActiveCfg = Debug|Win32
-		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}.Debug No Plugins|Win32.Build.0 = Debug|Win32
-		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}.Debug No Plugins|x64.ActiveCfg = Debug|Win32
-		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}.Debug|Win32.ActiveCfg = Debug|Win32
-		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}.Debug|Win32.Build.0 = Debug|Win32
-		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}.Debug|x64.ActiveCfg = Debug|Win32
-		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}.Release with Debug|Win32.ActiveCfg = Release with Debug|Win32
-		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}.Release with Debug|Win32.Build.0 = Release with Debug|Win32
-		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}.Release with Debug|x64.ActiveCfg = Release with Debug|Win32
-		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}.Release|Win32.ActiveCfg = Release|Win32
-		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}.Release|Win32.Build.0 = Release|Win32
-		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}.Release|x64.ActiveCfg = Release|Win32
 		{2513C7AD-2D4C-429B-B84D-C01FE91A614F}.Debug No Plugins|Win32.ActiveCfg = Debug|Win32
 		{2513C7AD-2D4C-429B-B84D-C01FE91A614F}.Debug No Plugins|Win32.Build.0 = Debug|Win32
 		{2513C7AD-2D4C-429B-B84D-C01FE91A614F}.Debug No Plugins|x64.ActiveCfg = Debug|Win32
@@ -744,6 +729,18 @@ Global
 		{2513C7AD-2D4C-429B-B84D-C01FE91A614F}.Release|Win32.ActiveCfg = Release|Win32
 		{2513C7AD-2D4C-429B-B84D-C01FE91A614F}.Release|Win32.Build.0 = Release|Win32
 		{2513C7AD-2D4C-429B-B84D-C01FE91A614F}.Release|x64.ActiveCfg = Release|Win32
+		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}.Debug No Plugins|Win32.ActiveCfg = Debug|Win32
+		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}.Debug No Plugins|Win32.Build.0 = Debug|Win32
+		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}.Debug No Plugins|x64.ActiveCfg = Debug|Win32
+		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}.Debug|Win32.Build.0 = Debug|Win32
+		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}.Debug|x64.ActiveCfg = Debug|Win32
+		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}.Release with Debug|Win32.ActiveCfg = Release with Debug|Win32
+		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}.Release with Debug|Win32.Build.0 = Release with Debug|Win32
+		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}.Release with Debug|x64.ActiveCfg = Release with Debug|Win32
+		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}.Release|Win32.ActiveCfg = Release|Win32
+		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}.Release|Win32.Build.0 = Release|Win32
+		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -783,11 +780,11 @@ Global
 		{0B0D450B-1AD4-4077-A6E5-08EB12858048} = {BB1F5885-8E0B-4B01-B6F1-A72599FC97D6}
 		{3DAD837D-9F96-4047-A319-0AED3B56511D} = {BB1F5885-8E0B-4B01-B6F1-A72599FC97D6}
 		{2FE5A1ED-A914-40BC-8FFD-7599ADA43A44} = {BB1F5885-8E0B-4B01-B6F1-A72599FC97D6}
-		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D} = {BB1F5885-8E0B-4B01-B6F1-A72599FC97D6}
 		{2513C7AD-2D4C-429B-B84D-C01FE91A614F} = {BB1F5885-8E0B-4B01-B6F1-A72599FC97D6}
+		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D} = {BB1F5885-8E0B-4B01-B6F1-A72599FC97D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		BuildVersion_UpdateFileVersion = True
 		QtVersion = $(DefaultQtVersion)
+		BuildVersion_UpdateFileVersion = True
 	EndGlobalSection
 EndGlobal

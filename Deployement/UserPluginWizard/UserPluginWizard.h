@@ -27,8 +27,8 @@ public:
 	//! makes the new plugin project sub-directory in the provided directory. Returns the absolute path of the folder, or "" if couldn't make it.
 	QString MakeProjectDirectory();
 
-protected slots:
-	void ExampleComboSelected(int exampleIndex);
+public slots:
+	void ExampleComboSelected(int exampleIndex, QComboBox* pComboInit = 0);
 
 private:
 	//! list of files to copy to the destination directory. Populated by MakeListOfFilesToUse()
@@ -42,6 +42,8 @@ private:
 	QDir m_FromDir;
 	//! directory into which we put the new project sub-directory
 	QDir m_ToDir;
+	QString m_hsdFolder;
+	QString m_plufingFolder;
 	QString m_ToReplaceWithDeviceName;
 	QString m_ToReplaceWithPluginName;
 	QString m_ToReplaceWithProjectName;
@@ -59,7 +61,8 @@ class IntroPage : public QWizardPage
 
 public:
     IntroPage(QWidget *parent = 0);
-
+protected:
+	bool validatePage ();
 private:
     QLabel *label;
 };
