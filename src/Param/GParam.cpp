@@ -198,8 +198,10 @@ bool GParam::canUpdateGui()
 
 void GParam::timerEvent( QTimerEvent * event )
 {
-	if(event->timerId() == m_GuiLastUpdater.timerId())
+	if(event->timerId() == m_GuiLastUpdater.timerId()) {
 		emit RequestUpdateDisplay();
+		m_GuiLastUpdater.stop();
+	}
 }
 
 
