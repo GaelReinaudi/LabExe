@@ -58,7 +58,7 @@ class LABEXE_EXPORT GParam : public QObject, /*protected QVariant,*/ public GSer
 
 public:
 	// options for the parameter
-	enum Properties {NoOption = 0x00, ReadOnly = 0x01, HiddenText = 0x02};//, StringUpdateOnlyWhenFinishedEditing = 0x04};
+	enum Properties {NoOption = 0x00, ReadOnly = 0x01, NoButton = 0x02, HiddenText = 0x04};//, StringUpdateOnlyWhenFinishedEditing = 0x04};
 	// options when requesting a widget from this param
 	enum WidgetOptions {Default, Minimal};
 	GParam::Properties Options() const { return m_Options; }
@@ -112,6 +112,8 @@ public slots:
 protected slots:
 	//! Displays a context menu that will be populated by the reimplemented PopulateContextMenu(). pos is the position of the context menu event that the widget received.  
 	void ProvideParamMenu( const QPoint & pos ) const;
+    //! Slot intended to start the timer in this param's thread.
+    void StartGuiUpdateTimer(bool doStart);
 
 protected:
 	//! Populates the context menu that was provided by ProvideParamMenu().
@@ -120,7 +122,8 @@ protected:
 	void Event_UniqueSystemIDChanged();
 	//! Tells if it is ok to emit a signal to update the gui based on the m_MsLimitVisualUpdate. It restarts the timer if it hasExpired().
 	bool canUpdateGui();
-	//! implemented to push a gui update of the param
+
+    //! implemented to push a gui update of the param
 	void timerEvent(QTimerEvent * event);
 
 signals:
@@ -140,6 +143,8 @@ signals:
 	void MouseExitedParamLabel();
 	//! Emitted when the param has updates at least once without a gui update (to save cpu) in order to have an up to date value on the screen.
 	void RequestUpdateDisplay();
+    //! Emitted when the param needs (maybe from another thread) to start the timer for gui update
+    void RequestTimerStartForUpdate(bool doStart);
 
 private:
 	Properties m_Options;

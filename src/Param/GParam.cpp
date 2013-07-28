@@ -31,7 +31,8 @@ GParam::GParam(QString theName, QObject *parent, GParam::Properties paramOptions
 	ParamInit();
 	SetName(theName);
 	// default to a limited gui updates every 50ms = 20 per second
-	SetLimitVisualUpdate(50);
+	SetLimitVisualUpdate(100);
+    connect(this, SIGNAL(RequestTimerStartForUpdate(bool)), this, SLOT(StartGuiUpdateTimer(bool)), Qt::QueuedConnection);
 }
 
 GParam::~GParam()
@@ -191,17 +192,28 @@ bool GParam::canUpdateGui()
 	}
 	else if(m_CouldUpdateGui) {
 		m_CouldUpdateGui = false;
-		m_GuiLastUpdater.start(m_MsLimitVisualUpdate, this);
-	}
+        emit RequestTimerStartForUpdate(true);
+    }
 	return m_CouldUpdateGui;
 }
 
 void GParam::timerEvent( QTimerEvent * event )
 {
-	if(event->timerId() == m_GuiLastUpdater.timerId()) {
-		emit RequestUpdateDisplay();
-		m_GuiLastUpdater.stop();
-	}
+    if(event->timerId() == m_GuiLastUpdater.timerId()) {
+        emit RequestUpdateDisplay();
+        m_GuiLastUpdater.stop();
+    }
+}
+
+void GParam::StartGuiUpdateTimer(bool doStart)
+{
+#ifndef QT_NO_DEBUG
+    if(QThread::currentThread() != QCoreApplication::instance()->thread()) {
+        qDebug() << "StartGuiUpdateTimer() from another thread " << QThread::currentThread();
+        return;
+    }
+#endif
+    m_GuiLastUpdater.start(m_MsLimitVisualUpdate, this);
 }
 
 
