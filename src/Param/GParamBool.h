@@ -24,7 +24,17 @@ public:
 	virtual operator bool() {return BoolValue();}
 
 	//! Returns the value as a bool. A mutex protects the reading;
-	bool BoolValue();
+	bool BoolValue() const {
+		return m_val;
+		m_MutexVariant.lock();
+		bool valCopy = m_val;
+		m_MutexVariant.unlock();
+		return valCopy;
+	}
+	//! Re-implemented
+	QVariant ToVariant() const {return QVariant(BoolValue());}
+	//! Implemented
+	QString StringContent(char format = 'g', int precision = 6) const { return BoolValue()?"true":"false";}
 
 protected:
 	//! Re-implemented.
@@ -34,7 +44,7 @@ protected:
 
 public:
 	//! Provides a widget that will be used to control (read? or modify?) the param.
-	GParamControlWidget* ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid = Default);
+	QWidget* ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid = Default);
 	//! For convenience. Just like ProvideNewParamWidget(), but it actually returns a QPushButton. If theLabel is empty, it uses the name of the param.
 	QPushButton* ProvideNewParamButton(QWidget* forWhichParent, QString theLabel = "");
 	//! For convenience. Just like ProvideNewParamWidget(), but it actually returns a QCheckBox with a label
@@ -47,6 +57,8 @@ public:
 public slots:
 	//! Sets a new value and emits the signal ValueUpdated(bool) 
 	virtual void SetParamValue(bool theNewValue);
+	//! Implemented 
+	virtual void SetFromVariant( QVariant varVal ) { SetParamValue(varVal.toBool()); }
 
 signals:
 	//! Emitted when the value was updated (i.e. SetParamValue() was called).
@@ -57,6 +69,8 @@ signals:
 	void ValueDidChange(bool theNewValue);
 
 private:
+	//! the actual value
+	bool m_val;
 	//! count of number of times it switched to true
 	int m_SwitchTrueCount;
 	

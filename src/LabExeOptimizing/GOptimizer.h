@@ -66,6 +66,8 @@ protected slots:
 	void EventAlgoStopped();
 	//! Called when a variable was added so that we can connect and initialize some things
 	void Event_VariableAdded( GParam* theParam );
+	//! Called when the value to optimize updated
+	void Event_ResultUpdated(double newVal);
 
 signals:
 	//! emitted when the algo has stopped
@@ -95,6 +97,9 @@ private:
 	GParamBool m_MaximizeOrMinimize;
 	//! Boolean mask to access the variables when not all of them are being optimized
 	QVector<bool> m_AccessMask;
+
+	//! bool to lock/unlock the function that updates the values and wait for the result to update
+	bool m_WaitingForResult;
 
 	//! list of the algorithms
 	QList<GOptimizationAlgorithm*> m_ListAlgo;

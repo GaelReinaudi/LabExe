@@ -36,7 +36,6 @@ private:
 	GSequencer* m_pSequencer;
 	//! creates the m_pSequencer if necessary
 	void CreateSequencer();
-	void createMenus();
 };
 
 #endif // GSequencingBench_H

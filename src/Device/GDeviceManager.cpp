@@ -120,11 +120,17 @@ void GDeviceManager::LoadDevicePlugins()
 // 		qDebug() << deviceDir.absolutePath();
 		// for each file in the folder
 		foreach(QString fileName, deviceDir.entryList(QDir::Files)) {
-			qDebug() << "trying to load " << fileName;
+			QFileInfo finfo(fileName);
+			//if(finfo.suffix() == "dll")
+			//	qDebug() << "trying to load " << fileName;
 			QPluginLoader loader(deviceDir.absoluteFilePath(fileName), this);
+			loader.load();
 			bool didLoad = loader.isLoaded();
-			if(!didLoad) {
-
+			if(didLoad)
+				qDebug() << finfo.baseName();
+			else {
+				if(finfo.suffix() == "dll")
+					qDebug() << "couldn't load " << fileName;
 			}
 			QObject *plugin = loader.instance();
 			GDevicePlugin* pDevicePlugin = qobject_cast<GDevicePlugin*>(plugin);

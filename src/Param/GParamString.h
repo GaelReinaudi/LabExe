@@ -23,10 +23,14 @@ public:
 
 	//! Returns the value as a QString. A mutex protects the reading.
 	QString StringValue() const;
+	//! Re-implemented
+	QVariant ToVariant() const {return QVariant(StringValue());}
+	//! Implemented
+	QString StringContent(char format = 'g', int precision = 6) const { return StringValue(); }
 
 public:
 	//! Provides a widget that will be used to control (read? or modify?) the param.
-	GParamControlWidget* ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid = Default);
+	QWidget* ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid = Default);
 	//! For convenience. Just like ProvideNewParamWidget(), but it actually returns a QLineEdit
 	QLineEdit* ProvideNewParamLineEdit(QWidget* forWhichParent);
 
@@ -43,6 +47,12 @@ signals:
 protected slots:
 	//! Sets a new value and emits the signal ValueUpdatedProgramatically(QString).
 	virtual void SetParamValue(const QString& theNewValue);
+	//! Implemented 
+	virtual void SetFromVariant( QVariant varVal ) { SetParamValue(varVal.toString()); }
+
+private:
+	//! the actual value
+	QString m_val;
 };
 
 class GLineEditWithCompare : public QLineEdit
@@ -63,6 +73,7 @@ public slots:
 private slots:
 	//! Used to emit the TextEditedAndReturn() signal
 	void EmitOnFinishedEditting();
+
 };
 
 #endif // GPARAMSTRING_H

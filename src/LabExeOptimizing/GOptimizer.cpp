@@ -16,6 +16,7 @@ GOptimizer::GOptimizer(QObject* pParent, QString uniqueIdentifierName /*= ""*/)
 	, m_MaxFitnessValue("Max fitness", this, GParam::ReadOnly)
 	, m_WaitTimeIteration("Waiting after iteration", this)
 	, m_MaximizeOrMinimize("Maximize", this)
+	, m_WaitingForResult(false)
 {
 	m_BucketVariables.RemoveExtraField("trig");
 
@@ -30,7 +31,10 @@ GOptimizer::GOptimizer(QObject* pParent, QString uniqueIdentifierName /*= ""*/)
 	// when adding extra params such as range, we can perform extra initialization/connections
 	connect(&m_BucketVariables, SIGNAL(ParamAdded(GParam*)), this, SLOT(Event_VariableAdded(GParam*)));
 
-	m_WaitTimeIteration.SetHardLimits(0.1, 99.9);
+	// when the value to optimize is updates we call a function that will make the optimizer to proceed
+	connect(&m_BucketParamOptim, SIGNAL(ValueUpdated(double)), this, SLOT(Event_ResultUpdated(double)));
+
+	m_WaitTimeIteration.SetHardLimits(0.0, 99.9);
 	m_WaitTimeIteration.SetTypicalStep(0.1);
 
 	AddNewAlgorithm(new GEoGeneticAlgorithm(this)								, "Genetic"						, "Testing the implementation of the EO librabry for genetic algorithm.");
@@ -226,11 +230,17 @@ GVectorDouble const GOptimizer::TypicalStepsVariable() const
 
 void GOptimizer::SetNewValuesVariables( GVectorDouble newValues, double & returnValue )
 {
+	m_WaitingForResult = true;
+
 	m_BucketVariables.SetValues(newValues, m_AccessMask);
 	GVectorDouble allValues = m_BucketVariables.DoubleValues();
 
+	while(m_WaitingForResult)
+		msleep(100);
+
 	// TO CHANGE : their should be something listening for the param update colpetion
-	msleep(m_WaitTimeIteration.DoubleValue() * 1000);
+	if(m_WaitTimeIteration.DoubleValue() > 0.0)
+		msleep(m_WaitTimeIteration.DoubleValue() * 1000);
 
 	returnValue = UpdateFitnessValue();
 
@@ -259,6 +269,10 @@ void GOptimizer::EventAlgoStopped()
 	m_AccessMask.clear();
 }
 
+void GOptimizer::Event_ResultUpdated( double newVal )
+{
+	m_WaitingForResult = false;
+}
 
 
 

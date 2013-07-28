@@ -1,7 +1,7 @@
 #include "srybexe.h"
 #ifdef Q_OS_WIN32
 #include "LabExeImaging/labexeimaging.h"
-#include "LabExeSequencer/labexesequencer.h"
+//#include "LabExeSequencer/labexesequencer.h"
 #include "LabExeOptimizing/labexeoptimizing.h"
 #include <WinSparkle/winsparkle.h>
 #endif
@@ -13,7 +13,7 @@
 
 #ifdef Q_OS_WIN32
 namespace{ 
-// int uhgf = _crtBreakAlloc = 872437;
+// int uhgf = _crtBreakAlloc = 0x75b9c41f;
 //	int gfd = _CrtSetDbgFlag(0);
 }
 #endif
@@ -29,7 +29,7 @@ SrYbExe::SrYbExe(QWidget *parent, Qt::WindowFlags flags)
 	// that makes the code enter those respective dlls so that the workbenches get registered.
 #ifdef Q_OS_WIN32
 	LabExeImaging();
-	LabExeSequencer();
+//    LabExeSequencer();
 	LabExeOptimizing();
 #endif
 #ifdef Q_OS_LINUX
@@ -42,9 +42,9 @@ SrYbExe::SrYbExe(QWidget *parent, Qt::WindowFlags flags)
 	win_sparkle_set_appcast_url("http://labexe.com/SrYbExeAutoUpdate.xml");
 	wchar_t company_name[] = L"LabExe";
 	wchar_t app_name[] = L"SrYbExe";
-	wchar_t app_version[] = L"2.16.0";
-	win_sparkle_set_app_details(company_name, app_name, app_version);
-	win_sparkle_init();
+	wchar_t app_version[] = L"2.17.1";
+    win_sparkle_set_app_details(company_name, app_name, app_version);
+    win_sparkle_init();
 #endif
 }
 

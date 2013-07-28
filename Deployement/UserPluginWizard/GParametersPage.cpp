@@ -8,7 +8,7 @@ GParametersPage::GParametersPage(QWidget *parent)
 
 	pTopLabel->setText(tr(
 		"Those parameters will be seamlessly saved and restored with the program settings. "
-		"They will also be drag-and-drop-able to any other devices."
+		"They will also be drag-and-drop-able to any other device."
 		));
 
 	// Fields

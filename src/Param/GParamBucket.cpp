@@ -1,8 +1,8 @@
 #include "GParamBucket.h"
-#include "GParamNum.h"
 #include "GParamString.h"
 #include "GParamBool.h"
 #include "GParamDouble.h"
+#include "GParamInt.h"
 #include "GParamManager.h"
 #include "GParamBucketWidget.h"
 #include "GParamBucketTreeWidget.h"
@@ -128,13 +128,17 @@ void GParamBucket::SetParamTriggeringConnection(GParam* pParam, bool doUseAsTrig
 {
 	if(doUseAsTrigger) {
 		// if numerical, we make some connections
-		if(qobject_cast<GParamNum*>(pParam))
+		if(qobject_cast<GParamDouble*>(pParam))
 			connect(pParam, SIGNAL(ValueUpdated(double)), this, SLOT(EventSomeValueUpdated()), Qt::UniqueConnection);
+		if(qobject_cast<GParamInt*>(pParam))
+			connect(pParam, SIGNAL(ValueUpdated(int)), this, SLOT(EventSomeValueUpdated()), Qt::UniqueConnection);
 	}
 	else {
 		// if numerical, we make some dis-connections
-		if(qobject_cast<GParamNum*>(pParam))
+		if(qobject_cast<GParamDouble*>(pParam))
 			disconnect(pParam, SIGNAL(ValueUpdated(double)), this, SLOT(EventSomeValueUpdated()));
+		if(qobject_cast<GParamInt*>(pParam))
+			disconnect(pParam, SIGNAL(ValueUpdated(int)), this, SLOT(EventSomeValueUpdated()));
 	}
 	GParamBool* pTrigBool = ExtraParamBool(pParam, "trig");
 	if(pTrigBool) {
@@ -198,11 +202,17 @@ void GParamBucket::PopulateSettings( QSettings& inQsettings )
 	inQsettings.beginGroup("extras");
 	// if some params are child of this bucket, it saves them (just like GDevice does)
 	foreach(GParam* pPar, findChildren<GParam*>()) {
-// 		pPar->PopulateSettings(inQsettings);
 		pPar->SaveDeviceSettings(inQsettings);
 	}
+	// TRY compactifies the saving/restoring of extra params BUT redondent with the previous foreach
+	foreach(QString field, ExtraFieldsName()) {
+		QVariantList allValuesForField;
+		foreach(GParam* pExtPar, ExtraParamList(field)) {
+			allValuesForField << pExtPar->ToVariant();
+		}
+		inQsettings.setValue(field, allValuesForField);
+	}
 	inQsettings.endGroup();
-// 	inQsettings.endGroup();
 }
 
 void GParamBucket::InterpretSettings( QSettings& fromQsettings )
@@ -229,7 +239,8 @@ void GParamBucket::InterpretSettings( QSettings& fromQsettings )
 // 	}																	//
 // 	//////////////////////////////////////////////////////////////////////
 	fromQsettings.beginGroup("extras");
-	// if params are child of this bucket, it restores them (just like GDevice does). but latter so that the params are existing already.
+	// if params are child of this bucket, it restores them (just like GDevice does),
+	// but latter so that the params are existing already.
 	LatterReadCurrentGroup(fromQsettings);
 	fromQsettings.endGroup();
 
@@ -240,19 +251,18 @@ void GParamBucket::DelayedInterpretSettings( QSettings& fromQsettings )
 {
 	GParam::DelayedInterpretSettings(fromQsettings);
 	foreach(GParam* pPar, findChildren<GParam*>()) {
-// 		pPar->InterpretSettings(fromQsettings);
-		//TOGO: false just for compatibility with previous version
 		pPar->ReadDeviceSettings(fromQsettings);
 	}
-}
 
-// bool GParamBucket::IsParamTriggering( GParam* pParam )
-// {
-// 	bool wasConnected = disconnect(pParam, SIGNAL(ValueUpdated(double)), this, SLOT(EventSomeValueUpdated()));
-// 	if(wasConnected)
-// 		connect(pParam, SIGNAL(ValueUpdated(double)), this, SLOT(EventSomeValueUpdated()), Qt::UniqueConnection);
-// 	return wasConnected;
-// }
+	// TRY compactifies the saving/restoring of extra params
+	foreach(QString field, ExtraFieldsName()) {
+		QVariantList allValuesForField = fromQsettings.value(field).toList();
+		foreach(GParam* pExtPar, ExtraParamList(field)) {
+			if(!allValuesForField.isEmpty())
+				pExtPar->SetFromVariant(allValuesForField.takeFirst());
+		}
+	}
+}
 
 void GParamBucket::EventSomeValueUpdated()
 {
@@ -377,8 +387,9 @@ GVectorDouble const GParamBucket::DoubleValues(const QString & boolMaskField /*=
 void GParamBucket::SetValues(const GVectorDouble & theValuesToSet, const QVector<bool> & accessMask /*= QVector<bool>()*/)
 {
 	int i = 0;
+	bool hasNoMask = accessMask.isEmpty();
 	foreach(GParamNum* pParNum, ParamNums()) {
-		if(pParNum && accessMask[i])
+		if(pParNum && (hasNoMask || accessMask[i]))
 			pParNum->SetParamValue(theValuesToSet[i]);
 		++i;
 	}

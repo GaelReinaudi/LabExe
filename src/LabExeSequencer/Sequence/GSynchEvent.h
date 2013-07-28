@@ -25,8 +25,7 @@ class GSynchEvent : public GEventNode
 public:
 	//! construct an event, child of (=synchronized with) parentEventSynchro.
 	GSynchEvent(GSynchEvent* parentEventSynchro);
-// 	//! construct an event as a root event of a GSequence.
-// 	GSynchEvent(GSequence* pSequence);
+	//! destructor
 	~GSynchEvent();
 
 	//! returns the graphics item GEventNode that represent this event in the event tree scene

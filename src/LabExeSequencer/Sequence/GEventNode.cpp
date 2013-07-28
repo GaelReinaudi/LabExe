@@ -11,9 +11,8 @@ GEventManager* EventManagerInstance()
 // G_REGISTER_IN_FACTORY_WITH_PARENT_TYPE(GEventNode, GEventNode)
 
 GEventNode::GEventNode(GEventNode* pParentNode)
-	: GAgent(pParentNode)
-// 	QObject(pParentNode) // object parent at least for now because of the auto saving thing (object factory)
-// 	, GSerializable()
+	: QObject(pParentNode) // object parent at least for now because of the auto saving thing (object factory)
+ 	, GSerializable()
 	, QGraphicsLineItem(pParentNode)
 {
 	if(pParentNode)
@@ -86,8 +85,6 @@ const QList<GEventNode*> GEventNode::ChildNodes() const
 {
 	QList<GEventNode*> theNodeList;
 	foreach(QObject* item, QObject::children()) {
-//	foreach(QGraphicsItem* item, childItems()) {
-// 		GEventNode* pNode = qgraphicsitem_cast<GEventNode*>(item);
 		GEventNode* pNode = qobject_cast<GEventNode*>(item);
 		if(pNode)
 			theNodeList.append(pNode);
@@ -128,7 +125,7 @@ QList<GParam*> GEventNode::ChildParams() const
 	return listParamChildren;
 }
 
-void GEventNode::Event_UniqueSystemIDChanged( const QString & newSystemID )
+void GEventNode::Event_UniqueSystemIDChanged()
 {
 	EventManagerInstance()->Add(this);
 }

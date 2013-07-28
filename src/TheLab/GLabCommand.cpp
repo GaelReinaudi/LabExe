@@ -40,7 +40,7 @@ void GCommandAddDevice::redo()
 		return;
 	// if it is already in the workbench
 	if(m_pBench->m_MapDevicesWidgets.contains(m_pDevice)) {
-        qWarning("%s : This device is already in the Lab.", m_pDevice->Name().data());
+//		qWarning("%s : This device is already in the Lab.", m_pDevice->Name());
 		return;
 	}
 	// get a new device widget

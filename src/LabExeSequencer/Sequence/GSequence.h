@@ -8,9 +8,7 @@
 #include "param.h"
 
 #include "GSequenceGraphicsItem.h"
-
-// TRY BASALT
-#include "../../../MapExe/src/agent.h"
+#include <QDeclarativeListProperty>
 
 class GChannel;
 class GSynchEvent;
@@ -29,7 +27,7 @@ There are actually two scenes associated with a GSequence:
 - one is for the representation of the GSynchEvent`s, GChannel`s and GInstruction`s and allows some more display and user interactions through a GSequenceGraphicsView.
 - those 2 scenes are coupled together to reflect the same information, e.g. have a sceneRect() that reflects the sequence Length().
 */
-class GSequence : public GContentAgent<GSequence, GSequenceGraphicsItem>
+class GSequence : public QObject
 {
 	Q_OBJECT
 	
@@ -37,9 +35,12 @@ public:
 	enum ChannelType {AskType, AnalogChannel = 100, DigitalChannel = 200, CustomChannelType = 300};
 
 public:
-	GSequence(QObject *parent = 0);
+	GSequence(QObject* parent = 0);
 	~GSequence();
 
+	Q_PROPERTY(double length READ Length NOTIFY LengthChanged);
+	Q_PROPERTY(int channelCount READ NumChannels NOTIFY NumChannelsChanged);
+	Q_PROPERTY(QDeclarativeListProperty<GChannel> channels READ Channels);
 
 	//! Implemented
 	virtual bool InjectInitializationData(const QVariantList & theDataList) {
@@ -56,13 +57,15 @@ public:
 	//! Returns the length (duration) of the sequence.
 	Q_PROPERTY(int numChannels READ NumChannels NOTIFY NumChannelsChanged)
 	int NumChannels() const {return m_ChannelList.size();}
+	//! Returns the length (duration) of the sequence.
+	double Length() const {return 53.14159;}
+	//! Returns the channels as a property list
+	QDeclarativeListProperty<GChannel> Channels() { return QDeclarativeListProperty<GChannel>(this, m_ChannelList); }
+	//! return the ith channel
+	GChannel* Channel(int index) const { return m_ChannelList.at(index); }
 
-	//! Convenient function to return a pointer to the only selected GSynchEvent in the tree-scene. If more than one, or none, returns 0.
-	GSynchEvent* GetTheSelectedEvent();
 	//! Returns the scene that holds the event items in a tree structure.
 	GEvScene* EventTreeScene() const { return m_pEventTreeScene; }
-	//! Returns the scene that holds the Channels and channel-event, instructions, etc...
-	GEvScene* ChannelScene() const { return m_pChannelScene; }
 	//! Returns the root time event
 	GSynchEvent* RootTimeEvent() const { return EventTreeScene()->m_pRootEvent; }
 
@@ -80,15 +83,10 @@ public:
 	//! Reimplemented.
 	virtual void InterpretSettings( QSettings& fromQsettings );
 
-	//! Convenient function to return a list of GChannel out of a list of various graphics items in a GEvScene
-	static QList<GChannel*> FilterItemChannels(QList<QGraphicsItem*> listItems);
-	//! Convenient function to return a list of GSynchEvent out of a list of various graphics items, e.g. from a selection in a GEvScene
-	static QList<GSynchEvent*> FilterItemEvents(QList<QGraphicsItem*> listItems);
-
 signals:
 	//! emitted when the Length() of the sequence changed.
 	void LengthChanged(double newLength);
-	//! emitted when the number of chanels changed
+	//! emitted when the number of channels changed
 	void NumChannelsChanged(int newNumChannels);
 
 private:
@@ -96,18 +94,6 @@ private:
 	QList<GChannel*> m_ChannelList;
 	//! There are two scenes associated with a GSequence. This one is for the representation of the GSynchEvent`s and will allow some display and user interactions through a QGraphicsView.
 	GEvScene* m_pEventTreeScene;
-	//! There are two scenes associated with a GSequence. This one is for the representation of the GSynchEvent`s, GChannel`s and GInstruction`s which will allow some more display and user interactions through a QGraphicsView.
-	GEvScene* m_pChannelScene;
-
-private:
-	//! Makes some actions that can be triggered e.g. by a QMenu.
-	void createActions();
-
-public:
-	//! action to make and add a new channel to this sequence. Will call CreateNewChannel().
-	QAction* m_pActionNewChannel;
-	//! action to make and add a new event to this sequence.  Will call CreateNewEvent().
-	QAction* m_pActionNewEvent;
 
 public:
 	GParamDouble m_Length;

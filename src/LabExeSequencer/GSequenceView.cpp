@@ -25,10 +25,5 @@ void GSequenceView::resizeEvent( QResizeEvent * event )
 	QRectF rectToFit = pScene->sceneRect();
 	rectToFit.setLeft(0.0);
 	rectToFit.setRight(pSeq->Length());
-// 	// if this is a GEvScene, we laterally fit the whole sequence
-// 	GEvScene* pSeqScene = qobject_cast<GEvScene*>(pScene);
-// 	if(pSeqScene)
-// 		rectToFit.setRight(pSeqScene->m_pSeq->Length());
-
 	fitInView(rectToFit);
 }

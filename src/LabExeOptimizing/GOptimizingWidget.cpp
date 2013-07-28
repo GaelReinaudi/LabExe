@@ -102,7 +102,7 @@ void GOptimizingWidget::HistoryDblClicked( QTreeWidgetItem* whichItem, int wichC
 	for(int i = NumColumnPreVariables; i < nCol; i++) {
 		theValuesToSet.append(whichItem->data(i, Qt::DisplayRole).toDouble());
 	}
-	m_pOptimizer->m_BucketVariables.SetValues(theValuesToSet);
+	m_pOptimizer->m_BucketVariables.SetValues(theValuesToSet, m_pOptimizer->m_AccessMask);
 }
 
 void GOptimizingWidget::AddAlgorithmInCombo( GOptimizationAlgorithm* pAlgo)

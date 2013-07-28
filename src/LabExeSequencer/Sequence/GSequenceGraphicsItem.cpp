@@ -48,6 +48,7 @@ void GSequenceGraphicsItem::AddQmlToScene()
 		delete m_pQMLitem;
 		m_pQMLitem = 0;
 	}
+	m_pEngine->clearComponentCache();
 
 	// just for debugging we make a new engine (don't delete it...) in order to reload the qml several times
 	if(m_pEngine) {
@@ -66,13 +67,6 @@ void GSequenceGraphicsItem::AddQmlToScene()
 	}
 	scene()->addItem(m_pQMLitem);
 }
-
-void GSequenceGraphicsItem::Event_ChildAgentAdded( GAgent* pAgentAdded )
-{
-	qDebug() << "Event_ChildAgentAdded" << pAgentAdded;
-	pAgentAdded->ProvideNewAgentWrappingItem(this);
-}
-
 
 
 

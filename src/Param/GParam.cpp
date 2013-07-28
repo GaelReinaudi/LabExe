@@ -25,9 +25,13 @@ GParam::GParam(QString theName, QObject *parent, GParam::Properties paramOptions
 	, m_Options(paramOptions)
 	, m_Units("")
 	, m_DisplayUnits(false)
+	, m_MsLimitVisualUpdate(0)
+	, m_CouldUpdateGui(true)
 {
 	ParamInit();
 	SetName(theName);
+	// default to a limited gui updates every 50ms = 20 per second
+	SetLimitVisualUpdate(50);
 }
 
 GParam::~GParam()
@@ -159,22 +163,46 @@ void GParam::ShowUnits( bool doShowUnits )
  	emit UnitDisplayChanged(doShowUnits);
 }
 
-QString GParam::StringContent( char format /*= 'g'*/, int precision /*= 6*/ )
+// QString GParam::StringContent( char format /*= 'g'*/, int precision /*= 6*/ )
+// {
+// 	QVariant::Type theType = type();
+// 	switch(theType) {
+// 		case QVariant::Double: 
+// 			return QString::number(toDouble(), format, precision);
+// 		case QVariant::String:
+// 			return toString();
+// 		case QVariant::Int:
+// 			return QString::number(toInt());
+// 	}
+// 	return "";
+// }
+
+void GParam::Event_UniqueSystemIDChanged()
 {
-	QVariant::Type theType = type();
-	switch(theType) {
-		case QVariant::Double: 
-			return QString::number(toDouble(), format, precision);
-		case QVariant::String:
-			return toString();
-		case QVariant::Int:
-			return QString::number(toInt());
-	}
-	return "";
+	AddToParamManager(this);
 }
 
+bool GParam::canUpdateGui()
+{
+	if(!m_MsLimitVisualUpdate || m_GuiUpdateTimer.hasExpired(m_MsLimitVisualUpdate)) {
+		m_GuiUpdateTimer.restart();
+		m_CouldUpdateGui = true;
+		m_GuiLastUpdater.stop();
+	}
+	else if(m_CouldUpdateGui) {
+		m_CouldUpdateGui = false;
+		m_GuiLastUpdater.start(m_MsLimitVisualUpdate, this);
+	}
+	return m_CouldUpdateGui;
+}
 
-
+void GParam::timerEvent( QTimerEvent * event )
+{
+	if(event->timerId() == m_GuiLastUpdater.timerId()) {
+		emit RequestUpdateDisplay();
+		m_GuiLastUpdater.stop();
+	}
+}
 
 
 

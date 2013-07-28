@@ -8,6 +8,7 @@ GPrivateQObjectInGSerializable::GPrivateQObjectInGSerializable(GSerializable *pa
 	m_ParentSerializable = parentSerializable;
 	connect(this, SIGNAL(RequestLatterReadSettings(QSettings*, QString)), this, SLOT(OpenGroupInQsettingsForLatterReadCurrentGroup(QSettings*, QString)), Qt::QueuedConnection);
 	connect(this, SIGNAL(RequestLatterAssignNewUniqueID()), this, SLOT(LatterAssignNewUniqueID()), Qt::QueuedConnection);
+	connect(this, SIGNAL(UniqueSystemIdChanged()), this, SLOT(Event_UniqueSystemIDChanged()));
 }
 
 GPrivateQObjectInGSerializable::~GPrivateQObjectInGSerializable()
@@ -40,4 +41,8 @@ void GPrivateQObjectInGSerializable::LatterAssignNewUniqueID()
 		m_ParentSerializable->AssignNewUniqueID("BBB");
 }
 
+void GPrivateQObjectInGSerializable::Event_UniqueSystemIDChanged()
+{
+	m_ParentSerializable->Event_UniqueSystemIDChanged();
+}
 

@@ -42,10 +42,6 @@ public slots:
  	//! Set the sceneRect right() position. Used to have the scene always matching the Sequence Length().
  	void UpdateLength(double newLength);
 
-public:
-	//! Will insert the Channel RectItem in the scene m_pChannelLayout.
-	void InsertChannelItem(GChannel* pNewChan);
-
 private:
 	//! the parent sequence, that is represented in this scene
 	GSequence* m_pSeq;

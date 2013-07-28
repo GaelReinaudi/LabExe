@@ -16,12 +16,12 @@ GParamNum::GParamNum(QString theName, QObject *parent, GParam::Properties paramO
 	m_ParamSettings.setMinimum(G_DEFAULT_RANGE_MIN);
 	m_ParamSettings.setMaximum(G_DEFAULT_RANGE_MAX);
 
-	setValue(0.0);
 	// ValueUpdated(double) triggers the ParamValueWasUpdated(true) that will trigger (by default) the ParamUpdateCompletion(true), i.e. unless SetExternalCompletionSignal() sets an other signal.
 	connect(this, SIGNAL(ValueUpdated(double)), this, SIGNAL(ParamValueWasUpdated()));
 
 	// delay loads the param settings if any in the registry
 	QTimer::singleShot(0, this, SLOT(RestoreParamSettingsFromRegistry()));
+
 }
 
 GParamNum::~GParamNum()
@@ -83,75 +83,30 @@ void GParamNum::RestoreParamSettingsFromRegistry()
 	saveInRegistry.endGroup();
 }
 
-void GParamNum::SetParamValue( const int& theNewValue, bool sendUpdateSignals /*= true*/, bool sendDisplayUpdateSignal /*= true*/ )
-{
-	int targetVal = theNewValue;
-	int oldVal = IntValue();
-	int acceptedValue = targetVal;
-
-	// the hard limit is respected
-	if(true) {
-		acceptedValue = qBound(int(m_ParamSettings.minimum()), acceptedValue, int(m_ParamSettings.maximum()));
-	}
-
-	setValue(acceptedValue);
-
-	// first display to avoid sending the wrong order of signal when setParamValue re-enter itself (e.g. when a device sends a new value to display)
-	if(sendDisplayUpdateSignal) {
-		emit ValueUpdateForDisplay(acceptedValue);
-	}
-	if(sendUpdateSignals) {
-		emit ValueUpdated(acceptedValue);
-		// if the value really did change
-		if(acceptedValue != oldVal)
-			emit ValueDidChange(acceptedValue);
-	}
-}
-
-void GParamNum::SetParamValue( const double& theNewValue, bool sendUpdateSignals /*= true*/, bool sendDisplayUpdateSignal /*= true*/ )
-{
-	double oldVal = DoubleValue();
-	double acceptedValue = theNewValue;
-
-	// the hard limit is respected
-	if(true) {
-		acceptedValue = qBound(m_ParamSettings.minimum(), acceptedValue, m_ParamSettings.maximum());
-	}
-
-	setValue(acceptedValue);
-
-	// first display to avoid sending the wrong order of signal when setParamValue re-enter itself (e.g. when a device sends a new value to display)
-	if(sendDisplayUpdateSignal) {
-		emit ValueUpdateForDisplay(acceptedValue);
-	}
-	if(sendUpdateSignals) {
-		emit ValueUpdated(acceptedValue);
-		// if the value really did change
-		if(!gEqual(acceptedValue, oldVal))
-			emit ValueDidChange(acceptedValue);
-	}
-}
-
-double GParamNum::DoubleValue() const
-{
-	m_MutexVariant.lock();
-	double valCopy = toDouble();
-	m_MutexVariant.unlock();
-	return valCopy;
-}
-
-/////////////////////////////////////////////////////////////////////
-/*!
-Returns the value converted to int.
-\return: int : rounded to the nearest integer if the content is a double
-*////////////////////////////////////////////////////////////////////
-int GParamNum::IntValue() const
-{
-	m_MutexVariant.lock();
-	int valCopy = qRound(toDouble());
-	m_MutexVariant.unlock();
-	return valCopy;
-}
+// void GParamNum::SetParamValue( const int& theNewValue, bool sendUpdateSignals /*= true*/, bool sendDisplayUpdateSignal /*= true*/ )
+// {
+// 	int targetVal = theNewValue;
+// 	int oldVal = IntValue();
+// 	int acceptedValue = targetVal;
+// 
+// 	// the hard limit is respected
+// 	if(true) {
+// 		acceptedValue = qBound(int(m_ParamSettings.minimum()), acceptedValue, int(m_ParamSettings.maximum()));
+// 	}
+// 
+// 	m_valDouble = acceptedValue;
+// 
+// 	// first display to avoid sending the wrong order of signal when setParamValue re-enter itself (e.g. when a device sends a new value to display)
+// 	if(sendDisplayUpdateSignal) {
+// 		emit ValueUpdateForDisplay(acceptedValue);
+// 	}
+// 	if(sendUpdateSignals) {
+// 		emit ValueUpdated(acceptedValue);
+// 		// if the value really did change
+// 		if(acceptedValue != oldVal)
+// 			emit ValueDidChange(acceptedValue);
+// 	}
+// }
 
 void GParamNum::PopulateSettings( QSettings& inQsettings )
 {
@@ -178,28 +133,3 @@ void GParamNum::InterpretSettings( QSettings& fromQsettings )
 	}
 }
 
-GParamControlWidget* GParamNum::ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid /*= Default*/)
-{
-	GDoubleSpinBox* pSpinBox = new GDoubleSpinBox(this, forWhichParent);
-	pSpinBox->setValue(DoubleValue());
-	// set some settings
-	pSpinBox->SetDecimal(DisplayDecimals());
-	pSpinBox->SetStep(TypicalStep());
-	pSpinBox->SetRange(Minimum(), Maximum(), true);
-
-	if(Options() & GParam::ReadOnly) {
-		pSpinBox->setReadOnly(true);
-		pSpinBox->setButtonSymbols(QAbstractSpinBox::NoButtons);
-	}
-	else {
-		// 		connect(pSpinBox, SIGNAL(valueChanged(double)), this, SLOT(SetParamValue(double)));
-		connect(pSpinBox, SIGNAL(ValueChangedSignificantly(double)), this, SLOT(SetParamValue(double)));
-	}
-
-	connect(this, SIGNAL(HardLimitsChanged(double, double)), pSpinBox, SLOT(SetRange(double, double)));
-	connect(this, SIGNAL(DisplayDecimalsChanged(int)), pSpinBox, SLOT(SetDecimal(int)));
-	connect(this, SIGNAL(TypicalStepChanged(double)), pSpinBox, SLOT(SetStep(double)));
-
-	connect(this, SIGNAL(ValueUpdateForDisplay(double)), pSpinBox, SLOT(SetValue_WithoutSignal(double)));
-	return pSpinBox;
-}

@@ -13,8 +13,9 @@
 #include <QMutex>
 #include <QLabel>
 #include <QDoubleSpinBox>
+#include <QElapsedTimer>
+#include <QBasicTimer>
 
-typedef QWidget GParamControlWidget;
 typedef QVector<double> GVectorDouble;
 
 namespace LabelWidget {
@@ -51,7 +52,7 @@ Each GParam has a unique identifier that is used for:
 At creation time, a set of option can be passed to the parameter in order to define its behavior 
 and the behavior of the widget it will provide for representing itself.
 */
-class LABEXE_EXPORT GParam : public QObject, protected QVariant, public GSerializable
+class LABEXE_EXPORT GParam : public QObject, /*protected QVariant,*/ public GSerializable
 {
 	Q_OBJECT
 
@@ -80,7 +81,11 @@ public:
 	//! Returns true if the param is showing its units
 	bool ShowingUnits() const { return m_DisplayUnits; }
 	//! Tries to convert whatever the content is to a string, with a similar signature as QString::number() for when it is dealing with numbers.
-	QString StringContent(char format = 'g', int precision = 6);
+	virtual QString StringContent(char format = 'g', int precision = 6) const { return "StringContent() not implemented."; }
+	//! if we need a QVariant out of the param
+	virtual QVariant ToVariant() const { return QVariant("ToVariant() not implemented."); }
+	//! Prevents the update on the gui if it happened less than a given number of milliseconds from the previous gui update.
+	void SetLimitVisualUpdate(int ms) { m_MsLimitVisualUpdate = ms; }
 
 	//! Sets the signal that is going to inform this GParam that the value has been actually successfully updated (like the voltage on an analog voltage output or the position of a motor), or not.
 	bool SetExternalCompletionSignal(const QObject* sender, const char* signal, Qt::ConnectionType type = Qt::AutoConnection);
@@ -88,7 +93,7 @@ public:
 	//! Displays the widget containing the settings for this param. Returns the widget so that re-implementations can add more content to the layout.
 	virtual GParamSettingsWidget* PopupSettingWidget();
 	//! Provides a widget that will be used to control (read or modify) the param.
-	virtual GParamControlWidget* ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid = Default) = 0; 
+	virtual QWidget* ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid = Default) = 0; 
 	//! Provides a label that will be used to display the name, or Drag&Drop the param (e.g. to a GVariator).
 	virtual QLabel* ProvideNewLabel(QWidget* forWhichParent, LabelWidget::Options someOptions = LabelWidget::NoOption);
 
@@ -101,6 +106,8 @@ protected:
 public slots:
 	//! Renames the param
 	void SetName(QString theName);
+	//! generic way to set the value using a QVariant
+	virtual void SetFromVariant( QVariant varVal ) = 0;
 
 protected slots:
 	//! Displays a context menu that will be populated by the reimplemented PopulateContextMenu(). pos is the position of the context menu event that the widget received.  
@@ -109,6 +116,12 @@ protected slots:
 protected:
 	//! Populates the context menu that was provided by ProvideParamMenu().
 	virtual void PopulateParamMenu(QMenu* pTheMenu, GParamLabel* pSenderLabel = 0) const;
+	//! Re-implemented to add the new ID in the ParamManagerInstance(). It doesn't remove the previous one.
+	void Event_UniqueSystemIDChanged();
+	//! Tells if it is ok to emit a signal to update the gui based on the m_MsLimitVisualUpdate. It restarts the timer if it hasExpired().
+	bool canUpdateGui();
+	//! implemented to push a gui update of the param
+	void timerEvent(QTimerEvent * event);
 
 signals:
 	//! Emitted when the name of the param changed.
@@ -121,15 +134,21 @@ signals:
 	void UnitsChanged(QString newUnits);
 	//! Emitted when the units displaying of the param changed.
 	void UnitDisplayChanged(bool newDisplayUnits);
-
-signals:
 	//! emitted when one of the label of the param is being hovered (entered actually) by the mouse cursor
 	void MouseEnteredParamLabel();
-	//! emitted when the mouse cursor left the param label
+	//! Emitted when the mouse cursor left the param label
 	void MouseExitedParamLabel();
+	//! Emitted when the param has updates at least once without a gui update (to save cpu) in order to have an up to date value on the screen.
+	void RequestUpdateDisplay();
 
 private:
 	Properties m_Options;
+	//! prevents the update on the gui if it happened less than a given number of milliseconds from the previous gui update.
+	int m_MsLimitVisualUpdate;
+	//! the timer
+	QElapsedTimer m_GuiUpdateTimer;
+	QBasicTimer m_GuiLastUpdater;
+	unsigned int m_CouldUpdateGui;
 	void ParamInit();
 
 protected:

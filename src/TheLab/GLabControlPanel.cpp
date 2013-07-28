@@ -80,11 +80,8 @@ GLabControlPanel::~GLabControlPanel()
 void GLabControlPanel::InitializeAfterConstructor()
 {
 	QString strProgramName = ProgramName_DontUseDuringConstruction();
-
-// 	// TODO: CAN PROBABLY REMOVE THIS ONCE EVERYONE HAS UPDATED TO THIS NEW VERSION
-// 	// if the file doesn't exist, we open the "LabExe" registry folder, for compatibility with older versions
-// 	if(!QSettings(strProgramName, "GLabControlPanel").contains("default-directory"))
-// 		strProgramName = "LabExe";
+	QCoreApplication::setOrganizationName("LabExe");
+	QCoreApplication::setApplicationName(strProgramName);
 
 	// restore some settings
 	QSettings windowSettings(strProgramName, "GLabControlPanel");
@@ -101,11 +98,6 @@ void GLabControlPanel::InitializeAfterConstructor()
 
 	// load the workbenches by getting the filenames where they are saved
 	QString fileNameControlPanel = strProgramName + "_ControlPanel.ini";
-	
-// 	// TODO: CAN PROBABLY REMOVE THIS ONCE EVERYONE HAS UPDATED TO THIS NEW VERSION
-// 	// if the file doesn't exist, we default to "ControlPanel.ini", for compatibility with older versions
-// 	if(!m_DefaultSavingDir.exists(fileNameControlPanel))
-// 		fileNameControlPanel = "ControlPanel.ini";
 
 	QString pathSaveControlPanel = m_DefaultSavingDir.absoluteFilePath(fileNameControlPanel);
 	QSettings panelSettings(pathSaveControlPanel, QSettings::IniFormat);
@@ -113,9 +105,6 @@ void GLabControlPanel::InitializeAfterConstructor()
 	RestoreBenches(panelSettings);
 
 	// now we get some properties of some params. 
-// 	panelSettings.beginGroup("ParamManager");
-// 	ParamManagerInstance()->InterpretSettings(panelSettings);
-// 	panelSettings.endGroup();
 	ParamManagerInstance()->ReadDeviceSettings(panelSettings);
 
 	// hide the debugging combobox if the first line is not commented
@@ -149,9 +138,6 @@ void GLabControlPanel::Save()
 
 	// now we save some properties of some params using the ParamManager. 
 	ParamManagerInstance()->SaveDeviceSettings(panelSettings);
-// 	panelSettings.beginGroup("ParamManager");
-//	ParamManagerInstance()->PopulateSettings(panelSettings);
-// 	panelSettings.endGroup();
 }
 
 void GLabControlPanel::closeEvent(QCloseEvent *event)

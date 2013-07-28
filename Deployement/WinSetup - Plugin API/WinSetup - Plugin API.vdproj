@@ -27,31 +27,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_02BE89D09B5B45EAB311A6B32479B95E"
+        "MsmKey" = "8:_0C30517CE97D4ED08224A6C625838ACD"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_041025AE25B24240A2B440898C1A02A3"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_0497E923EFC14840B3C65744B28D25CB"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_04FA6FF69B374ADD905AF1CE8ED75518"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_13CF1FEBCC3E4511B47615267A8D8107"
+        "MsmKey" = "8:_12CC8510BC7248BBBED71505A664A11B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -63,14 +45,44 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_1BC7F05C7ADF40B6933301F6F494581A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1ED54680FD9B4B88A5F80FDCB054B288"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1EF32DEF884C4C81B531C540E02102A9"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1FF560FBA6CD30F5AB4FB703D1F9BE1D"
+        "OwnerKey" = "8:_ED134BB6F5DB4DAC8F4DCC25AE6998AB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_201F3A42E7F84FAB8371AB77567FFCBE"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_22546A6A06924929BEAB8861185E6C4D"
+        "MsmKey" = "8:_22F9B6861AE34BCA8C887EB6DCFF5758"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2A8D62427CE84A90888EA6721E8D5BBB"
+        "OwnerKey" = "8:_ED134BB6F5DB4DAC8F4DCC25AE6998AB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -81,13 +93,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_3547C0C3270A4CD3A2E44BC746319F20"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_35987D391D304A8AA08C5AF0A0190A97"
+        "MsmKey" = "8:_2D971E7973D64C71AB71FE097FA503F5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -117,12 +123,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_4150B5CC7AB74ED8B5B462E62C5AE09C"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_41CE726BA15143F9B8E63D2819EA3DD3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -135,19 +135,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_44613F5C84A543C5830DABB55C4DA239"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_44B06B6B5F7640EA8BE5F96F70524591"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_4921CF2DE77D440EB3A84F4B65907D13"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -159,37 +147,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_49E67FD5904B42A8B508E7CDFE6F2B8F"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_4C694757A9664CCCBC890DC2984CE080"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_4CCA7A44D9034D78BD6A7572B41FB073"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_57BCC2984F5B4E79888F1C5EAAD115DF"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_58D6BC30E1164979BBFDB90F7CF98C8E"
-        "OwnerKey" = "8:_E7ACB533A71A47478FBA1A5A9552D148"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_5C080A208ACB4CD287621652DBF727BB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -201,13 +159,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_5E471B48230E4C1F81410D467E77AE6C"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_5F20B9506C4543048F02B1FBDBE94475"
+        "MsmKey" = "8:_5D313DFCA3B343B49ECC8E45E34BB8B5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -219,7 +171,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_6607D319CBE84316ACE19E1B8309C641"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_6912EC4869744F90B1BBC039E4F986AA"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6DEC1B7D42964DD1BC7E4A5BCC8A0991"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -237,12 +201,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_744976BE91D8476F98D316CFCA5BDFB4"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_74548D68C04946289B941E4C7DE6B31A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -255,13 +213,55 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_775A43878F884B128FB5D4C810FD4AD3"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_7B0160EA76814B62BF0455F5DE3F5354"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
+        "MsmKey" = "8:_7C536BA6021140ACB1F4F58A5A1BE291"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8026AF886F984AF99307A3999FD74502"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_80E58502AC794C25B23067ADA9BB028E"
+        "OwnerKey" = "8:_2A8D62427CE84A90888EA6721E8D5BBB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8151EC19AB38CA979FD62D1A70291547"
+        "OwnerKey" = "8:_ED134BB6F5DB4DAC8F4DCC25AE6998AB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_8483C8B4D75D4D3389B3B5CB5CABD7BD"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_85F0B4C86FB34C7E9C1074E43CFBE4BB"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_88D0CC6B4DA248CF9A2144D0916B1DDC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -279,13 +279,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_90DEB5333AFE47DDB1111F6CF9302DAE"
+        "MsmKey" = "8:_8C349B5F334F456D8EE09546C89F7CED"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_91407B1CC06045348A52131D206DFB7C"
+        "MsmKey" = "8:_90DEB5333AFE47DDB1111F6CF9302DAE"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -303,13 +303,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_9C930BA240BC4BF29C91095052B91E69"
+        "MsmKey" = "8:_9E3ED722BB1A453299FDAF009BC5B24D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_A13B6E98EFF0453D855D3A849F84AEE1"
+        "MsmKey" = "8:_9E6D043E18F74B7FA1A14AF505E0C204"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -351,19 +351,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_B0301682656040DDA33CC5E628335DCF"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_B1840FFBBB1D431B99C8B3BD402AA278"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B62DBA183F4A40CA843E84734C2DD136"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -375,7 +363,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_C8759AE38F024D7298B8C9148BCFE9CE"
+        "MsmKey" = "8:_BB7BEA3CAB8E4AE89855C43DD05EA05C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C0F977C05CB847ADB032B7D5689558A3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -399,25 +393,37 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_D08730D0361740C1B6C3D9AE8C44138C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D11E974D638547178A2866EA12A3148C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D7D6885275F34A4E9F940252DBE39D5D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_D8679C02E60F44418EF2C63FCFB2FF52"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_D9DE8FD047D0417E91E1FE974F1DCE6A"
+        "MsmKey" = "8:_E156C9AF9A6440929571B1EC2158FC0F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_DF6A8317334B4A118BC40EF9747F91FD"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E40864547A9E42719013890FB7BBCB57"
+        "MsmKey" = "8:_E5C83FEE534F4018B966ACAE4D280E07"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -429,13 +435,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_E7ACB533A71A47478FBA1A5A9552D148"
-        "OwnerKey" = "8:_ED134BB6F5DB4DAC8F4DCC25AE6998AB"
+        "MsmKey" = "8:_EC11C5E9654144B9973E79B838D131D4"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_EC11C5E9654144B9973E79B838D131D4"
+        "MsmKey" = "8:_ECBBC823E7BE4CCBA6CD4FA427BD9B48"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -453,7 +459,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_EE73DF9FA33E4668AE60059CE944EA82"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_F3207FABF17141D0ACCD6D3E77B54610"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F6BDA5508332427C80E05C7436EAB47F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -465,7 +483,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_FF7D31F7963B4C01873490919DEE5E31"
+        "MsmKey" = "8:_F7C9CDE9A78542C494E6A9C0F65D9BEB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -606,12 +624,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_02BE89D09B5B45EAB311A6B32479B95E"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0C30517CE97D4ED08224A6C625838ACD"
             {
-            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\UserProjects\\RollingStatsPlugin\\RollingStatsPlugin.h"
-            "TargetName" = "8:RollingStatsPlugin.h"
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\SRSControllerPlugin\\SRSControllerPlugin.pri"
+            "TargetName" = "8:SRSControllerPlugin.pri"
             "Tag" = "8:"
-            "Folder" = "8:_C96752DA7E814F8DA46D7D57DFE0CD17"
+            "Folder" = "8:_D2216C20EEC24B81810F4697DF58DFED"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -626,72 +644,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_041025AE25B24240A2B440898C1A02A3"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_12CC8510BC7248BBBED71505A664A11B"
             {
-            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\UserProjects\\RollingStatsPlugin\\RollingStatsPlugin.vcproj"
-            "TargetName" = "8:RollingStatsPlugin.vcproj"
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\LowPassFilterPlugin\\LowPassFilterPlugin_global.h"
+            "TargetName" = "8:LowPassFilterPlugin_global.h"
             "Tag" = "8:"
-            "Folder" = "8:_C96752DA7E814F8DA46D7D57DFE0CD17"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0497E923EFC14840B3C65744B28D25CB"
-            {
-            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\UserProjects\\StepperPlugin\\StepperPlugin.vcproj"
-            "TargetName" = "8:StepperPlugin.vcproj"
-            "Tag" = "8:"
-            "Folder" = "8:_FF0DC79CEB074158AFE7723D82F4790B"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_04FA6FF69B374ADD905AF1CE8ED75518"
-            {
-            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\UserProjects\\StepperPlugin\\StepperPlugin_global.h"
-            "TargetName" = "8:StepperPlugin_global.h"
-            "Tag" = "8:"
-            "Folder" = "8:_FF0DC79CEB074158AFE7723D82F4790B"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_13CF1FEBCC3E4511B47615267A8D8107"
-            {
-            "SourcePath" = "8:..\\..\\UserDefinedPlugins\\LowPassFilterPlugin\\LowPassFilterPlugin.pri"
-            "TargetName" = "8:LowPassFilterPlugin.pri"
-            "Tag" = "8:"
-            "Folder" = "8:_0577BA436F654B8D8F2A624FBDE248D8"
+            "Folder" = "8:_22205C6A01D34BAA90CC985C183E783B"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -726,6 +684,86 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1BC7F05C7ADF40B6933301F6F494581A"
+            {
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\LowPassFilterPlugin\\LowPassFilterPlugin.vcproj"
+            "TargetName" = "8:LowPassFilterPlugin.vcproj"
+            "Tag" = "8:"
+            "Folder" = "8:_22205C6A01D34BAA90CC985C183E783B"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1ED54680FD9B4B88A5F80FDCB054B288"
+            {
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\StepperPlugin\\StepperPlugin.vcproj"
+            "TargetName" = "8:StepperPlugin.vcproj"
+            "Tag" = "8:"
+            "Folder" = "8:_D8F9E60A40184456B961378677EBBA54"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1EF32DEF884C4C81B531C540E02102A9"
+            {
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\SRSControllerPlugin\\SRSControllerPlugin.pro"
+            "TargetName" = "8:SRSControllerPlugin.pro"
+            "Tag" = "8:"
+            "Folder" = "8:_D2216C20EEC24B81810F4697DF58DFED"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1FF560FBA6CD30F5AB4FB703D1F9BE1D"
+            {
+            "SourcePath" = "8:QtGui4.dll"
+            "TargetName" = "8:QtGui4.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_19A6595176374BEC8E07E7E5122E5E45"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_201F3A42E7F84FAB8371AB77567FFCBE"
             {
             "SourcePath" = "8:..\\doc\\screen-capture\\NewDeviceProject-05.PNG"
@@ -746,12 +784,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_22546A6A06924929BEAB8861185E6C4D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_22F9B6861AE34BCA8C887EB6DCFF5758"
             {
-            "SourcePath" = "8:..\\..\\UserDefinedPlugins\\LowPassFilterPlugin\\GLowPassFilter.cpp"
-            "TargetName" = "8:GLowPassFilter.cpp"
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\StepperPlugin\\StepperPlugin.cpp"
+            "TargetName" = "8:StepperPlugin.cpp"
             "Tag" = "8:"
-            "Folder" = "8:_0577BA436F654B8D8F2A624FBDE248D8"
+            "Folder" = "8:_D8F9E60A40184456B961378677EBBA54"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -786,32 +824,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3547C0C3270A4CD3A2E44BC746319F20"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2D971E7973D64C71AB71FE097FA503F5"
             {
-            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\UserProjects\\RollingStatsPlugin\\GRollingStats.cpp"
-            "TargetName" = "8:GRollingStats.cpp"
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\SRSControllerPlugin\\SRSControllerPlugin_global.h"
+            "TargetName" = "8:SRSControllerPlugin_global.h"
             "Tag" = "8:"
-            "Folder" = "8:_C96752DA7E814F8DA46D7D57DFE0CD17"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_35987D391D304A8AA08C5AF0A0190A97"
-            {
-            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\UserProjects\\StepperPlugin\\StepperPlugin.vcproj.user"
-            "TargetName" = "8:StepperPlugin.vcproj.user"
-            "Tag" = "8:"
-            "Folder" = "8:_FF0DC79CEB074158AFE7723D82F4790B"
+            "Folder" = "8:_D2216C20EEC24B81810F4697DF58DFED"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -906,26 +924,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4150B5CC7AB74ED8B5B462E62C5AE09C"
-            {
-            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\UserProjects\\StepperPlugin\\GStepper.cpp"
-            "TargetName" = "8:GStepper.cpp"
-            "Tag" = "8:"
-            "Folder" = "8:_FF0DC79CEB074158AFE7723D82F4790B"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_41CE726BA15143F9B8E63D2819EA3DD3"
             {
             "SourcePath" = "8:..\\doc\\screen-capture\\LowPassFilter-ProjectTree.PNG"
@@ -966,52 +964,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_44613F5C84A543C5830DABB55C4DA239"
-            {
-            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\UserProjects\\StepperPlugin\\StepperPlugin.pri"
-            "TargetName" = "8:StepperPlugin.pri"
-            "Tag" = "8:"
-            "Folder" = "8:_FF0DC79CEB074158AFE7723D82F4790B"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_44B06B6B5F7640EA8BE5F96F70524591"
             {
             "SourcePath" = "8:..\\..\\src\\Param\\GParam.h"
             "TargetName" = "8:GParam.h"
             "Tag" = "8:"
             "Folder" = "8:_0F06102A87EE425096AC21AB8B400A1A"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4921CF2DE77D440EB3A84F4B65907D13"
-            {
-            "SourcePath" = "8:..\\..\\UserDefinedPlugins\\LowPassFilterPlugin\\GLowPassFilter.h"
-            "TargetName" = "8:GLowPassFilter.h"
-            "Tag" = "8:"
-            "Folder" = "8:_0577BA436F654B8D8F2A624FBDE248D8"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1046,92 +1004,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_49E67FD5904B42A8B508E7CDFE6F2B8F"
-            {
-            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\UserProjects\\StepperPlugin\\StepperPlugin.h"
-            "TargetName" = "8:StepperPlugin.h"
-            "Tag" = "8:"
-            "Folder" = "8:_FF0DC79CEB074158AFE7723D82F4790B"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4C694757A9664CCCBC890DC2984CE080"
-            {
-            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\UserProjects\\StepperPlugin\\GStepper.h"
-            "TargetName" = "8:GStepper.h"
-            "Tag" = "8:"
-            "Folder" = "8:_FF0DC79CEB074158AFE7723D82F4790B"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4CCA7A44D9034D78BD6A7572B41FB073"
-            {
-            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\UserProjects\\RollingStatsPlugin\\RollingStatsPlugin.sln"
-            "TargetName" = "8:RollingStatsPlugin.sln"
-            "Tag" = "8:"
-            "Folder" = "8:_C96752DA7E814F8DA46D7D57DFE0CD17"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_57BCC2984F5B4E79888F1C5EAAD115DF"
             {
             "SourcePath" = "8:..\\doc\\screen-capture\\NewDevicePluginProject-07.PNG"
             "TargetName" = "8:NewDevicePluginProject-07.PNG"
             "Tag" = "8:"
             "Folder" = "8:_8F5DDD382AE1444B839BFC9D219B0506"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5C080A208ACB4CD287621652DBF727BB"
-            {
-            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\UserProjects\\RollingStatsPlugin\\RollingStatsPlugin.pri"
-            "TargetName" = "8:RollingStatsPlugin.pri"
-            "Tag" = "8:"
-            "Folder" = "8:_C96752DA7E814F8DA46D7D57DFE0CD17"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1166,32 +1044,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5E471B48230E4C1F81410D467E77AE6C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5D313DFCA3B343B49ECC8E45E34BB8B5"
             {
-            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\UserProjects\\RollingStatsPlugin\\RollingStatsPlugin_global.h"
-            "TargetName" = "8:RollingStatsPlugin_global.h"
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\StepperPlugin\\StepperPlugin.h"
+            "TargetName" = "8:StepperPlugin.h"
             "Tag" = "8:"
-            "Folder" = "8:_C96752DA7E814F8DA46D7D57DFE0CD17"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5F20B9506C4543048F02B1FBDBE94475"
-            {
-            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\UserProjects\\StepperPlugin\\StepperPlugin.cpp"
-            "TargetName" = "8:StepperPlugin.cpp"
-            "Tag" = "8:"
-            "Folder" = "8:_FF0DC79CEB074158AFE7723D82F4790B"
+            "Folder" = "8:_D8F9E60A40184456B961378677EBBA54"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1226,12 +1084,52 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6607D319CBE84316ACE19E1B8309C641"
+            {
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\LowPassFilterPlugin\\LowPassFilterPlugin.pro"
+            "TargetName" = "8:LowPassFilterPlugin.pro"
+            "Tag" = "8:"
+            "Folder" = "8:_22205C6A01D34BAA90CC985C183E783B"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6912EC4869744F90B1BBC039E4F986AA"
             {
             "SourcePath" = "8:..\\doc\\screen-capture\\NewDeviceProject-02.PNG"
             "TargetName" = "8:NewDeviceProject-02.PNG"
             "Tag" = "8:"
             "Folder" = "8:_8F5DDD382AE1444B839BFC9D219B0506"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6DEC1B7D42964DD1BC7E4A5BCC8A0991"
+            {
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\StepperPlugin\\StepperPlugin.pri"
+            "TargetName" = "8:StepperPlugin.pri"
+            "Tag" = "8:"
+            "Folder" = "8:_D8F9E60A40184456B961378677EBBA54"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1286,26 +1184,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_744976BE91D8476F98D316CFCA5BDFB4"
-            {
-            "SourcePath" = "8:..\\..\\src\\Param\\GMultiParamBucket.h"
-            "TargetName" = "8:GMultiParamBucket.h"
-            "Tag" = "8:"
-            "Folder" = "8:_0F06102A87EE425096AC21AB8B400A1A"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_74548D68C04946289B941E4C7DE6B31A"
             {
             "SourcePath" = "8:..\\..\\src\\Param\\GParamInt.h"
@@ -1346,6 +1224,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_775A43878F884B128FB5D4C810FD4AD3"
+            {
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\LowPassFilterPlugin\\GLowPassFilter.cpp"
+            "TargetName" = "8:GLowPassFilter.cpp"
+            "Tag" = "8:"
+            "Folder" = "8:_22205C6A01D34BAA90CC985C183E783B"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7B0160EA76814B62BF0455F5DE3F5354"
             {
             "SourcePath" = "8:..\\..\\src\\labexe_global.h"
@@ -1366,12 +1264,112 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7C536BA6021140ACB1F4F58A5A1BE291"
+            {
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\SRSControllerPlugin\\GSRSController.cpp"
+            "TargetName" = "8:GSRSController.cpp"
+            "Tag" = "8:"
+            "Folder" = "8:_D2216C20EEC24B81810F4697DF58DFED"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8026AF886F984AF99307A3999FD74502"
+            {
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\LowPassFilterPlugin\\GLowPassFilter.h"
+            "TargetName" = "8:GLowPassFilter.h"
+            "Tag" = "8:"
+            "Folder" = "8:_22205C6A01D34BAA90CC985C183E783B"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8151EC19AB38CA979FD62D1A70291547"
+            {
+            "SourcePath" = "8:QtCore4.dll"
+            "TargetName" = "8:QtCore4.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_19A6595176374BEC8E07E7E5122E5E45"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8483C8B4D75D4D3389B3B5CB5CABD7BD"
             {
             "SourcePath" = "8:..\\WinLabexe\\LabExeIcon.ico"
             "TargetName" = "8:LabExeIcon.ico"
             "Tag" = "8:"
             "Folder" = "8:_19A6595176374BEC8E07E7E5122E5E45"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_85F0B4C86FB34C7E9C1074E43CFBE4BB"
+            {
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\SRSControllerPlugin\\SRSControllerPlugin.cpp"
+            "TargetName" = "8:SRSControllerPlugin.cpp"
+            "Tag" = "8:"
+            "Folder" = "8:_D2216C20EEC24B81810F4697DF58DFED"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_88D0CC6B4DA248CF9A2144D0916B1DDC"
+            {
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\StepperPlugin\\StepperPlugin.pro"
+            "TargetName" = "8:StepperPlugin.pro"
+            "Tag" = "8:"
+            "Folder" = "8:_D8F9E60A40184456B961378677EBBA54"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1426,12 +1424,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_90DEB5333AFE47DDB1111F6CF9302DAE"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8C349B5F334F456D8EE09546C89F7CED"
             {
-            "SourcePath" = "8:..\\..\\src\\param.h"
-            "TargetName" = "8:param.h"
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\StepperPlugin\\StepperPlugin.sln"
+            "TargetName" = "8:StepperPlugin.sln"
             "Tag" = "8:"
-            "Folder" = "8:_FE72C148023040F7944D01C20AB356E4"
+            "Folder" = "8:_D8F9E60A40184456B961378677EBBA54"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1446,12 +1444,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_91407B1CC06045348A52131D206DFB7C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_90DEB5333AFE47DDB1111F6CF9302DAE"
             {
-            "SourcePath" = "8:..\\..\\UserDefinedPlugins\\LowPassFilterPlugin\\LowPassFilterPlugin.vcproj.user"
-            "TargetName" = "8:LowPassFilterPlugin.vcproj.user"
+            "SourcePath" = "8:..\\..\\src\\param.h"
+            "TargetName" = "8:param.h"
             "Tag" = "8:"
-            "Folder" = "8:_0577BA436F654B8D8F2A624FBDE248D8"
+            "Folder" = "8:_FE72C148023040F7944D01C20AB356E4"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1506,12 +1504,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9C930BA240BC4BF29C91095052B91E69"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9E3ED722BB1A453299FDAF009BC5B24D"
             {
-            "SourcePath" = "8:..\\..\\UserDefinedPlugins\\LowPassFilterPlugin\\LowPassFilterPlugin.h"
-            "TargetName" = "8:LowPassFilterPlugin.h"
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\SRSControllerPlugin\\GSRSController.h"
+            "TargetName" = "8:GSRSController.h"
             "Tag" = "8:"
-            "Folder" = "8:_0577BA436F654B8D8F2A624FBDE248D8"
+            "Folder" = "8:_D2216C20EEC24B81810F4697DF58DFED"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1526,12 +1524,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A13B6E98EFF0453D855D3A849F84AEE1"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9E6D043E18F74B7FA1A14AF505E0C204"
             {
-            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\UserProjects\\RollingStatsPlugin\\GRollingStats.h"
-            "TargetName" = "8:GRollingStats.h"
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\LowPassFilterPlugin\\LowPassFilterPlugin.cpp"
+            "TargetName" = "8:LowPassFilterPlugin.cpp"
             "Tag" = "8:"
-            "Folder" = "8:_C96752DA7E814F8DA46D7D57DFE0CD17"
+            "Folder" = "8:_22205C6A01D34BAA90CC985C183E783B"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1666,52 +1664,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B0301682656040DDA33CC5E628335DCF"
-            {
-            "SourcePath" = "8:..\\..\\UserDefinedPlugins\\LowPassFilterPlugin\\LowPassFilterPlugin.sln"
-            "TargetName" = "8:LowPassFilterPlugin.sln"
-            "Tag" = "8:"
-            "Folder" = "8:_0577BA436F654B8D8F2A624FBDE248D8"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B1840FFBBB1D431B99C8B3BD402AA278"
             {
             "SourcePath" = "8:..\\..\\src\\Param\\GDoubleSpinBox.h"
             "TargetName" = "8:GDoubleSpinBox.h"
             "Tag" = "8:"
             "Folder" = "8:_0F06102A87EE425096AC21AB8B400A1A"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B62DBA183F4A40CA843E84734C2DD136"
-            {
-            "SourcePath" = "8:..\\..\\UserDefinedPlugins\\LowPassFilterPlugin\\LowPassFilterPlugin_global.h"
-            "TargetName" = "8:LowPassFilterPlugin_global.h"
-            "Tag" = "8:"
-            "Folder" = "8:_0577BA436F654B8D8F2A624FBDE248D8"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1746,12 +1704,32 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C8759AE38F024D7298B8C9148BCFE9CE"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BB7BEA3CAB8E4AE89855C43DD05EA05C"
             {
-            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\UserProjects\\RollingStatsPlugin\\RollingStatsPlugin.cpp"
-            "TargetName" = "8:RollingStatsPlugin.cpp"
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\StepperPlugin\\GStepper.h"
+            "TargetName" = "8:GStepper.h"
             "Tag" = "8:"
-            "Folder" = "8:_C96752DA7E814F8DA46D7D57DFE0CD17"
+            "Folder" = "8:_D8F9E60A40184456B961378677EBBA54"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C0F977C05CB847ADB032B7D5689558A3"
+            {
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\SRSControllerPlugin\\SRSControllerPlugin.vcproj"
+            "TargetName" = "8:SRSControllerPlugin.vcproj"
+            "Tag" = "8:"
+            "Folder" = "8:_D2216C20EEC24B81810F4697DF58DFED"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1826,6 +1804,66 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D08730D0361740C1B6C3D9AE8C44138C"
+            {
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\StepperPlugin\\GStepper.cpp"
+            "TargetName" = "8:GStepper.cpp"
+            "Tag" = "8:"
+            "Folder" = "8:_D8F9E60A40184456B961378677EBBA54"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D11E974D638547178A2866EA12A3148C"
+            {
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\SRSControllerPlugin\\Mickey's Workbench.wb"
+            "TargetName" = "8:Mickey's Workbench.wb"
+            "Tag" = "8:"
+            "Folder" = "8:_D2216C20EEC24B81810F4697DF58DFED"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D7D6885275F34A4E9F940252DBE39D5D"
+            {
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\SRSControllerPlugin\\SRSControllerPlugin.sln"
+            "TargetName" = "8:SRSControllerPlugin.sln"
+            "Tag" = "8:"
+            "Folder" = "8:_D2216C20EEC24B81810F4697DF58DFED"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D8679C02E60F44418EF2C63FCFB2FF52"
             {
             "SourcePath" = "8:..\\..\\src\\device.h"
@@ -1846,12 +1884,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D9DE8FD047D0417E91E1FE974F1DCE6A"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E156C9AF9A6440929571B1EC2158FC0F"
             {
-            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\UserProjects\\RollingStatsPlugin\\RollingStatsPlugin.vcproj.user"
-            "TargetName" = "8:RollingStatsPlugin.vcproj.user"
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\LowPassFilterPlugin\\LowPassFilterPlugin.sln"
+            "TargetName" = "8:LowPassFilterPlugin.sln"
             "Tag" = "8:"
-            "Folder" = "8:_C96752DA7E814F8DA46D7D57DFE0CD17"
+            "Folder" = "8:_22205C6A01D34BAA90CC985C183E783B"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1866,32 +1904,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DF6A8317334B4A118BC40EF9747F91FD"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E5C83FEE534F4018B966ACAE4D280E07"
             {
-            "SourcePath" = "8:..\\..\\UserDefinedPlugins\\LowPassFilterPlugin\\LowPassFilterPlugin.cpp"
-            "TargetName" = "8:LowPassFilterPlugin.cpp"
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\StepperPlugin\\StepperPlugin_global.h"
+            "TargetName" = "8:StepperPlugin_global.h"
             "Tag" = "8:"
-            "Folder" = "8:_0577BA436F654B8D8F2A624FBDE248D8"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E40864547A9E42719013890FB7BBCB57"
-            {
-            "SourcePath" = "8:..\\..\\UserDefinedPlugins\\LowPassFilterPlugin\\LowPassFilterPlugin.vcproj"
-            "TargetName" = "8:LowPassFilterPlugin.vcproj"
-            "Tag" = "8:"
-            "Folder" = "8:_0577BA436F654B8D8F2A624FBDE248D8"
+            "Folder" = "8:_D8F9E60A40184456B961378677EBBA54"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1946,12 +1964,52 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_ECBBC823E7BE4CCBA6CD4FA427BD9B48"
+            {
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\StepperPlugin\\StepperPlugin.vcproj.user"
+            "TargetName" = "8:StepperPlugin.vcproj.user"
+            "Tag" = "8:"
+            "Folder" = "8:_D8F9E60A40184456B961378677EBBA54"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_ED3848C9C22A4D23855D4486F9CC1370"
             {
             "SourcePath" = "8:..\\doc\\screen-capture\\NewDevicePluginProject-09.PNG"
             "TargetName" = "8:NewDevicePluginProject-09.PNG"
             "Tag" = "8:"
             "Folder" = "8:_8F5DDD382AE1444B839BFC9D219B0506"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EE73DF9FA33E4668AE60059CE944EA82"
+            {
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\LowPassFilterPlugin\\LowPassFilterPlugin.pri"
+            "TargetName" = "8:LowPassFilterPlugin.pri"
+            "Tag" = "8:"
+            "Folder" = "8:_22205C6A01D34BAA90CC985C183E783B"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1986,6 +2044,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F6BDA5508332427C80E05C7436EAB47F"
+            {
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\LowPassFilterPlugin\\LowPassFilterPlugin.h"
+            "TargetName" = "8:LowPassFilterPlugin.h"
+            "Tag" = "8:"
+            "Folder" = "8:_22205C6A01D34BAA90CC985C183E783B"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F7480EB19A2744F2B7CF97B9DC489347"
             {
             "SourcePath" = "8:..\\..\\src\\Param\\GParamBool.h"
@@ -2006,12 +2084,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FF7D31F7963B4C01873490919DEE5E31"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F7C9CDE9A78542C494E6A9C0F65D9BEB"
             {
-            "SourcePath" = "8:..\\..\\src\\Param\\GDoubleRange.h"
-            "TargetName" = "8:GDoubleRange.h"
+            "SourcePath" = "8:..\\..\\..\\LabExe-UserPlugins\\SoftwarePlugins\\SRSControllerPlugin\\SRSControllerPlugin.h"
+            "TargetName" = "8:SRSControllerPlugin.h"
             "Tag" = "8:"
-            "Folder" = "8:_0F06102A87EE425096AC21AB8B400A1A"
+            "Folder" = "8:_D2216C20EEC24B81810F4697DF58DFED"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2150,35 +2228,35 @@
                     "Property" = "8:_BA4DBFB9B1E346BE916E0E34E7B541F7"
                         "Folders"
                         {
-                            "{9EF0B969-E518-4E46-987F-47570745A589}:_0577BA436F654B8D8F2A624FBDE248D8"
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_22205C6A01D34BAA90CC985C183E783B"
                             {
                             "Name" = "8:LowPassFilterPlugin"
                             "AlwaysCreate" = "11:FALSE"
                             "Condition" = "8:"
                             "Transitive" = "11:FALSE"
-                            "Property" = "8:_9F2EAFEB4CCB455A874DFFDA04A0A6B3"
+                            "Property" = "8:_7E7EB678D436456FB90940C013CD6B0A"
                                 "Folders"
                                 {
                                 }
                             }
-                            "{9EF0B969-E518-4E46-987F-47570745A589}:_C96752DA7E814F8DA46D7D57DFE0CD17"
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_D2216C20EEC24B81810F4697DF58DFED"
                             {
-                            "Name" = "8:RollingStatsPlugin"
+                            "Name" = "8:SRSControllerPlugin"
                             "AlwaysCreate" = "11:FALSE"
                             "Condition" = "8:"
                             "Transitive" = "11:FALSE"
-                            "Property" = "8:_DE3F83479DDE47998B716DEA5254414A"
+                            "Property" = "8:_DAD547DBB38B43189AB1B45DB6B230C9"
                                 "Folders"
                                 {
                                 }
                             }
-                            "{9EF0B969-E518-4E46-987F-47570745A589}:_FF0DC79CEB074158AFE7723D82F4790B"
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_D8F9E60A40184456B961378677EBBA54"
                             {
                             "Name" = "8:StepperPlugin"
                             "AlwaysCreate" = "11:FALSE"
                             "Condition" = "8:"
                             "Transitive" = "11:FALSE"
-                            "Property" = "8:_B0D65FD160D54F6BB1E02AC4538AE243"
+                            "Property" = "8:_A44B4976687E47FE887AAC6311B42C33"
                                 "Folders"
                                 {
                                 }
@@ -2258,14 +2336,14 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:LabExe - Plugin API"
-        "ProductCode" = "8:{6F95C9BB-0939-413C-AB1D-BCDD9306BAFA}"
-        "PackageCode" = "8:{014D51C4-03AC-423D-A7C2-4F44579A65D7}"
+        "ProductCode" = "8:{CE5A2009-E541-40DB-B78D-7C86EB11A563}"
+        "PackageCode" = "8:{2FC8FC72-45EF-4655-9EC0-2F43CF23F81D}"
         "UpgradeCode" = "8:{0A03BC8C-0D8E-4C7D-B816-AACF56363E3D}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:FALSE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:2.12.7"
+        "ProductVersion" = "8:2.16.5"
         "Manufacturer" = "8:LabExe"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -2478,11 +2556,11 @@
         }
         "MergeModule"
         {
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_58D6BC30E1164979BBFDB90F7CF98C8E"
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_2A8D62427CE84A90888EA6721E8D5BBB"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
-            "SourcePath" = "8:microsoft_vc90_debugcrt_x86.msm"
+            "SourcePath" = "8:policy_9_0_Microsoft_VC90_CRT_x86.msm"
                 "Properties"
                 {
                 }
@@ -2492,11 +2570,11 @@
             "Feature" = "8:"
             "IsolateTo" = "8:"
             }
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_E7ACB533A71A47478FBA1A5A9552D148"
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_80E58502AC794C25B23067ADA9BB028E"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
-            "SourcePath" = "8:policy_9_0_Microsoft_VC90_DebugCRT_x86.msm"
+            "SourcePath" = "8:microsoft_vc90_crt_x86.msm"
                 "Properties"
                 {
                 }

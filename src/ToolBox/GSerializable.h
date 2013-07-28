@@ -105,9 +105,7 @@ public:
 
 protected:
 	//! Called after the unique system ID changed so that derivate class may do some extra adjustment, like e.g. for updating an object manager. The default implementation does nothing.
-    virtual void Event_UniqueSystemIDChanged(const QString & newSystemID) {
-        Q_UNUSED(newSystemID);
-    }
+	virtual void Event_UniqueSystemIDChanged() {}
 
 private:
 	//! Unique name that can be used to identify without ambiguity the object in the system. It has to be the same from one instance of the program to another, or on any computer the program might be launched on.

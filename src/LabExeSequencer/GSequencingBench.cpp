@@ -16,12 +16,6 @@ GSequencingBench::~GSequencingBench()
 
 }
 
-void GSequencingBench::createMenus()
-{
-	fileMenu = menuBar()->addMenu(tr("&Sequence"));
-	fileMenu->addAction(m_pSequencer->Sequence()->m_pActionNewChannel);
-}
-
 void GSequencingBench::DisplayHoverInScene( QPointF pointHover )
 {
 	QStatusBar* pSB = statusBar();

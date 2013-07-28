@@ -111,7 +111,7 @@ protected:
 	//! If reimplemented by derived class, this is meant to provide a shorter default name for the device
 	virtual QString DefaultShortName() const { return Name(); }
 	//! Re-implemented to add the new ID in the DeviceManagerInstance(). It doesn't remove the previous one.
-	void Event_UniqueSystemIDChanged(const QString & newSystemID);
+	void Event_UniqueSystemIDChanged();
 	//! Function Called when a QWidget::dragEnterEvent() happens on a GDeviceWidget of this device.
 	virtual void DragEnterEvent(QDragEnterEvent *event, GDeviceWidget* pOnWidget); 
 	//! Function Called when a QWidget::dropEvent() happens on a GDeviceWidget of this device.

@@ -2,7 +2,6 @@
 #define GCHANNEL_H
 
 #include <QObject>
-#include "GChannelGraphicsItem.h"
 #include "ToolBox/GSerializable.h"
 #include "labexe_global.h"
 
@@ -10,7 +9,7 @@ class GSequence;
 class GSynchEvent;
 class GInstruction;
 
-#include <QMenu>
+#include <QAbstractListModel>
 
 /////////////////////////////////////////////////////////////////////
 //! \brief The GChannel class defines a channel in a sequence. 
@@ -33,8 +32,6 @@ public:
 
 	//! Returns the sequence this channel is part of.
 	GSequence* Sequence();
-	//! Returns a pointer to the graphics item of this channel
-	GChannelGraphicsItem* ChannelGraphicsItem() const { return m_pChannelItem; }
 
 public:
 	//! Reimplemented from GSerializable. Writes the settings to permanent storage using the provided QSettings. 
@@ -43,8 +40,51 @@ public:
 	void InterpretSettings(QSettings& fromQsettings);
 
 private:
-	//! the graphical representation of the channel in a GSequenceGraphicsScene.
-	GChannelGraphicsItem* m_pChannelItem;
 };
+
+// //! from example http://qt-project.org/doc/qt-4.8/declarative-modelviews-abstractitemmodel-model-h.html
+// class GChannelModel : public QAbstractListModel
+// {
+// 	Q_OBJECT
+// public:
+// 	enum ChannelRoles {
+// 		TypeRole = Qt::UserRole + 1,
+// 		SizeRole
+// 	};
+// 
+// 	GChannelModel(QObject *parent = 0)
+// 		: QAbstractListModel(parent)
+// 	{
+// 		QHash<int, QByteArray> roles;
+// 		roles[TypeRole] = "uniqueID";
+// 		roles[SizeRole] = "size";
+// 		setRoleNames(roles);
+// 	}
+// 
+// 	void AddChannel(GChannel* pChan) {
+// 		beginInsertRows(QModelIndex(), rowCount(), rowCount());
+// 		m_Channels << pChan;
+// 		endInsertRows();
+// 	}
+// 
+// 	int rowCount(const QModelIndex & parent = QModelIndex()) const {
+// 		return m_Channels.count();
+// 	}
+// 
+// 	QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const {
+// 		if (index.row() < 0 || index.row() > m_Channels.count())
+// 			return QVariant();
+// 
+// 		const GChannel* pChan = m_Channels[index.row()];
+// 		if(role == TypeRole)
+// 			return pChan->UniqueSystemID();
+// 		else if(role == SizeRole)
+// 			return 545;//pChan->UniqueSystemID();
+// 		return QVariant();
+// 	}
+// 
+// private:
+// 	QList<GChannel*> m_Channels;
+// };
 
 #endif // GCHANNEL_H

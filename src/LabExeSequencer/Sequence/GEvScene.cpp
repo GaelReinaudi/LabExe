@@ -36,17 +36,6 @@ GEvScene::~GEvScene()
 
 }
 
-void GEvScene::InsertChannelItem( GChannel* pNewChan )
-{
-	if(!pNewChan)
-		return qWarning("GChannel was NULL! 2368233");
-
-	int indexNewChannel = m_pSeq->m_ChannelList.indexOf(pNewChan);
-
-	addItem(pNewChan->ChannelGraphicsItem());
-	m_pChannelLayout->insertItem(indexNewChannel, pNewChan->ChannelGraphicsItem());
-}
-
 void GEvScene::mouseMoveEvent( QGraphicsSceneMouseEvent * mouseEvent )
 {
 	QGraphicsScene::mouseMoveEvent(mouseEvent);
