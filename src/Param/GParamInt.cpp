@@ -24,10 +24,13 @@ QWidget* GParamInt::ProvideNewParamWidget( QWidget* forWhichParent, GParam::Widg
 	pSpinBox->SetStep(TypicalStep());
 	pSpinBox->SetRange(Minimum(), Maximum(), true);
 
-	if(Options() & GParam::ReadOnly) {
-		pSpinBox->setReadOnly(true);
-		pSpinBox->setButtonSymbols(QAbstractSpinBox::NoButtons);
-	}
+    if(Options() & GParam::NoButton) {
+        pSpinBox->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    }
+    if(Options() & GParam::ReadOnly) {
+        pSpinBox->setReadOnly(true);
+        pSpinBox->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    }
 	else {
 		connect(pSpinBox, SIGNAL(ValueChangedSignificantly(int)), this, SLOT(SetParamValue(int)));
 	}
