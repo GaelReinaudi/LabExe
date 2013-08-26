@@ -6,6 +6,11 @@ GImageGraphicsScene::GImageGraphicsScene(QObject *parent)
 	: QGraphicsScene(parent)
 // 	, m_pImageGetter(new GImageProcessor(this))
 {
+	QVector<QRgb> colorTable(256);
+	for(int i  = 0; i < 256; i++)
+		colorTable[i] = qRgb(i, i, i);
+	colorTable[255] = qRgb(255, 0, 0);
+	SetColorTable(colorTable);
 }
 
 GImageGraphicsScene::~GImageGraphicsScene()
@@ -15,11 +20,7 @@ GImageGraphicsScene::~GImageGraphicsScene()
 
 void GImageGraphicsScene::SetImage(QImage image)
 {
-	QVector<QRgb> colorTable(256);
-	for(int i  = 0; i < 256; i++)
-		colorTable[i] = qRgb(i, i, i);
-	colorTable[255] = qRgb(255, 0, 0);
-	image.setColorTable(colorTable);
+	image.setColorTable(m_ColorTable);
 
 	setBackgroundBrush(QBrush::QBrush(image));
 	setSceneRect(0, 0, image.width(), image.height());
