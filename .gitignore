@@ -6,6 +6,9 @@
 labexe*.lib
 labexe*.dll
 
+*.exe
+*.tmp
+*.msi
 *.suo
 *.res
 *.obj

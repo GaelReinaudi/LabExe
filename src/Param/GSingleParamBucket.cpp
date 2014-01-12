@@ -24,12 +24,12 @@ bool GSingleParamBucket::AddParam( GParam* pParam )
 {
 	GParam* pOldPar = Param();
 
-	if(!GParamBucket::AddParam(pParam))
-		return false;
-
 	// now we remove the other (old) param
 	if(Contains(pOldPar))
 		RemoveParam(pOldPar);
+
+	if(!GParamBucket::AddParam(pParam))
+		return false;
 
 	// if numerical, we make some connections
 	GParamDouble* pParDbl = qobject_cast<GParamDouble*>(pParam);

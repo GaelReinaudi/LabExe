@@ -48,6 +48,10 @@ public:
 	QRectF AoiRect() const {return m_pAoiItem->rect().translated(m_pAoiItem->scenePos());};
 	//! Sets the rectangle of the AOI in the absolute frame of the image (not relatively to the GraphicsItem position,, but to the scene)
 	void SetAoiRect(QRectF theRect);
+	//! makes the imaging bench to have another color table for the image display. This will queue the request so that it can be called from the constructor if needed and still take effect after the bench is actually connected.
+	void ChangeColorTable(QVector<QRgb> newColorTable) { 
+		QMetaObject::invokeMethod(this, "RequestColorTable", Q_ARG(QVector<QRgb>, newColorTable));
+	}
 
 protected:
 	//! Re-implemented
@@ -89,6 +93,8 @@ signals:
 	void ProcessorFailed();
 	//! Emitted when the the AOI rect has changed
 	void AoiChanged(QRect theValidatesRect);
+	//! Emitted when requesting the imaging bench to have another color table for the image display
+	void RequestColorTable(QVector<QRgb> newColorTable);
 
 protected:
 	//! tells if this GImageProcessor is an image provider, i.e. actually sending images out of the OutputImage() signal.

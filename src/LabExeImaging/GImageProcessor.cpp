@@ -78,6 +78,7 @@ void GImageProcessor::SetBench( GImagingBench* pTheBench )
 	m_pAoiSelector->m_pView->setScene(m_pImBench->ImageScene());
 	m_pAoiSelector->setParent(m_pImBench);
 	m_pAoiSelector->setWindowFlags(Qt::Dialog);
+	connect(this, SIGNAL(RequestColorTable(QVector<QRgb>)), m_pImBench->ImageScene(), SLOT(QVector<QRgb>));
 }
 
 void GImageProcessor::IncrementCountProcessed(int byN /*= 1*/)

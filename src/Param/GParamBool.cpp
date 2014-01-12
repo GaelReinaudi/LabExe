@@ -23,9 +23,9 @@ void GParamBool::SetParamValue( bool theNewValue )
 {
 	bool oldVal = BoolValue();
 
-	// if the signal comes from a widget and the value is the same
-	// let's ignore the order to prevent loops
-	if(qobject_cast<QWidget*>(sender()))
+//	// if the signal comes from a widget and the value is the same
+//	// let's ignore the order to prevent loops
+// 	if(qobject_cast<QWidget*>(sender()))
 		if(theNewValue == oldVal)
 			return;
 

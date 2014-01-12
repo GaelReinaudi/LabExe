@@ -31,7 +31,7 @@ public:
 	}
 	//! Implemented
 	double DoubleValue() const {
-		qDebug() << "conv to DoubleValue()";
+// 		qDebug() << "conv to DoubleValue()";
 		return double(m_valInt);
 	}
 
