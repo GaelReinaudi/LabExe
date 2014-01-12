@@ -30,13 +30,18 @@ protected slots:
 	void SetImage(QImage image);
 	//! Displays the incoming picture
 	void SetImage(GImageDouble image);
+	//! Sets the color table that will be used for displaying images
+	void SetColorTable(QVector<QRgb> newColorTable) {
+		m_ColorTable = newColorTable;
+	}
 
 private:
 // 	//! The object that listen for incoming picture. The picture will be diplayed in the scene
 // 	GImageProcessor* m_pImageGetter;
 	//! the image currently displayed
 	GImageDouble m_CurrentImage;
-	
+	QVector<QRgb> m_ColorTable;
+
 };
 
 #endif // GIMAGEGRAPHICSSCENE_H
