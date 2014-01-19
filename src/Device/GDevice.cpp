@@ -2,7 +2,7 @@
 #include "GDeviceManager.h"												
 #include "GDeviceWidget.h"
 #include "Param/GParam.h"
-#include <QInputDialog>
+#include <QtWidgets/QInputDialog>
 
 GDeviceManager* DeviceManagerInstance()
 {

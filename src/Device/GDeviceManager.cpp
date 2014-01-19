@@ -4,7 +4,7 @@
 #include "GDeviceShelf.h"
 #include <QMimeData>
 #include <QSettings>
-#include <QtGui>
+#include <QtWidgets>
 
 GDeviceManager::GDeviceManager()
  	: m_pHardDeviceShelf(0)

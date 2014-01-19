@@ -1,9 +1,9 @@
 #include "srybexe.h"
-#include <QtGui/QApplication>
+#include <QtWidgets/QApplication>
 
 int main(int argc, char *argv[])
 {
-	QApplication::setGraphicsSystem("raster");
+//	QApplication::setGraphicsSystem("raster");
 	QApplication a(argc, argv);
 
 // 	// splash screen

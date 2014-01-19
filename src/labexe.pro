@@ -5,7 +5,7 @@
 TEMPLATE = lib
 TARGET = labexe_D
 DESTDIR = ../bin
-QT += core gui script
+QT += core gui widgets script
 CONFIG += debug
 DEFINES += LABEXE_LIB QT_SCRIPT_LIB
 INCLUDEPATH += ./../include \

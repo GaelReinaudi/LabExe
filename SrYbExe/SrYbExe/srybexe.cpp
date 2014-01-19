@@ -13,7 +13,7 @@ namespace{
 }
 #endif
  
-SrYbExe::SrYbExe(QWidget *parent, Qt::WFlags flags)
+SrYbExe::SrYbExe(QWidget *parent, Qt::WindowFlags flags)
 	: GLabControlPanel(parent)
 {
 	Q_UNUSED(flags);

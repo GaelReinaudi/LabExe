@@ -51,7 +51,8 @@ HEADERS += ./labexe.h \
     ./TheLab/GWorkBench.h \
     ./TheLab/GWorkBenchManager.h \
     ./Script/GMathScriptEngine.h \
-    ./Script/ScriptFunctions.h
+    ./Script/ScriptFunctions.h \
+    Param/GIntSpinBox.h
 SOURCES += ./labexe.cpp \
     ./Param/GDoubleSpinBox.cpp \
     ./Param/GParam.cpp \
@@ -94,7 +95,8 @@ SOURCES += ./labexe.cpp \
     ./TheLab/GWorkBench.cpp \
     ./TheLab/GWorkBenchManager.cpp \
     ./Script/GMathScriptEngine.cpp \
-    ./Script/ScriptFunctions.cpp
+    ./Script/ScriptFunctions.cpp \
+    Param/GIntSpinBox.cpp
 FORMS += ./Logger/GDataLogger.ui \
     ./Device/GDeviceShelf.ui \
     ./TheLab/GLabControlPanel.ui \

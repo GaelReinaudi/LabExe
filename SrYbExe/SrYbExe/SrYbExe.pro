@@ -5,7 +5,7 @@
 TEMPLATE = app
 TARGET = SrYbExe
 DESTDIR = ../../bin
-QT += core gui
+QT += core gui widgets
 CONFIG += debug
 DEFINES += QT_LARGEFILE_SUPPORT QT_DLL
 INCLUDEPATH += ./../../../LabExe/src \
@@ -16,9 +16,9 @@ INCLUDEPATH += ./../../../LabExe/src \
 LIBS += -L"./../../../LabExe/lib" \
     -L"./../../../LabExe/bin" \
     -L"." \
-    -llabexe_D
-#    -llabexeImaging \
-#    -llabexeOptimizing \
+	-llabexe_D \
+	-llabexeImaging \
+	-llabexeOptimizing
 #    -llabexeSequencer
 DEPENDPATH += .
 MOC_DIR += ./GeneratedFiles/debug

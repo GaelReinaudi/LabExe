@@ -40,8 +40,8 @@ GLabControlPanel::GLabControlPanel(QWidget *parent)
 	// to handle Qt warning and other messages (like the one generated when qDebug, qWarning and qCritical are used):
 	//	QErrorMessage::qtHandler();
 	// or this, for more flexible behavior, like sending Debug messages to a special QTextEdit.
-	qInstallMsgHandler(GLabControlPanel::DebugMessageHandler);
-	connect(this, SIGNAL(OtherThreadDebugMessage(int, QByteArray)), this, SLOT(ToStaticDebugMessageHandler(int, QByteArray)), Qt::QueuedConnection); // queued!
+    qInstallMessageHandler(GLabControlPanel::DebugMessageHandler);
+    connect(this, SIGNAL(OtherThreadDebugMessage(int, QString)), this, SLOT(ToStaticDebugMessageHandler(int, QString)), Qt::QueuedConnection); // queued!
 	m_LabInstance = this;
 
 	connect(ui->pButtonCreateNewWorkBench, SIGNAL(clicked()), this, SLOT(MakeNewWorkBench()));
@@ -153,7 +153,7 @@ void GLabControlPanel::closeEvent(QCloseEvent *event)
 	qApp->closeAllWindows();
 	QTimer::singleShot(1000, qApp, SLOT(closeAllWindows()));
 
-	qInstallMsgHandler(0);
+    qInstallMessageHandler(0);
 
 	QMainWindow::closeEvent(event);
 }
@@ -249,7 +249,7 @@ void GLabControlPanel::InsertWorkBenchInList( GWorkBench* pWB )
 	connect(pWB, SIGNAL(Saved()), this, SLOT(Save()));
 }
 
-void GLabControlPanel::DebugMessageHandler(QtMsgType type, const char *msg)
+void GLabControlPanel::DebugMessageHandler(QtMsgType type, const QMessageLogContext & context, const QString &msg)
 {
 	if(!m_AcceptDebugMessages)
 		return;
@@ -257,7 +257,7 @@ void GLabControlPanel::DebugMessageHandler(QtMsgType type, const char *msg)
 	if(!QCoreApplication::instance())
 		return;
 	if(QThread::currentThread() != QCoreApplication::instance()->thread()) {
-		QByteArray messageByteArray(msg);
+        QString messageByteArray(msg);
 		emit m_LabInstance->OtherThreadDebugMessage(type, messageByteArray);
 		return;
 	}
@@ -293,9 +293,10 @@ void GLabControlPanel::DebugMessageHandler(QtMsgType type, const char *msg)
 	}
 }
 
-void GLabControlPanel::ToStaticDebugMessageHandler( int type, QByteArray messageByteArray ) const
+void GLabControlPanel::ToStaticDebugMessageHandler( int type, QString messageByteArray ) const
 {
-	DebugMessageHandler(static_cast<QtMsgType>(type), messageByteArray);
+    QMessageLogContext unused;
+    DebugMessageHandler(static_cast<QtMsgType>(type), unused, messageByteArray);
 }
 
 void GLabControlPanel::SaveAllWorkbenches()

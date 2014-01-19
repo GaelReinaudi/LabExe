@@ -3,7 +3,7 @@
 #include "labexe_global.h"
 
 #include <QLabel>
-#include <QtGui>
+#include <QtWidgets>
 
 class GParam;
 

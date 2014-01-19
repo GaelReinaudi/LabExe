@@ -1,33 +1,19 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SrYbExe", "SrYbExe\SrYbExe.vcproj", "{974382E7-2EE4-4DB8-8871-0E85122DF64C}"
-	ProjectSection(ProjectDependencies) = postProject
-		{766A5C08-549F-4B22-8267-BD1A120B85C1} = {766A5C08-549F-4B22-8267-BD1A120B85C1}
-		{65429E2D-EFC3-443F-9AF7-FCC6501A4D63} = {65429E2D-EFC3-443F-9AF7-FCC6501A4D63}
-		{65429E2D-EFC3-443F-9AF7-FCC6501F4D63} = {65429E2D-EFC3-443F-9AF7-FCC6501F4D63}
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-		{70DCD992-D850-4017-85D2-5E6E256255B5} = {70DCD992-D850-4017-85D2-5E6E256255B5}
-		{2513C7AD-2D4C-429B-B84D-C01FE91A614F} = {2513C7AD-2D4C-429B-B84D-C01FE91A614F}
-	EndProjectSection
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "User Plugins", "User Plugins", "{BB1F5885-8E0B-4B01-B6F1-A72599FC97D6}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "labexe", "..\src\labexe.vcproj", "{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "User Devices", "User Devices", "{1A61B330-3A31-4AF1-9262-F3682CAC873C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PxiLabexe", "..\..\LabExe-UserPlugins\HardwarePlugins\PxiSystem\PxiLabexe.vcproj", "{53AB0E83-CC92-4010-BBC1-AAC99423C8D8}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SrYbExe", "SrYbExe\SrYbExe.vcxproj", "{974382E7-2EE4-4DB8-8871-0E85122DF64C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LabExeImaging", "..\src\LabExeImaging\LabExeImaging.vcproj", "{65429E2D-EFC3-443F-9AF7-FCC6501F4D63}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "labexe", "..\src\labexe.vcxproj", "{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImagePixelAdderPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\ImagePixelAdderPlugin\ImagePixelAdderPlugin.vcproj", "{6D62CA30-18ED-4B43-8FFA-0847EEB16B9E}"
-	ProjectSection(ProjectDependencies) = postProject
-		{65429E2D-EFC3-443F-9AF7-FCC6501F4D63} = {65429E2D-EFC3-443F-9AF7-FCC6501F4D63}
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PxiLabexe", "..\..\LabExe-UserPlugins\HardwarePlugins\PxiSystem\PxiLabexe.vcxproj", "{53AB0E83-CC92-4010-BBC1-AAC99423C8D8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LabExeImaging", "..\src\LabExeImaging\LabExeImaging.vcxproj", "{65429E2D-EFC3-443F-9AF7-FCC6501F4D63}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImagePixelAdderPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\ImagePixelAdderPlugin\ImagePixelAdderPlugin.vcxproj", "{6D62CA30-18ED-4B43-8FFA-0847EEB16B9E}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup SrYbExe", "Setup1\Setup1.vdproj", "{731C35C1-4B56-4BC6-8080-6ECD72120B92}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -42,202 +28,81 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup SrYbExe", "Setup1\Set
 		{8E504BA3-1B32-4A0B-BFE8-93CE0C1BCCCB} = {8E504BA3-1B32-4A0B-BFE8-93CE0C1BCCCB}
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "User Plugins", "User Plugins", "{BB1F5885-8E0B-4B01-B6F1-A72599FC97D6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LabExeOptimizing", "..\src\LabExeOptimizing\LabExeOptimizing.vcxproj", "{766A5C08-549F-4B22-8267-BD1A120B85C1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "User Devices", "User Devices", "{1A61B330-3A31-4AF1-9262-F3682CAC873C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageSaverPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\ImageSaverPlugin\ImageSaverPlugin.vcxproj", "{8E504BA3-1B32-4A0B-BFE8-93CE0C1BCCCB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LabExeOptimizing", "..\src\LabExeOptimizing\LabExeOptimizing.vcproj", "{766A5C08-549F-4B22-8267-BD1A120B85C1}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ParamPlotterPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\ParamPlotterPlugin\ParamPlotterPlugin.vcxproj", "{F5742076-5EE1-4EDA-AD01-28B8F8CA1299}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageSaverPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\ImageSaverPlugin\ImageSaverPlugin.vcproj", "{8E504BA3-1B32-4A0B-BFE8-93CE0C1BCCCB}"
-	ProjectSection(ProjectDependencies) = postProject
-		{65429E2D-EFC3-443F-9AF7-FCC6501F4D63} = {65429E2D-EFC3-443F-9AF7-FCC6501F4D63}
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NumericalExpressionPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\NumericalExpressionPlugin\NumericalExpressionPlugin.vcxproj", "{0FE09630-13AC-4C05-960C-32764FA6AB84}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ParamPlotterPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\ParamPlotterPlugin\ParamPlotterPlugin.vcproj", "{F5742076-5EE1-4EDA-AD01-28B8F8CA1299}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LinearCombinationPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\LinearCombinationPlugin\LinearCombinationPlugin.vcxproj", "{0711950C-8879-4B03-B3D9-8AA6718AA977}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NumericalExpressionPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\NumericalExpressionPlugin\NumericalExpressionPlugin.vcproj", "{0FE09630-13AC-4C05-960C-32764FA6AB84}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlainTextLoggerPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\PlainTextLoggerPlugin\PlainTextLoggerPlugin.vcxproj", "{B388071D-09C4-490A-8B43-BFA4191E0391}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LinearCombinationPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\LinearCombinationPlugin\LinearCombinationPlugin.vcproj", "{0711950C-8879-4B03-B3D9-8AA6718AA977}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PluginWavelengthHighFinesse", "..\..\LabExe-UserPlugins\HardwarePlugins\PluginWavelengthHighFinesse\PluginWavelengthHighFinesse.vcxproj", "{8E3B9C15-330F-4593-9616-EED39FEC2568}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlainTextLoggerPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\PlainTextLoggerPlugin\PlainTextLoggerPlugin.vcproj", "{B388071D-09C4-490A-8B43-BFA4191E0391}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PluginPhidgets", "..\..\LabExe-UserPlugins\HardwarePlugins\PluginPhidgets\PluginPhidgets.vcxproj", "{247CCF2F-0EEE-495C-8AA0-E86617846D74}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PluginWavelengthHighFinesse", "..\..\LabExe-UserPlugins\HardwarePlugins\PluginWavelengthHighFinesse\PluginWavelengthHighFinesse.vcproj", "{8E3B9C15-330F-4593-9616-EED39FEC2568}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PluginCameraUEye", "..\..\LabExe-UserPlugins\HardwarePlugins\PluginCameraUEye\PluginCameraUEye.vcxproj", "{4E88E011-1BC3-463D-8573-49C369E473CE}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PluginPhidgets", "..\..\LabExe-UserPlugins\HardwarePlugins\PluginPhidgets\PluginPhidgets.vcproj", "{247CCF2F-0EEE-495C-8AA0-E86617846D74}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MemorySwitcherPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\MemorySwitcherPlugin\MemorySwitcherPlugin.vcxproj", "{5CAE6157-92BE-4FE1-BAB4-DB2B8A1C9C48}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PluginCameraUEye", "..\..\LabExe-UserPlugins\HardwarePlugins\PluginCameraUEye\PluginCameraUEye.vcproj", "{4E88E011-1BC3-463D-8573-49C369E473CE}"
-	ProjectSection(ProjectDependencies) = postProject
-		{65429E2D-EFC3-443F-9AF7-FCC6501F4D63} = {65429E2D-EFC3-443F-9AF7-FCC6501F4D63}
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Fitter2DGaussianPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\Fitter2DGaussianPlugin\Fitter2DGaussianPlugin.vcxproj", "{622BF69D-CA91-4208-8FD4-FAC82DB0747E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MemorySwitcherPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\MemorySwitcherPlugin\MemorySwitcherPlugin.vcproj", "{5CAE6157-92BE-4FE1-BAB4-DB2B8A1C9C48}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PluginProject", "..\..\LabExe-UserPlugins\SoftwarePlugins\PluginProject\PluginProject.vcxproj", "{C4776B4D-CC1E-4437-8D4F-A88FA73F8FAA}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Fitter2DGaussianPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\Fitter2DGaussianPlugin\Fitter2DGaussianPlugin.vcproj", "{622BF69D-CA91-4208-8FD4-FAC82DB0747E}"
-	ProjectSection(ProjectDependencies) = postProject
-		{65429E2D-EFC3-443F-9AF7-FCC6501F4D63} = {65429E2D-EFC3-443F-9AF7-FCC6501F4D63}
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageAbsorptionPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\ImageAbsorptionPlugin\ImageAbsorptionPlugin.vcxproj", "{6E1AC1D2-699B-40B4-84F0-E3AB4CCFC4DC}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PluginProject", "..\..\LabExe-UserPlugins\SoftwarePlugins\PluginProject\PluginProject.vcproj", "{C4776B4D-CC1E-4437-8D4F-A88FA73F8FAA}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RandomNumberPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\RandomNumberGeneratorPlugin\RandomNumber.vcxproj", "{8B94CF53-BC2B-4496-8F54-BFA2CD54C0E0}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageAbsorptionPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\ImageAbsorptionPlugin\ImageAbsorptionPlugin.vcproj", "{6E1AC1D2-699B-40B4-84F0-E3AB4CCFC4DC}"
-	ProjectSection(ProjectDependencies) = postProject
-		{65429E2D-EFC3-443F-9AF7-FCC6501F4D63} = {65429E2D-EFC3-443F-9AF7-FCC6501F4D63}
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LowPassFilterPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\LowPassFilterPlugin\LowPassFilterPlugin.vcxproj", "{0676BE27-C51C-43AC-B995-4CC5FFC07307}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RandomNumberPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\RandomNumberGeneratorPlugin\RandomNumber.vcproj", "{8B94CF53-BC2B-4496-8F54-BFA2CD54C0E0}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DropObserverPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\DropObserverPlugin\DropObserverPlugin.vcxproj", "{C4776B4D-CC1A-4437-8D4F-A88FA73F8FAA}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LowPassFilterPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\LowPassFilterPlugin\LowPassFilterPlugin.vcproj", "{0676BE27-C51C-43AC-B995-4CC5FFC07307}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SRSControllerPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\SRSControllerPlugin\SRSControllerPlugin.vcxproj", "{6C729E63-092F-4DD4-834A-F3D7439D2A5E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DropObserverPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\DropObserverPlugin\DropObserverPlugin.vcproj", "{C4776B4D-CC1A-4437-8D4F-A88FA73F8FAA}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SerialComPortPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\SerialComPortPlugin\SerialComPortPlugin.vcxproj", "{6BFA7D4F-B3BF-44D1-B415-012F346500F3}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SRSControllerPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\SRSControllerPlugin\SRSControllerPlugin.vcproj", "{6C729E63-092F-4DD4-834A-F3D7439D2A5E}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RollingStatsPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\RollingStatsPlugin\RollingStatsPlugin.vcxproj", "{E1DADD19-E565-402B-81F5-8AAA3ABE2561}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SerialComPortPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\SerialComPortPlugin\SerialComPortPlugin.vcproj", "{6BFA7D4F-B3BF-44D1-B415-012F346500F3}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageStackerPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\ImageStackerPlugin\ImageStackerPlugin.vcxproj", "{471DFB97-0D9D-4FDA-88D5-F1E3C037E3A1}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RollingStatsPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\RollingStatsPlugin\RollingStatsPlugin.vcproj", "{E1DADD19-E565-402B-81F5-8AAA3ABE2561}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BetterAbsorptionImagePlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\BetterAbsorptionImagePlugin\BetterAbsorptionImagePlugin.vcxproj", "{E3F2C9AD-D5A5-4112-90E9-F2E9B389BF7B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageStackerPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\ImageStackerPlugin\ImageStackerPlugin.vcproj", "{471DFB97-0D9D-4FDA-88D5-F1E3C037E3A1}"
-	ProjectSection(ProjectDependencies) = postProject
-		{65429E2D-EFC3-443F-9AF7-FCC6501F4D63} = {65429E2D-EFC3-443F-9AF7-FCC6501F4D63}
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pupin632MonitorPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\Pupin632MonitorPlugin\Pupin632MonitorPlugin.vcxproj", "{20EE34CF-CD7B-43E4-975B-55F5A330B438}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BetterAbsorptionImagePlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\BetterAbsorptionImagePlugin\BetterAbsorptionImagePlugin.vcproj", "{E3F2C9AD-D5A5-4112-90E9-F2E9B389BF7B}"
-	ProjectSection(ProjectDependencies) = postProject
-		{65429E2D-EFC3-443F-9AF7-FCC6501F4D63} = {65429E2D-EFC3-443F-9AF7-FCC6501F4D63}
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LockingSlapperPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\LockingSlapperPlugin\LockingSlapperPlugin.vcxproj", "{FC74FF35-DF55-455D-8238-C2594E28ED36}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pupin632MonitorPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\Pupin632MonitorPlugin\Pupin632MonitorPlugin.vcproj", "{20EE34CF-CD7B-43E4-975B-55F5A330B438}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StepperPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\StepperPlugin\StepperPlugin.vcxproj", "{82A33229-229F-4A22-8C2C-E9F41687F60B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LockingSlapperPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\LockingSlapperPlugin\LockingSlapperPlugin.vcproj", "{FC74FF35-DF55-455D-8238-C2594E28ED36}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UserPluginWizard", "..\Deployement\UserPluginWizard\UserPluginWizard.vcxproj", "{3E85C504-34F9-3162-8080-AE81C7C09C27}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StepperPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\StepperPlugin\StepperPlugin.vcproj", "{82A33229-229F-4A22-8C2C-E9F41687F60B}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Plot1DPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\Plot1DPlugin\Plot1DPlugin.vcxproj", "{F603592C-57E2-4EC7-972C-841A8DB285DB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UserPluginWizard", "..\Deployement\UserPluginWizard\UserPluginWizard.vcproj", "{3E85C504-34F9-3162-8080-AE81C7C09C27}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MonteCarloLogNormalPricerPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\MonteCarloLogNormalPricerPlugin\MonteCarloLogNormalPricerPlugin.vcxproj", "{82D16223-BD4D-4A0D-AE44-0CC10B4F1F8F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Plot1DPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\Plot1DPlugin\Plot1DPlugin.vcproj", "{F603592C-57E2-4EC7-972C-841A8DB285DB}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "YoutubePlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\YoutubePlugin\YoutubePlugin.vcxproj", "{5CF49A9A-CC02-48F8-94B1-293B22C4DFEF}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MonteCarloLogNormalPricerPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\MonteCarloLogNormalPricerPlugin\MonteCarloLogNormalPricerPlugin.vcproj", "{82D16223-BD4D-4A0D-AE44-0CC10B4F1F8F}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LabExeSequencer", "..\src\LabExeSequencer\LabExeSequencer.vcxproj", "{65429E2D-EFC3-443F-9AF7-FCC6501A4D63}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "YoutubePlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\YoutubePlugin\YoutubePlugin.vcproj", "{5CF49A9A-CC02-48F8-94B1-293B22C4DFEF}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LabNotesLoggerPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\LabNotesLoggerPlugin\LabNotesLoggerPlugin.vcxproj", "{43E4D739-DCF5-40CB-B4B8-FEB8CB4FB8ED}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LabExeSequencer", "..\src\LabExeSequencer\LabExeSequencer.vcproj", "{65429E2D-EFC3-443F-9AF7-FCC6501A4D63}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlotXYPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\PlotXYPlugin\PlotXYPlugin.vcxproj", "{93F74148-B210-4054-84E0-AF90FA00B42A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LabNotesLoggerPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\LabNotesLoggerPlugin\LabNotesLoggerPlugin.vcproj", "{43E4D739-DCF5-40CB-B4B8-FEB8CB4FB8ED}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EmailMessagerPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\EmailMessagerPlugin\EmailMessagerPlugin.vcxproj", "{2F1E98F5-180E-4923-A0A1-A0B5C7DDDBE4}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlotXYPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\PlotXYPlugin\PlotXYPlugin.vcproj", "{93F74148-B210-4054-84E0-AF90FA00B42A}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlotYPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\PlotYPlugin\PlotYPlugin.vcxproj", "{0B0D450B-1AD4-4077-A6E5-08EB12858048}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EmailMessagerPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\EmailMessagerPlugin\EmailMessagerPlugin.vcproj", "{2F1E98F5-180E-4923-A0A1-A0B5C7DDDBE4}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TimerPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\TimerPlugin\TimerPlugin.vcxproj", "{3DAD837D-9F96-4047-A319-0AED3B56511D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlotYPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\PlotYPlugin\PlotYPlugin.vcproj", "{0B0D450B-1AD4-4077-A6E5-08EB12858048}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LabExeGraphicsMap", "..\..\MapExe\src\LabExeGraphicsMap.vcxproj", "{70DCD992-D850-4017-85D2-5E6E256255B5}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TimerPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\TimerPlugin\TimerPlugin.vcproj", "{3DAD837D-9F96-4047-A319-0AED3B56511D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ParamSupplierPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\ParamSupplierPlugin\ParamSupplierPlugin.vcxproj", "{2FE5A1ED-A914-40BC-8FFD-7599ADA43A44}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LabExeGraphicsMap", "..\..\MapExe\src\LabExeGraphicsMap.vcproj", "{70DCD992-D850-4017-85D2-5E6E256255B5}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TCO13Round1Plugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\TCO13Round1Plugin\TCO13Round1Plugin.vcxproj", "{2513C7AD-2D4C-429B-B84D-C01FE91A614F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ParamSupplierPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\ParamSupplierPlugin\ParamSupplierPlugin.vcproj", "{2FE5A1ED-A914-40BC-8FFD-7599ADA43A44}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TCO13Round1Plugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\TCO13Round1Plugin\TCO13Round1Plugin.vcproj", "{2513C7AD-2D4C-429B-B84D-C01FE91A614F}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Scroller2DPlugin", "..\..\LabExe-UserPlugins\Dev-Plugins\Scroller2DPlugin\Scroller2DPlugin.vcproj", "{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Scroller2DPlugin", "..\..\LabExe-UserPlugins\Dev-Plugins\Scroller2DPlugin\Scroller2DPlugin.vcxproj", "{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -749,10 +614,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{53AB0E83-CC92-4010-BBC1-AAC99423C8D8} = {1A61B330-3A31-4AF1-9262-F3682CAC873C}
-		{8E3B9C15-330F-4593-9616-EED39FEC2568} = {1A61B330-3A31-4AF1-9262-F3682CAC873C}
-		{247CCF2F-0EEE-495C-8AA0-E86617846D74} = {1A61B330-3A31-4AF1-9262-F3682CAC873C}
-		{4E88E011-1BC3-463D-8573-49C369E473CE} = {1A61B330-3A31-4AF1-9262-F3682CAC873C}
 		{6D62CA30-18ED-4B43-8FFA-0847EEB16B9E} = {BB1F5885-8E0B-4B01-B6F1-A72599FC97D6}
 		{8E504BA3-1B32-4A0B-BFE8-93CE0C1BCCCB} = {BB1F5885-8E0B-4B01-B6F1-A72599FC97D6}
 		{F5742076-5EE1-4EDA-AD01-28B8F8CA1299} = {BB1F5885-8E0B-4B01-B6F1-A72599FC97D6}
@@ -785,9 +646,13 @@ Global
 		{2FE5A1ED-A914-40BC-8FFD-7599ADA43A44} = {BB1F5885-8E0B-4B01-B6F1-A72599FC97D6}
 		{2513C7AD-2D4C-429B-B84D-C01FE91A614F} = {BB1F5885-8E0B-4B01-B6F1-A72599FC97D6}
 		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D} = {BB1F5885-8E0B-4B01-B6F1-A72599FC97D6}
+		{53AB0E83-CC92-4010-BBC1-AAC99423C8D8} = {1A61B330-3A31-4AF1-9262-F3682CAC873C}
+		{8E3B9C15-330F-4593-9616-EED39FEC2568} = {1A61B330-3A31-4AF1-9262-F3682CAC873C}
+		{247CCF2F-0EEE-495C-8AA0-E86617846D74} = {1A61B330-3A31-4AF1-9262-F3682CAC873C}
+		{4E88E011-1BC3-463D-8573-49C369E473CE} = {1A61B330-3A31-4AF1-9262-F3682CAC873C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		BuildVersion_UpdateFileVersion = True
 		QtVersion = $(DefaultQtVersion)
+		BuildVersion_UpdateFileVersion = True
 	EndGlobalSection
 EndGlobal

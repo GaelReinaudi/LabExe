@@ -9,7 +9,7 @@
 
 #include "ToolBox/GSerializable.h"
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QObject>
 #include <QList>
 

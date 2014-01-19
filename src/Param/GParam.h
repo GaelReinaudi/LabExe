@@ -15,6 +15,7 @@
 #include <QDoubleSpinBox>
 #include <QElapsedTimer>
 #include <QBasicTimer>
+#include <QVBoxLayout>
 
 typedef QVector<double> GVectorDouble;
 

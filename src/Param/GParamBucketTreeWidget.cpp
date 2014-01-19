@@ -3,6 +3,7 @@
 #include "GParamLabel.h"
 #include "GParamBucket.h"
 #include <QDropEvent>
+#include <QHeaderView>
 
 GParamBucketTreeWidget::GParamBucketTreeWidget(QWidget *parent, GParamBucket* theBucket)
 	: GBucketWidget(parent)
@@ -47,7 +48,7 @@ GParamBucketTreeWidget::GParamBucketTreeWidget(QWidget *parent, GParamBucket* th
 	resizeColumnToContents(Extra);
 	resizeColumnToContents(Extra + 1);
 
-	header()->setResizeMode(QHeaderView::ResizeToContents);
+    header()->setSectionResizeMode(QHeaderView::ResizeToContents);
 	header()->setStretchLastSection(false);
 	setItemsExpandable(false);
 // 	setColumnWidth(0, 70);
