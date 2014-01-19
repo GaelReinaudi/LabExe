@@ -2,6 +2,7 @@
 /GeneratedFiles/
 /*/GeneratedFiles/
 /*/*/GeneratedFiles/
+/build*/
 
 labexe*.lib
 labexe*.dll
@@ -18,7 +19,7 @@ labexe*.dll
 *.ilk
 *.idb
 *.ncb
-*.exp
 *.pdb
 *.dep
 *moc_*.*
+

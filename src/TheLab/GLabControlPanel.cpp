@@ -41,7 +41,6 @@ GLabControlPanel::GLabControlPanel(QWidget *parent)
 	//	QErrorMessage::qtHandler();
 	// or this, for more flexible behavior, like sending Debug messages to a special QTextEdit.
     qInstallMessageHandler(GLabControlPanel::DebugMessageHandler);
-    connect(this, SIGNAL(OtherThreadDebugMessage(int, QMessageLogContext*, QString)), this, SLOT(ToStaticDebugMessageHandler(int, QMessageLogContext*, QString)), Qt::QueuedConnection); // queued!
     connect(this, SIGNAL(OtherThreadDebugMessage(int, QString)), this, SLOT(ToStaticDebugMessageHandler(int, QString)), Qt::QueuedConnection); // queued!
 	m_LabInstance = this;
 
