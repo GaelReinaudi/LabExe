@@ -37,7 +37,7 @@ Old contact information: todos@geneura.ugr.es, http://geneura.ugr.es
  optimization levels so feel free to try your options and see what's best for
  you.
 */
-typedef unsigned long uint32_t;
+typedef unsigned int uint32_t;
 #else
 #if (! defined __sun)
 // The C99-standard defines uint32_t to be declared in stdint.h, but some
@@ -198,7 +198,7 @@ public :
             // ("rounding towards zero"): "An rvalue of a floating point type
             // can be converted to an rvalue of an integer type. The conversion
             // truncates; that is, the fractional part is discarded"
-            return uint32_t(uniform() * double(m));
+            return quint32(uniform() * double(m));
         }
 
     /** Biased coin toss
@@ -260,7 +260,7 @@ public :
     /**
     rand_max() the maximum returned by rand()
     */
-    uint32_t rand_max() const { return uint32_t(0xffffffff); }
+    unsigned long rand_max() const { return unsigned long(0xffffffff); }
 
     /** Roulette wheel selection
 

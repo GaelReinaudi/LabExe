@@ -1,7 +1,7 @@
 /*
  *  This file is part of WinSparkle (http://winsparkle.org)
  *
- *  Copyright (C) 2009-2010 Vaclav Slavik
+ *  Copyright (C) 2009-2013 Vaclav Slavik
  *
  *  Permission is hereby granted, free of charge, to any person obtaining a
  *  copy of this software and associated documentation files (the "Software"),
@@ -60,9 +60,13 @@ extern "C" {
     to perform the check. You should only call this function when your app
     is initialized and shows its main window.
 
+    @note This call doesn't block and returns almost immediately. If an
+          update is available, the respective UI is shown later from a separate
+          thread.
+
     @see win_sparkle_cleanup()
  */
-WIN_SPARKLE_API void win_sparkle_init();
+WIN_SPARKLE_API void __cdecl win_sparkle_init();
 
 /**
     Cleans up after WinSparkle.
@@ -70,7 +74,7 @@ WIN_SPARKLE_API void win_sparkle_init();
     Should be called by the app when it's shutting down. Cancels any
     pending Sparkle operations and shuts down its helper threads.
  */
-WIN_SPARKLE_API void win_sparkle_cleanup();
+WIN_SPARKLE_API void __cdecl win_sparkle_cleanup();
 
 //@}
 
@@ -102,7 +106,7 @@ WIN_SPARKLE_API void win_sparkle_cleanup();
 
     @param url  URL of the appcast.
  */
-WIN_SPARKLE_API void win_sparkle_set_appcast_url(const char *url);
+WIN_SPARKLE_API void __cdecl win_sparkle_set_appcast_url(const char *url);
 
 /**
     Sets application metadata.
@@ -121,10 +125,32 @@ WIN_SPARKLE_API void win_sparkle_set_appcast_url(const char *url);
           (HKCU\Software\<company_name>\<app_name>\WinSparkle is used.)
 
     @since 0.3
+
+    @see win_sparkle_set_app_build_version();
  */
-WIN_SPARKLE_API void win_sparkle_set_app_details(const wchar_t *company_name,
-                                                 const wchar_t *app_name,
-                                                 const wchar_t *app_version);
+WIN_SPARKLE_API void __cdecl win_sparkle_set_app_details(const wchar_t *company_name,
+                                                         const wchar_t *app_name,
+                                                         const wchar_t *app_version);
+
+/**
+    Sets application build version number.
+
+    This is the internal version number that is not normally shown to the user.
+    It can be used for finer granularity that official release versions, e.g. for
+    interim builds.
+
+    If this function is called, then the provided *build* number is used for comparing
+    versions; it is compared to the "version" attribute in the appcast and corresponds
+    to OS X Sparkle's CFBundleVersion handling. If used, then the appcast must
+    also contain the "shortVersionString" attribute with human-readable display
+    version string. The version passed to win_sparkle_set_app_details()
+    corresponds to this and is used for display.
+
+    @since 0.4
+
+    @see win_sparkle_set_app_details()
+ */
+WIN_SPARKLE_API void __cdecl win_sparkle_set_app_build_version(const wchar_t *build);
 
 /**
     Set the registry path where settings will be stored.
@@ -144,7 +170,91 @@ WIN_SPARKLE_API void win_sparkle_set_app_details(const wchar_t *company_name,
 
     @since 0.3
  */
-WIN_SPARKLE_API void win_sparkle_set_registry_path(const char *path);
+WIN_SPARKLE_API void __cdecl win_sparkle_set_registry_path(const char *path);
+
+/**
+    Sets whether updates are checked automatically or only through a manual call.
+
+    If disabled, win_sparkle_check_update_with_ui() must be used explicitly.
+
+    @param  state  1 to have updates checked automatically, 0 otherwise
+
+    @since 0.4
+ */
+WIN_SPARKLE_API void __cdecl win_sparkle_set_automatic_check_for_updates(int state);
+
+/**
+    Gets the automatic update checking state
+
+    @return  1 if updates are set to be checked automatically, 0 otherwise
+
+    @note Defaults to 0 when not yet configured (as happens on first start).
+
+    @since 0.4
+ */
+WIN_SPARKLE_API int __cdecl win_sparkle_get_automatic_check_for_updates();
+
+/**
+    Sets the automatic update interval.
+
+    @param  interval The interval in seconds between checks for updates.
+                     The minimum update interval is 3600 seconds (1 hour).
+
+    @since 0.4
+ */
+WIN_SPARKLE_API void __cdecl win_sparkle_set_update_check_interval(int interval);
+
+/**
+    Gets the automatic update interval in seconds.
+
+    Default value is one day.
+
+    @since 0.4
+ */
+WIN_SPARKLE_API int __cdecl win_sparkle_get_update_check_interval();
+
+
+/// Callback type for win_sparkle_can_shutdown_callback()
+typedef int (__cdecl *win_sparkle_can_shutdown_callback_t)();
+
+/**
+    Set callback for querying the application if it can be closed.
+
+    This callback will be called to ask the host if it's ready to shut down,
+    before attempting to launch the installer. The callback returns TRUE if
+    the host application can be safely shut down or FALSE if not (e.g. because
+    the user has unsaved documents).
+
+    @note There's no guaranteed about the thread from which the callback is called,
+          except that it certainly *won't* be called from the app's main thread.
+          Make sure the callback is thread-safe.
+
+    @since 0.4
+
+    @see win_sparkle_set_shutdown_request_callback()
+*/
+WIN_SPARKLE_API void __cdecl win_sparkle_set_can_shutdown_callback(win_sparkle_can_shutdown_callback_t callback);
+
+
+/// Callback type for win_sparkle_shutdown_request_callback()
+typedef void (__cdecl *win_sparkle_shutdown_request_callback_t)();
+
+/**
+    Set callback for shutting down the application.
+
+    This callback will be called to ask the host to shut down immediately after
+    launching the installer. It will only be called if the call to the callback
+    set with win_sparkle_set_can_shutdown_callback() returned TRUE.
+
+    @note There's no guaranteed about the thread from which the callback is called,
+          except that it certainly *won't* be called from the app's main thread.
+          Make sure the callback is thread-safe.
+
+    @since 0.4
+
+    @see win_sparkle_set_can_shutdown_callback()
+*/
+WIN_SPARKLE_API void __cdecl win_sparkle_set_shutdown_request_callback(win_sparkle_shutdown_request_callback_t);
 
 //@}
 
@@ -171,8 +281,28 @@ WIN_SPARKLE_API void win_sparkle_set_registry_path(const char *path);
     window is shown.
 
     This function returns immediately.
+
+    @see win_sparkle_check_update_without_ui()
  */
-WIN_SPARKLE_API void win_sparkle_check_update_with_ui();
+WIN_SPARKLE_API void __cdecl win_sparkle_check_update_with_ui();
+
+/**
+    Checks if an update is available.
+
+    No progress UI is shown to the user when checking. If an update is
+    available, the usual "update available" window is shown; this function
+    is *not* completely UI-less.
+
+    Use with caution, it usually makes more sense to use the automatic update
+    checks on interval option or manual check with visible UI.
+
+    This function returns immediately.
+
+    @since 0.4
+
+    @see win_sparkle_check_update_with_ui()
+*/
+WIN_SPARKLE_API void __cdecl win_sparkle_check_update_without_ui();
 
 //@}
 
