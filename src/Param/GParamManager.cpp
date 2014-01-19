@@ -2,7 +2,7 @@
 #include "GParam.h"
 #include <QMimeData>
 #include <QSettings>
-#include <QtGui>
+#include <QtWidgets>
 
 
 GParamManager::GParamManager( void )

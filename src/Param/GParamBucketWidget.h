@@ -4,6 +4,7 @@
 #include <QGroupBox>
 #include <QHash>
 #include <QPropertyAnimation>
+#include <QVBoxLayout>
 
 class GParam;
 class GParamBucket;

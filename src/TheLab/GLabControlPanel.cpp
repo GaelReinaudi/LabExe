@@ -9,7 +9,6 @@
 
 #include "GWorkBench.h"
 #include <QDir>
-#include <qapplication.h>
 
 bool m_CloseWorkBenchWhenDeletedFromList = true;
 GLabControlPanel* GLabControlPanel::m_LabInstance = 0;
@@ -43,6 +42,7 @@ GLabControlPanel::GLabControlPanel(QWidget *parent)
 	// or this, for more flexible behavior, like sending Debug messages to a special QTextEdit.
     qInstallMessageHandler(GLabControlPanel::DebugMessageHandler);
     connect(this, SIGNAL(OtherThreadDebugMessage(int, QMessageLogContext*, QString)), this, SLOT(ToStaticDebugMessageHandler(int, QMessageLogContext*, QString)), Qt::QueuedConnection); // queued!
+    connect(this, SIGNAL(OtherThreadDebugMessage(int, QString)), this, SLOT(ToStaticDebugMessageHandler(int, QString)), Qt::QueuedConnection); // queued!
 	m_LabInstance = this;
 
 	connect(ui->pButtonCreateNewWorkBench, SIGNAL(clicked()), this, SLOT(MakeNewWorkBench()));
@@ -258,9 +258,8 @@ void GLabControlPanel::DebugMessageHandler(QtMsgType type, const QMessageLogCont
 	if(!QCoreApplication::instance())
 		return;
 	if(QThread::currentThread() != QCoreApplication::instance()->thread()) {
-        QByteArray messageByteArray(msg.toUtf8());
-        // due to QT5, may be unsafe to use this pointer but I had ne choice because it the copy ctor is private.
-        emit m_LabInstance->OtherThreadDebugMessage(type, const_cast<QMessageLogContext*>(&context), messageByteArray);
+        QString messageByteArray(msg);
+		emit m_LabInstance->OtherThreadDebugMessage(type, messageByteArray);
 		return;
 	}
 	QErrorMessage* pErMess = new QErrorMessage(0);
@@ -295,10 +294,10 @@ void GLabControlPanel::DebugMessageHandler(QtMsgType type, const QMessageLogCont
 	}
 }
 
-void GLabControlPanel::ToStaticDebugMessageHandler(int type, QMessageLogContext * context, const QString & msg) const
+void GLabControlPanel::ToStaticDebugMessageHandler( int type, QString messageByteArray ) const
 {
-    // Unsafe due to QT5 making the reference un-copiable!!!!
-    DebugMessageHandler(static_cast<QtMsgType>(type), *context, msg);
+    QMessageLogContext unused;
+    DebugMessageHandler(static_cast<QtMsgType>(type), unused, messageByteArray);
 }
 
 void GLabControlPanel::SaveAllWorkbenches()

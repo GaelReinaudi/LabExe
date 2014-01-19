@@ -3,7 +3,7 @@
 #include "labexe_global.h"
 
 #include <QDoubleSpinBox>
-#include <QtGui>
+#include <QtWidgets>
 
 class GParamDouble;
 

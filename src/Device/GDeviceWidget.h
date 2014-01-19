@@ -3,6 +3,8 @@
 #include "labexe_global.h"
 
 #include <QtWidgets>
+#include <QFrame>
+#include <QGroupBox>
 
 class GDevice;
 class GDeviceWidgetImpl;

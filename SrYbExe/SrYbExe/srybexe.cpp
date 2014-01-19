@@ -17,7 +17,7 @@ namespace{
 //	int gfd = _CrtSetDbgFlag(0);
 }
 #endif
-
+ 
 SrYbExe::SrYbExe(QWidget *parent, Qt::WindowFlags flags)
 	: GLabControlPanel(parent)
 {

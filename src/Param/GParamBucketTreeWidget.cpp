@@ -3,7 +3,7 @@
 #include "GParamLabel.h"
 #include "GParamBucket.h"
 #include <QDropEvent>
-#include <QtWidgets>
+#include <QHeaderView>
 
 GParamBucketTreeWidget::GParamBucketTreeWidget(QWidget *parent, GParamBucket* theBucket)
 	: GBucketWidget(parent)

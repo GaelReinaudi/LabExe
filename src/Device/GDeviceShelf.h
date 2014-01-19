@@ -2,7 +2,7 @@
 #define GDEVICESHELF_H
 #include "labexe_global.h"
 
-#include <QtGui>
+#include <QtWidgets>
 #include "ui_GDeviceShelf.h"
 
 class GDevice;

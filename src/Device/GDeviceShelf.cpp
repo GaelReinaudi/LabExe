@@ -3,6 +3,7 @@
 #include "GDeviceWidget.h"
 #include "GDeviceListModel.h"
 #include "GDeviceManager.h"												
+#include<QPushButton>
 
 GDeviceShelf::GDeviceShelf(QWidget *parent)
 	: QWidget(parent)

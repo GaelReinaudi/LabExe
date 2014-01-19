@@ -2,6 +2,7 @@
 #include "GParamManager.h"
 #include <QPushButton>
 #include <QtWidgets>
+#include <QRadioButton>
 
 G_REGISTER_NEW_PARAM_CLASS(GParamBool);
  

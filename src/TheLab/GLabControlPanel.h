@@ -2,7 +2,7 @@
 #define GLABCONTROLPANEL_H
 #include "labexe_global.h"
 
-#include <QtWidgets>
+#include <QtWidgets/QMainWindow>
 #include <QDir>
 #include <QObjectCleanupHandler>
 #include "ToolBox/GSerializable.h"
@@ -77,17 +77,17 @@ private slots:
 	void InitializeAfterConstructor();
 
 	//! This slot is called via Qt::QueuedConnection by the message handler so that messages from other threads can be sent to the main thread and be displayed.
-    void ToStaticDebugMessageHandler(int type, QMessageLogContext * context, const QString & msg) const;
+    void ToStaticDebugMessageHandler(int type, QString messageByteArray) const;
 
 signals:
 	//! this signal is connected via Qt::QueuedConnection to call ToStaticDebugMessageHandler() so that messages from other threads can be sent to the main thread and be displayed.
-    void OtherThreadDebugMessage(int type, QMessageLogContext * context, const QString & msg);
+    void OtherThreadDebugMessage(int type, QString messageByteArray);
 
 private:
 	//! For convenience, gives back the GWorkBench that corresponds to the QListWidgetItem
 	GWorkBench* WorkBenchFromListItem( QListWidgetItem* pItem );
 	//! A special message function to handle Debug, Warning, Critical and Fatal messages from Qt. See qInstallMsgHandler in Qt's doc.
-    static void DebugMessageHandler(QtMsgType type, const QMessageLogContext & context, const QString & msg);
+    static void DebugMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg);
 	// This is the class name of the instance of the control panel. ex: "SrYbExe", or "WinLabExe".
 	QString ProgramName_DontUseDuringConstruction();
 
