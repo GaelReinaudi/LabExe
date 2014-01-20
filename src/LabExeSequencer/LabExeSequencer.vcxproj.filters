@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;cxx;c;def</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Model">
+      <UniqueIdentifier>{232d9faf-d1a5-448f-a821-0dbad73bf13a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\old">
+      <UniqueIdentifier>{bd6057f1-a55f-4573-9ec2-1aa2fef077d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Test">
+      <UniqueIdentifier>{d5ddb682-bb11-4b92-a424-fe13d60810df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Sequence">
+      <UniqueIdentifier>{91e99da0-fbda-45f7-9600-11d4a0cdedf7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Model">
+      <UniqueIdentifier>{5fb2cc4b-a4a8-4910-8a84-9a8e237ba3d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\old">
+      <UniqueIdentifier>{f1f1986c-bca4-4212-a6f3-9a57d463cde6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Test">
+      <UniqueIdentifier>{f1746af7-cc8b-4788-8808-76385128efbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Sequence">
+      <UniqueIdentifier>{f2b9844a-4564-430d-b934-34eb6f0a1611}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>moc;h;cpp</Extensions>
+    </Filter>
+    <Filter Include="Generated Files\Release">
+      <UniqueIdentifier>{8dbeca68-6e8c-4173-b7f1-079a08e1ae5a}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Debug">
+      <UniqueIdentifier>{ad3aef5f-a0b4-4840-9549-13f142801a6b}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Release with Debug">
+      <UniqueIdentifier>{d01e85fa-b86a-4379-bb28-4b8781928af4}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Model\GEventGraphicsLine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GEventManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GSequencer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GSequenceView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GSequencingBench.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="labexesequencer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\GSeqModel.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="GSequencerWidget.cpp">
+      <Filter>Source Files\old</Filter>
+    </ClCompile>
+    <ClCompile Include="GChannel.cpp">
+      <Filter>Source Files\Sequence</Filter>
+    </ClCompile>
+    <ClCompile Include="Sequence\GEventNode.cpp">
+      <Filter>Source Files\Sequence</Filter>
+    </ClCompile>
+    <ClCompile Include="Sequence\GEvScene.cpp">
+      <Filter>Source Files\Sequence</Filter>
+    </ClCompile>
+    <ClCompile Include="Sequence\GSequence.cpp">
+      <Filter>Source Files\Sequence</Filter>
+    </ClCompile>
+    <ClCompile Include="Sequence\GSequenceGraphicsItem.cpp">
+      <Filter>Source Files\Sequence</Filter>
+    </ClCompile>
+    <ClCompile Include="Sequence\GSynchEvent.cpp">
+      <Filter>Source Files\Sequence</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GChannel.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GEventGraphicsLine.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GEventManager.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GEventNode.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GEvScene.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GSeqModel.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GSequence.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GSequenceGraphicsItem.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GSequencer.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GSequencerWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GSequencingBench.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GSynchEvent.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GChannel.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GEventGraphicsLine.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GEventManager.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GEventNode.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GEvScene.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GSeqModel.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GSequence.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GSequenceGraphicsItem.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GSequencer.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GSequencerWidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GSequencingBench.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GSynchEvent.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GChannel.cpp">
+      <Filter>Generated Files\Release with Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GEventGraphicsLine.cpp">
+      <Filter>Generated Files\Release with Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GEventManager.cpp">
+      <Filter>Generated Files\Release with Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GEventNode.cpp">
+      <Filter>Generated Files\Release with Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GEvScene.cpp">
+      <Filter>Generated Files\Release with Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GSeqModel.cpp">
+      <Filter>Generated Files\Release with Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GSequence.cpp">
+      <Filter>Generated Files\Release with Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GSequenceGraphicsItem.cpp">
+      <Filter>Generated Files\Release with Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GSequencer.cpp">
+      <Filter>Generated Files\Release with Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GSequencerWidget.cpp">
+      <Filter>Generated Files\Release with Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GSequencingBench.cpp">
+      <Filter>Generated Files\Release with Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GSynchEvent.cpp">
+      <Filter>Generated Files\Release with Debug</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GSequenceView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="labexesequencer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="labexesequencer_global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_GSequencerWidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="QML\sequence.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Model\GEventGraphicsLine.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="GEventManager.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="GSequencer.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="GSequencingBench.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Model\GSeqModel.h">
+      <Filter>Header Files\Model</Filter>
+    </CustomBuild>
+    <CustomBuild Include="GSequencerWidget.h">
+      <Filter>Header Files\old</Filter>
+    </CustomBuild>
+    <CustomBuild Include="GChannel.h">
+      <Filter>Header Files\Sequence</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Sequence\GEventNode.h">
+      <Filter>Header Files\Sequence</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Sequence\GEvScene.h">
+      <Filter>Header Files\Sequence</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Sequence\GSequence.h">
+      <Filter>Header Files\Sequence</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Sequence\GSequenceGraphicsItem.h">
+      <Filter>Header Files\Sequence</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Sequence\GSynchEvent.h">
+      <Filter>Header Files\Sequence</Filter>
+    </CustomBuild>
+    <CustomBuild Include="GSequencerWidget.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

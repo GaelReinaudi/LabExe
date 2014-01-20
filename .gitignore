@@ -3,6 +3,7 @@
 /*/GeneratedFiles/
 /*/*/GeneratedFiles/
 /build*/
+*Makefile*
 
 labexe*.lib
 labexe*.dll
