@@ -26,7 +26,7 @@ public:
 	//! Re-implemented
 	QVariant ToVariant() const {return QVariant(StringValue());}
 	//! Implemented
-	QString StringContent(char format = 'g', int precision = 6) const { return StringValue(); }
+    QString StringContent(char format = 'g', int precision = 6) const { Q_UNUSED(precision); Q_UNUSED(format); return StringValue(); }
 
 public:
 	//! Provides a widget that will be used to control (read? or modify?) the param.

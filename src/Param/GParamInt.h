@@ -38,7 +38,7 @@ public:
 	//! Re-implemented
 	QVariant ToVariant() const {return QVariant(IntValue());}
 	//! Implemented
-	QString StringContent(char format = 'g', int precision = 6) const { return QString::number(IntValue());}
+    QString StringContent(char format = 'g', int precision = 6) const { Q_UNUSED(precision); Q_UNUSED(format); return QString::number(IntValue());}
 
 public:
 	//! Implemented

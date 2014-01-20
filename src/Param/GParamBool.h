@@ -34,7 +34,7 @@ public:
 	//! Re-implemented
 	QVariant ToVariant() const {return QVariant(BoolValue());}
 	//! Implemented
-	QString StringContent(char format = 'g', int precision = 6) const { return BoolValue()?"true":"false";}
+    QString StringContent(char format = 'g', int precision = 6) const { Q_UNUSED(format); Q_UNUSED(precision); return BoolValue()?"true":"false";}
 
 protected:
 	//! Re-implemented.

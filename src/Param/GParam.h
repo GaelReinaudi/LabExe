@@ -82,7 +82,7 @@ public:
 	//! Returns true if the param is showing its units
 	bool ShowingUnits() const { return m_DisplayUnits; }
 	//! Tries to convert whatever the content is to a string, with a similar signature as QString::number() for when it is dealing with numbers.
-	virtual QString StringContent(char format = 'g', int precision = 6) const { return "StringContent() not implemented."; }
+    virtual QString StringContent(char format = 'g', int precision = 6) const { Q_UNUSED(precision); Q_UNUSED(format); return "StringContent() not implemented."; }
 	//! if we need a QVariant out of the param
 	virtual QVariant ToVariant() const { return QVariant("ToVariant() not implemented."); }
 	//! Prevents the update on the gui if it happened less than a given number of milliseconds from the previous gui update.
