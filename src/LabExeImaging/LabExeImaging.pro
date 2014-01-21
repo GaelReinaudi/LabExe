@@ -6,8 +6,6 @@ CONFIG(debug, debug|release) {
 
 QT += core gui widgets
 
-DEFINES += LABEXEIMAGING_LIB
-
 INCLUDEPATH += \
 	./../../include \
 	./../../src \
@@ -29,4 +27,5 @@ OBJECTS_DIR += ./GeneratedFiles/Obj
 UI_DIR += ./GeneratedFiles
 RCC_DIR += ./GeneratedFiles
 
+DEFINES += LABEXEIMAGING_LIB
 include(LabExeImaging.pri)
