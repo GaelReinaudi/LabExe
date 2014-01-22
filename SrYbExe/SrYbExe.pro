@@ -11,5 +11,7 @@ SUBDIRS += \
 #	../../LabExe-UserPlugins/HardwarePlugins/HardwarePlugins.pro \
 	SrYbExe/SrYbExe.pro
 
-SrYbExe.depends = LabExeImaging LabExeOptimizing #LabExeSequencer LabExeGraphicsMap
+LabExeImaging.depends = labexe
+LabExeOptimizing.depends = labexe
+SrYbExe.depends = labexe LabExeImaging LabExeOptimizing #LabExeSequencer LabExeGraphicsMap
 
