@@ -40,9 +40,9 @@ public:
 
 protected:
 	//! Re-implemented
-	virtual void PopulateSettings(QSettings& inQsettings) {}
+    virtual void PopulateSettings(QSettings& inQsettings) { Q_UNUSED(inQsettings); }
 	//! Re-implemented
-	virtual void InterpretSettings(QSettings& fromQsettings) {}
+    virtual void InterpretSettings(QSettings& fromQsettings) { Q_UNUSED(fromQsettings); }
 
 protected:
 	GVectorDouble m_InitialValues;

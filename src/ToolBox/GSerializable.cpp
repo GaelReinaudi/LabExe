@@ -60,34 +60,6 @@ GSerializable::GSerializable( const QString & globalSystemID, bool doNotUseInter
 	}
 }
 
-GSerializable::GSerializable( const QString & relativeID, GSerializable* pParentSerializable )
-	: m_pSettings(0)
-	, m_pObjectForConnections(0)
-	, m_pIsRelativeTo_ParentSerializable(0)
-{
-	Q_ASSERT_X(false, "GSerializable::GSerializable", "You might want to check that you should go there. 567613");
-// 	// This makes the unique m_uniqueKey that can be used conveniently in a hash
-// 	UniqueSystemKey();
-// 
-// 	m_pObjectForConnections = new GPrivateQObjectInGSerializable(this);
-// 	QString ID;
-// 	if(!pParentSerializable) {
-// 		qWarning() << "The parent for defining a global Identifier is NULL in GSerializable::GSerializable";
-// 		ID = "NoParentSerializable";
-// 	}
-// 	else {
-// 		m_pIsRelativeTo_ParentSerializable = pParentSerializable;
-// 		ID = pParentSerializable->UniqueSystemID();
-// 	}
-// 
-// 	if(ID == "") {
-// 		qWarning() << "The parent has no ID";
-// 		ID = "ParentWithoutID";
-// 	}
-// 	ID += relativeID != "" ? relativeID : QUuid::createUuid().toString();
-// 	ChangeUniqueSystemID(ID);
-}
-
 GSerializable::GSerializable( const QString & relativeID, QObject* pObjSerializable )
 	: m_pSettings(0)
 	, m_pObjectForConnections(0)

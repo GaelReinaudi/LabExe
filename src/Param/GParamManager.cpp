@@ -65,4 +65,5 @@ void GParamManager::PopulateSettings( QSettings& inQsettings )
 
 void GParamManager::InterpretSettings( QSettings& fromQsettings )
 {
+    Q_UNUSED(fromQsettings);
 }

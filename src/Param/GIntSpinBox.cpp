@@ -23,7 +23,8 @@ void GIntSpinBox::Init()
 
 GIntSpinBox::GIntSpinBox( GParamInt* theControlledParam, QWidget *parent )
 {
-	m_pParam = theControlledParam;
+    Q_UNUSED(parent);
+    m_pParam = theControlledParam;
 	Init();
 }
 

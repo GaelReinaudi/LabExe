@@ -4,7 +4,8 @@
 
 QScriptValue functionParamNumValueFromCallee(QScriptContext *ctx, QScriptEngine *eng)
 {
-	QScriptValue theParamPointerData = ctx->callee().data();
+    Q_UNUSED(eng);
+    QScriptValue theParamPointerData = ctx->callee().data();
 	QObject* pObj = theParamPointerData.toQObject();
 	GParamNum* pParNum = qobject_cast<GParamNum*>(pObj);
 	if(!pParNum)
@@ -22,7 +23,8 @@ QScriptValue functionParamNumValueFromCallee(QScriptContext *ctx, QScriptEngine 
 
 QScriptValue functionParamValueByID( QScriptContext *ctx, QScriptEngine *eng )
 {
-	if(ctx->argumentCount() != 1) 
+    Q_UNUSED(eng);
+    if(ctx->argumentCount() != 1)
 		return QScriptValue();
 	QString parID = ctx->argument(0).toString();
 	GParamNum* pParNum = qobject_cast<GParamNum*>(ParamManagerInstance()->GetParam(parID));

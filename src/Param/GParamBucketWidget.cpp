@@ -131,7 +131,8 @@ QGroupBox* GParamBucketWidget::AddParamWidget( GParam* pParam )
 
 void GParamBucketWidget::RemoveParamWidget(int indexParamFromBucket, GParam* pParam)
 {
-	// group box widget to delete
+    Q_UNUSED(indexParamFromBucket);
+    // group box widget to delete
 	QWidget* pBox = m_MapParamWidget.take(pParam);
 	if(pBox)
 		pBox->deleteLater();
@@ -151,7 +152,8 @@ void GParamBucketWidget::RemoveParamAction()
 
 void GParamBucketWidget::EventBucketParamsUpdated( int nParamUpdated )
 {
-	if(m_UseHighlightDecay)
+    Q_UNUSED(nParamUpdated);
+    if(m_UseHighlightDecay)
 		IncrementHighlightDecay();
 }
 

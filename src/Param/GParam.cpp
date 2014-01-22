@@ -41,8 +41,8 @@ GParam::~GParam()
 
 void GParam::ParamInit()
 {
-	GDevice* pDev = qobject_cast<GDevice*>(parent());
-	GSerializable* pSer = dynamic_cast<GSerializable*>(parent());
+//	GDevice* pDev = qobject_cast<GDevice*>(parent());
+//	GSerializable* pSer = dynamic_cast<GSerializable*>(parent());
 	// test
 // 	if(!pDev)
 // 		qDebug() << Name() << "Param's parent is not a GDevice";
@@ -76,7 +76,8 @@ void GParam::SetName( QString theName )
 
 QLabel* GParam::ProvideNewLabel(QWidget* forWhichParent, LabelWidget::Options someOptions /*= LabelWidget::NoOption*/)
 {
-	// we tell the label that this is the param it labels (used, eg for drag & drops)
+    Q_UNUSED(someOptions);
+    // we tell the label that this is the param it labels (used, eg for drag & drops)
 	GParamLabel* pLabel = new GParamLabel(this, forWhichParent);
 	pLabel->setToolTip(m_Description);
 
@@ -207,6 +208,7 @@ void GParam::timerEvent( QTimerEvent * event )
 
 void GParam::StartGuiUpdateTimer(bool doStart)
 {
+    Q_UNUSED(doStart);
 #ifndef QT_NO_DEBUG
     if(QThread::currentThread() != QCoreApplication::instance()->thread()) {
         qDebug() << "StartGuiUpdateTimer() from another thread " << QThread::currentThread();

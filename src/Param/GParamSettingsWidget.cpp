@@ -22,6 +22,7 @@ GParamSettingsWidget::~GParamSettingsWidget()
 
 void GParamSettingsWidget::showEvent( QShowEvent* event )
 {
-	m_pNameEdit->selectAll();
+    Q_UNUSED(event);
+    m_pNameEdit->selectAll();
 	m_pNameEdit->setFocus();
 }

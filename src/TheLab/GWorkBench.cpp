@@ -73,7 +73,8 @@ GDeviceWidget* GWorkBench::AddDevice( GDevice* pTheDevice, QPoint whereInParent 
 
 GBenchDockWidget* GWorkBench::AddDeviceInNewDock( GDevice* pTheDevice, bool putOnStack /*= true*/ )
 {
-	GDeviceWidget* pDevWid = AddDevice(pTheDevice);
+    Q_UNUSED(putOnStack);
+    GDeviceWidget* pDevWid = AddDevice(pTheDevice);
 	if(!pDevWid)
 		return 0;
 	GBenchDockWidget* pNewDock = new GBenchDockWidget(this, Qt::AllDockWidgetAreas);
@@ -83,7 +84,8 @@ GBenchDockWidget* GWorkBench::AddDeviceInNewDock( GDevice* pTheDevice, bool putO
 
 void GWorkBench::AddDeviceInDock( GDevice* pTheDevice, GBenchDockWidget* pDock, bool putOnStack /*= true*/ )
 {
-	if(!pTheDevice)
+    Q_UNUSED(putOnStack);
+    if(!pTheDevice)
 		return;
 	if(!pDock) {
 		qWarning() << "GWorkBench::AddDeviceInDock : The GBenchDockWidget* pointer is 0! 875494";
@@ -196,7 +198,7 @@ void GWorkBench::InterpretSettings(QSettings& fromQsettings)
 		hide();
 
 	fromQsettings.beginGroup("BenchDevices");
-	int numDevices = fromQsettings.value("NumberBenchDevices", 0).toInt();
+//	int numDevices = fromQsettings.value("NumberBenchDevices", 0).toInt();
 	QList<QString> listOfAllBenchDevicesIDs = fromQsettings.value("m_BenchDevices").toStringList();
 	fromQsettings.endGroup();
 

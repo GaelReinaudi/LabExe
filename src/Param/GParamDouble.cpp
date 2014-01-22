@@ -18,7 +18,8 @@ GParamDouble::~GParamDouble()
 
 QWidget* GParamDouble::ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid /*= Default*/)
 {
-	GDoubleSpinBox* pSpinBox = new GDoubleSpinBox(this, forWhichParent);
+    Q_UNUSED(optionWid);
+    GDoubleSpinBox* pSpinBox = new GDoubleSpinBox(this, forWhichParent);
 	pSpinBox->setValue(DoubleValue());
 	// set some settings
 	pSpinBox->SetDecimal(DisplayDecimals());

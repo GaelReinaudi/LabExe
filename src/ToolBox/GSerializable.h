@@ -29,7 +29,6 @@ public:
 	//! Constructor. It will have the UniqueSystemID() provided in globalSystemID. If doNotUseInternalQObject == true, there will not be any QObject and signal and slot available within this instance of GSerializable. This is only used when instantiating a GSerializable before the QMetaObject system is working.
 	GSerializable(const QString & globalSystemID, bool doNotUseInternalQObject = false);
 	//! Constructor. It will have the UniqueSystemID() defined by the pParentSerializable->UniqueSystemID() followed by the relativeID.
-	GSerializable(const QString & relativeID, GSerializable* pParentSerializable);
 	GSerializable(const QString & relativeID, QObject* pObjSerializable);
 	virtual ~GSerializable();
 

@@ -221,10 +221,12 @@ QString GDevice::ShelfName() const
 
 void GDevice::DragEnterEvent( QDragEnterEvent *event, GDeviceWidget* pOnWidget )
 {
-	event->ignore();
+    Q_UNUSED(pOnWidget);
+    event->ignore();
 }
 
 void GDevice::DropEvent( QDropEvent *event, GDeviceWidget* pOnWidget )
 {
-	event->ignore();
+    Q_UNUSED(pOnWidget);
+    event->ignore();
 }

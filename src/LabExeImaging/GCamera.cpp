@@ -55,6 +55,7 @@ void GCamera::LatterInitialization()
 
 GDeviceWidget* GCamera::ProvideNewDeviceGroupBox( QWidget* inWhichWidget, QBoxLayout::Direction orientation /*= QBoxLayout::LeftToRight*/ )
 {
+    Q_UNUSED(orientation);
 	GCameraSettingsWidget* pWidToReturn = new GCameraSettingsWidget(this, inWhichWidget);
 	// a kind of device widget in the GCameraSettingsWidget so that it get populated by classes inheriting GCamera
 	GDeviceWidget* pDevSpefWid = new GDeviceWidget(0, pWidToReturn->CameraSpecificGroupBox());

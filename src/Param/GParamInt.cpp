@@ -19,7 +19,8 @@ GParamInt::~GParamInt()
 
 QWidget* GParamInt::ProvideNewParamWidget( QWidget* forWhichParent, GParam::WidgetOptions optionWid /*= Default*/ )
 {
-	GIntSpinBox* pSpinBox = new GIntSpinBox(this, forWhichParent);
+    Q_UNUSED(optionWid);
+    GIntSpinBox* pSpinBox = new GIntSpinBox(this, forWhichParent);
 	pSpinBox->setValue(IntValue());
 	// set some settings
 	pSpinBox->SetStep(TypicalStep());

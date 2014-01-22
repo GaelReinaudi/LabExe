@@ -58,7 +58,7 @@ GParamBucketTreeWidget::GParamBucketTreeWidget(QWidget *parent, GParamBucket* th
 //	setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 // 	setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Ignored);
 
-	int nRow = m_Bucket->ParamCount();
+//	int nRow = m_Bucket->ParamCount();
 // 	setRowCount(nRow);
 
 	ShowInfoItem(true);
@@ -141,7 +141,8 @@ void GParamBucketTreeWidget::AddParamWidget( GParam* pParam )
 
 void GParamBucketTreeWidget::RemoveParamWidget(int indexParamFromBucket, GParam* pParam)
 {
-	GBucketWidgetItem* pItem = m_MapParamItem.value(pParam);
+    Q_UNUSED(indexParamFromBucket);
+    GBucketWidgetItem* pItem = m_MapParamItem.value(pParam);
 	if(!pItem)
 		return;
 	delete pItem;
@@ -171,7 +172,8 @@ void GParamBucketTreeWidget::RemoveParamAction()
 
 void GParamBucketTreeWidget::mouseDoubleClickEvent( QMouseEvent* event )
 {
-	if(!m_Bucket)
+    Q_UNUSED(event);
+    if(!m_Bucket)
 		return;
 	m_Bucket->PopupSettingWidget();
 }

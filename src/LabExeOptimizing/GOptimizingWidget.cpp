@@ -97,6 +97,7 @@ void GOptimizingWidget::AppendToHistory( GVectorDouble newValues, double returnV
 
 void GOptimizingWidget::HistoryDblClicked( QTreeWidgetItem* whichItem, int wichCol )
 {
+    Q_UNUSED(wichCol);
 	int nCol = whichItem->columnCount();
 	GVectorDouble theValuesToSet;
 	for(int i = NumColumnPreVariables; i < nCol; i++) {

@@ -33,7 +33,8 @@ void GCommandWidgetMove::redo()
 
 GCommandDeviceReName::GCommandDeviceReName( GDevice *theDevice, const QString &oldName, QUndoCommand *parent /*= 0*/ )
 {
-	m_pDevice = theDevice;
+    Q_UNUSED(parent);
+    m_pDevice = theDevice;
 	m_NewName = m_pDevice->Name();
 	m_OldName = oldName;
 }

@@ -94,6 +94,7 @@ void GOptimizer::Event_VariableAdded( GParam* theParam )
 
 GDeviceWidget* GOptimizer::ProvideNewDeviceGroupBox( QWidget* inWhichWidget, QBoxLayout::Direction orientation /* = QBoxLayout::LeftToRight */ )
 {
+    Q_UNUSED(orientation);
 	return new GOptimizingWidget(this, inWhichWidget);
 }
 
@@ -271,7 +272,8 @@ void GOptimizer::EventAlgoStopped()
 
 void GOptimizer::Event_ResultUpdated( double newVal )
 {
-	m_WaitingForResult = false;
+    Q_UNUSED(newVal);
+    m_WaitingForResult = false;
 }
 
 

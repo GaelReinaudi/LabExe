@@ -5,7 +5,8 @@
 
 double GlobalNLoptEvaluationFunction(const std::vector<double> &x, std::vector<double> &grad, void* f_data) 
 {
-	GNLOptAlgorithm* pAlgo = (GNLOptAlgorithm*)f_data;
+    Q_UNUSED(grad);
+    GNLOptAlgorithm* pAlgo = (GNLOptAlgorithm*)f_data;
 	GVectorDouble NewPosVextor = GVectorDouble::fromStdVector(x);
 
 	if(!pAlgo->m_KeepIterating) {
@@ -57,7 +58,7 @@ bool GNLOptAlgorithm::Configure()
  		pTheOpt->set_initial_step(TypicalSteps);
 		pTheOpt->set_local_optimizer(nlopt::opt(nlopt::LN_NELDERMEAD, numVar));
 	}
-	catch (QtConcurrent::Exception & e) {
+    catch (QException & e) {
 		e;
 		return false;
 	}
@@ -93,7 +94,7 @@ void GNLOptAlgorithm::RunOptimization()
 		qWarning() << e.what();
 		emit FinishedOptimizing(nlopt::OUT_OF_MEMORY);
 	}
-	catch (QtConcurrent::Exception & e) {
+    catch (QException & e) {
 		qWarning() << e.what();
 		emit FinishedOptimizing(nlopt::FAILURE);
 	}

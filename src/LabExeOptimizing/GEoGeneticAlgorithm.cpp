@@ -66,7 +66,7 @@ bool GEoGeneticAlgorithm::Configure()
 		// you need to give the full description of the function
 		m_pEvalFunctor = new GEoEvalFunctor(this, GlobalEoEvaluationFunction);
 	}
-	catch (QtConcurrent::Exception & e) {
+    catch (QException & e) {
 		qWarning() << e.what();
 		return false;
 	}
@@ -97,7 +97,7 @@ void GEoGeneticAlgorithm::RunOptimization()
 	std::vector<double> LowerBounds = m_pOptimizer->LowerBoundsVariable().toStdVector();
 	std::vector<double> UpperBounds = m_pOptimizer->UpperBoundsVariable().toStdVector();
 	std::vector<double> TypicalSteps = m_pOptimizer->TypicalStepsVariable().toStdVector();
-	int numVar = m_InitialValues.size();
+//	int numVar = m_InitialValues.size();
 
 	eoRealVectorBounds theEoParamBounds(LowerBounds, UpperBounds);
 	
@@ -115,7 +115,7 @@ void GEoGeneticAlgorithm::RunOptimization()
 	// PARAMETRES
 	const unsigned int SEED = QDateTime::currentDateTime().toTime_t();	// seed for random number generator
 	const unsigned int T_SIZE = 3; // size for tournament selection
-	const unsigned int VEC_SIZE = numVar; // Number of object variables in genotypes
+//	const unsigned int VEC_SIZE = numVar; // Number of object variables in genotypes
 	const unsigned int POP_SIZE = popSize;//20; // Size of population
 
 	const unsigned int MAX_GEN = 10000; // Maximum number of generation before STOP
@@ -268,7 +268,7 @@ void GEoGeneticAlgorithm::RunOptimization()
 		qWarning() << e.what();
 		emit FinishedOptimizing(-1);
 	}
-	catch (QtConcurrent::Exception & e) {
+    catch (QException & e) {
 		qWarning() << e.what();
 		emit FinishedOptimizing(-1);
 	}

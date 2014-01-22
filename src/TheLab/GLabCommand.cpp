@@ -61,6 +61,7 @@ GCommandRemoveDevice::GCommandRemoveDevice( GDevice* theDevice, GWorkBench* theL
 	: m_pBench(theLab)
 	, m_pDevice(theDevice)
 {
+    Q_UNUSED(parent);
 }
 
 GCommandRemoveDevice::~GCommandRemoveDevice()

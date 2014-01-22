@@ -251,7 +251,8 @@ void GLabControlPanel::InsertWorkBenchInList( GWorkBench* pWB )
 
 void GLabControlPanel::DebugMessageHandler(QtMsgType type, const QMessageLogContext & context, const QString & msg)
 {
-	if(!m_AcceptDebugMessages)
+    Q_UNUSED(context);
+    if(!m_AcceptDebugMessages)
 		return;
 	// cannot be called from another thread than the main thread
 	if(!QCoreApplication::instance())

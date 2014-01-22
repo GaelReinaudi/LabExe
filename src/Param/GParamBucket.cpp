@@ -172,6 +172,7 @@ GParamBucketTreeWidget* GParamBucket::ProvideParamBucketTreeWidget(QWidget* pare
 
 QWidget* GParamBucket::ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid /*= Default*/)
 {
+    Q_UNUSED(optionWid);
  	return ProvideParamBucketTreeWidget(forWhichParent);
 //	return ProvideParamBucketWidget(forWhichParent);
 }

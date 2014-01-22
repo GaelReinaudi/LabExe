@@ -23,5 +23,5 @@ void GImageLineProfiler::PopulateDeviceWidget( GDeviceWidget* theDeviceWidget )
 
 void GImageLineProfiler::ProcessImageAOIed(const GImageDouble & aoiImage)
 {
-
+    Q_UNUSED(aoiImage);
 }

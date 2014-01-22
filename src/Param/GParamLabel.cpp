@@ -72,12 +72,13 @@ void GParamLabel::mouseMoveEvent(QMouseEvent *event)
 	}
 	mimeData->setData("LabExe/parameter.single", encodedData);
 	drag->setMimeData(mimeData);
-	Qt::DropAction dropAction = drag->exec(Qt::CopyAction);
+//	Qt::DropAction dropAction = drag->exec(Qt::CopyAction);
 }
 
 void GParamLabel::mouseDoubleClickEvent( QMouseEvent *event )
 {
-	if(!m_pParam)
+    Q_UNUSED(event);
+    if(!m_pParam)
 		return;
 	// opens the setting widget of the param
 	m_pParam->PopupSettingWidget();
@@ -85,7 +86,8 @@ void GParamLabel::mouseDoubleClickEvent( QMouseEvent *event )
 
 void GParamLabel::StartHighlight( int msDuration /*= 0*/ )
 {
-	setAutoFillBackground(true);
+    Q_UNUSED(msDuration);
+    setAutoFillBackground(true);
 	QPalette HighlightPalette(palette());
 	HighlightPalette.setColor(QPalette::Base, Qt::magenta);
 	HighlightPalette.setColor(QPalette::AlternateBase, Qt::magenta);

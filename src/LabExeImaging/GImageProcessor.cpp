@@ -62,6 +62,7 @@ void GImageProcessor::InputImageDouble(GImageDouble imageIn )
 
 GDeviceWidget* GImageProcessor::ProvideNewDeviceGroupBox( QWidget* inWhichWidget, QBoxLayout::Direction orientation /*= QBoxLayout::LeftToRight*/ )
 {
+    Q_UNUSED(orientation);
 	if(!m_pImBench) {
 // 		qWarning() << "the Imaging bench pointer in the GImageProcessor is 0.   642481";
 // 		return 0;
