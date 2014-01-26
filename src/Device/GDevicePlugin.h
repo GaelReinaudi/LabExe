@@ -59,7 +59,8 @@ static GDevice* CreatorUsedForTheDeviceManager ## ClassName (QString uniqueIdent
 
 #define G_2_PART_REGISTER_PLUGIN_HARD_DEVICE(ClassName, UniqueIdForTheInstance)										\
 	bool isOkkk = RegisterHardDeviceInManager( # ClassName , CreatorUsedForTheDeviceManager ## ClassName );			\
-	AddToDeviceShelf( CreatorUsedForTheDeviceManager ## ClassName (UniqueIdForTheInstance, 0));
+    AddToDeviceShelf( CreatorUsedForTheDeviceManager ## ClassName (UniqueIdForTheInstance, 0));                     \
+    Q_UNUSED(isOkkk);
 
 
 
