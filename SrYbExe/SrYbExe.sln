@@ -4,7 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SrYbExe", "SrYbExe\SrYbExe.vcproj", "{974382E7-2EE4-4DB8-8871-0E85122DF64C}"
 	ProjectSection(ProjectDependencies) = postProject
 		{766A5C08-549F-4B22-8267-BD1A120B85C1} = {766A5C08-549F-4B22-8267-BD1A120B85C1}
-		{65429E2D-EFC3-443F-9AF7-FCC6501A4D63} = {65429E2D-EFC3-443F-9AF7-FCC6501A4D63}
 		{65429E2D-EFC3-443F-9AF7-FCC6501F4D63} = {65429E2D-EFC3-443F-9AF7-FCC6501F4D63}
 		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
 		{70DCD992-D850-4017-85D2-5E6E256255B5} = {70DCD992-D850-4017-85D2-5E6E256255B5}
@@ -185,11 +184,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MonteCarloLogNormalPricerPl
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "YoutubePlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\YoutubePlugin\YoutubePlugin.vcproj", "{5CF49A9A-CC02-48F8-94B1-293B22C4DFEF}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LabExeSequencer", "..\src\LabExeSequencer\LabExeSequencer.vcproj", "{65429E2D-EFC3-443F-9AF7-FCC6501A4D63}"
 	ProjectSection(ProjectDependencies) = postProject
 		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
 	EndProjectSection
@@ -628,18 +622,6 @@ Global
 		{5CF49A9A-CC02-48F8-94B1-293B22C4DFEF}.Release|Win32.ActiveCfg = Release|Win32
 		{5CF49A9A-CC02-48F8-94B1-293B22C4DFEF}.Release|Win32.Build.0 = Release|Win32
 		{5CF49A9A-CC02-48F8-94B1-293B22C4DFEF}.Release|x64.ActiveCfg = Release|Win32
-		{65429E2D-EFC3-443F-9AF7-FCC6501A4D63}.Debug No Plugins|Win32.ActiveCfg = Debug|Win32
-		{65429E2D-EFC3-443F-9AF7-FCC6501A4D63}.Debug No Plugins|Win32.Build.0 = Debug|Win32
-		{65429E2D-EFC3-443F-9AF7-FCC6501A4D63}.Debug No Plugins|x64.ActiveCfg = Debug|Win32
-		{65429E2D-EFC3-443F-9AF7-FCC6501A4D63}.Debug|Win32.ActiveCfg = Debug|Win32
-		{65429E2D-EFC3-443F-9AF7-FCC6501A4D63}.Debug|Win32.Build.0 = Debug|Win32
-		{65429E2D-EFC3-443F-9AF7-FCC6501A4D63}.Debug|x64.ActiveCfg = Debug|Win32
-		{65429E2D-EFC3-443F-9AF7-FCC6501A4D63}.Release with Debug|Win32.ActiveCfg = Release with Debug|Win32
-		{65429E2D-EFC3-443F-9AF7-FCC6501A4D63}.Release with Debug|Win32.Build.0 = Release with Debug|Win32
-		{65429E2D-EFC3-443F-9AF7-FCC6501A4D63}.Release with Debug|x64.ActiveCfg = Release with Debug|Win32
-		{65429E2D-EFC3-443F-9AF7-FCC6501A4D63}.Release|Win32.ActiveCfg = Release|Win32
-		{65429E2D-EFC3-443F-9AF7-FCC6501A4D63}.Release|Win32.Build.0 = Release|Win32
-		{65429E2D-EFC3-443F-9AF7-FCC6501A4D63}.Release|x64.ActiveCfg = Release|Win32
 		{43E4D739-DCF5-40CB-B4B8-FEB8CB4FB8ED}.Debug No Plugins|Win32.ActiveCfg = Debug|Win32
 		{43E4D739-DCF5-40CB-B4B8-FEB8CB4FB8ED}.Debug No Plugins|x64.ActiveCfg = Debug|Win32
 		{43E4D739-DCF5-40CB-B4B8-FEB8CB4FB8ED}.Debug|Win32.ActiveCfg = Debug|Win32
@@ -787,7 +769,7 @@ Global
 		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D} = {BB1F5885-8E0B-4B01-B6F1-A72599FC97D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		BuildVersion_UpdateFileVersion = True
 		QtVersion = $(DefaultQtVersion)
+		BuildVersion_UpdateFileVersion = True
 	EndGlobalSection
 EndGlobal
