@@ -22,3 +22,4 @@ labexe*.dll
 *.pdb
 *.dep
 *moc_*.*
+*.vpj
