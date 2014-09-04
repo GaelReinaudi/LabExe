@@ -1,0 +1,4 @@
+/Debug/
+/Release/
+*/*/*.tlog
+/Win32/

@@ -1,129 +1,165 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|Win32">
+    <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release with Debug|Win32">
-      <Configuration>Release with Debug</Configuration>
-      <Platform>Win32</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{65429E2D-EFC3-443F-9AF7-FCC6501F4D63}</ProjectGuid>
+    <ProjectGuid>{DF133592-623A-3F31-AE64-49385396FFFD}</ProjectGuid>
     <RootNamespace>LabExeImaging</RootNamespace>
     <Keyword>Qt4VSv1.0</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <PlatformToolSet>v120</PlatformToolSet>
+    <OutputDirectory>..\..\bin\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <PlatformToolset>v110</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <IntermediateDirectory>GeneratedFiles\Obj\</IntermediateDirectory>
+    <PrimaryOutput>LabExeImaging</PrimaryOutput>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <PlatformToolSet>v120</PlatformToolSet>
+    <OutputDirectory>..\..\bin\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <PlatformToolset>v110</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <IntermediateDirectory>GeneratedFiles\Obj\</IntermediateDirectory>
+    <PrimaryOutput>LabExeImaging_D</PrimaryOutput>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <PlatformToolset>v110</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <ImportGroup Label="ExtensionSettings">
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <_ProjectFileVersion>11.0.50727.1</_ProjectFileVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)..\bin\</OutDir>
-    <IntDir>$(Configuration)\</IntDir>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)..\bin\</OutDir>
-    <IntDir>$(Configuration)\</IntDir>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">
-    <OutDir>$(SolutionDir)..\bin\</OutDir>
-    <IntDir>$(Configuration)\</IntDir>
-    <LinkIncremental>false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">LabExeImaging</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">LabExeImaging_D</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</IgnoreImportLibrary>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalOptions>/MP5 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>.\..\..\include;.\..\..\src;.\GeneratedFiles;$(QTDIR)\include;.\GeneratedFiles\$(Configuration);$(QTDIR)\include\qtmain;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>UNICODE;WIN32;QT_LARGEFILE_SUPPORT;QT_THREAD_SUPPORT;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;LABEXEIMAGING_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\include;..\..\src;GeneratedFiles;.;$(QTDIR)\include;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtCore;GeneratedFiles;GeneratedFiles;$(QTDIR)\mkspecs\win32-msvc2013;.\GeneratedFiles;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zm200 -w34100 -w34189 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>GeneratedFiles\Obj\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;LABEXEIMAGING_LIB;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;QT_OPENGL_ES_2;QT_OPENGL_ES_2_ANGLE;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat />
     </ClCompile>
     <Link>
-      <AdditionalDependencies>labexe.lib;qtmain.lib;QtCore4.lib;QtGui4.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
-      <AdditionalLibraryDirectories>$(QTDIR)\lib;..\..\lib;..\..\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>.\..\..\bin\labexe.lib;$(QTDIR)\lib\Qt5Widgets.lib;$(QTDIR)\lib\Qt5Gui.lib;$(QTDIR)\lib\Qt5Core.lib;libEGL.lib;libGLESv2.lib;gdi32.lib;user32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;.\..\..\lib;.\..\..\bin;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkDLL>true</LinkDLL>
+      <LinkIncremental>false</LinkIncremental>
+      <OutputFile>$(OutDir)\LabExeImaging.dll</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
     </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;LABEXEIMAGING_LIB;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;QT_OPENGL_ES_2;QT_OPENGL_ES_2_ANGLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalOptions>/MP5 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>..\..\include;..\..\src;GeneratedFiles;.;$(QTDIR)\include;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtCore;GeneratedFiles;GeneratedFiles;$(QTDIR)\mkspecs\win32-msvc2013;.\GeneratedFiles;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zm200 -w34100 -w34189 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>GeneratedFiles\Obj\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>.\..\..\include;.\..\..\src;.\GeneratedFiles;$(QTDIR)\include;.\GeneratedFiles\$(Configuration);$(QTDIR)\include\qtmain;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>UNICODE;WIN32;QT_LARGEFILE_SUPPORT;QT_THREAD_SUPPORT;QT_CORE_LIB;QT_GUI_LIB;LABEXEIMAGING_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;LABEXEIMAGING_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;QT_OPENGL_ES_2;QT_OPENGL_ES_2_ANGLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>labexe_D.lib;qtmaind.lib;QtCored4.lib;QtGuid4.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName)_D.dll</OutputFile>
-      <AdditionalLibraryDirectories>$(QTDIR)\lib;..\..\lib;..\..\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>.\..\..\bin\labexe_D.lib;$(QTDIR)\lib\Qt5Widgetsd.lib;$(QTDIR)\lib\Qt5Guid.lib;$(QTDIR)\lib\Qt5Cored.lib;libEGLd.lib;libGLESv2d.lib;gdi32.lib;user32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;.\..\..\lib;.\..\..\bin;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkDLL>true</LinkDLL>
+      <OutputFile>$(OutDir)\LabExeImaging_D.dll</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
     </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">
-    <ClCompile>
-      <AdditionalOptions>/MP5 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>.\..\..\include;.\..\..\src;.\GeneratedFiles;$(QTDIR)\include;.\GeneratedFiles\$(Configuration);$(QTDIR)\include\qtmain;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>UNICODE;WIN32;QT_LARGEFILE_SUPPORT;QT_THREAD_SUPPORT;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;LABEXEIMAGING_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
-      <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>labexe_RD.lib;qtmain.lib;QtCore4.lib;QtGui4.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
-      <AdditionalLibraryDirectories>$(QTDIR)\lib;..\..\lib;..\..\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;LABEXEIMAGING_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;QT_OPENGL_ES_2;QT_OPENGL_ES_2_ANGLE;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GAoiSelector.cpp" />
     <ClCompile Include="GCamera.cpp" />
     <ClCompile Include="GCameraSettingsWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\moc_GAoiSelector.cpp" />
+    <ClCompile Include="GeneratedFiles\moc_GCamera.cpp" />
+    <ClCompile Include="GeneratedFiles\moc_GCameraSettingsWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\moc_GImageGraphicsScene.cpp" />
+    <ClCompile Include="GeneratedFiles\moc_GImageGraphicsView.cpp" />
+    <ClCompile Include="GeneratedFiles\moc_GImageLineProfiler.cpp" />
+    <ClCompile Include="GeneratedFiles\moc_GImageProcessor.cpp" />
+    <ClCompile Include="GeneratedFiles\moc_GImageProcessorWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\moc_GImagingBench.cpp" />
     <ClCompile Include="GImageDouble.cpp" />
     <ClCompile Include="GImageGraphicsScene.cpp" />
     <ClCompile Include="GImageGraphicsView.cpp" />
@@ -132,338 +168,145 @@
     <ClCompile Include="GImageProcessorWidget.cpp" />
     <ClCompile Include="GImagingBench.cpp" />
     <ClCompile Include="labexeimaging.cpp" />
-    <ClCompile Include="GeneratedFiles\Release\moc_GAoiSelector.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GCamera.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GCameraSettingsWidget.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GImageGraphicsScene.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GImageGraphicsView.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GImageLineProfiler.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GImageProcessor.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GImageProcessorWidget.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GImagingBench.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GAoiSelector.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GCamera.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GCameraSettingsWidget.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GImageGraphicsScene.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GImageGraphicsView.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GImageLineProfiler.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GImageProcessor.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GImageProcessorWidget.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GImagingBench.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GAoiSelector.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GCamera.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GCameraSettingsWidget.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GImageGraphicsScene.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GImageGraphicsView.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GImageLineProfiler.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GImageProcessor.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GImageProcessorWidget.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GImagingBench.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="GAoiSelector.h">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GAoiSelector.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">Moc%27ing GAoiSelector.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEIMAGING_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -D_WINDLL  "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing GAoiSelector.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEIMAGING_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_WINDLL  "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GAoiSelector.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="GCamera.h">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GCamera.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">Moc%27ing GCamera.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEIMAGING_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -D_WINDLL  "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing GCamera.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEIMAGING_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_WINDLL  "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GCamera.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="GCameraSettingsWidget.h">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GCameraSettingsWidget.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">Moc%27ing GCameraSettingsWidget.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEIMAGING_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -D_WINDLL  "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing GCameraSettingsWidget.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEIMAGING_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_WINDLL  "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GCameraSettingsWidget.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
+    <ClInclude Include="GeneratedFiles\ui_GAoiSelector.h" />
+    <ClInclude Include="GeneratedFiles\ui_GCameraSettingsWidget.h" />
+    <ClInclude Include="GeneratedFiles\ui_GImageProcessorWidget.h" />
     <ClInclude Include="GImageDouble.h" />
     <CustomBuild Include="GImageGraphicsScene.h">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GImageGraphicsScene.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">Moc%27ing GImageGraphicsScene.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEIMAGING_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -D_WINDLL  "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing GImageGraphicsScene.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEIMAGING_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_WINDLL  "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GImageGraphicsScene.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="GImageGraphicsView.h">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GImageGraphicsView.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">Moc%27ing GImageGraphicsView.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEIMAGING_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -D_WINDLL  "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing GImageGraphicsView.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEIMAGING_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_WINDLL  "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GImageGraphicsView.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="GImageLineProfiler.h">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GImageLineProfiler.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">Moc%27ing GImageLineProfiler.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEIMAGING_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -D_WINDLL  "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing GImageLineProfiler.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEIMAGING_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_WINDLL  "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GImageLineProfiler.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="GImageProcessor.h">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GImageProcessor.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">Moc%27ing GImageProcessor.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEIMAGING_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -D_WINDLL  "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing GImageProcessor.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEIMAGING_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_WINDLL  "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GImageProcessor.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="GImageProcessorWidget.h">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GImageProcessorWidget.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">Moc%27ing GImageProcessorWidget.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEIMAGING_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -D_WINDLL  "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing GImageProcessorWidget.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEIMAGING_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_WINDLL  "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GImageProcessorWidget.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="GImagingBench.h">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GImagingBench.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">Moc%27ing GImagingBench.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEIMAGING_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -D_WINDLL  "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing GImagingBench.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEIMAGING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEIMAGING_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_WINDLL  "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GImagingBench.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <ClInclude Include="labexeimaging.h" />
     <ClInclude Include="labexeimaging_global.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="GAoiSelector.ui">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Filename)%(Extension)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">Uic%27ing %(Filename)%(Extension)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Filename)%(Extension)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"
-</Command>
+      <FileType>Document</FileType>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
     </CustomBuild>
     <CustomBuild Include="GCameraSettingsWidget.ui">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Filename)%(Extension)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">Uic%27ing %(Filename)%(Extension)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Filename)%(Extension)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"
-</Command>
+      <FileType>Document</FileType>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
     </CustomBuild>
     <CustomBuild Include="GImageProcessorWidget.ui">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Filename)%(Extension)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">Uic%27ing %(Filename)%(Extension)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Filename)%(Extension)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"
-</Command>
+      <FileType>Document</FileType>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
     </CustomBuild>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\labexe.vcxproj">
-      <Project>{2fbb956b-1698-49e7-acd5-5d9700b1c0fb}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets">
-  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties lupdateOnBuild="0" MocDir=".\GeneratedFiles\$(ConfigurationName)" MocOptions="" QtVersion_x0020_Win32="$(DefaultQtVersion)" RccDir=".\GeneratedFiles" UicDir=".\GeneratedFiles" />
+      <UserProperties UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" Qt5Version_x0020_Win32="msvc2013_64" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

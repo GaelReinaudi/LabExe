@@ -1,702 +1,421 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h</Extensions>
-    </Filter>
-    <Filter Include="Header Files\Param">
-      <UniqueIdentifier>{06529dd3-a3f5-4382-9830-5baa9a135517}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\ToolBox">
-      <UniqueIdentifier>{8d02380e-f1dd-476a-8460-d50a1e9f5a41}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Device">
-      <UniqueIdentifier>{18764263-f2aa-43b8-a65b-60657942e64a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\TheLab">
-      <UniqueIdentifier>{526307d2-c980-41ac-b3eb-75236d85e4b7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Script">
-      <UniqueIdentifier>{b18d9433-af64-4b62-bdcb-054e067f4ed8}</UniqueIdentifier>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
     </Filter>
     <Filter Include="Form Files">
       <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
       <Extensions>ui</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
-      <Extensions>qrc;*</Extensions>
       <ParseFiles>false</ParseFiles>
     </Filter>
     <Filter Include="Generated Files">
       <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
-      <Extensions>moc;h;cpp</Extensions>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
     </Filter>
-    <Filter Include="Generated Files\Release">
-      <UniqueIdentifier>{48585734-a8f6-46e2-ab86-d7a76890f9d7}</UniqueIdentifier>
-      <Extensions>cpp;moc</Extensions>
-      <SourceControlFiles>False</SourceControlFiles>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
     </Filter>
-    <Filter Include="Generated Files\Debug">
-      <UniqueIdentifier>{94b06c76-239c-4e05-b0c8-2bb3e732272e}</UniqueIdentifier>
-      <Extensions>cpp;moc</Extensions>
-      <SourceControlFiles>False</SourceControlFiles>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Generated Files\Release with Debug">
-      <UniqueIdentifier>{7cb322a4-3335-4ee0-9be2-d86920cc1947}</UniqueIdentifier>
-      <Extensions>cpp;moc</Extensions>
-      <SourceControlFiles>False</SourceControlFiles>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;cxx;c;def</Extensions>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Source Files\Param">
-      <UniqueIdentifier>{389169ce-f99d-4b88-bcae-5abe45bf0414}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\ToolBox">
-      <UniqueIdentifier>{6baeae65-0f6f-47e5-84cf-cdf0f8e5dbd0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Device">
-      <UniqueIdentifier>{1da25db9-0171-4d22-8d20-8a441f7d2365}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\TheLab">
-      <UniqueIdentifier>{4372fb91-5b25-49f4-adb9-706b1758374d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Script">
-      <UniqueIdentifier>{f3b0ff41-ca54-4f15-bf8c-743a6c476d2d}</UniqueIdentifier>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TheLab\GWorkBenchManager.h">
-      <Filter>Header Files\TheLab</Filter>
-    </ClInclude>
-    <ClInclude Include="Script\ScriptFunctions.h">
-      <Filter>Header Files\Script</Filter>
-    </ClInclude>
-    <ClInclude Include="Tutorial-DevicePlugin-NewProgDeviceProject.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tutorial-WS6-Implementation.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tutorial-WS6-NewUserDeviceProject.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tutorial-WS6-Subdevices.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GeneratedFiles\ui_GParamSettingsWidget.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="GeneratedFiles\Release\moc_GBenchDockWidget.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="TheLab\GBenchDockWidget.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GDevice.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Device\GDevice.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GDeviceManager.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Device\GDeviceCommand.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GDeviceMimeData.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Device\GDeviceListModel.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GDevicePlugin.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Device\GDeviceManager.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GDeviceShelf.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Device\GDeviceMimeData.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GDeviceWidget.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Device\GDevicePlugin.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GDoubleSpinBox.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Device\GDeviceShelf.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GHardDevice.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Device\GDeviceWidget.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GInteractiveObject.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Param\GDoubleSpinBox.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GIntSpinBox.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Device\GHardDevice.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GLabControlPanel.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Param\GIntSpinBox.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GMathScriptEngine.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="ToolBox\GInteractiveObject.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GMotor.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="TheLab\GLabCommand.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GNumericCopier.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="TheLab\GLabControlPanel.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GParam.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Script\GMathScriptEngine.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GParamBool.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Device\GMotor.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GParamBucket.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Device\GNumericCopier.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GParamBucketTreeWidget.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="ToolBox\GObjectFactory.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GParamBucketWidget.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Param\GParam.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GParamCreator.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Param\GParamBool.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GParamDouble.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Param\GParamBucket.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GParamDoubleSettingWidget.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Param\GParamBucketTreeWidget.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GParamInt.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Param\GParamBucketWidget.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GParamLabel.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Device\GParamCreator.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GParamListModel.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Param\GParamDouble.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GParamManager.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Param\GParamDoubleSettingWidget.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GParamNum.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Param\GParamInt.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GParamSettingsWidget.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Param\GParamLabel.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GParamString.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Param\GParamListModel.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GParamVectorDouble.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Param\GParamManager.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GPrivateQObjectInGSerializable.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Param\GParamNum.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GProgDevice.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Param\GParamSettingsWidget.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GServoMotor.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Param\GParamString.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GSingleParamBucket.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="ToolBox\GPrivateQObjectInGSerializable.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GSingleParamBucketWidget.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="Device\GProgDevice.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GWorkBench.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="ToolBox\GSerializable.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GBenchDockWidget.cpp">
-      <Filter>Generated Files\Debug</Filter>
+    <ClCompile Include="Device\GServoMotor.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GDevice.cpp">
-      <Filter>Generated Files\Debug</Filter>
+    <ClCompile Include="Param\GSingleParamBucket.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GDeviceManager.cpp">
-      <Filter>Generated Files\Debug</Filter>
+    <ClCompile Include="Param\GSingleParamBucketWidget.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GDeviceMimeData.cpp">
-      <Filter>Generated Files\Debug</Filter>
+    <ClCompile Include="TheLab\GWorkBench.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GDevicePlugin.cpp">
-      <Filter>Generated Files\Debug</Filter>
+    <ClCompile Include="TheLab\GWorkBenchManager.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GDeviceShelf.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GDeviceWidget.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GDoubleSpinBox.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GHardDevice.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GInteractiveObject.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GIntSpinBox.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GLabControlPanel.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GMathScriptEngine.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GMotor.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GNumericCopier.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GParam.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GParamBool.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GParamBucket.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GParamBucketTreeWidget.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GParamBucketWidget.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GParamCreator.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GParamDouble.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GParamDoubleSettingWidget.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GParamInt.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GParamLabel.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GParamListModel.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GParamManager.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GParamNum.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GParamSettingsWidget.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GParamString.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GParamVectorDouble.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GPrivateQObjectInGSerializable.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GProgDevice.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GServoMotor.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GSingleParamBucket.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GSingleParamBucketWidget.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GWorkBench.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GBenchDockWidget.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GDevice.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GDeviceManager.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GDeviceMimeData.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GDevicePlugin.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GDeviceShelf.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GDeviceWidget.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GDoubleSpinBox.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GHardDevice.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GInteractiveObject.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GIntSpinBox.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GLabControlPanel.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GMathScriptEngine.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GMotor.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GNumericCopier.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GParam.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GParamBool.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GParamBucket.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GParamBucketTreeWidget.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GParamBucketWidget.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GParamCreator.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GParamDouble.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GParamDoubleSettingWidget.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GParamInt.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GParamLabel.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GParamListModel.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GParamManager.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GParamNum.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GParamSettingsWidget.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GParamString.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GParamVectorDouble.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GPrivateQObjectInGSerializable.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GProgDevice.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GServoMotor.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GSingleParamBucket.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GSingleParamBucketWidget.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GWorkBench.cpp">
-      <Filter>Generated Files\Release with Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="Param\GParamVectorDouble.cpp">
+    <ClCompile Include="Script\ScriptFunctions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="labexe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Param\GDoubleSpinBox.cpp">
-      <Filter>Source Files\Param</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GBenchDockWidget.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Param\GIntSpinBox.cpp">
-      <Filter>Source Files\Param</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GDevice.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Param\GParam.cpp">
-      <Filter>Source Files\Param</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GDeviceManager.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Param\GParamBool.cpp">
-      <Filter>Source Files\Param</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GDeviceMimeData.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Param\GParamBucket.cpp">
-      <Filter>Source Files\Param</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GDevicePlugin.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Param\GParamBucketTreeWidget.cpp">
-      <Filter>Source Files\Param</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GDeviceShelf.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Param\GParamBucketWidget.cpp">
-      <Filter>Source Files\Param</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GDeviceWidget.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Param\GParamDouble.cpp">
-      <Filter>Source Files\Param</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GDoubleSpinBox.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Param\GParamDoubleSettingWidget.cpp">
-      <Filter>Source Files\Param</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GHardDevice.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Param\GParamInt.cpp">
-      <Filter>Source Files\Param</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GIntSpinBox.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Param\GParamLabel.cpp">
-      <Filter>Source Files\Param</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GInteractiveObject.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Param\GParamListModel.cpp">
-      <Filter>Source Files\Param</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GLabControlPanel.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Param\GParamManager.cpp">
-      <Filter>Source Files\Param</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GMathScriptEngine.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Param\GParamNum.cpp">
-      <Filter>Source Files\Param</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GMotor.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Param\GParamSettingsWidget.cpp">
-      <Filter>Source Files\Param</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GNumericCopier.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Param\GParamString.cpp">
-      <Filter>Source Files\Param</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GParam.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Param\GSingleParamBucket.cpp">
-      <Filter>Source Files\Param</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GParamBool.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Param\GSingleParamBucketWidget.cpp">
-      <Filter>Source Files\Param</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GParamBucket.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="ToolBox\GInteractiveObject.cpp">
-      <Filter>Source Files\ToolBox</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GParamBucketTreeWidget.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="ToolBox\GObjectFactory.cpp">
-      <Filter>Source Files\ToolBox</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GParamBucketWidget.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="ToolBox\GPrivateQObjectInGSerializable.cpp">
-      <Filter>Source Files\ToolBox</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GParamCreator.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="ToolBox\GSerializable.cpp">
-      <Filter>Source Files\ToolBox</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GParamDouble.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Device\GDevice.cpp">
-      <Filter>Source Files\Device</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GParamDoubleSettingWidget.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Device\GDeviceCommand.cpp">
-      <Filter>Source Files\Device</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GParamInt.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Device\GDeviceListModel.cpp">
-      <Filter>Source Files\Device</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GParamLabel.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Device\GDeviceManager.cpp">
-      <Filter>Source Files\Device</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GParamListModel.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Device\GDeviceMimeData.cpp">
-      <Filter>Source Files\Device</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GParamManager.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Device\GDevicePlugin.cpp">
-      <Filter>Source Files\Device</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GParamNum.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Device\GDeviceShelf.cpp">
-      <Filter>Source Files\Device</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GParamSettingsWidget.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Device\GDeviceWidget.cpp">
-      <Filter>Source Files\Device</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GParamString.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Device\GHardDevice.cpp">
-      <Filter>Source Files\Device</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GPrivateQObjectInGSerializable.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Device\GMotor.cpp">
-      <Filter>Source Files\Device</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GProgDevice.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Device\GNumericCopier.cpp">
-      <Filter>Source Files\Device</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GServoMotor.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Device\GParamCreator.cpp">
-      <Filter>Source Files\Device</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GSingleParamBucket.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Device\GProgDevice.cpp">
-      <Filter>Source Files\Device</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GSingleParamBucketWidget.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Device\GServoMotor.cpp">
-      <Filter>Source Files\Device</Filter>
-    </ClCompile>
-    <ClCompile Include="TheLab\GBenchDockWidget.cpp">
-      <Filter>Source Files\TheLab</Filter>
-    </ClCompile>
-    <ClCompile Include="TheLab\GLabCommand.cpp">
-      <Filter>Source Files\TheLab</Filter>
-    </ClCompile>
-    <ClCompile Include="TheLab\GLabControlPanel.cpp">
-      <Filter>Source Files\TheLab</Filter>
-    </ClCompile>
-    <ClCompile Include="TheLab\GWorkBench.cpp">
-      <Filter>Source Files\TheLab</Filter>
-    </ClCompile>
-    <ClCompile Include="TheLab\GWorkBenchManager.cpp">
-      <Filter>Source Files\TheLab</Filter>
-    </ClCompile>
-    <ClCompile Include="Script\GMathScriptEngine.cpp">
-      <Filter>Source Files\Script</Filter>
-    </ClCompile>
-    <ClCompile Include="Script\ScriptFunctions.cpp">
-      <Filter>Source Files\Script</Filter>
+    <ClCompile Include="GeneratedFiles\moc_GWorkBench.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="Param\GParamVectorDouble.h">
+    <CustomBuild Include="TheLab\GBenchDockWidget.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="labexe.h">
+    <CustomBuild Include="Device\GDevice.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="labexe_global.h">
+    <ClInclude Include="Device\GDeviceCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Device\GDeviceListModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <CustomBuild Include="Device\GDeviceManager.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Device\GDeviceMimeData.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Device\GDevicePlugin.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Device\GDeviceShelf.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Device\GDeviceWidget.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="Param\GDoubleSpinBox.h">
-      <Filter>Header Files\Param</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Param\GIntSpinBox.h">
-      <Filter>Header Files\Param</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Param\GParam.h">
-      <Filter>Header Files\Param</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Param\GParamBool.h">
-      <Filter>Header Files\Param</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Param\GParamBucket.h">
-      <Filter>Header Files\Param</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Param\GParamBucketTreeWidget.h">
-      <Filter>Header Files\Param</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Param\GParamBucketWidget.h">
-      <Filter>Header Files\Param</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Param\GParamDouble.h">
-      <Filter>Header Files\Param</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Param\GParamDoubleSettingWidget.h">
-      <Filter>Header Files\Param</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Param\GParamInt.h">
-      <Filter>Header Files\Param</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Param\GParamLabel.h">
-      <Filter>Header Files\Param</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Param\GParamListModel.h">
-      <Filter>Header Files\Param</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Param\GParamManager.h">
-      <Filter>Header Files\Param</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Param\GParamNum.h">
-      <Filter>Header Files\Param</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Param\GParamSettingsWidget.h">
-      <Filter>Header Files\Param</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Param\GParamString.h">
-      <Filter>Header Files\Param</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Param\GSingleParamBucket.h">
-      <Filter>Header Files\Param</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Param\GSingleParamBucketWidget.h">
-      <Filter>Header Files\Param</Filter>
-    </CustomBuild>
-    <CustomBuild Include="ToolBox\GInteractiveObject.h">
-      <Filter>Header Files\ToolBox</Filter>
-    </CustomBuild>
-    <CustomBuild Include="ToolBox\GObjectFactory.h">
-      <Filter>Header Files\ToolBox</Filter>
-    </CustomBuild>
-    <CustomBuild Include="ToolBox\GPrivateQObjectInGSerializable.h">
-      <Filter>Header Files\ToolBox</Filter>
-    </CustomBuild>
-    <CustomBuild Include="ToolBox\GSerializable.h">
-      <Filter>Header Files\ToolBox</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Device\GDevice.h">
-      <Filter>Header Files\Device</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Device\GDeviceCommand.h">
-      <Filter>Header Files\Device</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Device\GDeviceListModel.h">
-      <Filter>Header Files\Device</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Device\GDeviceManager.h">
-      <Filter>Header Files\Device</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Device\GDeviceMimeData.h">
-      <Filter>Header Files\Device</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Device\GDevicePlugin.h">
-      <Filter>Header Files\Device</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Device\GDeviceShelf.h">
-      <Filter>Header Files\Device</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Device\GDeviceWidget.h">
-      <Filter>Header Files\Device</Filter>
+      <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="Device\GHardDevice.h">
-      <Filter>Header Files\Device</Filter>
+      <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="Device\GMotor.h">
-      <Filter>Header Files\Device</Filter>
+    <CustomBuild Include="Param\GIntSpinBox.h">
+      <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="Device\GNumericCopier.h">
-      <Filter>Header Files\Device</Filter>
+    <CustomBuild Include="ToolBox\GInteractiveObject.h">
+      <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="Device\GParamCreator.h">
-      <Filter>Header Files\Device</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Device\GProgDevice.h">
-      <Filter>Header Files\Device</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Device\GServoMotor.h">
-      <Filter>Header Files\Device</Filter>
-    </CustomBuild>
-    <CustomBuild Include="TheLab\GBenchDockWidget.h">
-      <Filter>Header Files\TheLab</Filter>
-    </CustomBuild>
-    <CustomBuild Include="TheLab\GLabCommand.h">
-      <Filter>Header Files\TheLab</Filter>
-    </CustomBuild>
+    <ClInclude Include="TheLab\GLabCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <CustomBuild Include="TheLab\GLabControlPanel.h">
-      <Filter>Header Files\TheLab</Filter>
-    </CustomBuild>
-    <CustomBuild Include="TheLab\GWorkBench.h">
-      <Filter>Header Files\TheLab</Filter>
+      <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="Script\GMathScriptEngine.h">
-      <Filter>Header Files\Script</Filter>
+      <Filter>Header Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="Device\GMotor.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Device\GNumericCopier.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <ClInclude Include="ToolBox\GObjectFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <CustomBuild Include="Param\GParam.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Param\GParamBool.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Param\GParamBucket.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Param\GParamBucketTreeWidget.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Param\GParamBucketWidget.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Device\GParamCreator.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Param\GParamDouble.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Param\GParamDoubleSettingWidget.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Param\GParamInt.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Param\GParamLabel.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Param\GParamListModel.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Param\GParamManager.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Param\GParamNum.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Param\GParamSettingsWidget.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Param\GParamString.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ToolBox\GPrivateQObjectInGSerializable.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Device\GProgDevice.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <ClInclude Include="ToolBox\GSerializable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <CustomBuild Include="Device\GServoMotor.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Param\GSingleParamBucket.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Param\GSingleParamBucketWidget.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="TheLab\GWorkBench.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <ClInclude Include="TheLab\GWorkBenchManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\ScriptFunctions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="labexe.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="labexe_global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
     <CustomBuild Include="Logger\GDataLogger.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
@@ -718,8 +437,28 @@
     <CustomBuild Include="TheLab\GWorkBench.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="mainpage.h">
-      <Filter>Resource Files</Filter>
-    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GeneratedFiles\ui_GDataLogger.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_GDeviceShelf.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_GLabControlPanel.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_GParamDoubleSettingWidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_GParamSettingsWidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_GSequencerWidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_GWorkBench.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

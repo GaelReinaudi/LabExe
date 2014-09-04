@@ -1,127 +1,161 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|Win32">
+    <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release with Debug|Win32">
-      <Configuration>Release with Debug</Configuration>
-      <Platform>Win32</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{766A5C08-549F-4B22-8267-BD1A120B85C1}</ProjectGuid>
+    <ProjectGuid>{55D3D242-6109-300A-9B90-B9B976A9EDB8}</ProjectGuid>
     <RootNamespace>LabExeOptimizing</RootNamespace>
     <Keyword>Qt4VSv1.0</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <PlatformToolSet>v120</PlatformToolSet>
+    <OutputDirectory>..\..\bin\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <PlatformToolset>v110</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <IntermediateDirectory>GeneratedFiles\Obj\</IntermediateDirectory>
+    <PrimaryOutput>LabExeOptimizing</PrimaryOutput>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <PlatformToolSet>v120</PlatformToolSet>
+    <OutputDirectory>..\..\bin\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <PlatformToolset>v110</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <IntermediateDirectory>GeneratedFiles\Obj\</IntermediateDirectory>
+    <PrimaryOutput>LabExeOptimizing_D</PrimaryOutput>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <PlatformToolset>v110</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <ImportGroup Label="ExtensionSettings">
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <_ProjectFileVersion>11.0.50727.1</_ProjectFileVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)..\bin\</OutDir>
-    <IntDir>$(Configuration)\</IntDir>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)..\bin\</OutDir>
-    <IntDir>$(Configuration)\</IntDir>
-    <LinkIncremental />
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">
-    <OutDir>$(SolutionDir)..\bin\</OutDir>
-    <IntDir>$(Configuration)\</IntDir>
-    <LinkIncremental>false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">LabExeOptimizing</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">LabExeOptimizing_D</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</IgnoreImportLibrary>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalOptions>/MP5 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>.\..\..\include\eo;.\..\..\include;.\..\..\src;.\GeneratedFiles;$(QTDIR)\include;.\GeneratedFiles\$(Configuration);$(QTDIR)\include\qtmain;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>UNICODE;WIN32;QT_LARGEFILE_SUPPORT;QT_THREAD_SUPPORT;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;LABEXEOPTIMIZING_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\include\eo;..\..\include;..\..\src;GeneratedFiles;.;$(QTDIR)\include;$(QTDIR)\include\QtPrintSupport;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtConcurrent;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtCore;GeneratedFiles;GeneratedFiles;$(QTDIR)\mkspecs\win32-msvc2013;.\GeneratedFiles;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zm200 -w34100 -w34189 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>GeneratedFiles\Obj\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;LABEXEOPTIMIZING_LIB;QT_NO_DEBUG;QT_PRINTSUPPORT_LIB;QT_WIDGETS_LIB;QT_CONCURRENT_LIB;QT_GUI_LIB;QT_CORE_LIB;QT_OPENGL_ES_2;QT_OPENGL_ES_2_ANGLE;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat />
     </ClCompile>
     <Link>
-      <AdditionalDependencies>labexe.lib;qtmain.lib;QtCore4.lib;QtGui4.lib;eo.lib;eoutils.lib;es.lib;ga.lib;cma.lib;libnlopt-0.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
-      <AdditionalLibraryDirectories>$(QTDIR)\lib;..\..\lib;..\..\bin;..\..\lib\eo;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>.\..\..\bin\labexe.lib;.\..\..\lib\eo\eo.lib;.\..\..\lib\eo\eoutils.lib;.\..\..\lib\eo\es.lib;.\..\..\lib\eo\ga.lib;.\..\..\lib\eo\cma.lib;.\..\..\lib\libnlopt-0.lib;$(QTDIR)\lib\Qt5PrintSupport.lib;$(QTDIR)\lib\Qt5Widgets.lib;$(QTDIR)\lib\Qt5Concurrent.lib;$(QTDIR)\lib\Qt5Gui.lib;$(QTDIR)\lib\Qt5Core.lib;libEGL.lib;libGLESv2.lib;gdi32.lib;user32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;.\..\..\lib;.\..\..\bin;.\..\..\lib\eo;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkDLL>true</LinkDLL>
+      <LinkIncremental>false</LinkIncremental>
+      <OutputFile>$(OutDir)\LabExeOptimizing.dll</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
     </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;LABEXEOPTIMIZING_LIB;QT_NO_DEBUG;QT_PRINTSUPPORT_LIB;QT_WIDGETS_LIB;QT_CONCURRENT_LIB;QT_GUI_LIB;QT_CORE_LIB;QT_OPENGL_ES_2;QT_OPENGL_ES_2_ANGLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalOptions>/MP5 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>..\..\include\eo;..\..\include;..\..\src;GeneratedFiles;.;$(QTDIR)\include;$(QTDIR)\include\QtPrintSupport;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtConcurrent;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtCore;GeneratedFiles;GeneratedFiles;$(QTDIR)\mkspecs\win32-msvc2013;.\GeneratedFiles;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zm200 -w34100 -w34189 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>GeneratedFiles\Obj\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>.\..\..\include\eo;.\..\..\include;.\..\..\src;.\GeneratedFiles;$(QTDIR)\include;.\GeneratedFiles\$(Configuration);$(QTDIR)\include\qtmain;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>UNICODE;WIN32;QT_LARGEFILE_SUPPORT;QT_THREAD_SUPPORT;QT_CORE_LIB;QT_GUI_LIB;LABEXEOPTIMIZING_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;LABEXEOPTIMIZING_LIB;QT_PRINTSUPPORT_LIB;QT_WIDGETS_LIB;QT_CONCURRENT_LIB;QT_GUI_LIB;QT_CORE_LIB;QT_OPENGL_ES_2;QT_OPENGL_ES_2_ANGLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>labexe_D.lib;qtmaind.lib;QtCored4.lib;QtGuid4.lib;eo_d.lib;eoutils_d.lib;es_d.lib;ga_d.lib;cma_d.lib;libnlopt-0.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName)_D.dll</OutputFile>
-      <AdditionalLibraryDirectories>$(QTDIR)\lib;..\..\lib;..\..\bin;..\..\lib\eo;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>.\..\..\bin\labexe_D.lib;.\..\..\lib\eo\eo_d.lib;.\..\..\lib\eo\eoutils_d.lib;.\..\..\lib\eo\es_d.lib;.\..\..\lib\eo\ga_d.lib;.\..\..\lib\eo\cma_d.lib;.\..\..\lib\libnlopt-0.lib;$(QTDIR)\lib\Qt5PrintSupportd.lib;$(QTDIR)\lib\Qt5Widgetsd.lib;$(QTDIR)\lib\Qt5Concurrentd.lib;$(QTDIR)\lib\Qt5Guid.lib;$(QTDIR)\lib\Qt5Cored.lib;libEGLd.lib;libGLESv2d.lib;gdi32.lib;user32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;.\..\..\lib;.\..\..\bin;.\..\..\lib\eo;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkDLL>true</LinkDLL>
+      <OutputFile>$(OutDir)\LabExeOptimizing_D.dll</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
     </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">
-    <ClCompile>
-      <AdditionalOptions>/MP5 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>.\..\..\include\eo;.\..\..\include;.\..\..\src;.\GeneratedFiles;$(QTDIR)\include;.\GeneratedFiles\$(Configuration);$(QTDIR)\include\qtmain;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>UNICODE;WIN32;QT_LARGEFILE_SUPPORT;QT_THREAD_SUPPORT;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;LABEXEOPTIMIZING_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
-      <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>labexe_RD.lib;qtmain.lib;QtCore4.lib;QtGui4.lib;eo.lib;eoutils.lib;es.lib;ga.lib;cma.lib;libnlopt-0.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
-      <AdditionalLibraryDirectories>$(QTDIR)\lib;..\..\lib;..\..\bin;..\..\lib\eo;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;LABEXEOPTIMIZING_LIB;QT_PRINTSUPPORT_LIB;QT_WIDGETS_LIB;QT_CONCURRENT_LIB;QT_GUI_LIB;QT_CORE_LIB;QT_OPENGL_ES_2;QT_OPENGL_ES_2_ANGLE;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GeneratedFiles\moc_GEoEvalFunctor.cpp" />
+    <ClCompile Include="GeneratedFiles\moc_GEoGeneticAlgorithm.cpp" />
+    <ClCompile Include="GeneratedFiles\moc_GEoGeneticAlgorithmWidget.cpp" />
+    <ClCompile Include="GeneratedFiles\moc_GNLOptAlgorithm.cpp" />
+    <ClCompile Include="GeneratedFiles\moc_GOptimizationAlgorithm.cpp" />
+    <ClCompile Include="GeneratedFiles\moc_GOptimizer.cpp" />
+    <ClCompile Include="GeneratedFiles\moc_GOptimizingBench.cpp" />
+    <ClCompile Include="GeneratedFiles\moc_GOptimizingWidget.cpp" />
     <ClCompile Include="GEoEvalFunctor.cpp" />
     <ClCompile Include="GEoGeneticAlgorithm.cpp" />
     <ClCompile Include="GEoGeneticAlgorithmWidget.cpp" />
@@ -131,292 +165,122 @@
     <ClCompile Include="GOptimizingBench.cpp" />
     <ClCompile Include="GOptimizingWidget.cpp" />
     <ClCompile Include="labexeoptimizing.cpp" />
-    <ClCompile Include="GeneratedFiles\Release\moc_GEoEvalFunctor.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GEoGeneticAlgorithm.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GEoGeneticAlgorithmWidget.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GNLOptAlgorithm.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GOptimizationAlgorithm.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GOptimizer.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GOptimizingBench.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GOptimizingWidget.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GEoEvalFunctor.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GEoGeneticAlgorithm.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GEoGeneticAlgorithmWidget.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GNLOptAlgorithm.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GOptimizationAlgorithm.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GOptimizer.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GOptimizingBench.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GOptimizingWidget.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GEoEvalFunctor.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GEoGeneticAlgorithm.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GEoGeneticAlgorithmWidget.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GNLOptAlgorithm.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GOptimizationAlgorithm.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GOptimizer.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GOptimizingBench.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release with Debug\moc_GOptimizingWidget.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="GEoEvalFunctor.h">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GEoEvalFunctor.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEOPTIMIZING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">Moc%27ing GEoEvalFunctor.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEOPTIMIZING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEOPTIMIZING_LIB -DQT_NO_DEBUG -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -DQT_CONCURRENT_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -D_WINDLL  "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtPrintSupport" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtConcurrent" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing GEoEvalFunctor.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEOPTIMIZING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEOPTIMIZING_LIB -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -DQT_CONCURRENT_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_WINDLL  "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtPrintSupport" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtConcurrent" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GEoEvalFunctor.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="GEoGeneticAlgorithm.h">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GEoGeneticAlgorithm.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEOPTIMIZING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">Moc%27ing GEoGeneticAlgorithm.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEOPTIMIZING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEOPTIMIZING_LIB -DQT_NO_DEBUG -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -DQT_CONCURRENT_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -D_WINDLL  "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtPrintSupport" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtConcurrent" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing GEoGeneticAlgorithm.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEOPTIMIZING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEOPTIMIZING_LIB -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -DQT_CONCURRENT_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_WINDLL  "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtPrintSupport" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtConcurrent" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GEoGeneticAlgorithm.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="GEoGeneticAlgorithmWidget.h">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GEoGeneticAlgorithmWidget.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEOPTIMIZING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">Moc%27ing GEoGeneticAlgorithmWidget.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEOPTIMIZING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEOPTIMIZING_LIB -DQT_NO_DEBUG -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -DQT_CONCURRENT_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -D_WINDLL  "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtPrintSupport" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtConcurrent" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing GEoGeneticAlgorithmWidget.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEOPTIMIZING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEOPTIMIZING_LIB -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -DQT_CONCURRENT_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_WINDLL  "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtPrintSupport" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtConcurrent" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GEoGeneticAlgorithmWidget.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="GNLOptAlgorithm.h">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GNLOptAlgorithm.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEOPTIMIZING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">Moc%27ing GNLOptAlgorithm.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEOPTIMIZING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEOPTIMIZING_LIB -DQT_NO_DEBUG -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -DQT_CONCURRENT_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -D_WINDLL  "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtPrintSupport" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtConcurrent" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing GNLOptAlgorithm.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEOPTIMIZING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEOPTIMIZING_LIB -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -DQT_CONCURRENT_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_WINDLL  "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtPrintSupport" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtConcurrent" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GNLOptAlgorithm.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="GOptimizationAlgorithm.h">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GOptimizationAlgorithm.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEOPTIMIZING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">Moc%27ing GOptimizationAlgorithm.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEOPTIMIZING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEOPTIMIZING_LIB -DQT_NO_DEBUG -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -DQT_CONCURRENT_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -D_WINDLL  "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtPrintSupport" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtConcurrent" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing GOptimizationAlgorithm.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEOPTIMIZING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEOPTIMIZING_LIB -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -DQT_CONCURRENT_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_WINDLL  "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtPrintSupport" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtConcurrent" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GOptimizationAlgorithm.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="GOptimizer.h">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GOptimizer.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEOPTIMIZING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">Moc%27ing GOptimizer.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEOPTIMIZING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEOPTIMIZING_LIB -DQT_NO_DEBUG -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -DQT_CONCURRENT_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -D_WINDLL  "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtPrintSupport" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtConcurrent" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing GOptimizer.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEOPTIMIZING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEOPTIMIZING_LIB -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -DQT_CONCURRENT_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_WINDLL  "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtPrintSupport" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtConcurrent" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GOptimizer.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="GOptimizingBench.h">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GOptimizingBench.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEOPTIMIZING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">Moc%27ing GOptimizingBench.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEOPTIMIZING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEOPTIMIZING_LIB -DQT_NO_DEBUG -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -DQT_CONCURRENT_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -D_WINDLL  "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtPrintSupport" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtConcurrent" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing GOptimizingBench.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEOPTIMIZING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEOPTIMIZING_LIB -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -DQT_CONCURRENT_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_WINDLL  "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtPrintSupport" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtConcurrent" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GOptimizingBench.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="GOptimizingWidget.h">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GOptimizingWidget.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEOPTIMIZING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">Moc%27ing GOptimizingWidget.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEOPTIMIZING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEOPTIMIZING_LIB -DQT_NO_DEBUG -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -DQT_CONCURRENT_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -DNDEBUG -D_WINDLL  "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtPrintSupport" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtConcurrent" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing GOptimizingWidget.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_THREAD_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DLABEXEOPTIMIZING_LIB -D_WINDLL -D_MBCS "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(Configuration)\." "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I."
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(Configuration)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DLABEXEOPTIMIZING_LIB -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -DQT_CONCURRENT_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_WINDLL  "-I.\..\..\include\eo" "-I.\..\..\include" "-I.\..\..\src" "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtPrintSupport" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtConcurrent" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GOptimizingWidget.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\moc_%(Filename).cpp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
+    <ClInclude Include="GeneratedFiles\ui_GEoGeneticAlgorithmWidget.h" />
+    <ClInclude Include="GeneratedFiles\ui_GOptimizingWidget.h" />
     <ClInclude Include="labexeoptimizing.h" />
     <ClInclude Include="labexeoptimizing_global.h" />
-    <ClInclude Include="GeneratedFiles\ui_GEoGeneticAlgorithmWidget.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="GEoGeneticAlgorithmWidget.ui">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Filename)%(Extension)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">Uic%27ing %(Filename)%(Extension)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Filename)%(Extension)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"
-</Command>
+      <FileType>Document</FileType>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
     </CustomBuild>
     <CustomBuild Include="GOptimizingWidget.ui">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Filename)%(Extension)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">Uic%27ing %(Filename)%(Extension)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"
-</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release with Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Filename)%(Extension)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"
-</Command>
+      <FileType>Document</FileType>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
     </CustomBuild>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\labexe.vcxproj">
-      <Project>{2fbb956b-1698-49e7-acd5-5d9700b1c0fb}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets">
-  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties lupdateOnBuild="0" MocDir=".\GeneratedFiles\$(ConfigurationName)" MocOptions="" QtVersion_x0020_Win32="$(DefaultQtVersion)" RccDir=".\GeneratedFiles" UicDir=".\GeneratedFiles" />
+      <UserProperties UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" Qt5Version_x0020_Win32="msvc2013_64" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
