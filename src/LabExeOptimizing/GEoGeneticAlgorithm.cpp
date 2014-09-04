@@ -4,7 +4,6 @@
 #include "GEoGeneticAlgorithmWidget.h"
 
 #include <QtConcurrent>
-#include <QDebug>
 
 GEoGeneticAlgorithm::GEoGeneticAlgorithm(GOptimizer* parentOptimizer)
 	: GOptimizationAlgorithm(parentOptimizer)

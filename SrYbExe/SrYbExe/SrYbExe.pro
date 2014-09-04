@@ -1,7 +1,8 @@
 TEMPLATE = app
 DESTDIR = ../../bin
+TARGET = WinLabExe
 
-QT += core gui widgets testlib
+QT += core gui widgets
 
 INCLUDEPATH += \
 	./../../../LabExe/src \
@@ -12,23 +13,19 @@ INCLUDEPATH += \
 LIBS += \
 	-L"./../../../LabExe/lib" \
 	-L"./../../../LabExe/bin" \
-#	-L"./../../../MapExe/lib" \
-#	-L"./../../../MapExe/bin" \
 	-L"."
 
 CONFIG(debug, debug|release) {
 	LIBS += -llabexe_D \
 	-lLabExeImaging_D \
 	-lLabExeOptimizing_D \
-#	-lLabExeGraphicsMap_D \
-#	-lLabExeSequencer_D
 } else {
 	LIBS += -llabexe \
 	-lLabExeImaging \
 	-lLabExeOptimizing \
-#	-lLabExeGraphicsMap \
-#	-lLabExeSequencer
 }
+
+RC_FILE = SrYbExe.rc
 
 MOC_DIR += ./GeneratedFiles
 OBJECTS_DIR += ./GeneratedFiles/Obj
