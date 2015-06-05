@@ -23,6 +23,8 @@ public:
 	GImageDouble(const QImage & image, bool fillDoubleArrayFromQImage = true);
 	//! construct an image from a GImageDouble. increments the counter of the shared DoubleArray().
 	GImageDouble(const GImageDouble & image);
+	//! (Bart 2015-06-02) Constructor that uses memory of UEye camera to directly fill DoubleArray, to allow more than 8 bits. (QImage limited to 8 bits). DOESN'T WORK. 
+	//GImageDouble(char* pPix, int theWidth, int theHeight, int bytePerLine, int bitsPPixel);
 	//! destructor
 	~GImageDouble();
 
@@ -39,6 +41,8 @@ public:
 	GImageDouble DataShifted(QPoint translation) const;
 	//! Fills the QImage (integer values) using the DoubleArray() and mapping the 0 to 255 scale using the range (RailDownForQImage to RailUp255ForQImage)
 	void FillQimageFromUsingDoubleArray( double RailDownForQImage, double RailUp255ForQImage );
+	//! Fills the QImage (integer values) using the DoubleArray() and mapping the 0 to 255 scale assuming DoubleArray values came from a certain bit depth. 2015-06-03 Bart.
+	//void FillQimageFromUsingDoubleArrayAndBitDepth( int BitDepth );
 	//! Returns the double pixel value at the point (xPos, yPos).
 	double PixelAt( int xPos, int yPos ) const;
 
@@ -51,6 +55,7 @@ private:
 	QSharedPointer<GDoubleArray> m_pSharedArray;
 	//! Date and time the picture was created
 	QDateTime m_DateTimeCreated;
+	//int m_ImportedBitDepthPerPixel;//2015-06-03 added by Bart. Use to keep track of bit depth of imported data.
 };
 
 #endif // GIMAGEDOUBLE_H

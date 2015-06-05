@@ -19,15 +19,20 @@ GImageGraphicsScene::~GImageGraphicsScene()
 }
 
 void GImageGraphicsScene::SetImage(QImage image)
-{
-	image.setColorTable(m_ColorTable);
+{	//qDebug()<<"Bart testing QImage";
+	image.setColorTable(m_ColorTable);	
 
 	setBackgroundBrush(QBrush::QBrush(image));
 	setSceneRect(0, 0, image.width(), image.height());
 }
 
 void GImageGraphicsScene::SetImage( GImageDouble image )
-{
+{	//qDebug()<<"Bart testing QImageDouble";
+	//old version
+	//SetImage((QImage)image);
+	//m_CurrentImage = image;
+	//new version
+	//image.FillQimageFromUsingDoubleArray(0,4095);
 	SetImage((QImage)image);
 	m_CurrentImage = image;
 }

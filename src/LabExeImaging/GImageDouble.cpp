@@ -1,5 +1,6 @@
 #include "GImageDouble.h"
 #include <QMetaType>
+//#include "qmath.h"//2015-06-03
 
 int idGImageDouble = qRegisterMetaType<GImageDouble>("GImageDouble");
 
@@ -8,6 +9,7 @@ GImageDouble::GImageDouble()
 	, m_DateTimeCreated(QDateTime::currentDateTime())
 {
 	m_pSharedArray = QSharedPointer<GDoubleArray>(new GDoubleArray());
+	//m_ImportedBitDepthPerPixel = 0;//2015-06-03
 }
 
 GImageDouble::GImageDouble( const QImage & image, bool fillDoubleArrayFromQImage /*= true*/)
@@ -31,6 +33,7 @@ GImageDouble::GImageDouble( const QImage & image, bool fillDoubleArrayFromQImage
 			iTot++;
 		}
 	}
+	//m_ImportedBitDepthPerPixel = 8;//2015-06-03
 }
 
 GImageDouble::GImageDouble( int theWidth, int theHeight )
@@ -41,6 +44,7 @@ GImageDouble::GImageDouble( int theWidth, int theHeight )
 	int wid = width();
 	int Npix = wid * hei;
 	m_pSharedArray = QSharedPointer<GDoubleArray>(new GDoubleArray(Npix));
+	//m_ImportedBitDepthPerPixel = 0;//2015-06-03
 }
 
 GImageDouble::GImageDouble( int theWidth, int theHeight, double fillValue )
@@ -55,6 +59,7 @@ GImageDouble::GImageDouble( int theWidth, int theHeight, double fillValue )
 		(*pArr)[i] = fillValue;
 	}
 	m_pSharedArray = QSharedPointer<GDoubleArray>(pArr);
+	//m_ImportedBitDepthPerPixel = 0;//2015-06-03
 }
 
 GImageDouble::GImageDouble( const GImageDouble & image )
@@ -62,7 +67,16 @@ GImageDouble::GImageDouble( const GImageDouble & image )
 	, m_DateTimeCreated(image.m_DateTimeCreated)
 {
 	m_pSharedArray = image.m_pSharedArray;
+	//m_ImportedBitDepthPerPixel = 8;//2015-06-03
 }
+
+/*GImageDouble::GImageDouble( char* pPix, int theWidth, int theHeight, int bytePerLine, int bitsPPixel)
+	: QImage(theWidth, theHeight, QImage::Format_Indexed8)
+	, m_DateTimeCreated(QDateTime::currentDateTime())
+{
+	//Empty because can't do this -- can't pass char* here from GUEyeImageDistributor:BufferToTreat().
+	//qDebug()<<"Hey I was called!";
+}*/
 
 GImageDouble & GImageDouble::operator=( const GImageDouble & image )
 {
@@ -164,7 +178,8 @@ void GImageDouble::FillQimageFromUsingDoubleArray( double RailDownForQImage, dou
 	int hei = height();
 	int wid = width();
 	int Npix = wid * hei;
-
+	
+	//2015-06-03 Gael's original way to do this: Not sure this works with DoubleArray data from 12-bit images.
 	double* pDoubleArray = DoubleArray().data();
 	int iTot = 0;
 	for(int jLine = 0; jLine < hei; jLine++) {
@@ -179,12 +194,47 @@ void GImageDouble::FillQimageFromUsingDoubleArray( double RailDownForQImage, dou
 			iTot++;
 		}
 	}
+	//m_ImportedBitDepthPerPixel = qLn(RailDownForQImage+1)/qLn(2);//2015-06-03
 }
+
+/////////////////////////////////////////////////////////////////////
+/*!
+Fill the underlying QImage that is usually used for displaying the image.
+\return: void : 
+\param:  double RailDownForQImage : the value of the optical density that corresponds to the value 0 for the QImage.
+\param:  double RailUp255ForQImage : the value of the optical density that corresponds to the value 255 for the QImage.
+*////////////////////////////////////////////////////////////////////
+/*void GImageDouble::FillQimageFromUsingDoubleArrayAndBitDepth( int BitDepth )
+{
+	int hei = height();
+	int wid = width();
+	int Npix = wid * hei;
+	m_ImportedBitDepthPerPixel = BitDepth;
+	double MaxVal = 255;//double(qPow(2,BitDepth)-1);//255 for 8-bit, 4095 for 12-bit.
+
+
+	//2015-06-03 New way to do this: 
+	double* pDoubleArray = DoubleArray().data();
+	int iTot = 0;
+	for(int jLine = 0; jLine < hei; jLine++) {
+		uchar* scanL = scanLine(jLine);
+		for(int iCol = 0; iCol < wid; iCol++) {
+			if(pDoubleArray[iTot] <= 0)
+				scanL[iCol] = 0.0;
+			else if(pDoubleArray[iTot] >= MaxVal)
+				scanL[iCol] = MaxVal;
+			else
+				scanL[iCol] = pDoubleArray[iTot]*255.0/MaxVal;
+			iTot++;
+		}
+	}
+	
+}*/
 
 double GImageDouble::PixelAt( int xPos, int yPos ) const
 {
 	double valRet;
-	double* pDoubleArray = DoubleArray().data();
+	double* pDoubleArray = DoubleArray().data();//is this line needed?
 	int indexArray = xPos + yPos * width();
 	if(indexArray < DoubleArray().count())
 		valRet = DoubleArray().value(indexArray);
