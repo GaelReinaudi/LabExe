@@ -6,7 +6,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SrYbExe", "SrYbExe\SrYbExe.
 		{766A5C08-549F-4B22-8267-BD1A120B85C1} = {766A5C08-549F-4B22-8267-BD1A120B85C1}
 		{65429E2D-EFC3-443F-9AF7-FCC6501F4D63} = {65429E2D-EFC3-443F-9AF7-FCC6501F4D63}
 		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-		{70DCD992-D850-4017-85D2-5E6E256255B5} = {70DCD992-D850-4017-85D2-5E6E256255B5}
 		{2513C7AD-2D4C-429B-B84D-C01FE91A614F} = {2513C7AD-2D4C-429B-B84D-C01FE91A614F}
 	EndProjectSection
 EndProject
@@ -203,11 +202,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlotYPlugin", "..\..\LabExe
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TimerPlugin", "..\..\LabExe-UserPlugins\SoftwarePlugins\TimerPlugin\TimerPlugin.vcproj", "{3DAD837D-9F96-4047-A319-0AED3B56511D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LabExeGraphicsMap", "..\..\MapExe\src\LabExeGraphicsMap.vcproj", "{70DCD992-D850-4017-85D2-5E6E256255B5}"
 	ProjectSection(ProjectDependencies) = postProject
 		{2FBB956B-1698-49E7-ACD5-5D9700B1C0FB} = {2FBB956B-1698-49E7-ACD5-5D9700B1C0FB}
 	EndProjectSection
@@ -663,18 +657,6 @@ Global
 		{3DAD837D-9F96-4047-A319-0AED3B56511D}.Release|Win32.ActiveCfg = Release|Win32
 		{3DAD837D-9F96-4047-A319-0AED3B56511D}.Release|Win32.Build.0 = Release|Win32
 		{3DAD837D-9F96-4047-A319-0AED3B56511D}.Release|x64.ActiveCfg = Release|Win32
-		{70DCD992-D850-4017-85D2-5E6E256255B5}.Debug No Plugins|Win32.ActiveCfg = Debug|Win32
-		{70DCD992-D850-4017-85D2-5E6E256255B5}.Debug No Plugins|Win32.Build.0 = Debug|Win32
-		{70DCD992-D850-4017-85D2-5E6E256255B5}.Debug No Plugins|x64.ActiveCfg = Debug|Win32
-		{70DCD992-D850-4017-85D2-5E6E256255B5}.Debug|Win32.ActiveCfg = Debug|Win32
-		{70DCD992-D850-4017-85D2-5E6E256255B5}.Debug|Win32.Build.0 = Debug|Win32
-		{70DCD992-D850-4017-85D2-5E6E256255B5}.Debug|x64.ActiveCfg = Debug|Win32
-		{70DCD992-D850-4017-85D2-5E6E256255B5}.Release with Debug|Win32.ActiveCfg = Release with Debug|Win32
-		{70DCD992-D850-4017-85D2-5E6E256255B5}.Release with Debug|Win32.Build.0 = Release with Debug|Win32
-		{70DCD992-D850-4017-85D2-5E6E256255B5}.Release with Debug|x64.ActiveCfg = Release with Debug|Win32
-		{70DCD992-D850-4017-85D2-5E6E256255B5}.Release|Win32.ActiveCfg = Release|Win32
-		{70DCD992-D850-4017-85D2-5E6E256255B5}.Release|Win32.Build.0 = Release|Win32
-		{70DCD992-D850-4017-85D2-5E6E256255B5}.Release|x64.ActiveCfg = Release|Win32
 		{2FE5A1ED-A914-40BC-8FFD-7599ADA43A44}.Debug No Plugins|Win32.ActiveCfg = Debug|Win32
 		{2FE5A1ED-A914-40BC-8FFD-7599ADA43A44}.Debug No Plugins|Win32.Build.0 = Debug|Win32
 		{2FE5A1ED-A914-40BC-8FFD-7599ADA43A44}.Debug No Plugins|x64.ActiveCfg = Debug|Win32
@@ -766,7 +748,7 @@ Global
 		{2F12D92B-76C5-40D5-8CA1-6A29FDDD305D} = {BB1F5885-8E0B-4B01-B6F1-A72599FC97D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		QtVersion = $(DefaultQtVersion)
 		BuildVersion_UpdateFileVersion = True
+		QtVersion = $(DefaultQtVersion)
 	EndGlobalSection
 EndGlobal

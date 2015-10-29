@@ -1,0 +1,147 @@
+[General]
+WorkBench-Type=GImagingBench
+objectName=Side raw images
+isVisible=true
+Dynamic-Docks=GBenchDockWidget-c5fb8c4.151027.182746, GBenchDockWidget-c32244c.151027.182746, GBenchDockWidget-c31c19c.151027.182746, GBenchDockWidget-c31c2bc.151027.182746, GBenchDockWidget-c31bf0c.151027.182746
+center-point=@Variant(\0\0\0\x1a@y@\0\0\0\0\0@\x7f\xf0\0\0\0\0\0)
+
+[BenchDevices]
+NumberBenchDevices=5
+m_BenchDevices=UI214xSE-M R3-4102778657, GImageSaver-dc26fe0.150730.144843, GImagePixelAdder-bf05010.151026.134015, GPlotY-c1eb010.151026.134051, GImageSaver-b8f5438.151026.134805
+
+[UI214xSE-M%20R3-4102778657]
+BenchDockID=GBenchDockWidget-c5fb8c4.151027.182746
+DateAdded=2015-07-30T14:29:50
+ID=UI214xSE-M R3-4102778657
+Class=GUeyeCamera
+Parent-Device-ID=uEye Camera Manager
+Name=UI214xSE-M R3-4102778657
+UI214xSE-M%20R3-4102778657%28Exposure%20%5Bms%5D\v=0.45
+UI214xSE-M%20R3-4102778657%28Gain%20factor\v=1
+UI214xSE-M%20R3-4102778657%28Hardware%20trigger\v=false
+UI214xSE-M%20R3-4102778657%28Pixel%20%5B%B5m%5D\v=0
+UI214xSE-M%20R3-4102778657%28Pix%20clock%20%5BMHz%5D\v=24
+Acquire\NoParentSerializable%28Continuous%20shot\v=true
+Processor\ID=GUeyeImageDistributor-c368c08.151027.182746
+Processor\Class=GUeyeImageDistributor
+Processor\Parent-Device-ID=UI214xSE-M R3-4102778657
+Processor\Name=
+Processor\AoiRect=@Variant(\0\0\0\x14@r\x80\0\0\0\0\0@Z\x80\0\0\0\0\0@\x82\xc0\0\0\0\0\0@\x82\xc0\0\0\0\0\0)
+Processor\GUeyeImageDistributor-c368c08.151027.182746%28Enable\v=false
+Processor\GUeyeImageDistributor-c368c08.151027.182746%28Show\v=false
+
+[GImageSaver-dc26fe0.150730.144843]
+BenchDockID=GBenchDockWidget-c32244c.151027.182746
+DateAdded=2015-07-30T14:48:43
+ID=GImageSaver-dc26fe0.150730.144843
+Class=GImageSaver
+Parent-Device-ID=
+Name=GImageSaver-11
+GImageSaver-dc26fe0.150730.144843%28Enable\v=false
+GImageSaver-dc26fe0.150730.144843%28Show\v=true
+GImageSaver-dc26fe0.150730.144843%28Also%20save%20doubles%3F%20%28HUGE%20FILES%21%29\v=false
+GImageSaver-dc26fe0.150730.144843%28Also%20save%202-byte\px%20raw%20camera%3F\v=true
+AoiRect=@Variant(\0\0\0\x14@h\0\0\0\0\0\0@c\0\0\0\0\0\0@i\0\0\0\0\0\0@D\0\0\0\0\0\0)
+folder=Z:/Data/2015/10-Oct/2015-10-26/Data (with 12bit)/Correction
+
+[GImagePixelAdder-bf05010.151026.134015]
+BenchDockID=GBenchDockWidget-c31c19c.151027.182746
+DateAdded=2015-10-26T13:40:15
+ID=GImagePixelAdder-bf05010.151026.134015
+Class=GImagePixelAdder
+Parent-Device-ID=
+Name=GImagePixelAdder-18
+GImagePixelAdder-bf05010.151026.134015%28Enable\v=true
+GImagePixelAdder-bf05010.151026.134015%28Show\v=true
+GImagePixelAdder-bf05010.151026.134015%28Sum\v=1263059
+GImagePixelAdder-bf05010.151026.134015%28Average\v=31.576475
+GImagePixelAdder-bf05010.151026.134015%28Std.dev.\v=6.77381735614232
+AoiRect=@Variant(\0\0\0\x14@h\0\0\0\0\0\0@s\xe0\0\0\0\0\0@i\0\0\0\0\0\0@i\0\0\0\0\0\0)
+
+[GPlotY-c1eb010.151026.134051]
+BenchDockID=GBenchDockWidget-c31c2bc.151027.182746
+DateAdded=2015-10-26T13:40:51
+ID=GPlotY-c1eb010.151026.134051
+Class=GPlotY
+Parent-Device-ID=
+Name=GPlotY-8
+GPlotY-c1eb010.151026.134051%28Y-axis%20input\params=GImagePixelAdder-bf05010.151026.134015(Average
+GPlotY-c1eb010.151026.134051%28Y-axis%20input\extras\GPlotY-c1eb010.151026.134051%28Y-axis%20input%28Y-axis%20input\v=0
+GPlotY-c1eb010.151026.134051%28Y-axis%20input\extras\GPlotY-c1eb010.151026.134051%28Y-axis%20input%28GImagePixelAdder-bf05010.151026.134015%28Averagetrig\v=true
+GPlotY-c1eb010.151026.134051%28Y-axis%20input\extras\trig=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\x1\x1)
+GPlotY-c1eb010.151026.134051%28Output%20bucket\params=GPlotY-c1eb010.151026.134051(X-axis output, GPlotY-c1eb010.151026.134051(Y-axis output
+GPlotY-c1eb010.151026.134051%28Output%20bucket\extras\GPlotY-c1eb010.151026.134051%28Output%20bucket%28GPlotY-c1eb010.151026.134051%28X-axis%20outputtrig\v=true
+GPlotY-c1eb010.151026.134051%28Output%20bucket\extras\GPlotY-c1eb010.151026.134051%28Output%20bucket%28GPlotY-c1eb010.151026.134051%28Y-axis%20outputtrig\v=true
+GPlotY-c1eb010.151026.134051%28Output%20bucket\extras\trig=true, true
+GPlotY-c1eb010.151026.134051%28Y-axis%20output\v=0
+GPlotY-c1eb010.151026.134051%28X-axis%20output\v=0
+GPlotY-c1eb010.151026.134051%28MaxHistory\v=1000
+GPlotY-c1eb010.151026.134051%28Title\v=
+GPlotY-c1eb010.151026.134051%28LabelX\v=
+GPlotY-c1eb010.151026.134051%28LabelY\v=
+GPlotY-c1eb010.151026.134051%28XIsTime\v=false
+GPlotY-c1eb010.151026.134051%28XWhichTime\v=false
+GPlotY-c1eb010.151026.134051%28AllowMouseRescale\v=false
+GPlotY-c1eb010.151026.134051%28XAutoscale\v=true
+GPlotY-c1eb010.151026.134051%28YAutoscale\v=false
+GPlotY-c1eb010.151026.134051%28YIncludeZero\v=false
+GPlotY-c1eb010.151026.134051%28YSymmetricZero\v=false
+GPlotY-c1eb010.151026.134051%28YMin\v=0
+GPlotY-c1eb010.151026.134051%28YMax\v=3000
+GPlotY-c1eb010.151026.134051%28XMin\v=1
+GPlotY-c1eb010.151026.134051%28XMax\v=100
+GPlotY-c1eb010.151026.134051%28XType\v=false
+GPlotY-c1eb010.151026.134051%28YType\v=false
+GPlotY-c1eb010.151026.134051%28BkgndColor\v=#FFFFFF
+GPlotY-c1eb010.151026.134051%28YColor\v=#0000FF
+GPlotY-c1eb010.151026.134051%28XGridColor\v=#E0E0E0
+GPlotY-c1eb010.151026.134051%28YGridColor\v=#E0E0E0
+GPlotY-c1eb010.151026.134051%28XGridOn\v=true
+GPlotY-c1eb010.151026.134051%28YGridOn\v=true
+GPlotY-c1eb010.151026.134051%28XIsTimeFormat\v=mm:ss
+GPlotY-c1eb010.151026.134051%28Filter%20Y\v=false
+GPlotY-c1eb010.151026.134051%28Filter%20Y%20N\v=10
+GPlotY-c1eb010.151026.134051%28Export%20Delay\v=100
+GPlotY-c1eb010.151026.134051%28External%20N\v=false
+GPlotY-c1eb010.151026.134051%28External%20N%20bucket\params=GPlotY-c1eb010.151026.134051(External N bucket(External N bucket
+GPlotY-c1eb010.151026.134051%28External%20N%20bucket\extras\GPlotY-c1eb010.151026.134051%28External%20N%20bucket%28External%20N%20bucket\v=0
+GPlotY-c1eb010.151026.134051%28External%20N%20bucket\extras\GPlotY-c1eb010.151026.134051%28External%20N%20bucket%28GPlotY-c1eb010.151026.134051%28External%20N%20bucket%28External%20N%20buckettrig\v=true
+GPlotY-c1eb010.151026.134051%28External%20N%20bucket\extras\trig=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\x1\x1)
+
+[GImageSaver-b8f5438.151026.134805]
+BenchDockID=GBenchDockWidget-c31bf0c.151027.182746
+DateAdded=2015-10-26T13:48:05
+ID=GImageSaver-b8f5438.151026.134805
+Class=GImageSaver
+Parent-Device-ID=
+Name=GImageSaver-8
+GImageSaver-b8f5438.151026.134805%28Enable\v=false
+GImageSaver-b8f5438.151026.134805%28Show\v=true
+GImageSaver-b8f5438.151026.134805%28Also%20save%20doubles%3F%20%28HUGE%20FILES%21%29\v=false
+GImageSaver-b8f5438.151026.134805%28Also%20save%202-byte\px%20raw%20camera%3F\v=true
+AoiRect=@Variant(\0\0\0\x14@U \0\0\0\0\0@h\xe0\0\0\0\0\0@zP\0\0\0\0\0@y\0\0\0\0\0\0)
+folder=Z:/Data/2015/10-Oct/2015-10-26/Data (with 12bit)/Raw
+
+[Geometry]
+geometry=@ByteArray(\x1\xd9\xd0\xcb\0\x1\0\0\0\0\x1|\0\0\0\0\0\0\az\0\0\x3t\0\0\x1\x80\0\0\0\x1e\0\0\av\0\0\x3p\0\0\0\x1\0\0)
+windowState=@ByteArray(\0\0\0\xff\0\0\0\0\xfd\0\0\0\x2\0\0\0\0\0\0\0\xc2\0\0\x3?\xfc\x2\0\0\0\x3\xfb\0\0\0\f\0\x44\0o\0\x63\0k\0-\0\x30\x1\0\0\0\x14\0\0\x2)\0\0\0\xe9\0\xff\xff\xff\xfb\0\0\0\f\0\x44\0o\0\x63\0k\0-\0\x34\x1\0\0\x2\x41\0\0\0\x87\0\0\0\x87\0\0\0\x87\xfb\0\0\0\f\0\x44\0o\0\x63\0k\0-\0\x31\x1\0\0\x2\xcc\0\0\0\x87\0\0\0\x87\0\0\0\x87\0\0\0\x1\0\0\x2\xba\0\0\x3?\xfc\x2\0\0\0\x3\xfb\0\0\0\f\0\x44\0o\0\x63\0k\0-\0\x32\x1\0\0\0\x14\0\0\0\x8a\0\0\0\x8a\0\0\0\x8a\xfb\0\0\0\f\0\x44\0o\0\x63\0k\0-\0\x33\x1\0\0\0\xa2\0\0\x2\xb1\0\0\0z\0\xff\xff\xff\xfb\0\0\0\x16\0m\0_\0p\0\x44\0o\0\x63\0k\0U\0n\0\x64\0o\0\0\0\0\0\xff\xff\xff\xff\0\0\0U\0\xff\xff\xff\0\0\x2s\0\0\x3?\0\0\0\x4\0\0\0\x4\0\0\0\b\0\0\0\b\xfc\0\0\0\0)
+
+[GBenchDockWidget-c5fb8c4.151027.182746]
+objectName=Dock-0
+title=UI214xSE-M R3-4102778657
+
+[GBenchDockWidget-c32244c.151027.182746]
+objectName=Dock-1
+title=GImageSaver-11
+
+[GBenchDockWidget-c31c19c.151027.182746]
+objectName=Dock-2
+title=GImagePixelAdder-18
+
+[GBenchDockWidget-c31c2bc.151027.182746]
+objectName=Dock-3
+title=GPlotY-8
+
+[GBenchDockWidget-c31bf0c.151027.182746]
+objectName=Dock-4
+title=GImageSaver-8
