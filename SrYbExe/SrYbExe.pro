@@ -7,7 +7,7 @@ SUBDIRS += \
 	../src/LabExeImaging \
 #	../src/LabExeSequencer \
 	../src/LabExeOptimizing \
-#	../../LabExe-UserPlugins/SoftwarePlugins/DevicePlugins.pro \
+    ../../LabExe-UserPlugins/SoftwarePlugins/SoftwarePlugins.pro \
 #	../../LabExe-UserPlugins/HardwarePlugins/HardwarePlugins.pro \
 	SrYbExe/SrYbExe.pro
 
