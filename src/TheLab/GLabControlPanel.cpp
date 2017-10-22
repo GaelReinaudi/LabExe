@@ -2,7 +2,7 @@
 #include "GWorkBenchManager.h"
 #include "Param/GParamManager.h"
 #include "Param/GParam.h"
-#include "Device/GDeviceManager.h"												
+#include "Device/GDeviceManager.h"
 #include "device.h"
 #include "Device/GDeviceShelf.h"
 #include "ui_GLabControlPanel.h"
@@ -12,6 +12,7 @@
 
 bool m_CloseWorkBenchWhenDeletedFromList = true;
 GLabControlPanel* GLabControlPanel::m_LabInstance = 0;
+QString s_IniFileName;
 
 // #include "Sequencer/GLabSequencer.h"
 
@@ -19,11 +20,23 @@ QTextEdit* pGlobalTextEditToDisplayDebugMessages = 0;
 int NumDebugMessages = 0;
 bool GLabControlPanel::m_AcceptDebugMessages = true;
 
-GLabControlPanel::GLabControlPanel(QWidget *parent)
+GLabControlPanel::GLabControlPanel(QWidget *parent, QString controlPanelIniFilePath)
 	: QMainWindow(parent)
 	, m_DefaultSavingDir(QDir::home())
 	, m_pProgDeviceShelf(new GDeviceShelf(0))
 {
+	if (!controlPanelIniFilePath.isEmpty()) {
+//		WARN() << "loading: " << controlPanelIniFilePath;
+		QFileInfo finf(controlPanelIniFilePath);
+		if (!finf.exists() || finf.isDir()) {
+			qWarning() << "file does not exist: " << controlPanelIniFilePath;
+		}
+		else {
+			s_IniFileName = finf.fileName();
+			m_DefaultSavingDir = finf.dir();
+		}
+
+	}
     ui = new Ui::GLabControlPanelClass();
 	ui->setupUi(this);
 	ui->pMenuView->addAction(DebugDockWidget()->toggleViewAction());
@@ -89,16 +102,17 @@ void GLabControlPanel::InitializeAfterConstructor()
 	m_pDeviceShelf->restoreGeometry(windowSettings.value("shelf-geometry").toByteArray());
 	m_pProgDeviceShelf->restoreGeometry(windowSettings.value("e-shelf-geometry").toByteArray());
 	QString defaultpath = windowSettings.value("default-directory").toString();
-  	if(!defaultpath.isEmpty())
+	if(!defaultpath.isEmpty() && s_IniFileName.isEmpty())
   		m_DefaultSavingDir.setPath(defaultpath);
 
 	// for the e-device shelf, we 
 	m_pProgDeviceShelf->FillWithProgDeviceClasses();
 
 	// load the workbenches by getting the filenames where they are saved
-	QString fileNameControlPanel = strProgramName + "_ControlPanel.ini";
+	QString fileNameControlPanel = !s_IniFileName.isEmpty() ? s_IniFileName : strProgramName + "_ControlPanel.ini";
 
 	QString pathSaveControlPanel = m_DefaultSavingDir.absoluteFilePath(fileNameControlPanel);
+	qDebug() << "pathSaveControlPanel " << pathSaveControlPanel;
 	QSettings panelSettings(pathSaveControlPanel, QSettings::IniFormat);
 
 	RestoreBenches(panelSettings);
@@ -125,10 +139,11 @@ void GLabControlPanel::Save()
 	windowSettings.setValue("state", saveState());
 	windowSettings.setValue("shelf-geometry", m_pDeviceShelf->saveGeometry());
 	windowSettings.setValue("e-shelf-geometry", m_pProgDeviceShelf->saveGeometry());
-	windowSettings.setValue("default-directory", m_DefaultSavingDir.absolutePath());
+	if (s_IniFileName.isEmpty())
+		windowSettings.setValue("default-directory", m_DefaultSavingDir.absolutePath());
 
 	// some settings into a file in the m_DefaultSavingDir
-	QString fileNameControlPanel = strProgramName + "_ControlPanel.ini";
+	QString fileNameControlPanel = !s_IniFileName.isEmpty() ? s_IniFileName : strProgramName + "_ControlPanel.ini";
 	QString pathSaveControlPanel = m_DefaultSavingDir.absoluteFilePath(fileNameControlPanel);
 	QSettings panelSettings(pathSaveControlPanel, QSettings::IniFormat);
 	panelSettings.remove("");
@@ -290,7 +305,7 @@ void GLabControlPanel::DebugMessageHandler(QtMsgType type, const QMessageLogCont
 		 break;
 	 case QtFatalMsg:
 		 pErMess->showMessage(QString("Fatal: %1\n").arg(msg));
-		 abort();
+//		 abort();
 	}
 }
 

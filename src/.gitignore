@@ -3,3 +3,4 @@
 /Release with Debug/
 /Win32/
 /x64/
+*.qmake.stash

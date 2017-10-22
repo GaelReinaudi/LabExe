@@ -8,7 +8,7 @@ class SrYbExe : public GLabControlPanel
 	Q_OBJECT
 
 public:
-    SrYbExe(QWidget *parent = 0, Qt::WindowFlags flags = 0);
+	SrYbExe(QString controlPanelIniFilePath, QWidget *parent = 0, Qt::WindowFlags flags = 0);
 	~SrYbExe();
 
 	//! Re-implemented

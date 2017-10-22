@@ -7,7 +7,7 @@
 #endif
 #ifdef Q_OS_LINUX
 #include "LabExeImaging/labexeimaging.h"
-#include "LabExeSequencer/labexesequencer.h"
+//#include "LabExeSequencer/labexesequencer.h"
 #include "LabExeOptimizing/labexeoptimizing.h"
 #endif
 
@@ -18,8 +18,8 @@ namespace{
 }
 #endif
  
-SrYbExe::SrYbExe(QWidget *parent, Qt::WindowFlags flags)
-	: GLabControlPanel(parent)
+SrYbExe::SrYbExe(QString controlPanelIniFilePath, QWidget *parent, Qt::WindowFlags flags)
+	: GLabControlPanel(parent, controlPanelIniFilePath)
 {
 	Q_UNUSED(flags);
 
@@ -34,7 +34,8 @@ SrYbExe::SrYbExe(QWidget *parent, Qt::WindowFlags flags)
 #endif
 #ifdef Q_OS_LINUX
 	LabExeImaging();
-	LabExeSequencer();
+//	LabExeSequencer();
+	LabExeOptimizing();
 #endif
 
 #ifdef Q_OS_WIN32

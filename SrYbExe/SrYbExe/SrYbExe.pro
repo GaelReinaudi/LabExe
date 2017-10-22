@@ -1,8 +1,8 @@
-TEMPLATE = app
-DESTDIR = ../../bin
 TARGET = WinLabExe
+TEMPLATE = app
 
 QT += core gui widgets
+include($$PWD/../../common.pri)
 
 INCLUDEPATH += \
 	./../../../LabExe/src \
@@ -11,9 +11,7 @@ INCLUDEPATH += \
 	.
 
 LIBS += \
-	-L"./../../../LabExe/lib" \
-	-L"./../../../LabExe/bin" \
-	-L"."
+-L"."
 
 CONFIG(debug, debug|release) {
 	LIBS += -llabexe_D \
@@ -26,10 +24,5 @@ CONFIG(debug, debug|release) {
 }
 
 RC_FILE = SrYbExe.rc
-
-MOC_DIR += ./GeneratedFiles
-OBJECTS_DIR += ./GeneratedFiles/Obj
-UI_DIR += ./GeneratedFiles
-RCC_DIR += ./GeneratedFiles
 
 include(SrYbExe.pri)

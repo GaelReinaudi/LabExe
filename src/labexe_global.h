@@ -2,7 +2,6 @@
 #define LABEXE_GLOBAL_H
 
 #include <qglobal.h>
-#include <QApplication>
 
 #ifdef LABEXE_LIB
 # define LABEXE_EXPORT Q_DECL_EXPORT

@@ -1,4 +1,4 @@
-#include <QtGui>
+#include <QtWidgets>
 
 #include "UserPluginWizard.h"
 #include "GParametersPage.h"
@@ -316,7 +316,7 @@ void OutputFilesPage::initializePage()
 	QString pluginName = field("pluginName").toString();
 	headerLineEdit->setText(pluginName.toLower() + ".h");
 	implementationLineEdit->setText(pluginName.toLower() + ".cpp");
-	outputDirLineEdit->setText(QDir::convertSeparators(QDir::tempPath()));
+	outputDirLineEdit->setText(QDir::toNativeSeparators(QDir::tempPath()));
 }
 //! [17]
 

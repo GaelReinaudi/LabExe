@@ -27,7 +27,7 @@ class LABEXE_EXPORT GLabControlPanel : public QMainWindow//, public GSerializabl
 	Q_OBJECT
 
 public:
-	GLabControlPanel(QWidget *parent = 0);
+	GLabControlPanel(QWidget *parent, QString controlPanelIniFilePath);
 	virtual ~GLabControlPanel();
 
 	//! adds the device on the hardware device shelf
