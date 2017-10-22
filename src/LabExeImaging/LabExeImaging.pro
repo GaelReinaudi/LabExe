@@ -1,10 +1,12 @@
 TEMPLATE = lib
-DESTDIR = ../../bin
 CONFIG(debug, debug|release) {
 	TARGET = $$join(TARGET,,,_D)
 }
 
 QT += core gui widgets
+include($$PWD/../../common.pri)
+
+DEFINES += LABEXEIMAGING_LIB
 
 INCLUDEPATH += \
 	./../../include \
@@ -22,10 +24,4 @@ CONFIG(debug, debug|release) {
 	LIBS += -llabexe
 }
 
-MOC_DIR += ./GeneratedFiles
-OBJECTS_DIR += ./GeneratedFiles/Obj
-UI_DIR += ./GeneratedFiles
-RCC_DIR += ./GeneratedFiles
-
-DEFINES += LABEXEIMAGING_LIB
 include(LabExeImaging.pri)

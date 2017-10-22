@@ -1,5 +1,5 @@
 HEADERS += ./labexe.h \
-	./labexe_global.h \
+    ./labexe_global.h \
     ./Param/GDoubleSpinBox.h \
     ./Param/GParam.h \
     ./Param/GParamBool.h \
