@@ -98,7 +98,7 @@ void GDeviceManager::LoadDevicePlugins()
 //	qDebug() << pluginsDir;
 
 #if defined(Q_OS_WIN)
-	pluginsDir.cdUp();
+//	pluginsDir.cdUp();
 #elif defined(Q_OS_LINUX)
 	pluginsDir.cdUp();
 #elif defined(Q_OS_MAC)
@@ -110,7 +110,7 @@ void GDeviceManager::LoadDevicePlugins()
 #endif
 //	qDebug()<<pluginsDir;
 
-	pluginsDir.cd("plugins");
+    pluginsDir.cd("plugins");
 	qDebug() << "Loading plugins from: " << pluginsDir.path();
 
 	// for the folder and each sub-folders in the plugin directory

@@ -5,3 +5,4 @@
 /Backup2/
 /Backup3/
 *.qmake.stash
+*.pro.user

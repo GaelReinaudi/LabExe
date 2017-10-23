@@ -10,6 +10,7 @@ DEFINES += LABEXEOPTIMIZING_LIB
 
 INCLUDEPATH += \
     /usr/include/paradiseo/eo \
+    ./../../include/eo \
     ./../../include \
     ./../../src \
     ./GeneratedFiles \
@@ -18,13 +19,12 @@ INCLUDEPATH += \
 LIBS += \
 	-L"./../../lib" \
 	-L"./../../bin" \
-#	-L"./../../lib/eo"
+        -L"./../../lib/eo"
 
 CONFIG(debug, debug|release) {
     LIBS += -llabexe_D \
-    -leo   -leoutils   -les   -lga   -lcma \
-#	-leo_d -leoutils_d -les_d -lga_d -lcma_d \
-#	-llibnlopt-0
+        -leo_d -leoutils_d -les_d -lga_d -lcma_d \
+        -llibnlopt-0
 } else {
 	LIBS += -llabexe \
 	-leo   -leoutils   -les   -lga   -lcma \
