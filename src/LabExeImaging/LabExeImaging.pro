@@ -9,14 +9,8 @@ include($$PWD/../../common.pri)
 DEFINES += LABEXEIMAGING_LIB
 
 INCLUDEPATH += \
-	./../../include \
-	./../../src \
-	./GeneratedFiles \
-	.
-
-LIBS += \
-	-L"./../../lib" \
-	-L"./../../bin"
+        ./../../include \
+        ./../../src
 
 CONFIG(debug, debug|release) {
 	LIBS += -llabexe_D

@@ -12,13 +12,9 @@ INCLUDEPATH += \
     /usr/include/paradiseo/eo \
     ./../../include/eo \
     ./../../include \
-    ./../../src \
-    ./GeneratedFiles \
-    .
+    ./../../src
 
 LIBS += \
-	-L"./../../lib" \
-	-L"./../../bin" \
         -L"./../../lib/eo"
 
 CONFIG(debug, debug|release) {
