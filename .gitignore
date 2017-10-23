@@ -24,3 +24,4 @@ labexe*.dll
 *.dep
 *moc_*.*
 
+/__bin/
