@@ -13,5 +13,7 @@ SUBDIRS += \
 
 LabExeImaging.depends = labexe
 LabExeOptimizing.depends = labexe
-SrYbExe.depends = labexe LabExeImaging LabExeOptimizing #LabExeSequencer LabExeGraphicsMap
+SoftwarePlugins.depends = labexe LabExeImaging
+HardwarePlugins.depends = labexe LabExeImaging
+SrYbExe.depends = labexe LabExeImaging LabExeOptimizing SoftwarePlugins HardwarePlugins #LabExeSequencer LabExeGraphicsMap
 
