@@ -37,6 +37,6 @@ void GImageGraphicsScene::mouseMoveEvent( QGraphicsSceneMouseEvent * mouseEvent 
 	int xPos = mouseEvent->scenePos().x();
 	int yPos = mouseEvent->scenePos().y();
 	double pixelValue = m_CurrentImage.PixelAt(xPos, yPos);
-	qDebug() << xPos << yPos << pixelValue;
+//	qDebug() << xPos << yPos << pixelValue;
 	QGraphicsScene::mouseMoveEvent(mouseEvent);
 }
