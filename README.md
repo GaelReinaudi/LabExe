@@ -1,3 +1,5 @@
+[![video](https://j.gifs.com/VPVDBX.gif)](http://www.youtube.com/watch?v=hch3cZZywzE "LabExe demo")
+
 https://vimeo.com/32183792
 
 https://vimeo.com/31039111
@@ -44,6 +46,7 @@ Your new class, e.g. GWavelengthMeterWS6, has to derive from the abstract class 
 The LabExe framework gives the users a structure to write their own plugins.
 
 \see \ref NewDevicePluginInSolution
+
 
 
 
