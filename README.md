@@ -1,8 +1,6 @@
-[![video](https://j.gifs.com/VPVDBX.gif)](http://www.youtube.com/watch?v=hch3cZZywzE "LabExe demo")
+[![LabExe demo](https://j.gifs.com/VPVDBX.gif)](http://www.youtube.com/watch?v=hch3cZZywzE "LabExe demo")
 
-https://vimeo.com/32183792
-
-https://vimeo.com/31039111
+[![Evolutionary Optimization demo](https://media.giphy.com/media/3tED4XPo9bDnFTryX6/giphy.gif)](https://vimeo.com/31039111 "Evolutionary Optimization demo")
 
 
 When implementing the SrYbExe::DevicesToShelf(), you need to create some GDevices objects. 
