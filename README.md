@@ -1,3 +1,5 @@
+[![LabExe demo](https://j.gifs.com/BLYJ8n.gif)](http://www.youtube.com/watch?v=hch3cZZywzE "LabExe demo")
+
 [![LabExe demo](https://j.gifs.com/kZ0kgN.gif)](http://www.youtube.com/watch?v=hch3cZZywzE "LabExe demo")
 
 [![LabExe demo](https://j.gifs.com/Q08lm0.gif)](http://www.youtube.com/watch?v=hch3cZZywzE "LabExe demo")
