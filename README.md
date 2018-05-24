@@ -4,6 +4,7 @@
 
 [![Evolutionary Optimization demo](https://j.gifs.com/l59lkg.gif)](https://vimeo.com/31039111 "Evolutionary Optimization demo")
 
+[![Quantum physics experiment](https://j.gifs.com/MQVl7B.gif)](https://www.youtube.com/watch?v=8w8fkU-Klpk "Quantum physics experiment")
 
 When implementing the SrYbExe::DevicesToShelf(), you need to create some GDevices objects. 
 Each of those objects will represent a physical device in your system. In the case you have 
