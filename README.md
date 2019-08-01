@@ -1,4 +1,4 @@
-All gui, backend, mechanical systems and their interactions have been single handledly coded and built by Gael Reinaudi:
+All GUIs, backends, mechanical systems and their interactions have been single handedly coded and built by Gael Reinaudi:
 http://www.youtube.com/watch?v=hch3cZZywzE
 
 [![LabExe demo](https://j.gifs.com/BLYJ8n.gif)](http://www.youtube.com/watch?v=hch3cZZywzE "LabExe demo")
