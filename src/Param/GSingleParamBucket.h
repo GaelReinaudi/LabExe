@@ -25,7 +25,7 @@ public:
 	~GSingleParamBucket();
 
 	//! Re-implemented to provide a widget that will hold a param widget and have some useful signal connections.
-	virtual GParamBucketWidget* ProvideParamBucketWidget(QWidget* parentWidget);
+    virtual GParamBucketWidget* ProvideParamBucketWidget(QWidget* parentWidget);
 	//! Re-implemented to minimize the size
 	virtual GParamBucketTreeWidget* ProvideParamBucketTreeWidget(QWidget* parentWidget);
 

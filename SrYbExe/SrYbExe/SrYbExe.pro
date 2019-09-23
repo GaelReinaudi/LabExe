@@ -16,11 +16,11 @@ LIBS += \
 CONFIG(debug, debug|release) {
 	LIBS += -llabexe_D \
 	-lLabExeImaging_D \
-	-lLabExeOptimizing_D \
+#	-lLabExeOptimizing_D \
 } else {
 	LIBS += -llabexe \
 	-lLabExeImaging \
-	-lLabExeOptimizing \
+#	-lLabExeOptimizing \
 }
 
 RC_FILE = SrYbExe.rc

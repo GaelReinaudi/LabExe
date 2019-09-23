@@ -260,7 +260,7 @@ public :
     /**
     rand_max() the maximum returned by rand()
     */
-    unsigned long rand_max() const { return unsigned long(0xffffffff); }
+    unsigned long rand_max() const { return (unsigned long)(0xffffffff); }
 
     /** Roulette wheel selection
 

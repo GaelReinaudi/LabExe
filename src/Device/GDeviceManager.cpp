@@ -103,9 +103,9 @@ void GDeviceManager::LoadDevicePlugins()
 	pluginsDir.cdUp();
 #elif defined(Q_OS_MAC)
 	if (pluginsDir.dirName() == "MacOS") {
-// 		pluginsDir.cdUp();
-    pluginsDir.cdUp();
-    //pluginsDir.cdUp();
+        pluginsDir.cdUp();
+        pluginsDir.cdUp();
+        pluginsDir.cdUp();
     }
 #endif
 //	qDebug()<<pluginsDir;

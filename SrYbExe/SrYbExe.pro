@@ -6,9 +6,9 @@ SUBDIRS += \
 #	../../MapExe/src/LabExeGraphicsMap.pro \
 	../src/LabExeImaging \
 #	../src/LabExeSequencer \
-	../src/LabExeOptimizing \
+#	../src/LabExeOptimizing \
     ../../LabExe-UserPlugins/SoftwarePlugins/SoftwarePlugins.pro \
-    ../../LabExe-UserPlugins/HardwarePlugins/HardwarePlugins.pro \
+#    ../../LabExe-UserPlugins/HardwarePlugins/HardwarePlugins.pro \
     ../Deployement/UserPluginWizard/UserPluginWizard.pro \
     SrYbExe/SrYbExe.pro
 
