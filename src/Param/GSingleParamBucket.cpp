@@ -9,7 +9,7 @@ G_REGISTER_NEW_PARAM_CLASS(GSingleParamBucket);
 
 GSingleParamBucket::GSingleParamBucket( QString theName, QObject *parent, GParam::Properties paramOptions /*= NoOption*/ )
 	: GParamBucket(theName, parent, paramOptions)
-	, m_pDefaultParam(0)
+    , m_pDefaultParam(nullptr)
 {
 	m_pDefaultParam = new GParamDouble(theName, this);
 	AddParam(m_pDefaultParam);
@@ -62,12 +62,12 @@ bool GSingleParamBucket::RemoveParam( GParam* pParam )
 
 	// if numerical, we make some dis-connections
 	if(qobject_cast<GParamNum*>(pParam)) {
-		disconnect(pParam, 0, this, 0);
+        disconnect(pParam, nullptr, this, nullptr);
 	}
 	return true;
 }
 
-GParamBucketWidget* GSingleParamBucket::ProvideParamBucketWidget( QWidget* parentWidget )
+GParamBucketWidget* GSingleParamBucket::ProvideParamBucketWidget(QWidget* parentWidget, Qt::Orientation)
 {
 	GParamBucketWidget* pWid = new GSingleParamBucketWidget(parentWidget, this);
 	return pWid;

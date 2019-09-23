@@ -12,6 +12,7 @@
 #include <QMessageBox>
 #include <QtGlobal>
 #include <QObjectCleanupHandler>
+#include <QDebug>
 class QMimeData;
 
 class QObject;
@@ -26,7 +27,7 @@ struct MyDeviceFactoryError
 {
 	struct Exception : public std::exception
 	{
-		const char* what() const throw() { return "Unknown Type"; }
+        const char* what() const noexcept { return "Unknown Type"; }
 	};
 
 	static AbstractProduct* OnUnknownType(IdentifierType s)
@@ -34,7 +35,7 @@ struct MyDeviceFactoryError
 		QString mess("The device type \"%1\" has not been registered with the DeviceFacory.");
 			mess += "\r\n You should use the Macro G_REGISTER_HARD_DEVICE_CLASS(%1) in the corresponding .cpp file.";
 			mess = mess.arg(QString(s));
-        qCritical(mess.toUtf8());
+        qCritical() << mess.toUtf8();
 		return 0;
 	}
 };
@@ -92,7 +93,7 @@ public:
 	void Add(GDevice* pDevice);
 	int Remove(QString uniqueIdentifierName) {return remove(uniqueIdentifierName);}
 	//! Returns the device whose uniqueIdentifierName matches, 0 otherwise.
-	GDevice* GetDevice(QString uniqueIdentifierName) const {return value(uniqueIdentifierName, 0);}
+    GDevice* GetDevice(QString uniqueIdentifierName) const {return value(uniqueIdentifierName, nullptr);}
 	//! Overload provided for convenience. It takes a const QMimeData* from e.g. a DropEvent. 0 if no match.
 	GDevice* GetDevice( const QMimeData* theMimeData ) const;
 	//! Returns a list of all the type registered in the factory.

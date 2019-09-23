@@ -59,7 +59,7 @@ void GDeviceWidget::AddSubLayout( QLayout* groupLayout )
 void GDeviceWidget::mousePressEvent( QMouseEvent * event )
 {
 	QFrame::mousePressEvent(event);
-	Qt::KeyboardModifiers modif = event->modifiers();
+    // Qt::KeyboardModifiers modif = event->modifiers();
 	if(event->button() != Qt::LeftButton)
 		return;
 	m_WidgetPosWhenMousePressed = pos();
@@ -123,7 +123,7 @@ void GDeviceWidget::DontDisplayTitle()
 // 		disconnect(m_pDevice, SIGNAL(NameChanged(QString)), this, SLOT(Rename(QString)));
 }
 
-void GDeviceWidget::Rename( QString newName )
+void GDeviceWidget::Rename( QString )
 {
 // 	setTitle(newName);	
 // 	adjustSize();
@@ -145,7 +145,7 @@ void GDeviceWidget::Enable( bool doEnable )
 
 QPixmap GDeviceWidget::screenShot()
 {
-	QPixmap pixWid = QPixmap::grabWidget(this);
+    QPixmap pixWid = grab();
 	return pixWid;
 }
 

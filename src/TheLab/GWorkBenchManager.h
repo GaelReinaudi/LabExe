@@ -21,7 +21,7 @@ struct MyWorkBenchManagerError
 {
 	struct Exception : public std::exception
 	{
-		const char* what() const throw() { return "Unknown Type"; }
+        const char* what() const noexcept { return "Unknown Type"; }
 	};
 
 	static AbstractProduct* OnUnknownType(IdentifierType s)
@@ -29,7 +29,7 @@ struct MyWorkBenchManagerError
 		QString mess("The workbench type \"%1\" has not been registered with the WorkBenchManager.");
 			mess += "\r\n You should use the Macro G_REGISTER_WORKBENCH_CLASS(%1) in the corresponding .cpp file.";
 			mess = mess.arg(QString(s));
-        qCritical(mess.toUtf8());
+        qCritical() << mess.toUtf8();
 		return 0;
 	}
 };

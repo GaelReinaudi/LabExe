@@ -31,7 +31,7 @@ class GParamBucketWidget : public QGroupBox
 	QPropertyAnimation* m_pBackgroungAnimation;
 
 public:
-	GParamBucketWidget(QWidget *parent, GParamBucket* theBucket, Qt::Orientation orientation = Qt::Vertical);
+    GParamBucketWidget(QWidget *parent, GParamBucket* theBucket, Qt::Orientation orientation = Qt::Vertical);
 	~GParamBucketWidget();
 
 	//! Turns the highlight decay animation On/Off. This is On by default.

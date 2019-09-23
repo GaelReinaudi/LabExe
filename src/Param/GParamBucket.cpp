@@ -10,9 +10,9 @@
 
 GParamBucket::GParamBucket(QString theName, QObject *parent, GParam::Properties paramOptions /*= NoOption*/)
 	: GParam(theName, parent, paramOptions)
-	, m_IsFreezed(false)
 	, m_NumUpdates(0)
-	, m_SomeUpdateSignalCount(0)
+    , m_IsFreezed(false)
+    , m_SomeUpdateSignalCount(0)
 	, m_DelayUpdateSignal(0)
 {
 	setObjectName(theName);
@@ -172,7 +172,7 @@ GParamBucketTreeWidget* GParamBucket::ProvideParamBucketTreeWidget(QWidget* pare
 
 QWidget* GParamBucket::ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid /*= Default*/)
 {
-    Q_UNUSED(optionWid);
+    Q_UNUSED(optionWid)
  	return ProvideParamBucketTreeWidget(forWhichParent);
 //	return ProvideParamBucketWidget(forWhichParent);
 }
@@ -284,22 +284,22 @@ void GParamBucket::EventAboutToSendUpdateSignal()
 
 GParam* GParamBucket::ExtraParam( GParam* pParam, const QString & field ) const
 {
-	return m_Param_Field_ExtraParams.value(pParam).value(field, 0);
+    return m_Param_Field_ExtraParams.value(pParam).value(field, nullptr);
 }
 
 GParamNum* GParamBucket::ExtraParamNum( GParam* pParam, const QString & field ) const
 {
-	return qobject_cast<GParamNum*>(m_Param_Field_ExtraParams.value(pParam).value(field, 0));
+    return qobject_cast<GParamNum*>(m_Param_Field_ExtraParams.value(pParam).value(field, nullptr));
 }
 
 GParamString* GParamBucket::ExtraParamString( GParam* pParam, const QString & field ) const
 {
-	return qobject_cast<GParamString*>(m_Param_Field_ExtraParams.value(pParam).value(field, 0));
+    return qobject_cast<GParamString*>(m_Param_Field_ExtraParams.value(pParam).value(field, nullptr));
 }
 
 GParamBool* GParamBucket::ExtraParamBool( GParam* pParam, const QString & field ) const
 {
-	return qobject_cast<GParamBool*>(m_Param_Field_ExtraParams.value(pParam).value(field, 0));
+    return qobject_cast<GParamBool*>(m_Param_Field_ExtraParams.value(pParam).value(field, nullptr));
 }
 
 void GParamBucket::AddExtraFieldBool( const QString & fieldName )

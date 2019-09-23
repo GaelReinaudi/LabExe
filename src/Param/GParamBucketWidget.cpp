@@ -4,56 +4,7 @@
 #include "param.h"
 #include <QtWidgets>
 
-GParamBucketWidget::GParamBucketWidget(QWidget *parent, GParamBucket* theBucket, Qt::Orientation orientation /*= Qt::Vertical*/)
-	: QGroupBox(parent)
-	, m_Bucket(theBucket)
-	, m_BackgroundOpacity(0)
-	, m_pBackgroungAnimation(0)
-	, m_UseHighlightDecay(true)
-{
-	setAcceptDrops(true);
 
-	if(!theBucket) {
-		qWarning() << "Bucket passed is 0 in GParamBucketWidget::GParamBucketWidget()";
-		return;
-	}
-	setTitle(theBucket->objectName());
-	// layout
-	QBoxLayout* mainBoxLayout;
-	if(orientation == Qt::Vertical)
-		mainBoxLayout = new QVBoxLayout(this);
-	else
-		mainBoxLayout = new QHBoxLayout(this);
-	mainBoxLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
-	mainBoxLayout->setSpacing(1);
-	mainBoxLayout->setContentsMargins(1, 0, 1, 0);
-
-	// lets add the widgets of whatever param is already in this bucket at creation time
-	foreach(GParam* pPar, m_Bucket->Params()) {
-		AddParamWidget(pPar);
-	}
-
-	// informs the bucket that a param has been dropped / removed
-	connect(this, SIGNAL(ParamLabelWasDropped(GParam*, QPoint)), theBucket, SLOT(AddParam(GParam*)));
-	connect(this, SIGNAL(ParamLabelRemoveActioned(GParam*)), theBucket, SLOT(RemoveParam(GParam*)));
-	// informs this widget to add / remove the param widget
-	connect(theBucket, SIGNAL(ParamAdded(GParam*)), this, SLOT(AddParamWidget(GParam*)), Qt::QueuedConnection);
-	connect(theBucket, SIGNAL(ParamRemoved(int, GParam*)), this, SLOT(RemoveParamWidget(int, GParam*)), Qt::QueuedConnection);
-	// informs the bucket that some params updated
-	connect(theBucket, SIGNAL(BucketUpdatedValues(int)), this, SLOT(EventBucketParamsUpdated(int)));
-
-	connect(this, SIGNAL(ParamLabelWasDropped(GParam*, QPoint)), this, SLOT(ResizeThisAndParent()), Qt::QueuedConnection);
-
-	// color
-	if(m_Bucket->IsEmpty()) {
-		QPalette Pal(palette());
-		QColor theColor(Qt::green);
-		// 	theColor.setAlpha(m_BackgroundOpacity);
-		Pal.setColor(QPalette::Background, theColor);
-		setAutoFillBackground(true);
-		setPalette(Pal);
-	}
-}
 
 GParamBucketWidget::~GParamBucketWidget()
 {
@@ -188,4 +139,55 @@ void GParamBucketWidget::IncrementHighlightDecay()
 	m_pBackgroungAnimation->setEndValue(0);
 
 	m_pBackgroungAnimation->start();
+}
+
+GParamBucketWidget::GParamBucketWidget(QWidget *parent, GParamBucket *theBucket, Qt::Orientation orientation)
+    : QGroupBox(parent)
+    , m_BackgroundOpacity(0)
+    , m_pBackgroungAnimation(0)
+    , m_Bucket(theBucket)
+    , m_UseHighlightDecay(true)
+{
+    setAcceptDrops(true);
+
+    if(!theBucket) {
+        qWarning() << "Bucket passed is 0 in GParamBucketWidget::GParamBucketWidget()";
+        return;
+    }
+    setTitle(theBucket->objectName());
+    // layout
+    QBoxLayout* mainBoxLayout;
+    if(orientation == Qt::Vertical)
+        mainBoxLayout = new QVBoxLayout(this);
+    else
+        mainBoxLayout = new QHBoxLayout(this);
+    mainBoxLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+    mainBoxLayout->setSpacing(1);
+    mainBoxLayout->setContentsMargins(1, 0, 1, 0);
+
+    // lets add the widgets of whatever param is already in this bucket at creation time
+    foreach(GParam* pPar, m_Bucket->Params()) {
+        AddParamWidget(pPar);
+    }
+
+    // informs the bucket that a param has been dropped / removed
+    connect(this, SIGNAL(ParamLabelWasDropped(GParam*, QPoint)), theBucket, SLOT(AddParam(GParam*)));
+    connect(this, SIGNAL(ParamLabelRemoveActioned(GParam*)), theBucket, SLOT(RemoveParam(GParam*)));
+    // informs this widget to add / remove the param widget
+    connect(theBucket, SIGNAL(ParamAdded(GParam*)), this, SLOT(AddParamWidget(GParam*)), Qt::QueuedConnection);
+    connect(theBucket, SIGNAL(ParamRemoved(int, GParam*)), this, SLOT(RemoveParamWidget(int, GParam*)), Qt::QueuedConnection);
+    // informs the bucket that some params updated
+    connect(theBucket, SIGNAL(BucketUpdatedValues(int)), this, SLOT(EventBucketParamsUpdated(int)));
+
+    connect(this, SIGNAL(ParamLabelWasDropped(GParam*, QPoint)), this, SLOT(ResizeThisAndParent()), Qt::QueuedConnection);
+
+    // color
+    if(m_Bucket->IsEmpty()) {
+        QPalette Pal(palette());
+        QColor theColor(Qt::green);
+        // 	theColor.setAlpha(m_BackgroundOpacity);
+        Pal.setColor(QPalette::Background, theColor);
+        setAutoFillBackground(true);
+        setPalette(Pal);
+    }
 }

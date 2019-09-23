@@ -8,8 +8,8 @@ G_REGISTER_NEW_PARAM_CLASS(GParamBool);
  
 GParamBool::GParamBool(QString theName, QObject* parent, GParam::Properties paramOptions /*= NoOption*/)
 	: GParam(theName, parent, paramOptions)
-	, m_SwitchTrueCount(0)
 	, m_val(false)
+    , m_SwitchTrueCount(0)
 {
 	// ValueUpdated(bool) triggers the ParamValueWasUpdated(true) that will trigger (by default) the ParamUpdateCompletion(true), i.e. unless SetExternalCompletionSignal() sets an other signal.
 	connect(this, SIGNAL(ValueUpdated(bool)), this, SIGNAL(ParamValueWasUpdated()));

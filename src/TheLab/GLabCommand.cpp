@@ -5,8 +5,8 @@
 
 GCommandAddDevice::GCommandAddDevice( GDevice* theDevice, GWorkBench* theLab, QUndoCommand *parent /*= 0*/ )
 : QUndoCommand(parent)
-, m_pAddedWidget(0)
-, m_pInWhichWidget(0)
+, m_pAddedWidget(nullptr)
+, m_pInWhichWidget(nullptr)
 {
 	m_pDevice = theDevice;
 	m_pBench = theLab;
@@ -14,7 +14,7 @@ GCommandAddDevice::GCommandAddDevice( GDevice* theDevice, GWorkBench* theLab, QU
 
 GCommandAddDevice::GCommandAddDevice( GDevice* theDevice, GWorkBench* theLab, QWidget* pForWhichWidget, QUndoCommand *parent /*= 0*/ )
 : QUndoCommand(parent)
-, m_pAddedWidget(0)
+, m_pAddedWidget(nullptr)
 {
 	m_pDevice = theDevice;
 	m_pBench = theLab;
@@ -58,8 +58,8 @@ void GCommandAddDevice::redo()
 }
 
 GCommandRemoveDevice::GCommandRemoveDevice( GDevice* theDevice, GWorkBench* theLab, QUndoCommand *parent /*= 0*/ )
-	: m_pBench(theLab)
-	, m_pDevice(theDevice)
+    : m_pDevice(theDevice)
+    , m_pBench(theLab)
 {
     Q_UNUSED(parent);
 }

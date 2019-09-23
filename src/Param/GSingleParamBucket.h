@@ -22,12 +22,12 @@ class LABEXE_EXPORT GSingleParamBucket : public GParamBucket
 public:
 	//! constructor with a title that will be displayed as the title one the widget
 	GSingleParamBucket(QString theName, QObject *parent, GParam::Properties paramOptions = NoOption);
-	~GSingleParamBucket();
+    virtual ~GSingleParamBucket() override;
 
 	//! Re-implemented to provide a widget that will hold a param widget and have some useful signal connections.
-    virtual GParamBucketWidget* ProvideParamBucketWidget(QWidget* parentWidget);
+    virtual GParamBucketWidget* ProvideParamBucketWidget(QWidget* parentWidget, Qt::Orientation orientation=Qt::Vertical) override;
 	//! Re-implemented to minimize the size
-	virtual GParamBucketTreeWidget* ProvideParamBucketTreeWidget(QWidget* parentWidget);
+    virtual GParamBucketTreeWidget* ProvideParamBucketTreeWidget(QWidget* parentWidget) override;
 
 	//! returns the pointer to the held param. 0 if no param.
 	GParam* Param() const { return Params().value(0); }
@@ -41,9 +41,9 @@ public:
 
 public:
 	//! Re-implemented so that the param dropped may be held, or replace the currently held param.
-	virtual bool AddParam(GParam* pParam);
+    virtual bool AddParam(GParam* pParam) override;
 	//! Re-implemented.
-	virtual bool RemoveParam(GParam* pParam);
+    virtual bool RemoveParam(GParam* pParam) override;
 
 public slots:
 	//! Forwarding the param slot GParamNum::SetParamValue()

@@ -69,11 +69,7 @@ void GBenchDockWidget::InsertDeviceWidget(GDeviceWidget* pDevWid)
 	m_Devices.append(pTheDevice);
 
 	// and take appropriate measure when the device widget is deleted
-	// we transmit the pointer to the device in the signal by using a QSignalMapper
-	QSignalMapper* signalMapper = new QSignalMapper(this);
-	connect(pDevWid, SIGNAL(destroyed()), signalMapper, SLOT(map()));
-	signalMapper->setMapping(pDevWid, pTheDevice);
-	connect(signalMapper, SIGNAL(mapped(QObject*)), this, SLOT(DeviceWidgetRemoved(QObject*)));
+    connect(pDevWid, &GDeviceWidget::destroyed, this, [this, pTheDevice](){ this->DeviceWidgetRemoved(pTheDevice); });
 }
 
 void GBenchDockWidget::DeviceWidgetRemoved( QObject* pObjDev )

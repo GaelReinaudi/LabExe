@@ -45,7 +45,7 @@ public:
 	//! Re-implemeted from GParam
 	QWidget* ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid = Default);
 	//! Provides a widget that will accept drops of GParam.
-	virtual GParamBucketWidget* ProvideParamBucketWidget(QWidget* parentWidget, Qt::Orientation orientation = Qt::Vertical);
+    virtual GParamBucketWidget* ProvideParamBucketWidget(QWidget* parentWidget, Qt::Orientation orientation=Qt::Vertical);
 	//! Provides a tree widget that will accept drops of GParam.
 	virtual GParamBucketTreeWidget* ProvideParamBucketTreeWidget(QWidget* parentWidget);
 	//! returns a list of the pointer to the held params. It might be only one for a single param bucket.

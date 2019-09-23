@@ -25,7 +25,7 @@ struct MyParamFactoryError
 {
 	struct Exception : public std::exception
 	{
-		const char* what() const throw() { return "Unknown Type"; }
+        const char* what() const noexcept { return "Unknown Type"; }
 	};
 
 	static AbstractProduct* OnUnknownType(IdentifierType s)
@@ -33,7 +33,7 @@ struct MyParamFactoryError
 		QString mess("The param type \"%1\" has not been registered with the ParamFacory.");
 		mess += "\r\n You should use the Macro G_REGISTER_NEW_PARAM_CLASS(%1) in the corresponding .cpp file.";
 		mess = mess.arg(QString(s));
-        qCritical(mess.toUtf8());
+        qCritical() << mess.toUtf8();
 		return 0;
 	}
 };

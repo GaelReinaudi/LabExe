@@ -41,8 +41,8 @@ GSerializable::GSerializable(bool doNotUseInternalQObject /*= false*/)
 
 GSerializable::GSerializable( const QString & globalSystemID, bool doNotUseInternalQObject /*= false*/ )
 	: m_pSettings(0)
-	, m_pObjectForConnections(0)
 	, m_pIsRelativeTo_ParentSerializable(0)
+    , m_pObjectForConnections(0)
 {
 	// This makes the unique m_uniqueKey that can be used conveniently in a hash
 	UniqueSystemKey();
@@ -61,9 +61,9 @@ GSerializable::GSerializable( const QString & globalSystemID, bool doNotUseInter
 }
 
 GSerializable::GSerializable( const QString & relativeID, QObject* pObjSerializable )
-	: m_pSettings(0)
-	, m_pObjectForConnections(0)
-	, m_pIsRelativeTo_ParentSerializable(0)
+    : m_pSettings(nullptr)
+    , m_pIsRelativeTo_ParentSerializable(nullptr)
+    , m_pObjectForConnections(nullptr)
 {
 	// This makes the unique m_uniqueKey that can be used conveniently in a hash
 	UniqueSystemKey();

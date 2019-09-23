@@ -12,7 +12,7 @@ GWorkBench::GWorkBench(QWidget *parent)
 	: QMainWindow(parent) // 2012-01-10 to have a separate entry in the task bar
 {
 	InitBench();
-	setStatusBar(0);
+    setStatusBar(nullptr);
 
 	// test for nested docks
 	setDockNestingEnabled(true);
@@ -58,7 +58,7 @@ GDeviceWidget* GWorkBench::AddDevice( GDevice* pTheDevice, QPoint whereInParent 
 
 	GDeviceWidget* pDevWid = pAddCommand->AddedWidget();
 	if(!pDevWid)
-		return 0;
+        return nullptr;
 
 	m_DateDeviceAdded[pTheDevice] = QDateTime::currentDateTime().toString(Qt::ISODate);
 
@@ -73,10 +73,10 @@ GDeviceWidget* GWorkBench::AddDevice( GDevice* pTheDevice, QPoint whereInParent 
 
 GBenchDockWidget* GWorkBench::AddDeviceInNewDock( GDevice* pTheDevice, bool putOnStack /*= true*/ )
 {
-    Q_UNUSED(putOnStack);
+    Q_UNUSED(putOnStack)
     GDeviceWidget* pDevWid = AddDevice(pTheDevice);
 	if(!pDevWid)
-		return 0;
+        return nullptr;
 	GBenchDockWidget* pNewDock = new GBenchDockWidget(this, Qt::AllDockWidgetAreas);
 	pNewDock->InsertDeviceWidget(pDevWid);
 	return pNewDock;
@@ -84,7 +84,7 @@ GBenchDockWidget* GWorkBench::AddDeviceInNewDock( GDevice* pTheDevice, bool putO
 
 void GWorkBench::AddDeviceInDock( GDevice* pTheDevice, GBenchDockWidget* pDock, bool putOnStack /*= true*/ )
 {
-    Q_UNUSED(putOnStack);
+    Q_UNUSED(putOnStack)
     if(!pTheDevice)
 		return;
 	if(!pDock) {
@@ -103,10 +103,7 @@ void GWorkBench::ConnectAndShowDeviceWidget( GDeviceWidget* pDevWid, QWidget* pI
 	// adding RemoveDevice capabilities to the devicewidget context menu by adding an action
 	QAction* pRemoveAction = new QAction("Remove from bench", this);
 	pDevWid->addAction(pRemoveAction);
-	QSignalMapper* signalMapper = new QSignalMapper(this);
-	connect(pRemoveAction, SIGNAL(triggered()), signalMapper, SLOT(map()));
-	signalMapper->setMapping(pRemoveAction, pDevWid->Device()->UniqueSystemID());
-	connect(signalMapper, SIGNAL(mapped(const QString&)), this, SLOT(RemoveDevice(QString)));
+    connect(pRemoveAction, &QAction::triggered, [this, pDevWid](){ this->RemoveDevice(pDevWid->Device()->UniqueSystemID()); });
 
 	if(!pInWhichWidget)
 		pInWhichWidget = this;
@@ -154,7 +151,7 @@ void GWorkBench::PopulateSettings(QSettings& inQsettings)
 	foreach(GDevice* pDev, listDev) {
 		listOfAllBenchDevicesIDs.append(pDev->UniqueSystemID());
 		// get if the widget in which the device is graphically embedded is one of the GBenchDockWidget. "" else.
-		GBenchDockWidget* qWid = 0;
+        GBenchDockWidget* qWid = nullptr;
 		foreach(GBenchDockWidget* pDock, BenchDynamicDocks()) {
 			if(pDock->EmbeddedDevices().contains(pDev)) {
 				qWid = pDock;
@@ -217,7 +214,7 @@ void GWorkBench::InterpretSettings(QSettings& fromQsettings)
 		if(pDev) {
 			// if it is part of a Dock, we create it inside
 			QString strDockID = fromQsettings.value("BenchDockID").toString();
-			GBenchDockWidget* pDock = 0;
+            GBenchDockWidget* pDock = nullptr;
 			if(strDockID != "")
 				pDock = qobject_cast<GBenchDockWidget*>(GSerializable::RestoredObject(strDockID));
 			if(pDock)
@@ -385,7 +382,7 @@ QList<GDevice*> GWorkBench::DeviceList()
 {
 	QList<GDevice*> listReturn;
 	QList<QString> dates = m_DateDeviceAdded.values();
-	qSort(dates.begin(), dates.end());
+    std::sort(dates.begin(), dates.end());
 	foreach(QString date, dates) {
 		foreach(GDevice* pDev, m_DateDeviceAdded.keys(date)) {
 			if(!listReturn.contains(pDev))
@@ -397,7 +394,7 @@ QList<GDevice*> GWorkBench::DeviceList()
 
 void GWorkBench::ExportScreenShot(const QString & screenFileName)
 {
-	QPixmap pixWid = QPixmap::grabWidget(this);
+    QPixmap pixWid = grab();
 	pixWid.save(screenFileName, "PNG");
 }
 

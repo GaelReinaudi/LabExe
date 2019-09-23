@@ -23,10 +23,10 @@ GParam::GParam(QString theName, QObject *parent, GParam::Properties paramOptions
 	: QObject(parent) 
 	, GSerializable(theName, parent)
 	, m_Options(paramOptions)
-	, m_Units("")
-	, m_DisplayUnits(false)
 	, m_MsLimitVisualUpdate(0)
 	, m_CouldUpdateGui(true)
+    , m_Units("")
+    , m_DisplayUnits(false)
 {
 	ParamInit();
 	SetName(theName);
