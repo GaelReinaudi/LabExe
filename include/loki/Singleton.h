@@ -151,11 +151,11 @@ namespace Loki
         using namespace Private;
 
         // manage lifetime of stack manually
-        if(pTrackerArray==0)
+		if(pTrackerArray==nullptr)
             pTrackerArray = new TrackerArray;
 
         // automatically delete the ConcreteLifetimeTracker object when a exception is thrown
-        std::auto_ptr<LifetimeTracker> 
+		std::unique_ptr<LifetimeTracker>
             p( new ConcreteLifetimeTracker<T, Destroyer>(pDynObject, longevity, d) );
 
         // Find correct position

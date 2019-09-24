@@ -7,12 +7,12 @@ GImageProcessor::GImageProcessor(QObject *parent /*= 0*/, QString uniqueIdentifi
  	: GProgDevice(parent, uniqueIdentifierName)
 	, m_IsImageProvider(false)
 	, m_pAoiItem(new QGraphicsRectItem(0.0, 0.0, 0.0, 0.0))
-	, m_NumImagesInput(0)
-	, m_NumImagesProcessed(0)
-	, m_pImBench(0)
-	, m_pAoiSelector(new GAoiSelector(this))
 	, m_DoProcessImages("Enable", this)
 	, m_DoDisplayAoi("Show", this)
+	, m_NumImagesInput(0)
+	, m_NumImagesProcessed(0)
+	, m_pImBench(nullptr)
+	, m_pAoiSelector(new GAoiSelector(this))
 {
 	m_pAoiItem->setPen(QPen(Color()));
 	m_DoProcessImages = false;
@@ -28,7 +28,7 @@ GImageProcessor::~GImageProcessor()
 // 		delete m_pAoiSelector;
 }
 
-void GImageProcessor::InputImage(QImage imageIn )
+void GImageProcessor::InputImage(QImage )
 {
 //	m_NumImagesInput++;
 //	emit NumImagesInputChanged(m_NumImagesInput);
@@ -62,7 +62,7 @@ void GImageProcessor::InputImageDouble(GImageDouble imageIn )
 
 GDeviceWidget* GImageProcessor::ProvideNewDeviceGroupBox( QWidget* inWhichWidget, QBoxLayout::Direction orientation /*= QBoxLayout::LeftToRight*/ )
 {
-    Q_UNUSED(orientation);
+	Q_UNUSED(orientation)
 	if(!m_pImBench) {
 // 		qWarning() << "the Imaging bench pointer in the GImageProcessor is 0.   642481";
 // 		return 0;
