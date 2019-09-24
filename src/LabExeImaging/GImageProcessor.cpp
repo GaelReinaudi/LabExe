@@ -7,9 +7,9 @@ GImageProcessor::GImageProcessor(QObject *parent /*= 0*/, QString uniqueIdentifi
  	: GProgDevice(parent, uniqueIdentifierName)
 	, m_IsImageProvider(false)
 	, m_pAoiItem(new QGraphicsRectItem(0.0, 0.0, 0.0, 0.0))
-	, m_DoProcessImages("Enable", this)
-	, m_DoDisplayAoi("Show", this)
-	, m_NumImagesInput(0)
+    , m_DoProcessImages("Enable", this)
+    , m_DoDisplayAoi("Show", this)
+    , m_NumImagesInput(0)
 	, m_NumImagesProcessed(0)
 	, m_pImBench(nullptr)
 	, m_pAoiSelector(new GAoiSelector(this))
@@ -28,7 +28,7 @@ GImageProcessor::~GImageProcessor()
 // 		delete m_pAoiSelector;
 }
 
-void GImageProcessor::InputImage(QImage )
+void GImageProcessor::InputImage(QImage)
 {
 //	m_NumImagesInput++;
 //	emit NumImagesInputChanged(m_NumImagesInput);

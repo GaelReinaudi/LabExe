@@ -61,7 +61,7 @@ protected:
 
 public slots:
 	//! slot that has to be re-implemented to process the image. Don't forget to call the base implementation that takes care of sending some signals like NumImagesInputChanged().
-	virtual void InputImage(QImage imageIn);
+    virtual void InputImage(QImage);
 	//! this slot will first call ProcessImageFull(), then ProcessImageAOIed() with a GImageDouble that is truncated to the AOI.
 	void InputImageDouble(GImageDouble imageIn);
 	//! tells the processor to show the AOI rectangle.

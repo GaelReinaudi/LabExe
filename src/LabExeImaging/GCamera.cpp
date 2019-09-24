@@ -8,14 +8,14 @@
 GCamera::GCamera(QString uniqueIdentifierName, QObject *parent, GImageProcessor* pImProcessor)
 	: GHardDevice(uniqueIdentifierName, parent)
 	, GHasImageProcessor(pImProcessor)
-	, m_DoAquireContinuously("Continuous shot", nullptr) // 0 means not saved and restore automatically in the device settings
+    , m_DoAquireContinuously("Continuous shot", nullptr) // nullptr means not saved and restore automatically in the device settings
 	, m_Expo_ms("Exposure [ms]", this)
 	, m_Gain("Gain factor", this)
 	, m_HardwareTrigger("Hardware trigger", this)
-	, m_PixelSize("Pixel [um]", this)
-	, m_NumFrameSent(0)
-	, m_NumFrameFailed(0)
-	, m_IsOpened(false)
+    , m_PixelSize("Pixel [um]", this)
+    , m_NumFrameSent(0)
+    , m_NumFrameFailed(0)
+    , m_IsOpened(false)
 {
 	m_Gain.SetDisplayDecimals(2);
 	m_Gain.SetTypicalStep(0.5);

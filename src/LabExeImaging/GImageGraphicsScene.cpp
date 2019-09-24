@@ -34,9 +34,8 @@ void GImageGraphicsScene::SetImage( GImageDouble image )
 
 void GImageGraphicsScene::mouseMoveEvent( QGraphicsSceneMouseEvent * mouseEvent )
 {
-//	int xPos = mouseEvent->scenePos().x();
-//	int yPos = mouseEvent->scenePos().y();
-//	double pixelValue = m_CurrentImage.PixelAt(xPos, yPos);
-//	qDebug() << xPos << yPos << pixelValue;
+//    auto xPos = mouseEvent->scenePos().x();
+//    auto yPos = mouseEvent->scenePos().y();
+// 	  qDebug() << xPos << yPos << m_CurrentImage.PixelAt(xPos, yPos);
 	QGraphicsScene::mouseMoveEvent(mouseEvent);
 }
