@@ -257,7 +257,7 @@ QString GSerializable::AssignNewUniqueID(QObject* pObject)
 	QString strBase;
 	if(!pObject) {
 		strBase = "0";
-// 		qWarning() << "pointer NULL for obtaining the class name in \"GSerializable::AssignNewUniqueID\"" << "It might be that the object do not inherit from QObject";
+// 		qWarning() << "pointer nullptr for obtaining the class name in \"GSerializable::AssignNewUniqueID\"" << "It might be that the object do not inherit from QObject";
 	}
 	else if(!pObject->metaObject()) {
 		strBase = "No-MetaObject";

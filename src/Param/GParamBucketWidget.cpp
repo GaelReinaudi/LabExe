@@ -114,7 +114,7 @@ void GParamBucketWidget::SetBackgroundOpacity( int val )
 	QPalette Pal(palette());
 	QColor theColor(Qt::yellow);
 	theColor.setAlpha(m_BackgroundOpacity);
-	Pal.setColor(QPalette::Background, theColor);
+    Pal.setColor(QPalette::Window, theColor);
 	setAutoFillBackground(true);
 	setPalette(Pal);
 }
@@ -186,7 +186,7 @@ GParamBucketWidget::GParamBucketWidget(QWidget *parent, GParamBucket *theBucket,
         QPalette Pal(palette());
         QColor theColor(Qt::green);
         // 	theColor.setAlpha(m_BackgroundOpacity);
-        Pal.setColor(QPalette::Background, theColor);
+        Pal.setColor(QPalette::Window, theColor);
         setAutoFillBackground(true);
         setPalette(Pal);
     }

@@ -59,7 +59,7 @@ bool GNLOptAlgorithm::Configure()
 		pTheOpt->set_local_optimizer(nlopt::opt(nlopt::LN_NELDERMEAD, numVar));
 	}
     catch (QException & e) {
-		e;
+        Q_UNUSED(e)
 		return false;
 	}
 	return true;
@@ -70,7 +70,8 @@ void GNLOptAlgorithm::RunOptimization()
 	double result = 0;
 
 	try {
-		nlopt::result theRes = m_pImmutableOptimzer->optimize(m_InitialValues.toStdVector(), result);
+        auto initvec = m_InitialValues.toStdVector();
+        nlopt::result theRes = m_pImmutableOptimzer->optimize(initvec, result);
 		emit FinishedOptimizing(theRes);
 	}
 	catch (nlopt::roundoff_limited & e) {

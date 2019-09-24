@@ -183,7 +183,7 @@ void GEoGeneticAlgorithm::RunOptimization()
 	eoHypercubeCrossover<Individual> xoverA;
 	// Combine them with relative weights
 	eoPropCombinedQuadOp<Individual> xover(xoverS, segmentRate);
-	xover.add(xoverA, hypercubeRate, true);
+    xover.add(xoverA, hypercubeRate);
 
 	// MUTATION
 	// offspring(i) uniformly chosen in [parent(i)-epsilon, parent(i)+epsilon]
