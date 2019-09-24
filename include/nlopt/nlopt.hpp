@@ -1,4 +1,4 @@
-/* Copyright (c) 2007-2010 Massachusetts Institute of Technology
+/* Copyright (c) 2007-2011 Massachusetts Institute of Technology
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -19,101 +19,93 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
  */
-
 // C++ style wrapper around NLopt API
 // nlopt.hpp is AUTOMATICALLY GENERATED from nlopt-in.hpp - edit the latter!
-
 #ifndef NLOPT_HPP
 #define NLOPT_HPP
-
 #include <nlopt.h>
-
 #include <vector>
 #include <stdexcept>
 #include <new>
 #include <cstdlib>
 #include <cstring>
 #include <cmath>
-
 // convenience overloading for below (not in nlopt:: since has nlopt_ prefix)
 inline nlopt_result nlopt_get_initial_step(const nlopt_opt opt, double *dx) {
       return nlopt_get_initial_step(opt, (const double *) NULL, dx);
 }
-
 namespace nlopt {
-
   //////////////////////////////////////////////////////////////////////
   // nlopt::* namespace versions of the C enumerated types
   //          AUTOMATICALLY GENERATED, DO NOT EDIT
   // GEN_ENUMS_HERE
   enum algorithm {
-     GN_DIRECT = 0,
-     GN_DIRECT_L,
-     GN_DIRECT_L_RAND,
-     GN_DIRECT_NOSCAL,
-     GN_DIRECT_L_NOSCAL,
-     GN_DIRECT_L_RAND_NOSCAL,
-     GN_ORIG_DIRECT,
-     GN_ORIG_DIRECT_L,
-     GD_STOGO,
-     GD_STOGO_RAND,
-     LD_LBFGS_NOCEDAL,
-     LD_LBFGS,
-     LN_PRAXIS,
-     LD_VAR1,
-     LD_VAR2,
-     LD_TNEWTON,
-     LD_TNEWTON_RESTART,
-     LD_TNEWTON_PRECOND,
-     LD_TNEWTON_PRECOND_RESTART,
-     GN_CRS2_LM,
-     GN_MLSL,
-     GD_MLSL,
-     GN_MLSL_LDS,
-     GD_MLSL_LDS,
-     LD_MMA,
-     LN_COBYLA,
-     LN_NEWUOA,
-     LN_NEWUOA_BOUND,
-     LN_NELDERMEAD,
-     LN_SBPLX,
-     LN_AUGLAG,
-     LD_AUGLAG,
-     LN_AUGLAG_EQ,
-     LD_AUGLAG_EQ,
-     LN_BOBYQA,
-     GN_ISRES,
-     AUGLAG,
-     AUGLAG_EQ,
-     G_MLSL,
-     G_MLSL_LDS,
-     LD_SLSQP,
-     NUM_ALGORITHMS /* not an algorithm, just the number of them */
+    GN_DIRECT = 0,
+    GN_DIRECT_L,
+    GN_DIRECT_L_RAND,
+    GN_DIRECT_NOSCAL,
+    GN_DIRECT_L_NOSCAL,
+    GN_DIRECT_L_RAND_NOSCAL,
+    GN_ORIG_DIRECT,
+    GN_ORIG_DIRECT_L,
+    GD_STOGO,
+    GD_STOGO_RAND,
+    LD_LBFGS_NOCEDAL,
+    LD_LBFGS,
+    LN_PRAXIS,
+    LD_VAR1,
+    LD_VAR2,
+    LD_TNEWTON,
+    LD_TNEWTON_RESTART,
+    LD_TNEWTON_PRECOND,
+    LD_TNEWTON_PRECOND_RESTART,
+    GN_CRS2_LM,
+    GN_MLSL,
+    GD_MLSL,
+    GN_MLSL_LDS,
+    GD_MLSL_LDS,
+    LD_MMA,
+    LN_COBYLA,
+    LN_NEWUOA,
+    LN_NEWUOA_BOUND,
+    LN_NELDERMEAD,
+    LN_SBPLX,
+    LN_AUGLAG,
+    LD_AUGLAG,
+    LN_AUGLAG_EQ,
+    LD_AUGLAG_EQ,
+    LN_BOBYQA,
+    GN_ISRES,
+    AUGLAG,
+    AUGLAG_EQ,
+    G_MLSL,
+    G_MLSL_LDS,
+    LD_SLSQP,
+    LD_CCSAQ,
+    GN_ESCH,
+    GN_AGS,
+    NUM_ALGORITHMS        /* not an algorithm, just the number of them */
   };
   enum result {
-     FAILURE = -1, /* generic failure code */
-     INVALID_ARGS = -2,
-     OUT_OF_MEMORY = -3,
-     ROUNDOFF_LIMITED = -4,
-     FORCED_STOP = -5,
-     SUCCESS = 1, /* generic success code */
-     STOPVAL_REACHED = 2,
-     FTOL_REACHED = 3,
-     XTOL_REACHED = 4,
-     MAXEVAL_REACHED = 5,
-     MAXTIME_REACHED = 6
+    FAILURE = -1,         /* generic failure code */
+    INVALID_ARGS = -2,
+    OUT_OF_MEMORY = -3,
+    ROUNDOFF_LIMITED = -4,
+    FORCED_STOP = -5,
+    SUCCESS = 1,          /* generic success code */
+    STOPVAL_REACHED = 2,
+    FTOL_REACHED = 3,
+    XTOL_REACHED = 4,
+    MAXEVAL_REACHED = 5,
+    MAXTIME_REACHED = 6
   };
-  // GEN_ENUMS_HERE
   //////////////////////////////////////////////////////////////////////
-
   typedef nlopt_func func; // nlopt::func synoynm
   typedef nlopt_mfunc mfunc; // nlopt::mfunc synoynm
-
   // alternative to nlopt_func that takes std::vector<double>
   // ... unfortunately requires a data copy
   typedef double (*vfunc)(const std::vector<double> &x,
 			  std::vector<double> &grad, void *data);
-
   //////////////////////////////////////////////////////////////////////
   
   // NLopt-specific exceptions (corresponding to error codes):
@@ -121,36 +113,31 @@ namespace nlopt {
   public:
     roundoff_limited() : std::runtime_error("nlopt roundoff-limited") {}
   };
-
   class forced_stop : public std::runtime_error {
   public:
     forced_stop() : std::runtime_error("nlopt forced stop") {}
   };
-
   //////////////////////////////////////////////////////////////////////
-
   class opt {
   private:
     nlopt_opt o;
     
     void mythrow(nlopt_result ret) const {
       switch (ret) {
-      case NLOPT_FAILURE: throw std::runtime_error("nlopt failure");
+      case NLOPT_FAILURE: throw std::runtime_error(get_errmsg() ? get_errmsg() : "nlopt failure");
       case NLOPT_OUT_OF_MEMORY: throw std::bad_alloc();
-      case NLOPT_INVALID_ARGS: throw std::invalid_argument("nlopt invalid argument");
+      case NLOPT_INVALID_ARGS: throw std::invalid_argument(get_errmsg() ? get_errmsg() : "nlopt invalid argument");
       case NLOPT_ROUNDOFF_LIMITED: throw roundoff_limited();
       case NLOPT_FORCED_STOP: throw forced_stop();
       default: break;
       }
     }
-
     typedef struct {
       opt *o;
       mfunc mf; func f; void *f_data;
       vfunc vf;
       nlopt_munge munge_destroy, munge_copy; // non-NULL for SWIG wrappers
     } myfunc_data;
-
     // free/destroy f_data in nlopt_destroy and nlopt_copy, respectively
     static void *free_myfunc_data(void *p) { 
       myfunc_data *d = (myfunc_data *) p;
@@ -179,7 +166,6 @@ namespace nlopt {
       }
       else return NULL;
     }
-
     // nlopt_func wrapper that catches exceptions
     static double myfunc(unsigned n, const double *x, double *grad, void *d_) {
       myfunc_data *d = reinterpret_cast<myfunc_data*>(d_);
@@ -199,7 +185,6 @@ namespace nlopt {
       d->o->force_stop(); // stop gracefully, opt::optimize will re-throw
       return HUGE_VAL;
     }
-
     // nlopt_mfunc wrapper that catches exceptions
     static void mymfunc(unsigned m, double *result,
 			unsigned n, const double *x, double *grad, void *d_) {
@@ -221,9 +206,7 @@ namespace nlopt {
       d->o->force_stop(); // stop gracefully, opt::optimize will re-throw
       for (unsigned i = 0; i < m; ++i) result[i] = HUGE_VAL;
     }
-
     std::vector<double> xtmp, gradtmp, gradtmp0; // scratch for myvfunc
-
     // nlopt_func wrapper, using std::vector<double>
     static double myvfunc(unsigned n, const double *x, double *grad, void *d_){
       myfunc_data *d = reinterpret_cast<myfunc_data*>(d_);
@@ -250,18 +233,15 @@ namespace nlopt {
       d->o->force_stop(); // stop gracefully, opt::optimize will re-throw
       return HUGE_VAL;
     }
-
     void alloc_tmp() {
       if (xtmp.size() != nlopt_get_dimension(o)) {
 	xtmp = std::vector<double>(nlopt_get_dimension(o));
 	gradtmp = std::vector<double>(nlopt_get_dimension(o));
       }
     }
-
     result last_result;
     double last_optf;
     nlopt_result forced_stop_reason;
-
   public:
     // Constructors etc.
     opt() : o(NULL), xtmp(0), gradtmp(0), gradtmp0(0), 
@@ -292,7 +272,6 @@ namespace nlopt {
       forced_stop_reason = f.forced_stop_reason;
       return *this;
     }
-
     // Do the optimization:
     result optimize(std::vector<double> &x, double &opt_f) {
       if (o && nlopt_get_dimension(o) != x.size())
@@ -306,7 +285,6 @@ namespace nlopt {
       mythrow(ret);
       return last_result;
     }
-
     // variant mainly useful for SWIG wrappers:
     std::vector<double> optimize(const std::vector<double> &x0) {
       std::vector<double> x(x0);
@@ -315,7 +293,6 @@ namespace nlopt {
     }
     result last_optimize_result() const { return last_result; }
     double last_optimum_value() const { return last_optf; }
-
     // accessors:
     algorithm get_algorithm() const {
       if (!o) throw std::runtime_error("uninitialized nlopt::opt");
@@ -329,7 +306,6 @@ namespace nlopt {
       if (!o) throw std::runtime_error("uninitialized nlopt::opt");
       return nlopt_get_dimension(o);
     }
-
     // Set the objective function
     void set_min_objective(func f, void *f_data) {
       myfunc_data *d = new myfunc_data;
@@ -361,7 +337,6 @@ namespace nlopt {
       mythrow(nlopt_set_max_objective(o, myvfunc, d)); // d freed via o
       alloc_tmp();
     }
-
     // for internal use in SWIG wrappers -- variant that
     // takes ownership of f_data, with munging for destroy/copy
     void set_min_objective(func f, void *f_data,
@@ -380,9 +355,7 @@ namespace nlopt {
       d->munge_destroy = md; d->munge_copy = mc;
       mythrow(nlopt_set_max_objective(o, myfunc, d)); // d freed via o
     }
-
     // Nonlinear constraints:
-
     void remove_inequality_constraints() {
       nlopt_result ret = nlopt_remove_inequality_constraints(o);
       mythrow(ret);
@@ -411,7 +384,6 @@ namespace nlopt {
       mythrow(nlopt_add_inequality_mconstraint(o, tol.size(), mymfunc, d, 
 					       tol.empty() ? NULL : &tol[0]));
     }
-
     void remove_equality_constraints() {
       nlopt_result ret = nlopt_remove_equality_constraints(o);
       mythrow(ret);
@@ -440,7 +412,6 @@ namespace nlopt {
       mythrow(nlopt_add_equality_mconstraint(o, tol.size(), mymfunc, d, 
 					     tol.empty() ? NULL : &tol[0]));
     }
-
     // For internal use in SWIG wrappers (see also above)
     void add_inequality_constraint(func f, void *f_data, 
 				   nlopt_munge md, nlopt_munge mc,
@@ -480,40 +451,36 @@ namespace nlopt {
       mythrow(nlopt_add_equality_mconstraint(o, tol.size(), mymfunc, d, 
 					     tol.empty() ? NULL : &tol[0]));
     }
-
-#define NLOPT_GETSET_VEC(name)						\
-    void set_##name(double val) {					\
-      mythrow(nlopt_set_##name##1(o, val));				\
-    }									\
-    void get_##name(std::vector<double> &v) const {			\
-      if (o && nlopt_get_dimension(o) != v.size())			\
-        throw std::invalid_argument("dimension mismatch");		\
-      mythrow(nlopt_get_##name(o, v.empty() ? NULL : &v[0]));		\
-    }									\
-    std::vector<double> get_##name() const {			\
-      if (!o) throw std::runtime_error("uninitialized nlopt::opt");	\
-      std::vector<double> v(nlopt_get_dimension(o));			\
-      get_##name(v);							\
-      return v;								\
-    }			 						\
-    void set_##name(const std::vector<double> &v) {			\
-      if (o && nlopt_get_dimension(o) != v.size())			\
-        throw std::invalid_argument("dimension mismatch");		\
-      mythrow(nlopt_set_##name(o, v.empty() ? NULL : &v[0]));		\
+#define NLOPT_GETSET_VEC(name)						 \
+    void set_##name(double val) {					 \
+      mythrow(nlopt_set_##name##1(o, val)); \
+    }									 \
+    void get_##name(std::vector<double> &v) const {			 \
+      if (o && nlopt_get_dimension(o) != v.size())			 \
+        throw std::invalid_argument("dimension mismatch"); \
+      mythrow(nlopt_get_##name(o, v.empty() ? NULL : &v[0])); \
+    }									 \
+    std::vector<double> get_##name() const {			 \
+      if (!o) throw std::runtime_error("uninitialized nlopt::opt"); \
+      std::vector<double> v(nlopt_get_dimension(o)); \
+      get_##name(v); \
+      return v; \
+    }			 						 \
+    void set_##name(const std::vector<double> &v) {			 \
+      if (o && nlopt_get_dimension(o) != v.size())			 \
+        throw std::invalid_argument("dimension mismatch"); \
+      mythrow(nlopt_set_##name(o, v.empty() ? NULL : &v[0])); \
     }
-
     NLOPT_GETSET_VEC(lower_bounds)
     NLOPT_GETSET_VEC(upper_bounds)
-
     // stopping criteria:
-
-#define NLOPT_GETSET(T, name)						\
-    T get_##name() const {						\
-      if (!o) throw std::runtime_error("uninitialized nlopt::opt");	\
-      return nlopt_get_##name(o);					\
-    }									\
-    void set_##name(T name) {						\
-      mythrow(nlopt_set_##name(o, name));				\
+#define NLOPT_GETSET(T, name)						 \
+    T get_##name() const {						 \
+      if (!o) throw std::runtime_error("uninitialized nlopt::opt"); \
+      return nlopt_get_##name(o); \
+    }									 \
+    void set_##name(T name) {						 \
+      mythrow(nlopt_set_##name(o, name)); \
     }
     NLOPT_GETSET(double, stopval)
     NLOPT_GETSET(double, ftol_rel)
@@ -521,21 +488,25 @@ namespace nlopt {
     NLOPT_GETSET(double, xtol_rel)
     NLOPT_GETSET_VEC(xtol_abs)
     NLOPT_GETSET(int, maxeval)
+    int get_numevals() const {
+      if (!o) throw std::runtime_error("uninitialized nlopt::opt");
+      return nlopt_get_numevals(o);
+    }
     NLOPT_GETSET(double, maxtime)
-
     NLOPT_GETSET(int, force_stop)
     void force_stop() { set_force_stop(1); }
-
+    const char *get_errmsg() const { 
+        if (!o) throw std::runtime_error("uninitialized nlopt::opt");
+        return nlopt_get_errmsg(o);
+    }
     // algorithm-specific parameters:
-
     void set_local_optimizer(const opt &lo) {
       nlopt_result ret = nlopt_set_local_optimizer(o, lo.o);
       mythrow(ret);
     }
-
     NLOPT_GETSET(unsigned, population)
+    NLOPT_GETSET(unsigned, vector_storage)
     NLOPT_GETSET_VEC(initial_step)
-
     void set_default_initial_step(const std::vector<double> &x) {
       nlopt_result ret 
 	= nlopt_set_default_initial_step(o, x.empty() ? NULL : &x[0]);
@@ -556,12 +527,9 @@ namespace nlopt {
       return v;
     }
   };
-
 #undef NLOPT_GETSET
 #undef NLOPT_GETSET_VEC
-
   //////////////////////////////////////////////////////////////////////
-
   inline void srand(unsigned long seed) { nlopt_srand(seed); }
   inline void srand_time() { nlopt_srand_time(); }
   inline void version(int &major, int &minor, int &bugfix) {
@@ -585,9 +553,6 @@ namespace nlopt {
   inline const char *algorithm_name(algorithm a) {
     return nlopt_algorithm_name(nlopt_algorithm(a));
   }
-
   //////////////////////////////////////////////////////////////////////
-
 } // namespace nlopt
-
 #endif /* NLOPT_HPP */
