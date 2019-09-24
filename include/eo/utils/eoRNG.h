@@ -37,7 +37,7 @@ Old contact information: todos@geneura.ugr.es, http://geneura.ugr.es
  optimization levels so feel free to try your options and see what's best for
  you.
 */
-typedef unsigned int uint32_t;
+typedef unsigned long uint32_t;
 #else
 #if (! defined __sun)
 // The C99-standard defines uint32_t to be declared in stdint.h, but some
@@ -150,7 +150,8 @@ public :
             initialize(2*s);
         }
 
-    /** Re-initializes the Random Number Generator
+    /* FIXME remove in next release
+    ** Re-initializes the Random Number Generator
 
     This is the traditional seeding procedure. This version is deprecated and
     only provided for compatibility with old code. In new projects you should
@@ -159,11 +160,12 @@ public :
     @see reseed for details on usage of the seeding value.
 
     @version old version (deprecated)
-    */
+    *
     void oldReseed(uint32_t s)
         {
             initialize(s);
         }
+    */
 
     /** Random number from unifom distribution
 
@@ -198,7 +200,7 @@ public :
             // ("rounding towards zero"): "An rvalue of a floating point type
             // can be converted to an rvalue of an integer type. The conversion
             // truncates; that is, the fractional part is discarded"
-            return quint32(uniform() * double(m));
+            return uint32_t(uniform() * double(m));
         }
 
     /** Biased coin toss
@@ -216,6 +218,7 @@ public :
     /** Gaussian deviate
 
     Zero mean Gaussian deviate with standard deviation 1.
+    Note: Use the Marsaglia polar method.
 
     @return Random Gaussian deviate
     */
@@ -242,6 +245,18 @@ public :
     double normal(double mean, double stdev)
         { return mean + normal(stdev); }
 
+    /**
+     * @brief Forgets the last cached value of normal(), so as to be able to perform some repeatable calls to normal().
+     *
+     * As normal() stores a cached value for performance purposes, sequences of pseudo random numbers can't be repeated
+     * when reseeding, since the cached value can be yield before a number is generated. To avoid that, this method
+     * allows one to clean the cache and force to regenerate a new pseudo random number.
+     */
+    void clearCache()
+    {
+        cached = false;
+    }
+
     /** Random numbers using a negative exponential distribution
 
     @param mean Mean value of distribution
@@ -260,7 +275,7 @@ public :
     /**
     rand_max() the maximum returned by rand()
     */
-    unsigned long rand_max() const { return (unsigned long)(0xffffffff); }
+    uint32_t rand_max() const { return uint32_t(0xffffffff); }
 
     /** Roulette wheel selection
 
@@ -467,8 +482,8 @@ inline void eoRng::initialize(uint32_t seed)
 {
     left = -1;
 
-    register uint32_t x = (seed | 1U) & 0xFFFFFFFFU, *s = state;
-    register int j;
+    uint32_t x = (seed | 1U) & 0xFFFFFFFFU, *s = state;
+    int j;
 
     for(left=0, *s++=x, j=N; --j;
         *s++ = (x*=69069U) & 0xFFFFFFFFU) ;
@@ -478,8 +493,8 @@ inline void eoRng::initialize(uint32_t seed)
 
 inline uint32_t eoRng::restart()
 {
-    register uint32_t *p0=state, *p2=state+2, *pM=state+M, s0, s1;
-    register int j;
+    uint32_t *p0=state, *p2=state+2, *pM=state+M, s0, s1;
+    int j;
 
     left=N-1, next=state+1;
 
