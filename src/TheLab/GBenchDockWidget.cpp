@@ -33,11 +33,7 @@ GBenchDockWidget::GBenchDockWidget(QWidget *parent, Qt::DockWidgetArea initialDo
 
 	// by default the dock will be destroyed on close
 	// this will be set to false when the first device is put in the dock
-	setAttribute(Qt::WA_DeleteOnClose, true);
-}
-
-GBenchDockWidget::~GBenchDockWidget()
-{
+    setAttribute(Qt::WA_DeleteOnClose, true);
 }
 
 void GBenchDockWidget::InsertDeviceWidget(GDeviceWidget* pDevWid)
@@ -69,16 +65,12 @@ void GBenchDockWidget::InsertDeviceWidget(GDeviceWidget* pDevWid)
 	m_Devices.append(pTheDevice);
 
 	// and take appropriate measure when the device widget is deleted
-    connect(pDevWid, &GDeviceWidget::destroyed, this, [this, pTheDevice](){ this->DeviceWidgetRemoved(pTheDevice); });
+    auto con = connect(pDevWid, &GDeviceWidget::destroyed, this, [this, pTheDevice](){ this->DeviceWidgetRemoved(pTheDevice); });
+    connect(this, &QObject::destroyed, [con](){ disconnect(con); });
 }
 
-void GBenchDockWidget::DeviceWidgetRemoved( QObject* pObjDev )
+void GBenchDockWidget::DeviceWidgetRemoved( GDevice* pTheDevice )
 {
-	// the device
-	GDevice* pTheDevice = qobject_cast<GDevice*>(pObjDev);
-	if(!pTheDevice)
-		return;
-
 	// remove from the dock
 	m_Devices.removeOne(pTheDevice);
 	// what to do next

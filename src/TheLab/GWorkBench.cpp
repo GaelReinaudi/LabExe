@@ -103,7 +103,8 @@ void GWorkBench::ConnectAndShowDeviceWidget( GDeviceWidget* pDevWid, QWidget* pI
 	// adding RemoveDevice capabilities to the devicewidget context menu by adding an action
 	QAction* pRemoveAction = new QAction("Remove from bench", this);
 	pDevWid->addAction(pRemoveAction);
-    connect(pRemoveAction, &QAction::triggered, [this, pDevWid](){ this->RemoveDevice(pDevWid->Device()->UniqueSystemID()); });
+    auto con = connect(pRemoveAction, &QAction::triggered, [this, pDevWid](){ this->RemoveDevice(pDevWid->Device()->UniqueSystemID()); });
+    connect(this, &QObject::destroyed, [con](){ QObject::disconnect(con); });
 
 	if(!pInWhichWidget)
 		pInWhichWidget = this;
