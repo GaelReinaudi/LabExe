@@ -17,7 +17,7 @@ signals:
 	void dataRequested(const QString &mimeType) const;
 
 protected:
-	QVariant retrieveData(const QString &mimeType, QVariant::Type type) const;
+    QVariant retrieveData(const QString &mimeType, QMetaType type) const;
 
 private:
 	

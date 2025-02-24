@@ -1,5 +1,7 @@
 #include "GDeviceListModel.h"
+#include "qimage.h"
 #include <QMimeData>
+#include <QIODevice>
 
 GDeviceListModel::GDeviceListModel(QObject *parent)
 	: QStandardItemModel(parent)

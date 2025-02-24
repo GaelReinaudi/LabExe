@@ -35,7 +35,7 @@ protected slots:
 	//! remove the highlight on this widget by changing its color back to normal
 	void StopHighlight();
 protected:
-	void enterEvent( QEvent* event );
+    void enterEvent(QEnterEvent *event );
 	void leaveEvent( QEvent* event );
 
 private:

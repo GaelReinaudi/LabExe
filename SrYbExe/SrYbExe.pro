@@ -9,7 +9,7 @@ SUBDIRS += \
 #        ../src/LabExeOptimizing \
     ../../LabExe-UserPlugins/SoftwarePlugins/SoftwarePlugins.pro \
 #    ../../LabExe-UserPlugins/HardwarePlugins/HardwarePlugins.pro \
-    ../Deployement/UserPluginWizard/UserPluginWizard.pro \
+    # ../Deployement/UserPluginWizard/UserPluginWizard.pro \
     SrYbExe/SrYbExe.pro
 
 LabExeImaging.depends = labexe

@@ -415,13 +415,20 @@ void GLabControlPanel::ExportScreenshots()
 
 QPixmap GLabControlPanel::ScreenShotDesktop(const QString & fileSaveName /*= ""*/)
 {
-	QDesktopWidget* desktop = QApplication::desktop();
     auto screen = QGuiApplication::primaryScreen();
-    QPixmap scrShotDesk = screen->grabWindow(desktop->winId(), 0, 0, desktop->width(), desktop->height());
-	if(!fileSaveName.isEmpty()) {
-		scrShotDesk.save(fileSaveName + ".png", "PNG");
-	}
-	return scrShotDesk;
+    QRect screenGeometry = screen->geometry();
+
+    // Capture entire desktop using root window (ID 0)
+    QPixmap scrShotDesk = screen->grabWindow(0,
+                                             screenGeometry.x(),
+                                             screenGeometry.y(),
+                                             screenGeometry.width(),
+                                             screenGeometry.height());
+
+    if(!fileSaveName.isEmpty()) {
+        scrShotDesk.save(fileSaveName + ".png", "PNG");
+    }
+    return scrShotDesk;
 }
 
 void GLabControlPanel::AddDeviceToShelf( GDevice* pDev )

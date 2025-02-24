@@ -107,16 +107,11 @@ void GBenchDockWidget::InterpretSettings( QSettings& fromQsettings )
 
 QList<GDevice*> GBenchDockWidget::EmbeddedDevices() const
 {
-	return m_Devices.toSet().toList();
-// 	QList<GDevice*> listDevices;
-// 	// get the children GDeviceWidget of the Dock
-// 	foreach(QObject* pObj, children()) {
-// 		GDeviceWidget* pDevWid = qobject_cast<GDeviceWidget*>(pObj);
-// 		if(pDevWid)
-// 			if(pDevWid->Device())
-// 				listDevices.append(pDevWid->Device());
-// 	}
-// 	return listDevices;
+    auto container = m_Devices;
+    std::sort(container.begin(), container.end());
+    container.erase(std::unique(container.begin(), container.end()),
+                    container.end());
+    return container;
 }
 
 QStringList GBenchDockWidget::EmbeddedDevicesID() const

@@ -3,6 +3,8 @@
 #include "GDeviceWidget.h"
 #include "Param/GParam.h"
 #include <QtWidgets/QInputDialog>
+#include <QRandomGenerator>
+#include <QRegularExpression>
 
 GDeviceManager* DeviceManagerInstance()
 {
@@ -67,9 +69,9 @@ GDevice::GDevice(QString uniqueIdentifierName, QObject *parent)
 	disconnect(this, SIGNAL(PrivateTriggerLatterInitialization()));
 
 	m_Color = QColor(
-		(qrand() * 255) / RAND_MAX, 
-		(qrand() * 255) / RAND_MAX, 
-		(qrand() * 255) / RAND_MAX);
+        (QRandomGenerator::global()->generate() * 255) / RAND_MAX,
+        (QRandomGenerator::global()->generate() * 255) / RAND_MAX,
+        (QRandomGenerator::global()->generate() * 255) / RAND_MAX);
 
 }
 
@@ -199,24 +201,40 @@ void GDevice::AddToDeviceManager()
 
 QString GDevice::ShelfName() const
 {
-	QString theNameForShelving = metaObject()->className();
-	QRegExp capitals("[A-Z0-9]");
-	// remove a "G" at the beginning if it is followed by another capital
-	if(theNameForShelving.indexOf("G") == 0 && capitals.indexIn(theNameForShelving, 1))
-		theNameForShelving.remove(0, 1);
-	// let's separate the capitalized worlds
-	int pos = 1;
-	while((pos = capitals.indexIn(theNameForShelving, pos)) > 0) {
-		// if it is several numbers in a row we should probably not break it down with spaces
-		if(pos - 1 >= 0 && theNameForShelving[pos].isNumber() && theNameForShelving[pos - 1].isNumber()) {
-			pos++;
-			continue;
-		}
-		theNameForShelving.insert(pos, " ");
-		pos += 2;
-	}
+    QString theNameForShelving = metaObject()->className();
+    QRegularExpression capitals("[A-Z0-9]");
 
-	return theNameForShelving;
+    // Remove leading "G" if followed by another capital/number
+    if(theNameForShelving.indexOf("G") == 0) {
+        QRegularExpressionMatch match = capitals.match(theNameForShelving, 1);
+        if(match.hasMatch()) {
+            theNameForShelving.remove(0, 1);
+        }
+    }
+
+    // Separate capitalized words/numbers
+    int pos = 1;
+    QRegularExpressionMatch match;
+    while(true) {
+        match = capitals.match(theNameForShelving, pos);
+        if(!match.hasMatch()) break;
+
+        int matchPos = match.capturedStart();
+        if(matchPos <= 0) break;
+
+        // Skip consecutive numbers
+        if(matchPos - 1 >= 0 &&
+            theNameForShelving[matchPos].isNumber() &&
+            theNameForShelving[matchPos - 1].isNumber()) {
+            pos = matchPos + 1;
+            continue;
+        }
+
+        theNameForShelving.insert(matchPos, " ");
+        pos = matchPos + 2;  // Skip inserted space and current character
+    }
+
+    return theNameForShelving;
 }
 
 void GDevice::DragEnterEvent( QDragEnterEvent *event, GDeviceWidget* pOnWidget )

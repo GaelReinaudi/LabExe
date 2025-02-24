@@ -4,7 +4,7 @@ CONFIG(debug, debug|release) {
 	TARGET = $$join(TARGET,,,_D)
 }
 
-QT += core gui widgets script
+QT += core gui widgets core5compat qml
 include($$PWD/../common.pri)
 
 DEFINES += LABEXE_LIB

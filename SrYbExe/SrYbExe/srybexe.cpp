@@ -1,14 +1,13 @@
 #include "srybexe.h"
+#include "Device/GDevice.h"
 #ifdef Q_OS_WIN32
 #include "LabExeImaging/labexeimaging.h"
 //#include "LabExeSequencer/labexesequencer.h"
-#include "LabExeOptimizing/labexeoptimizing.h"
 #include <WinSparkle/winsparkle.h>
 #endif
 #ifdef Q_OS_LINUX
 #include "LabExeImaging/labexeimaging.h"
 //#include "LabExeSequencer/labexesequencer.h"
-#include "LabExeOptimizing/labexeoptimizing.h"
 #endif
 
 #ifdef Q_OS_WIN32
