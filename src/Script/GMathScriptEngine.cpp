@@ -88,6 +88,7 @@ void GMathScriptEngine::RegisterVariable(GParamString* pName, GParamNum* pParamN
 
 void GMathScriptEngine::RemoveVariable(GParamString* pName, GParamNum* pParamNum)
 {
+    Q_UNUSED(pParamNum)
     m_ParamName_ParamNum.remove(pName);
     UpdateAllVariableNames();
     disconnect(pName, SIGNAL(ValueUpdated(QString)), this, SLOT(UpdateAllVariableNames()));
@@ -96,7 +97,7 @@ void GMathScriptEngine::RemoveVariable(GParamString* pName, GParamNum* pParamNum
 void GMathScriptEngine::UpdateAllVariableNames()
 {
     // Remove all currently registered variable names from the global object.
-    for (const QString &nameVar : m_UsedVariableNames) {
+    for (const QString &nameVar : std::as_const(m_UsedVariableNames)) {
         globalObject().setProperty(nameVar, QJSValue());
     }
     m_UsedVariableNames.clear();

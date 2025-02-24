@@ -227,7 +227,7 @@ void GLabControlPanel::DeleteWorkBenchItem()
 {
 	// the parent of the sender QShortuct must have been set to the QListWidget containing the workbenches
 	QListWidget* pParentListWidget = qobject_cast<QListWidget*>(sender()->parent());
-	if(pParentListWidget)
+    if(pParentListWidget) {
 		foreach(QListWidgetItem* pItem, pParentListWidget->selectedItems()) {
 			// delete the corresponding GWorkBench if m_CloseWorkBenchWhenDeletedFromList
 			bool ClosingSuccesful = true;
@@ -237,8 +237,10 @@ void GLabControlPanel::DeleteWorkBenchItem()
 					ClosingSuccesful = pWB->close();
 			}
 			// remove the strBenchType from the list (unless the maybe-closing was requested but failed)
-			if(ClosingSuccesful)
+            if(ClosingSuccesful) {
 				pParentListWidget->takeItem(pParentListWidget->row(pItem));
+            }
+        }
 	}
 }
 
@@ -336,7 +338,7 @@ void GLabControlPanel::ShowWorkBench( QListWidgetItem* pItem )
 		return;
 	
 	pWB->show();
-	QApplication::setActiveWindow(pWB);
+    pWB->activateWindow();
 }
 
 void GLabControlPanel::SaveAllAs(bool justExportCopy /*= false*/, const QString & folderPath /*= ""*/)

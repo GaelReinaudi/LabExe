@@ -34,7 +34,7 @@ void GParamBucketWidget::dropEvent( QDropEvent *event )
 	GParam* pParam = ParamManagerInstance()->GetParam(event->mimeData());
 	if(!pParam)
 		return;
-	emit ParamLabelWasDropped(pParam, event->pos());
+    emit ParamLabelWasDropped(pParam, event->position().toPoint());
 }
 
 void GParamBucketWidget::ResizeThisAndParent()
