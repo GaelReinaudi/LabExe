@@ -36,7 +36,7 @@ public:
 	~GDeviceListWidget();
 
 	QStringList mimeTypes() const;
-	QMimeData* mimeData(const QList<QListWidgetItem*> items) const;
+    QMimeData *mimeData(const QList<QListWidgetItem *> &items) const;
 private:
 	
 };

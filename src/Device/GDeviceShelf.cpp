@@ -162,5 +162,5 @@ void GDeviceShelf::showEvent( QShowEvent * event )
 void GDeviceShelf::Show()
 {
 	show();
-	QApplication::setActiveWindow(this);
+    activateWindow();
 }

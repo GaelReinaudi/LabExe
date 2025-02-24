@@ -69,7 +69,7 @@ QStringList GDeviceListWidget::mimeTypes() const
 	return types;
 }
 
-QMimeData* GDeviceListWidget::mimeData( const QList<QListWidgetItem*> items ) const
+QMimeData* GDeviceListWidget::mimeData( const QList<QListWidgetItem *> &items ) const
 {
 	// from qt help: "Using Drag and Drop with Item Views"
 	QMimeData* mimeData = new QMimeData();
