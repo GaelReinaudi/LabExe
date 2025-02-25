@@ -110,7 +110,7 @@ QString UserPluginWizard::MakeProjectDirectory()
 		// opens the file from relatively to the m_FromDir
 		QFile file(m_FromDir.filePath(relFilePathOriginal));
 		if(!file.open(QFile::ReadOnly | QFile::Text)) {
-			QMessageBox::warning(0, QObject::tr("Plugin Wizard"), QObject::tr("Cannot read file %1:\n%2").arg(file.fileName()).arg(file.errorString()));
+			QMessageBox::warning(nullptr, QObject::tr("Plugin Wizard"), QObject::tr("Cannot read file %1:\n%2").arg(file.fileName()).arg(file.errorString()));
 			continue;
 		}
 		// reads the content
@@ -141,7 +141,7 @@ QString UserPluginWizard::MakeProjectDirectory()
 		inDir.mkpath(relativeFilePathInDir);
 
 		if(!newfile.open(QFile::WriteOnly | QFile::Text)) {
-			QMessageBox::warning(0, QObject::tr("Plugin Wizard"), QObject::tr("Cannot write file %1:\n%2").arg(newfile.fileName()).arg(newfile.errorString()));
+			QMessageBox::warning(nullptr, QObject::tr("Plugin Wizard"), QObject::tr("Cannot write file %1:\n%2").arg(newfile.fileName()).arg(newfile.errorString()));
 			continue;
 		}
 		newfile.write(content);

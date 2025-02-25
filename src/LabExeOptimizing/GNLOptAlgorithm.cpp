@@ -7,7 +7,7 @@ double GlobalNLoptEvaluationFunction(const std::vector<double> &x, std::vector<d
 {
     Q_UNUSED(grad);
     GNLOptAlgorithm* pAlgo = (GNLOptAlgorithm*)f_data;
-	GVectorDouble NewPosVextor = GVectorDouble::fromStdVector(x);
+    GVectorDouble NewPosVextor = GVectorDouble(x.begin(), x.end());
 
 	if(!pAlgo->m_KeepIterating) {
 		pAlgo->m_pImmutableOptimzer->force_stop();
@@ -34,8 +34,8 @@ bool GNLOptAlgorithm::Configure()
 {
 	int numVar = m_pOptimizer->CenterValuesVariable().count();
 	m_InitialValues = m_pOptimizer->CenterValuesVariable();
-	std::vector<double> LowerBounds = m_pOptimizer->LowerBoundsVariable().toStdVector();
-	std::vector<double> UpperBounds = m_pOptimizer->UpperBoundsVariable().toStdVector();
+    std::vector<double> LowerBounds(m_pOptimizer->LowerBoundsVariable().begin(), m_pOptimizer->LowerBoundsVariable().end());
+    std::vector<double> UpperBounds(m_pOptimizer->UpperBoundsVariable().begin(), m_pOptimizer->UpperBoundsVariable().end());
 	std::vector<double> TypicalSteps;
 	// make the steps a bit bigger
 	double factorStep = 10.0;
@@ -59,7 +59,7 @@ bool GNLOptAlgorithm::Configure()
 		pTheOpt->set_local_optimizer(nlopt::opt(nlopt::LN_NELDERMEAD, numVar));
 	}
     catch (QException & e) {
-		e;
+        Q_UNUSED(e)
 		return false;
 	}
 	return true;
@@ -70,7 +70,8 @@ void GNLOptAlgorithm::RunOptimization()
 	double result = 0;
 
 	try {
-		nlopt::result theRes = m_pImmutableOptimzer->optimize(m_InitialValues.toStdVector(), result);
+        std::vector<double> initvec(m_InitialValues.begin(), m_InitialValues.end());
+        nlopt::result theRes = m_pImmutableOptimzer->optimize(initvec, result);
 		emit FinishedOptimizing(theRes);
 	}
 	catch (nlopt::roundoff_limited & e) {

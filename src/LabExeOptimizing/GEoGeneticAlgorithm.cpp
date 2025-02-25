@@ -7,11 +7,11 @@
 
 GEoGeneticAlgorithm::GEoGeneticAlgorithm(GOptimizer* parentOptimizer)
 	: GOptimizationAlgorithm(parentOptimizer)
-	, m_UintCurrentGeneration(0)
-	, m_CurrentGeneration("Current generation", parentOptimizer, GParam::ReadOnly)
-	, m_PopulationSize("Population size", parentOptimizer)
-	, m_CrossOverProbability("Crossover probability", parentOptimizer)
-	, m_MutationProbability("Mutation probability", parentOptimizer)
+    , m_PopulationSize("Population size", parentOptimizer)
+    , m_CrossOverProbability("Crossover probability", parentOptimizer)
+    , m_MutationProbability("Mutation probability", parentOptimizer)
+    , m_CurrentGeneration("Current generation", parentOptimizer, GParam::ReadOnly)
+    , m_UintCurrentGeneration(0)
 {
 	m_pEoWidget = new GEoGeneticAlgorithmWidget(this, 0);
 	SettingsWidget()->layout()->addWidget(m_pEoWidget);
@@ -41,7 +41,7 @@ double GlobalEoEvaluationFunction(const Individual & x, GOptimizationAlgorithm* 
 {
 	GEoGeneticAlgorithm* pGenAlgo = qobject_cast<GEoGeneticAlgorithm*>( pAlgo);
 
-	GVectorDouble NewPosVextor = GVectorDouble::fromStdVector(x);
+    GVectorDouble NewPosVextor = GVectorDouble(x.begin(), x.end());
 
 	if(!pAlgo->m_KeepIterating) {
 		return 0.0;
@@ -92,10 +92,10 @@ void GEoGeneticAlgorithm::RunOptimization()
 	m_UintCurrentGeneration = 1;
 	int popSize = m_PopulationSize;
 
-	std::vector<double> CenterValues = m_pOptimizer->CenterValuesVariable().toStdVector();
-	std::vector<double> LowerBounds = m_pOptimizer->LowerBoundsVariable().toStdVector();
-	std::vector<double> UpperBounds = m_pOptimizer->UpperBoundsVariable().toStdVector();
-	std::vector<double> TypicalSteps = m_pOptimizer->TypicalStepsVariable().toStdVector();
+    std::vector<double> CenterValues(m_pOptimizer->CenterValuesVariable().begin(), m_pOptimizer->CenterValuesVariable().end());
+    std::vector<double> LowerBounds(m_pOptimizer->LowerBoundsVariable().begin(), m_pOptimizer->LowerBoundsVariable().end());
+    std::vector<double> UpperBounds(m_pOptimizer->UpperBoundsVariable().begin(), m_pOptimizer->UpperBoundsVariable().end());
+    std::vector<double> TypicalSteps(m_pOptimizer->TypicalStepsVariable().begin(), m_pOptimizer->TypicalStepsVariable().end());
 //	int numVar = m_InitialValues.size();
 
 	eoRealVectorBounds theEoParamBounds(LowerBounds, UpperBounds);
@@ -112,7 +112,7 @@ void GEoGeneticAlgorithm::RunOptimization()
 
 
 	// PARAMETRES
-	const unsigned int SEED = QDateTime::currentDateTime().toTime_t();	// seed for random number generator
+    const unsigned int SEED = QDateTime::currentDateTime().toSecsSinceEpoch();	// seed for random number generator
 	const unsigned int T_SIZE = 3; // size for tournament selection
 //	const unsigned int VEC_SIZE = numVar; // Number of object variables in genotypes
 	const unsigned int POP_SIZE = popSize;//20; // Size of population
@@ -183,7 +183,7 @@ void GEoGeneticAlgorithm::RunOptimization()
 	eoHypercubeCrossover<Individual> xoverA;
 	// Combine them with relative weights
 	eoPropCombinedQuadOp<Individual> xover(xoverS, segmentRate);
-	xover.add(xoverA, hypercubeRate, true);
+    xover.add(xoverA, hypercubeRate);
 
 	// MUTATION
 	// offspring(i) uniformly chosen in [parent(i)-epsilon, parent(i)+epsilon]

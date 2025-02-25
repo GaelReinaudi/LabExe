@@ -23,7 +23,7 @@
      <x>0</x>
      <y>0</y>
      <width>538</width>
-     <height>21</height>
+     <height>18</height>
     </rect>
    </property>
   </widget>
@@ -37,10 +37,10 @@
     <string>Undo or Redo actions in the Workbench Interface</string>
    </property>
    <property name="features">
-    <set>QDockWidget::AllDockWidgetFeatures</set>
+    <set>QDockWidget::DockWidgetFeature::DockWidgetClosable|QDockWidget::DockWidgetFeature::DockWidgetFloatable|QDockWidget::DockWidgetFeature::DockWidgetMovable</set>
    </property>
    <property name="allowedAreas">
-    <set>Qt::BottomDockWidgetArea|Qt::RightDockWidgetArea|Qt::TopDockWidgetArea</set>
+    <set>Qt::DockWidgetArea::BottomDockWidgetArea|Qt::DockWidgetArea::RightDockWidgetArea|Qt::DockWidgetArea::TopDockWidgetArea</set>
    </property>
    <property name="windowTitle">
     <string>Undo/Redo</string>
@@ -52,14 +52,6 @@
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <customwidgets>
-  <customwidget>
-   <class>QUndoView</class>
-   <extends>QWidget</extends>
-   <header>qundoview.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

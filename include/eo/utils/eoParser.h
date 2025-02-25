@@ -1,4 +1,4 @@
-/* (c) Marc Schoenauer, Maarten Keijzer and GeNeura Team, 2000
+/* (c) Marc Schoenauer, Maarten Keijzer, GeNeura Team, Thales group
 
 This library is free software; you can redistribute it and/or modify it under
 the terms of the GNU Lesser General Public License as published by the Free
@@ -14,9 +14,11 @@ with this library; if not, write to the Free Software Foundation, Inc., 59
 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 Contact: http://eodev.sourceforge.net
-         todos@geneura.ugr.es, http://geneura.ugr.es
-         Marc.Schoenauer@polytechnique.fr
-         mkeijzer@dhi.dk
+Authors:
+    todos@geneura.ugr.es, http://geneura.ugr.es
+    Marc.Schoenauer@polytechnique.fr
+    mkeijzer@dhi.dk
+    Johann Dréo <johann.dreo@thalesgroup.com>
 */
 
 
@@ -30,6 +32,7 @@ Contact: http://eodev.sourceforge.net
 #include "eoParam.h"
 #include "eoObject.h"
 #include "eoPersistent.h"
+#include "eoExceptions.h"
 
 /** Parameter saving and loading
 
@@ -97,6 +100,11 @@ private :
     This class is persistent, so it can be stored and reloaded to restore
     parameter settings.
 
+    Parameters can be read from argv, strings or streams, and must be specified
+    using the following convention: --name=value or -n=value
+
+    You should not use space as a separator between the parameter and its value.
+
     @ingroup Parameters
 */
 class eoParser : public eoParameterLoader, public eoObject, public eoPersistent
@@ -154,7 +162,21 @@ public:
     Checks if _param has been actually entered by the user
     */
     virtual bool isItThere(eoParam& _param) const
-        { return getValue(_param).first; }
+    {
+        return getValue(_param).first;
+    }
+
+    /** Has param been entered by user?
+
+    Checks if a given param has been actually entered by the user
+    */
+    virtual bool isItThere( const std::string& name ) const
+    {
+        return isItThere(*getParamWithLongName(name));
+    }
+
+    std::string get( const std::string & name) const;
+
 
     /**
      * get a handle on a param from its longName
@@ -167,15 +189,46 @@ public:
     eoParam * getParamWithLongName(const std::string& _name) const;
 
 
+    /**
+     * Get a handle on a param from its long name
+     * If not found, raise an eoMissingParamException
+     */
+    eoParam * getParam(const std::string& _name) const;
+
+
+    /**
+     * Get the value of a param from its long name
+     * If not found, raise an eoMissingParamException
+     *
+     * Remember to specify the expected return type with a templated call:
+     * unsigned int popSize = eoparser.value<unsigned int>("popSize");
+     *
+     * If the template type is not the good one, an eoWrongParamTypeException is raised.
+     */
+    template<class ValueType>
+    ValueType valueOf(const std::string& _name) const
+    {
+        eoParam* param = getParam(_name);
+
+        // Note: eoParam is the polymorphic base class of eoValueParam, thus we can do a dynamix cast
+        eoValueParam<ValueType>* vparam = dynamic_cast< eoValueParam<ValueType>* >(param);
+
+        if( vparam == NULL ) {
+            // if the dynamic cast has failed, chances are that ValueType 
+            // is not the same than the one used at declaration.
+            throw eoWrongParamTypeException( _name );
+        } else {
+            return vparam->value();
+        }
+    }
+
+
 
     /** Get or create parameter
 
     It seems finally that the easiest use of the above method is
     through the following, whose interface is similar to that of the
     widely-used createParam.
-
-    For some (probably very stupid) reason, I failed to put it in the
-    .cpp. Any hint???
     */
     template <class ValueType>
     eoValueParam<ValueType>& getORcreateParam(ValueType _defaultValue,

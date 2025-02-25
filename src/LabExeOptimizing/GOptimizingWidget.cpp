@@ -66,7 +66,7 @@ void GOptimizingWidget::AppendToHistory( GVectorDouble newValues, double returnV
 {
 	int NextIndex = pTableHistory->topLevelItemCount();
 	int oldNumberColumns = pTableHistory->columnCount();
-	int numberNewValues = newValues.count();
+    int numberNewValues = newValues.count();
 	// sets the number of columns to grow if necessary
 	int newColCount = qMax(numberNewValues + NumColumnPreVariables, oldNumberColumns);
 	bool colCountChanged = newColCount != oldNumberColumns;

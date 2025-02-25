@@ -84,7 +84,7 @@ void GParamBucketTreeWidget::dropEvent( QDropEvent *event )
 	GParam* pParam = ParamManagerInstance()->GetParam(event->mimeData());
 	if(!pParam)
 		return;
-	emit ParamLabelWasDropped(pParam, event->pos());
+    emit ParamLabelWasDropped(pParam, event->position().toPoint());
 }
 
 bool GParamBucketTreeWidget::dropMimeData(QTreeWidgetItem* parent, int index, const QMimeData* data, Qt::DropAction action)

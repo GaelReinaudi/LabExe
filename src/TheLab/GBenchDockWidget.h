@@ -28,7 +28,6 @@ class LABEXE_EXPORT GBenchDockWidget : public QDockWidget, public GSerializable
 
 public:
 	GBenchDockWidget(QWidget *parent, Qt::DockWidgetArea initialDockingPosition = Qt::NoDockWidgetArea);
-	~GBenchDockWidget();
 
 public:
 	//! gives the list of devices that have a deviceWidget in this Dock
@@ -46,7 +45,7 @@ protected:
 
 protected slots:
 	//! called by the destruction of a device widget. pObjDev should be the pointer to the Device()
-	void DeviceWidgetRemoved(QObject* pObjDev);
+    void DeviceWidgetRemoved(GDevice *pObjDev);
 	//! called to change the title
 	void ChangeTitle(QString newTitle);
 

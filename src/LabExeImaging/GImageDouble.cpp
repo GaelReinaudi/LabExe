@@ -182,7 +182,7 @@ void GImageDouble::FillQimageFromUsingDoubleArray( double RailDownForQImage, dou
 
 double GImageDouble::PixelAt( int xPos, int yPos ) const
 {
-	double valRet;
+    double valRet = 0.0;
 	int indexArray = xPos + yPos * width();
 	if(indexArray < DoubleArray().count())
 		valRet = DoubleArray().value(indexArray);

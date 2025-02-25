@@ -104,7 +104,7 @@ void GParamLabel::StopHighlight()
 	setPalette(m_InititalPalette);
 }
 
-void GParamLabel::enterEvent( QEvent* event )
+void GParamLabel::enterEvent( QEnterEvent* event )
 {
 	QLabel::enterEvent(event);
 	if(!m_pParam)

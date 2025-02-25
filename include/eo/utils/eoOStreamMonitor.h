@@ -44,15 +44,27 @@ Authors:
 class eoOStreamMonitor : public eoMonitor
 {
 public :
+    /* FIXME remove in next release
     eoOStreamMonitor( std::ostream & _out, bool _verbose=true, std::string _delim = "\t", unsigned int _width=20, char _fill=' ' ) :
         out(_out), delim(_delim), width(_width), fill(_fill), firsttime(true)
     {
-        (void)_verbose;
+#ifndef DEPRECATED_MESSAGES
         eo::log << eo::warnings << "WARNING: the use of the verbose parameter in eoOStreamMonitor constructor is deprecated and will be removed in the next release" << std::endl;
-    }
+#pragma message "WARNING: the use of the verbose parameter in eoOStreamMonitor constructor is deprecated and will be removed in the next release"
+#endif // !DEPRECATED_MESSAGES
 
-    eoOStreamMonitor( std::ostream & _out, std::string _delim = "\t", unsigned int _width=20, char _fill=' ' ) :
-        out(_out), delim(_delim), width(_width), fill(_fill), firsttime(true)
+    }
+    */
+
+    eoOStreamMonitor(
+            std::ostream & _out,
+            std::string _delim = "\t", unsigned int _width=20, char _fill=' ',
+            bool _print_names = false, std::string _name_sep = ":"
+        ) :
+        out(_out),
+        delim(_delim), width(_width), fill(_fill),
+        firsttime(true),
+        print_names(_print_names), name_sep(_name_sep)
     {}
 
     eoMonitor& operator()(void);
@@ -65,6 +77,8 @@ private :
     unsigned int width;
     char fill;
     bool firsttime;
+    bool print_names;
+    std::string name_sep;
 };
 
 #endif // _eoOStreamMonitor_h_

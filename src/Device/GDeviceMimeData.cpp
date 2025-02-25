@@ -17,7 +17,7 @@ GDeviceMimeData::~GDeviceMimeData()
 // 	return QMimeData::formats() << "image/png";
 // }
 
-QVariant GDeviceMimeData::retrieveData( const QString &mimeType, QVariant::Type type ) const
+QVariant GDeviceMimeData::retrieveData( const QString &mimeType, QMetaType type ) const
 {
 	emit dataRequested(mimeType);
 // 	qDebug() << mimeType;

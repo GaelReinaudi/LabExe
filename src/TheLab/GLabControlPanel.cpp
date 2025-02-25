@@ -10,20 +10,20 @@
 #include "GWorkBench.h"
 #include <QDir>
 
-bool m_CloseWorkBenchWhenDeletedFromList = true;
-GLabControlPanel* GLabControlPanel::m_LabInstance = 0;
-QString s_IniFileName;
+static const bool m_CloseWorkBenchWhenDeletedFromList = true;
+GLabControlPanel* GLabControlPanel::m_LabInstance = nullptr;
+static QString s_IniFileName;
 
 // #include "Sequencer/GLabSequencer.h"
 
-QTextEdit* pGlobalTextEditToDisplayDebugMessages = 0;
-int NumDebugMessages = 0;
+static QTextEdit* pGlobalTextEditToDisplayDebugMessages = nullptr;
+static int NumDebugMessages = 0;
 bool GLabControlPanel::m_AcceptDebugMessages = true;
 
 GLabControlPanel::GLabControlPanel(QWidget *parent, QString controlPanelIniFilePath)
 	: QMainWindow(parent)
 	, m_DefaultSavingDir(QDir::home())
-	, m_pProgDeviceShelf(new GDeviceShelf(0))
+    , m_pProgDeviceShelf(new GDeviceShelf(nullptr))
 {
 	if (!controlPanelIniFilePath.isEmpty()) {
 //		WARN() << "loading: " << controlPanelIniFilePath;
@@ -82,7 +82,7 @@ GLabControlPanel::GLabControlPanel(QWidget *parent, QString controlPanelIniFileP
 GLabControlPanel::~GLabControlPanel()
 {
 	m_AcceptDebugMessages = false;
-	pGlobalTextEditToDisplayDebugMessages = 0;
+    pGlobalTextEditToDisplayDebugMessages = nullptr;
 	delete ui;
 	delete m_pProgDeviceShelf;
 	// clears the devices that were added to the shelf (device manager). Indeed, the device manager destructor is not called directly because of the fact that it is from the loki library.
@@ -168,7 +168,7 @@ void GLabControlPanel::closeEvent(QCloseEvent *event)
 	qApp->closeAllWindows();
 	QTimer::singleShot(1000, qApp, SLOT(closeAllWindows()));
 
-    qInstallMessageHandler(0);
+    qInstallMessageHandler(nullptr);
 
 	QMainWindow::closeEvent(event);
 }
@@ -180,10 +180,10 @@ GWorkBench* GLabControlPanel::AddWorkBenchFromFile(QString strFilePath /*= ""*/,
 	}
 	if(strFilePath == "") {
 // 		qWarning() << "AddWorkBenchFromFile: The file wasn't found";
-		return 0;
+        return nullptr;
 	}
 
-	GWorkBench* pWbToRet = WorkBenchManagerInstance()->CreateNewWorkBenchFromFile(strFilePath, 0);
+    GWorkBench* pWbToRet = WorkBenchManagerInstance()->CreateNewWorkBenchFromFile(strFilePath, nullptr);
 	// the parent is zero so we add the bench to the cleanup object so that it gets destroyed
 	m_CleanUpWorkBench.add(pWbToRet);
 	if(pWbToRet) {
@@ -211,7 +211,7 @@ void GLabControlPanel::MakeNewWorkBench()
 	if(!bOK)
 		return;
 
-	GWorkBench* pWB = WorkBenchManagerInstance()->CreateNewWorkBench(strBenchType, 0);
+    GWorkBench* pWB = WorkBenchManagerInstance()->CreateNewWorkBench(strBenchType, nullptr);
 	// the parent is zero so we add the bench to the cleanup object so that it gets destroyed
 	m_CleanUpWorkBench.add(pWB);
 	if(!pWB)
@@ -227,7 +227,7 @@ void GLabControlPanel::DeleteWorkBenchItem()
 {
 	// the parent of the sender QShortuct must have been set to the QListWidget containing the workbenches
 	QListWidget* pParentListWidget = qobject_cast<QListWidget*>(sender()->parent());
-	if(pParentListWidget)
+    if(pParentListWidget) {
 		foreach(QListWidgetItem* pItem, pParentListWidget->selectedItems()) {
 			// delete the corresponding GWorkBench if m_CloseWorkBenchWhenDeletedFromList
 			bool ClosingSuccesful = true;
@@ -237,8 +237,10 @@ void GLabControlPanel::DeleteWorkBenchItem()
 					ClosingSuccesful = pWB->close();
 			}
 			// remove the strBenchType from the list (unless the maybe-closing was requested but failed)
-			if(ClosingSuccesful)
+            if(ClosingSuccesful) {
 				pParentListWidget->takeItem(pParentListWidget->row(pItem));
+            }
+        }
 	}
 }
 
@@ -266,7 +268,7 @@ void GLabControlPanel::InsertWorkBenchInList( GWorkBench* pWB )
 
 void GLabControlPanel::DebugMessageHandler(QtMsgType type, const QMessageLogContext & context, const QString & msg)
 {
-    Q_UNUSED(context);
+    Q_UNUSED(context)
     if(!m_AcceptDebugMessages)
 		return;
 	// cannot be called from another thread than the main thread
@@ -277,7 +279,7 @@ void GLabControlPanel::DebugMessageHandler(QtMsgType type, const QMessageLogCont
 		emit m_LabInstance->OtherThreadDebugMessage(type, messageByteArray);
 		return;
 	}
-	QErrorMessage* pErMess = new QErrorMessage(0);
+    QErrorMessage* pErMess = new QErrorMessage(nullptr);
 	pErMess->setAttribute(Qt::WA_DeleteOnClose);
 
 	switch (type) {
@@ -300,10 +302,13 @@ void GLabControlPanel::DebugMessageHandler(QtMsgType type, const QMessageLogCont
 // 	 case QtWarningMsg:
 // 		 pErMess->showMessage(QString("Warning: %1\n").arg(msg));
 // 		 break;
-	 case QtCriticalMsg:
-		 pErMess->showMessage(QString("Critical: %1\n").arg(msg));
-		 break;
-	 case QtFatalMsg:
+     case QtInfoMsg:
+        pErMess->showMessage(QString("Info: %1\n").arg(msg));
+        break;
+     case QtCriticalMsg:
+        pErMess->showMessage(QString("Critical: %1\n").arg(msg));
+        break;
+     case QtFatalMsg:
 		 pErMess->showMessage(QString("Fatal: %1\n").arg(msg));
 //		 abort();
 	}
@@ -333,7 +338,7 @@ void GLabControlPanel::ShowWorkBench( QListWidgetItem* pItem )
 		return;
 	
 	pWB->show();
-	QApplication::setActiveWindow(pWB);
+    pWB->activateWindow();
 }
 
 void GLabControlPanel::SaveAllAs(bool justExportCopy /*= false*/, const QString & folderPath /*= ""*/)
@@ -342,7 +347,7 @@ void GLabControlPanel::SaveAllAs(bool justExportCopy /*= false*/, const QString 
 	//QString folderName = QFileDialog::getExistingDirectory(this, tr("Select folder"), m_DefaultSavingDir.absolutePath());
 	QString folderName = folderPath;
 	if(folderPath.isEmpty()) {
-		QFileDialog* pDialog = new QFileDialog(0, "Select folder", m_DefaultSavingDir.absolutePath());
+        QFileDialog* pDialog = new QFileDialog(nullptr, "Select folder", m_DefaultSavingDir.absolutePath());
 		pDialog->setFileMode(QFileDialog::Directory);
 		pDialog->setOption(QFileDialog::ShowDirsOnly);
 		pDialog->exec();
@@ -412,12 +417,20 @@ void GLabControlPanel::ExportScreenshots()
 
 QPixmap GLabControlPanel::ScreenShotDesktop(const QString & fileSaveName /*= ""*/)
 {
-	QDesktopWidget* desktop = QApplication::desktop();
-	QPixmap scrShotDesk = QPixmap::grabWindow(desktop->winId(), 0, 0, desktop->width(), desktop->height());
-	if(!fileSaveName.isEmpty()) {
-		scrShotDesk.save(fileSaveName + ".png", "PNG");
-	}
-	return scrShotDesk;
+    auto screen = QGuiApplication::primaryScreen();
+    QRect screenGeometry = screen->geometry();
+
+    // Capture entire desktop using root window (ID 0)
+    QPixmap scrShotDesk = screen->grabWindow(0,
+                                             screenGeometry.x(),
+                                             screenGeometry.y(),
+                                             screenGeometry.width(),
+                                             screenGeometry.height());
+
+    if(!fileSaveName.isEmpty()) {
+        scrShotDesk.save(fileSaveName + ".png", "PNG");
+    }
+    return scrShotDesk;
 }
 
 void GLabControlPanel::AddDeviceToShelf( GDevice* pDev )

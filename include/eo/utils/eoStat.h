@@ -32,6 +32,7 @@ Contact: http://eodev.sourceforge.net
 #ifndef _eoStat_h
 #define _eoStat_h
 
+#include <iostream>
 #include <numeric> // accumulate
 
 #include <eoFunctor.h>
@@ -39,6 +40,7 @@ Contact: http://eodev.sourceforge.net
 #include <eoPop.h>
 #include <utils/eoMonitor.h>
 //#include <utils/eoCheckPoint.h>
+#include <utils/eoLogger.h>
 
 /** @defgroup Stats Statistics computation
  *
@@ -83,6 +85,7 @@ template <class EOT, class T>
 class eoStat : public eoValueParam<T>, public eoStatBase<EOT>
 {
 public:
+    typedef EOT EOType;
 
     eoStat(T _value, std::string _description)
         : eoValueParam<T>(_value, _description)
@@ -119,6 +122,7 @@ template <class EOT, class ParamType>
 class eoSortedStat : public eoSortedStatBase<EOT>, public eoValueParam<ParamType>
 {
 public :
+  typedef EOT EOType;
   eoSortedStat(ParamType _value, std::string _desc) : eoValueParam<ParamType>(_value, _desc) {}
   virtual std::string className(void) const { return "eoSortedStat"; }
 
@@ -176,18 +180,27 @@ private :
 };
 
 /**
-    Average fitness + Std. dev. of a population, fitness needs to be scalar.
+    Average fitness + Std. dev. of a population, fitness HAVE TO BE to be scalar.
 */
 template <class EOT>
-class eoSecondMomentStats : public eoStat<EOT, std::pair<double, double> >
+// FIXME find a way to use generic Fitness types instead of scala fitness here :
+// class eoSecondMomentStats : public eoStat<EOT, std::pair<typename EOT::Fitness, typename EOT::Fitness> >
+    // Here, I failed to find a way to overload eoValueParam::getValue and setValue,
+    // because there is no way to use the partial specializations located in eoParam.h
+    // Indeed, eoValueParam is templatized on a ValueType, but the getValue signature does not
+    // contain this type.
+    // Thus, in order to use partial specializations the user would have to specify getValue<ValueType>(),
+    // which is not the case in most of the existing code.
+    // Overloading getValue in this class does not seems to work, the call falls to eoValueParam::getValue
+    // and fails on the output stream.
+class eoSecondMomentStats : public eoStat<EOT, std::pair<double,double> >
 {
 public :
+    // typedef typename EOT::Fitness FitT;
+    typedef double FitT;
 
-    using eoStat<EOT, std::pair<double, double> >::value;
-
-    typedef typename EOT::Fitness fitness_type;
-
-    typedef std::pair<double, double> SquarePair;
+    using eoStat<EOT, std::pair<FitT, FitT> >::value;
+    typedef std::pair<FitT, FitT> SquarePair;
 
     eoSecondMomentStats(std::string _description = "Average & Stdev")
         : eoStat<EOT, SquarePair>(std::make_pair(0.0,0.0), _description)
@@ -195,7 +208,7 @@ public :
 
     static SquarePair sumOfSquares(SquarePair _sq, const EOT& _eo)
     {
-        double fitness = _eo.fitness();
+        FitT fitness = _eo.fitness();
 
         _sq.first += fitness;
         _sq.second += fitness * fitness;
@@ -211,8 +224,10 @@ public :
         value().second = sqrt( (result.second - n * value().first * value().first) / (n - 1.0)); // stdev
     }
 
-  virtual std::string className(void) const { return "eoSecondMomentStats"; }
+    virtual std::string className(void) const { return "eoSecondMomentStats"; }
+
 };
+
 
 /**
     The n_th element fitness in the population (see eoBestFitnessStat)
@@ -244,6 +259,7 @@ public :
   virtual std::string className(void) const { return "eoNthElementFitnessStat"; }
 private :
 
+    /* Very old code...
     struct CmpFitness
     {
       CmpFitness(unsigned _whichElement, bool _maxim) : whichElement(_whichElement), maxim(_maxim) {}
@@ -259,6 +275,7 @@ private :
       unsigned whichElement;
       bool maxim;
     };
+    */
 
     // for everything else
     template <class T>
@@ -329,6 +346,7 @@ public:
 
 private :
 
+    /* Very old code...
     struct CmpFitness
     {
       CmpFitness(unsigned _which, bool _maxim) : which(_which), maxim(_maxim) {}
@@ -344,6 +362,7 @@ private :
       unsigned which;
       bool maxim;
     };
+    */
 
     // default
     template<class T>
@@ -355,6 +374,39 @@ private :
 };
 /** @example t-eoSSGA.cpp
  */
+
+
+/** Keep the best individual found so far
+ */
+template <class EOT>
+class eoBestIndividualStat : public eoStat<EOT, EOT>
+{
+public:
+    using eoStat<EOT, EOT>::value;
+
+    eoBestIndividualStat(std::string _description = "BestIndiv ")
+        : eoStat<EOT, EOT>( EOT(), _description )
+        {}
+
+    void operator()(const eoPop<EOT>& pop)
+    {
+        EOT best = pop.best_element();
+        // on the first call, value() is invalid
+        if( value().invalid() ) {
+            // thus we cannot compare it to something else
+            value() = best;
+        } else {
+            // keep the best individual found so far
+            if( best.fitness() > value().fitness() ) {
+                value() = best;
+            }
+        }
+    }
+
+    virtual std::string className(void) const { return "eoBestIndividualStat"; }
+};
+
+
 
 template <class EOT>
 class eoDistanceStat : public eoStat<EOT, double>
@@ -423,6 +475,60 @@ public :
 };
 */
 
+//! A robust measure of the mass (generally used to compute the median). Do not alter the given pop.
+template<class EOT>
+class eoNthElementStat : public eoStat< EOT, typename EOT::Fitness >
+{
+protected:
+    int _nth;
+    double _ratio;
+
+public:
+    using eoStat<EOT, typename EOT::Fitness>::value;
+
+    eoNthElementStat( int nth = 0, std::string description = "NthElement")
+        : eoStat<EOT,typename EOT::Fitness>( 0.0, description ), _nth(nth), _ratio(-1.0)
+    {
+            assert( _nth >= 0 );
+    }
+
+    eoNthElementStat( double ratio = 0.5, std::string description = "Median" )
+        : eoStat<EOT,typename EOT::Fitness>( 0.0, description ), _nth(-1), _ratio(ratio)
+    {
+            assert( _ratio >= 0 );
+    }
+
+    virtual void operator()( const eoPop<EOT> & _pop )
+    {
+        unsigned int nth;
+        if( _nth == -1 ) { // asked for a ratio
+            assert( _ratio >= 0 && _ratio <= 1 );
+            nth = static_cast<unsigned int>( std::floor(_pop.size() * _ratio) );
+        } else {
+            assert( _ratio == -1 ); // asked for a position
+            assert( _nth >= 0 );
+            nth = static_cast<unsigned int>(_nth);
+        }
+        assert( nth < _pop.size() );
+
+        if( _pop.size() == 0 ) {
+            //FIXME how to implement value() = 0 ?
+            eo::log << eo::warnings << "Called " << className() << " on an empty pop, value unchanged" << std::endl;
+
+        } else {
+            eoPop<EOT> pop = _pop; // copy, thus no sorting of the original pop
+
+            std::nth_element( pop.begin(), pop.begin()+nth, pop.end() );
+            value() = pop[nth].fitness();
+        }
+    }
+
+    virtual std::string className(void) const { return "eoNthElementStat"; }
+};
+/** @example t-eoIQRStat.cpp
+ */
+
+
 
 //! A robust measure of dispersion (also called midspread or middle fifty) that is the difference between the third and the first quartile.
 template<class EOT>
@@ -431,12 +537,13 @@ class eoInterquartileRangeStat : public eoStat< EOT, typename EOT::Fitness >
 public:
     using eoStat<EOT, typename EOT::Fitness>::value;
 
-    eoInterquartileRangeStat( typename EOT::Fitness start, std::string description = "IQR" ) : eoStat<EOT,typename EOT::Fitness>( start, description ) {}
+    eoInterquartileRangeStat( std::string description = "IQR" ) : eoStat<EOT,typename EOT::Fitness>( 0.0, description ) {}
 
     virtual void operator()( const eoPop<EOT> & _pop )
     {
         if( _pop.size() == 0 ) {
-            // how to implement value() = 0 ?
+            //FIXME how to implement value() = 0 ?
+            eo::log << eo::warnings << "Called " << className() << " on an empty pop, value unchanged" << std::endl;
 
         } else {
             eoPop<EOT> pop = _pop;
@@ -448,7 +555,7 @@ public:
             std::nth_element( pop.begin(), pop.begin()+quartile*3, pop.end() );
             typename EOT::Fitness Q3 = pop[quartile*3].fitness();
 
-            value() = Q1 - Q3;
+            value() = Q3 - Q1;
         }
     }
 

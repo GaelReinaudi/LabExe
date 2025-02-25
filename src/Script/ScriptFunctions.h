@@ -2,48 +2,48 @@
 #define SCRIPTFUNCTIONS_H
 
 #include <QScriptContext>
-#include <QScriptEngine>
-#include <QScriptValue>
+#include <QJSEngine>
+#include <QJSValue>
 #include "math.h"
 
 // exp(x)=e^x
-QScriptValue functionExp(QScriptContext *ctx, QScriptEngine *eng);
+QJSValue functionExp(QScriptContext *ctx, QJSEngine *eng);
 
 // pow(a,b)=a^b
-QScriptValue functionPow(QScriptContext *ctx, QScriptEngine *eng);
+QJSValue functionPow(QScriptContext *ctx, QJSEngine *eng);
 
 // log(a,b)=ln(a)/ln(b) [log base b of a]
-QScriptValue functionLog(QScriptContext *ctx, QScriptEngine *eng);
+QJSValue functionLog(QScriptContext *ctx, QJSEngine *eng);
 
 // ln(a)=ln(a)
-QScriptValue functionLn(QScriptContext *ctx, QScriptEngine *eng);
+QJSValue functionLn(QScriptContext *ctx, QJSEngine *eng);
 
 // cos(a)=cos(a)
-QScriptValue functionCos(QScriptContext *ctx, QScriptEngine *eng);
+QJSValue functionCos(QScriptContext *ctx, QJSEngine *eng);
 
 // sin(a)=sin(a)
-QScriptValue functionSin(QScriptContext *ctx, QScriptEngine *eng);
+QJSValue functionSin(QScriptContext *ctx, QJSEngine *eng);
 
 // tan(a)=tan(a)
-QScriptValue functionTan(QScriptContext *ctx, QScriptEngine *eng);
+QJSValue functionTan(QScriptContext *ctx, QJSEngine *eng);
 
 // arccos(a)=arccos(a)
-QScriptValue functionArccos(QScriptContext *ctx, QScriptEngine *eng);
+QJSValue functionArccos(QScriptContext *ctx, QJSEngine *eng);
 
 // arcsin(a)=arcsin(a)
-QScriptValue functionArcsin(QScriptContext *ctx, QScriptEngine *eng);
+QJSValue functionArcsin(QScriptContext *ctx, QJSEngine *eng);
 
 // arctan(a)=arctan(a)
-QScriptValue functionArctan(QScriptContext *ctx, QScriptEngine *eng);
+QJSValue functionArctan(QScriptContext *ctx, QJSEngine *eng);
 
 // sqrt(x)
-QScriptValue functionSqrt(QScriptContext *ctx, QScriptEngine *eng);
+QJSValue functionSqrt(QScriptContext *ctx, QJSEngine *eng);
 
 // abs(x)
-QScriptValue functionAbs(QScriptContext *ctx, QScriptEngine *eng);
+QJSValue functionAbs(QScriptContext *ctx, QJSEngine *eng);
 
 // Heaviside(x)
-QScriptValue functionH(QScriptContext *ctx, QScriptEngine *eng);
+QJSValue functionH(QScriptContext *ctx, QJSEngine *eng);
 
 
 

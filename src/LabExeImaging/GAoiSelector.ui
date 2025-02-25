@@ -169,7 +169,7 @@
   <customwidget>
    <class>GImageGraphicsView</class>
    <extends>QGraphicsView</extends>
-   <header>gimagegraphicsview.h</header>
+   <header>GImageGraphicsView.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

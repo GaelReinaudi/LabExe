@@ -25,7 +25,7 @@ struct MyParamFactoryError
 {
 	struct Exception : public std::exception
 	{
-		const char* what() const throw() { return "Unknown Type"; }
+        const char* what() const noexcept { return "Unknown Type"; }
 	};
 
 	static AbstractProduct* OnUnknownType(IdentifierType s)
@@ -33,7 +33,7 @@ struct MyParamFactoryError
 		QString mess("The param type \"%1\" has not been registered with the ParamFacory.");
 		mess += "\r\n You should use the Macro G_REGISTER_NEW_PARAM_CLASS(%1) in the corresponding .cpp file.";
 		mess = mess.arg(QString(s));
-        qCritical(mess.toUtf8());
+        qCritical() << mess.toUtf8();
 		return 0;
 	}
 };
@@ -92,7 +92,13 @@ public:
 	//! Gets a pointer from the GParamManagerSing, corresponding to the UniqueIdentifier stored under keyString in the fromQsettings. 0 if no match.
 	GParam* GetParam( QString keyString, QSettings* fromQsettings );
 	//! returns a list of all the pointers to all the GParam's
-	QList<GParam*> ListAllParams() {return values().toSet().toList();}
+    QList<GParam*> ListAllParams() {
+        auto container = values();
+        std::sort(container.begin(), container.end());
+        container.erase(std::unique(container.begin(), container.end()),
+                        container.end());
+        return container;
+    }
 	//! Returns a list of all the type registered in the factory.
 	QList<QString> RegisteredParamTypes() const;
 

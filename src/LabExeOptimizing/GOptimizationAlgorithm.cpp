@@ -5,8 +5,8 @@
 GOptimizationAlgorithm::GOptimizationAlgorithm(GOptimizer* parentOptimizer)
 	: QThread(parentOptimizer)
 	, m_pOptimizer(parentOptimizer)
-	, m_KeepIterating(false)
-	, m_pSettingsWidget(new QWidget(0))
+    , m_pSettingsWidget(new QWidget(nullptr))
+    , m_KeepIterating(false)
 {
 	m_CleanUpHandler.add(m_pSettingsWidget);
 	QLayout* pLay = new QVBoxLayout();

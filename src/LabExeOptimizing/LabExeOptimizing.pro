@@ -9,22 +9,25 @@ include($$PWD/../../common.pri)
 DEFINES += LABEXEOPTIMIZING_LIB
 
 INCLUDEPATH += \
-    /usr/include/paradiseo/eo \
     ./../../include/eo \
     ./../../include \
-    ./../../src
+    ./../../src \
+    /usr/local/include/paradiseo \
+    /usr/include/nlopt
 
 LIBS += \
-        -L"./../../lib/eo"
+        -L"./../../lib/eo" \
+        -L"/usr/local/lib64" \
+        -L"/usr/lib/x86_64-linux-gnu"
 
 CONFIG(debug, debug|release) {
     LIBS += -llabexe_D \
-        -leo_d -leoutils_d -les_d -lga_d -lcma_d \
-        -llibnlopt-0
+        -leo_d -leoutils_d -les_d -lga_d -lcma_d -lmoeo_d \
+        -lnlopt
 } else {
 	LIBS += -llabexe \
-	-leo   -leoutils   -les   -lga   -lcma \
-	-llibnlopt-0
+	-leo   -leoutils   -les   -lga   -lcma -lmoeo \
+        -lnlopt
 }
 
 include(LabExeOptimizing.pri)

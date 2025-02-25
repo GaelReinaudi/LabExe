@@ -33,11 +33,7 @@ GBenchDockWidget::GBenchDockWidget(QWidget *parent, Qt::DockWidgetArea initialDo
 
 	// by default the dock will be destroyed on close
 	// this will be set to false when the first device is put in the dock
-	setAttribute(Qt::WA_DeleteOnClose, true);
-}
-
-GBenchDockWidget::~GBenchDockWidget()
-{
+    setAttribute(Qt::WA_DeleteOnClose, true);
 }
 
 void GBenchDockWidget::InsertDeviceWidget(GDeviceWidget* pDevWid)
@@ -69,20 +65,12 @@ void GBenchDockWidget::InsertDeviceWidget(GDeviceWidget* pDevWid)
 	m_Devices.append(pTheDevice);
 
 	// and take appropriate measure when the device widget is deleted
-	// we transmit the pointer to the device in the signal by using a QSignalMapper
-	QSignalMapper* signalMapper = new QSignalMapper(this);
-	connect(pDevWid, SIGNAL(destroyed()), signalMapper, SLOT(map()));
-	signalMapper->setMapping(pDevWid, pTheDevice);
-	connect(signalMapper, SIGNAL(mapped(QObject*)), this, SLOT(DeviceWidgetRemoved(QObject*)));
+    auto con = connect(pDevWid, &GDeviceWidget::destroyed, this, [this, pTheDevice](){ this->DeviceWidgetRemoved(pTheDevice); });
+    connect(this, &QObject::destroyed, [con](){ disconnect(con); });
 }
 
-void GBenchDockWidget::DeviceWidgetRemoved( QObject* pObjDev )
+void GBenchDockWidget::DeviceWidgetRemoved( GDevice* pTheDevice )
 {
-	// the device
-	GDevice* pTheDevice = qobject_cast<GDevice*>(pObjDev);
-	if(!pTheDevice)
-		return;
-
 	// remove from the dock
 	m_Devices.removeOne(pTheDevice);
 	// what to do next
@@ -119,16 +107,11 @@ void GBenchDockWidget::InterpretSettings( QSettings& fromQsettings )
 
 QList<GDevice*> GBenchDockWidget::EmbeddedDevices() const
 {
-	return m_Devices.toSet().toList();
-// 	QList<GDevice*> listDevices;
-// 	// get the children GDeviceWidget of the Dock
-// 	foreach(QObject* pObj, children()) {
-// 		GDeviceWidget* pDevWid = qobject_cast<GDeviceWidget*>(pObj);
-// 		if(pDevWid)
-// 			if(pDevWid->Device())
-// 				listDevices.append(pDevWid->Device());
-// 	}
-// 	return listDevices;
+    auto container = m_Devices;
+    std::sort(container.begin(), container.end());
+    container.erase(std::unique(container.begin(), container.end()),
+                    container.end());
+    return container;
 }
 
 QStringList GBenchDockWidget::EmbeddedDevicesID() const

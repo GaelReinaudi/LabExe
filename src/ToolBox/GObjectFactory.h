@@ -17,7 +17,7 @@ struct MyObjectFactoryError
 {
 	struct Exception : public std::exception
 	{
-		const char* what() const throw() { return "Unknown Type"; }
+        const char* what() const noexcept { return "Unknown Type"; }
 	};
 
 	static AbstractProduct* OnUnknownType(IdentifierType s)
@@ -25,7 +25,7 @@ struct MyObjectFactoryError
 		QString mess("The object type \"%1\" has not been registered with the ObjectFactory.");
 			mess += "\r\n You should use the Macro G_REGISTER_IN_FACTORY_WITH_PARENT_TYPE(%1, ParentType) in the corresponding .cpp file.";
 			mess = mess.arg(QString(s));
-        qCritical(mess.toUtf8());
+        qCritical() << mess.toUtf8();
 		return 0;
 	}
 };
@@ -67,9 +67,6 @@ class LABEXE_EXPORT GObjectFactory: public QObject,
 //	Q_OBJECT
 
 public:
-	GObjectFactory(void){}
-	~GObjectFactory(void){}
-
 	//! Creates a new object from the provided class name, with a provided parent
 	QObject* CreateNewObject(QString className, QObject *parent);
 	//! Returns a list of all the type registered in the factory.
@@ -103,11 +100,11 @@ namespace																		\
 			mess += "\r\n Check that \"%1\" and \"%2\" uses the Q_OBJECT macro.";			\
 			mess += "\r\n Check your use of the Macro G_REGISTER_IN_FACTORY_WITH_PARENT_TYPE(%1, ParentType) in the corresponding .cpp file.";	\
 			mess = mess.arg(# ClassName).arg(# ParentType);						\
-            qCritical(mess.toUtf8());											\
+            qCritical() << mess.toUtf8();										\
 		}																		\
 		else 																	\
 			return new ClassName(pParentObj);									\
-	return 0;																	\
+    return nullptr;																	\
 	}																			\
 	const bool registered = RegisterInObjectFactory( # ClassName , CreateObject);	\
 } 																				\

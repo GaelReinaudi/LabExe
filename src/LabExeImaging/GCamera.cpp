@@ -8,14 +8,14 @@
 GCamera::GCamera(QString uniqueIdentifierName, QObject *parent, GImageProcessor* pImProcessor)
 	: GHardDevice(uniqueIdentifierName, parent)
 	, GHasImageProcessor(pImProcessor)
-	, m_DoAquireContinuously("Continuous shot", 0) // 0 means not saved and restore automatically in the device settings
+    , m_DoAquireContinuously("Continuous shot", nullptr) // nullptr means not saved and restore automatically in the device settings
 	, m_Expo_ms("Exposure [ms]", this)
 	, m_Gain("Gain factor", this)
 	, m_HardwareTrigger("Hardware trigger", this)
-	, m_NumFrameSent(0)
-	, m_NumFrameFailed(0)
-	, m_IsOpened(false)
-	, m_PixelSize("Pixel [µm]", this)
+    , m_PixelSize("Pixel [um]", this)
+    , m_NumFrameSent(0)
+    , m_NumFrameFailed(0)
+    , m_IsOpened(false)
 {
 	m_Gain.SetDisplayDecimals(2);
 	m_Gain.SetTypicalStep(0.5);
@@ -55,10 +55,10 @@ void GCamera::LatterInitialization()
 
 GDeviceWidget* GCamera::ProvideNewDeviceGroupBox( QWidget* inWhichWidget, QBoxLayout::Direction orientation /*= QBoxLayout::LeftToRight*/ )
 {
-    Q_UNUSED(orientation);
+	Q_UNUSED(orientation)
 	GCameraSettingsWidget* pWidToReturn = new GCameraSettingsWidget(this, inWhichWidget);
 	// a kind of device widget in the GCameraSettingsWidget so that it get populated by classes inheriting GCamera
-	GDeviceWidget* pDevSpefWid = new GDeviceWidget(0, pWidToReturn->CameraSpecificGroupBox());
+	GDeviceWidget* pDevSpefWid = new GDeviceWidget(nullptr, pWidToReturn->CameraSpecificGroupBox());
 	pWidToReturn->CameraSpecificGroupBox()->layout()->addWidget(pDevSpefWid);
  	PopulateDeviceWidget(pDevSpefWid);
 	return pWidToReturn;

@@ -19,7 +19,7 @@ GParamInt::~GParamInt()
 
 QWidget* GParamInt::ProvideNewParamWidget( QWidget* forWhichParent, GParam::WidgetOptions optionWid /*= Default*/ )
 {
-    Q_UNUSED(optionWid);
+	Q_UNUSED(optionWid)
     GIntSpinBox* pSpinBox = new GIntSpinBox(this, forWhichParent);
 	pSpinBox->setValue(IntValue());
 	// set some settings
@@ -91,7 +91,7 @@ void GParamInt::InterpretSettings( QSettings& fromQsettings )
 void GParamInt::SetParamValue( const int& theNewValue, bool sendUpdateSignals /*= true*/, bool sendDisplayUpdateSignal /*= true*/ )
 {
 	// the hard limit is respected
-	int acceptedValue = acceptedValue = qBound(int(m_ParamSettings.minimum()), theNewValue, int(m_ParamSettings.maximum()));
+	int acceptedValue = qBound(int(m_ParamSettings.minimum()), theNewValue, int(m_ParamSettings.maximum()));
 
 	bool didChange = (acceptedValue != m_valInt);
 	m_valInt = acceptedValue;
