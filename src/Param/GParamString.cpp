@@ -59,6 +59,31 @@ QLineEdit* GParamString::ProvideNewParamLineEdit( QWidget* forWhichParent)
 	return qobject_cast<QLineEdit*>(ProvideNewParamWidget(forWhichParent));
 }
 
+QTextEdit* GParamString::ProvideNewParamTextEdit(QWidget* forWhichParent)
+{
+	QTextEdit* pTextEdit = new QTextEdit(forWhichParent);
+	
+	if (Options() & GParam::ReadOnly) {
+		pTextEdit->setReadOnly(true);
+	} else {
+		pTextEdit->setReadOnly(false);
+		// Connect textChanged to our parameter's SetParamValue method
+		connect(pTextEdit, &QTextEdit::textChanged, [this, pTextEdit]() {
+			this->SetParamValue(pTextEdit->toPlainText());
+		});
+	}
+	
+	// Connect our parameter's ValueUpdated signal to update the text edit
+	connect(this, &GParamString::ValueUpdated, [pTextEdit](const QString& text) {
+		if (text != pTextEdit->toPlainText()) {
+			pTextEdit->setPlainText(text);
+		}
+	});
+	
+	pTextEdit->setPlainText(StringValue());
+	return pTextEdit;
+}
+
 QString GParamString::StringValue() const
 {
 	m_MutexVariant.lock();

@@ -4,6 +4,7 @@
 
 #include "GParam.h"
 #include <QLineEdit>
+#include <QTextEdit>
 #include <QString>
 
 /////////////////////////////////////////////////////////////////////
@@ -33,6 +34,8 @@ public:
 	QWidget* ProvideNewParamWidget(QWidget* forWhichParent, GParam::WidgetOptions optionWid = Default);
 	//! For convenience. Just like ProvideNewParamWidget(), but it actually returns a QLineEdit
 	QLineEdit* ProvideNewParamLineEdit(QWidget* forWhichParent);
+	//! For convenience. Provides a multi-line text editor for editing longer text or lists
+	QTextEdit* ProvideNewParamTextEdit(QWidget* forWhichParent);
 
 protected:
 	//! Re-implemented.
