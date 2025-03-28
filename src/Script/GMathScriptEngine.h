@@ -44,8 +44,7 @@ signals:
 	//! emitted when the script was evaluated
 	void Evaluated(double newResult);
 
-private slots:
-	//! Removes all the 
+protected slots:
 	void UpdateAllVariableNames();
 
 private:
