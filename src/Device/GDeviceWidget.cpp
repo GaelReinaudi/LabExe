@@ -63,7 +63,11 @@ void GDeviceWidget::mousePressEvent( QMouseEvent * event )
 	if(event->button() != Qt::LeftButton)
 		return;
 	m_WidgetPosWhenMousePressed = pos();
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     m_MousePressedGlobalPos = event->globalPosition().toPoint();
+#else
+    m_MousePressedGlobalPos = event->globalPos();
+#endif
 	m_MousePressedInWidgetPos = event->pos();
 	m_MousePressedInParentPos = mapToParent(m_MousePressedInWidgetPos);
 }

@@ -36,7 +36,11 @@ public:
 	~GDeviceListWidget();
 
 	QStringList mimeTypes() const;
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     QMimeData *mimeData(const QList<QListWidgetItem *> &items) const;
+#else
+    QMimeData *mimeData(const QList<QListWidgetItem *> items) const;
+#endif
 private:
 	
 };

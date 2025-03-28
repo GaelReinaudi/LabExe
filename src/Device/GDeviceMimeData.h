@@ -17,7 +17,11 @@ signals:
 	void dataRequested(const QString &mimeType) const;
 
 protected:
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     QVariant retrieveData(const QString &mimeType, QMetaType type) const;
+#else
+    QVariant retrieveData(const QString &mimeType, QVariant::Type type) const;
+#endif
 
 private:
 	

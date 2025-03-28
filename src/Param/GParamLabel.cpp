@@ -104,7 +104,11 @@ void GParamLabel::StopHighlight()
 	setPalette(m_InititalPalette);
 }
 
-void GParamLabel::enterEvent( QEnterEvent* event )
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+void GParamLabel::enterEvent(QEnterEvent *event)
+#else
+void GParamLabel::enterEvent(QEvent *event)
+#endif
 {
 	QLabel::enterEvent(event);
 	if(!m_pParam)
