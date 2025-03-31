@@ -22,11 +22,13 @@ public:
     // Registers a variable by name, exposing it to the script as an object with get() and set() methods.
     void RegisterVariable(GParamString* pName, GParamNum* pParamNum);
     void RemoveVariable(GParamString* pName, GParamNum* pParamNum);
-    void UpdateAllVariableNames();
 
+public slots:
     // Sets the program (script source) to be evaluated.
     void SetProgram(QString newProg);
-
+    
+    void UpdateAllVariableNames();
+    
     // Evaluates the script program and emits Evaluated(result)
     double Evaluate();
 

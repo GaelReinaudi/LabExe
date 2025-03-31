@@ -59,12 +59,31 @@ private:
 GMathScriptEngine::GMathScriptEngine(QObject *parent)
     : QJSEngine(parent)
 {
-    // Expose the math and parameter functions under a global object "ScriptFunctions"
+    // Create ScriptFunctions instance
     ScriptFunctions *scriptFuncs = new ScriptFunctions(this);
-    globalObject().setProperty("ScriptFunctions", newQObject(scriptFuncs));
-
-    // (Optional) You could expose paramValueByID directly as "Param", e.g.,
-    // globalObject().setProperty("Param", newQObject(scriptFuncs));
+    
+    // Expose ScriptFunctions object
+    QJSValue scriptFunctionsObj = newQObject(scriptFuncs);
+    globalObject().setProperty("ScriptFunctions", scriptFunctionsObj);
+    
+    // Create global function wrappers for math functions
+    // This creates the functions in the JavaScript environment
+    evaluate("function exp(x) { return ScriptFunctions.exp(x); }");
+    evaluate("function pow(x, y) { return ScriptFunctions.pow(x, y); }");
+    evaluate("function log(x) { return ScriptFunctions.log(x); }");
+    evaluate("function ln(x) { return ScriptFunctions.ln(x); }");
+    evaluate("function cos(x) { return ScriptFunctions.cos(x); }");
+    evaluate("function sin(x) { return ScriptFunctions.sin(x); }");
+    evaluate("function tan(x) { return ScriptFunctions.tan(x); }");
+    evaluate("function arccos(x) { return ScriptFunctions.arccos(x); }");
+    evaluate("function arcsin(x) { return ScriptFunctions.arcsin(x); }");
+    evaluate("function arctan(x) { return ScriptFunctions.arctan(x); }");
+    evaluate("function sqrt(x) { return ScriptFunctions.sqrt(x); }");
+    evaluate("function abs(x) { return ScriptFunctions.abs(x); }");
+    evaluate("function H(x) { return ScriptFunctions.H(x); }");
+    
+    // Expose paramValueByID as a global function as well
+    evaluate("function paramValueByID(id) { return ScriptFunctions.paramValueByID(id); }");
 }
 
 GMathScriptEngine::~GMathScriptEngine()
@@ -75,23 +94,27 @@ void GMathScriptEngine::RegisterVariable(GParamString* pName, GParamNum* pParamN
 {
     QString name = pName->StringValue();
     if (!name.isEmpty()) {
-        // Expose the parameter via a ParamWrapper. In your scripts, access it as:
-        //    x.get()  and  x.set(newValue)
-        globalObject().setProperty(name, newQObject(new ParamWrapper(pParamNum, this)));
+        // We no longer need to expose the parameter via a ParamWrapper
+        // Instead, we'll set the actual value directly in UpdateAllVariableNames
     }
     m_ParamName_ParamNum.insert(pName, pParamNum);
     UpdateAllVariableNames();
 
     // When the parameter name changes, update the global object.
     connect(pName, SIGNAL(ValueUpdated(QString)), this, SLOT(UpdateAllVariableNames()));
+    
+    // Also update when the parameter value changes
+    connect(pParamNum, SIGNAL(ValueUpdated(double)), this, SLOT(UpdateAllVariableNames()));
 }
 
 void GMathScriptEngine::RemoveVariable(GParamString* pName, GParamNum* pParamNum)
 {
-    Q_UNUSED(pParamNum)
     m_ParamName_ParamNum.remove(pName);
     UpdateAllVariableNames();
+    
+    // Disconnect both the name and value update signals
     disconnect(pName, SIGNAL(ValueUpdated(QString)), this, SLOT(UpdateAllVariableNames()));
+    disconnect(pParamNum, SIGNAL(ValueUpdated(double)), this, SLOT(UpdateAllVariableNames()));
 }
 
 void GMathScriptEngine::UpdateAllVariableNames()
@@ -109,7 +132,12 @@ void GMathScriptEngine::UpdateAllVariableNames()
         QString name = pStr->StringValue();
         if (!pNum || name.isEmpty())
             continue;
-        globalObject().setProperty(name, newQObject(new ParamWrapper(pNum, this)));
+            
+        // Create a direct value property for the variable
+        // This allows using "a" directly in expressions instead of "a.get()"
+        globalObject().setProperty(name, pNum->DoubleValue());
+        
+        // Store the variable name for later cleanup
         m_UsedVariableNames.append(name);
     }
 }
