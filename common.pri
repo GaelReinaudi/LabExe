@@ -50,8 +50,19 @@ OBJECTS_DIR = $${BUILD_ROOT}/generated/obj
 RCC_DIR = $${BUILD_ROOT}/generated/rcc
 
 win32 {
-    QMAKE_CXXFLAGS += -D_WIN32_WINNT=0x600
-    QMAKE_CXXFLAGS += /bigobj
+    # Applies to *all* Windows toolchains
+    QMAKE_CXXFLAGS += -D_WIN32_WINNT=0x0600
+
+    # ---------- MinGW / g++ ----------
+    win32-g++ {
+        QMAKE_CXXFLAGS -= /bigobj
+        QMAKE_CXXFLAGS += -Wa,-mbig-obj
+    }
+
+    # ---------- MSVC or clang‑cl ----------
+    win32-msvc*|win32-clang-msvc {
+        QMAKE_CXXFLAGS += /bigobj
+    }
 }
 
 DEFINES += CROSS_COMPILER_IF
