@@ -18,13 +18,13 @@ LIBS += \
         -L"./../../lib/eo" \
         -L"./../../lib/nlopt"
 
-CONFIG(debug, debug|release) {
-    LIBS += -llabexe_D \
-        -leo_d -leoutils_d -les_d -lga_d -lcma_d \
-        -lnlopt_d
+win32 {
+    LIBS += -llabexe \
+        -leo -leoutils -les -lga -lcma \
+        -llibnlopt
 } else {
-	LIBS += -llabexe \
-	-leo   -leoutils   -les   -lga   -lcma \
+    LIBS += -llabexe \
+        -l:libeo.a -l:libeoutils.a -l:libes.a -l:libga.a -l:libcma.a \
         -lnlopt
 }
 
