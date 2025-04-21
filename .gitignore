@@ -26,3 +26,4 @@ labexe*.dll
 *moc_*.*
 
 /__bin/
+/include/eo/build
