@@ -9,14 +9,14 @@ include($$PWD/../../common.pri)
 DEFINES += LABEXEOPTIMIZING_LIB
 
 INCLUDEPATH += \
-    ./../../include/eo \
-    ./../../include \
-    ./../../include/nlopt \
-    ./../../src
+    $$PWD/../../include/eo \
+    $$PWD/../../include \
+    $$PWD/../../include/nlopt \
+    $$PWD/../../src
 
 LIBS += \
-        -L"./../../lib/eo" \
-        -L"./../../lib/nlopt"
+        -L"$$PWD/../../lib/eo" \
+        -L"$$PWD/../../lib/nlopt"
 
 CONFIG(debug, debug|release) {
     LIBS += -llabexe_D
