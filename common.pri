@@ -1,6 +1,10 @@
 CONFIG += c++17
 
-QT += concurrent
+# Reset Qt modules first
+QT = concurrent
+
+# Remove any Qt 6 compatibility modules
+QT -= core5compat
 
 GIT_VERSION = $$system(git --git-dir $$PWD/.git --work-tree $$PWD describe --always --tags)
 DEFINES += GIT_VERSION=\\\"$$GIT_VERSION\\\"
@@ -62,6 +66,8 @@ win32 {
     # ---------- MSVC or clang‑cl ----------
     win32-msvc*|win32-clang-msvc {
         QMAKE_CXXFLAGS += /bigobj
+        QMAKE_CXXFLAGS += -Zc:templateScope
+        QMAKE_CXXFLAGS += -permissive-
     }
 }
 
