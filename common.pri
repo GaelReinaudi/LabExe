@@ -1,10 +1,11 @@
 CONFIG += c++17
 
 # Reset Qt modules first
-QT = concurrent
+QT += concurrent
 
-# Remove any Qt 6 compatibility modules
-QT -= core5compat
+lessThan(QT_MAJOR_VERSION, 6) {
+    QT -= core5compat  # Ensure we're not using Qt6 compatibility module
+}
 
 GIT_VERSION = $$system(git --git-dir $$PWD/.git --work-tree $$PWD describe --always --tags)
 DEFINES += GIT_VERSION=\\\"$$GIT_VERSION\\\"

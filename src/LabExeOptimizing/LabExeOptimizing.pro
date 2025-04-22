@@ -18,14 +18,16 @@ LIBS += \
         -L"./../../lib/eo" \
         -L"./../../lib/nlopt"
 
-win32 {
-    LIBS += -llabexe \
-        -leo -leoutils -les -lga -lcma \
-        -llibnlopt
+CONFIG(debug, debug|release) {
+    LIBS += -llabexe_D
 } else {
-    LIBS += -llabexe \
-        -l:libeo.a -l:libeoutils.a -l:libes.a -l:libga.a -l:libcma.a \
-        -lnlopt
+    LIBS += -llabexe
+}
+
+win32 {
+    LIBS += -llibeo -llibeoutils -llibes -llibga -llibcma -llibnlopt
+} else {
+    LIBS += -l:libeo.a -l:libeoutils.a -l:libes.a -l:libga.a -l:libcma.a -lnlopt
 }
 
 include(LabExeOptimizing.pri)
