@@ -92,8 +92,14 @@ public:
 	//! Gets a pointer from the GParamManagerSing, corresponding to the UniqueIdentifier stored under keyString in the fromQsettings. 0 if no match.
 	GParam* GetParam( QString keyString, QSettings* fromQsettings );
 	//! returns a list of all the pointers to all the GParam's
-	QList<GParam*> ListAllParams() {return values().toSet().toList();}
-	//! Returns a list of all the type registered in the factory.
+    QList<GParam*> ListAllParams() {
+        auto container = values();
+        std::sort(container.begin(), container.end());
+        container.erase(std::unique(container.begin(), container.end()),
+                        container.end());
+        return container;
+    }
+    //! Returns a list of all the type registered in the factory.
 	QList<QString> RegisteredParamTypes() const;
 
 protected:

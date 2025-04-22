@@ -13,9 +13,9 @@ INCLUDEPATH += \
 	.
 
 LIBS += \
-	-L"./../../lib" \
-	-L"./../../bin" \
-	-L"./../../../MapExe/bin"
+	-L"$$PWD/../../lib" \
+	-L"$$PWD/../../bin" \
+	-L"$$PWD/../../../MapExe/bin"
 
 MOC_DIR += ./GeneratedFiles
 OBJECTS_DIR += ./GeneratedFiles/Obj

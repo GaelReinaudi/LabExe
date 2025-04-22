@@ -1,6 +1,5 @@
 CONFIG += c++17
 
-# Reset Qt modules first
 QT += concurrent
 
 lessThan(QT_MAJOR_VERSION, 6) {
