@@ -117,8 +117,8 @@ namespace Loki
             {}
 
         public:
-            typedef value_type first_argument_type;
-            typedef value_type second_argument_type;
+            typedef std::pair<K, V> first_argument_type;
+            typedef std::pair<K, V> second_argument_type;
             typedef bool result_type;
             
             bool operator()(const value_type& lhs, const value_type& rhs) const

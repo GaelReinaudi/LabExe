@@ -68,6 +68,10 @@ win32 {
         QMAKE_CXXFLAGS += /bigobj
         QMAKE_CXXFLAGS += -Zc:templateScope
         QMAKE_CXXFLAGS += -permissive-
+        
+        # Fix for AssocVector template issues in MSVC
+        DEFINES += NOMINMAX
+        DEFINES += _SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING
     }
 }
 
