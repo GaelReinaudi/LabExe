@@ -2,6 +2,10 @@ CONFIG += c++17
 
 QT += concurrent
 
+lessThan(QT_MAJOR_VERSION, 6) {
+    QT -= core5compat  # Ensure we're not using Qt6 compatibility module
+}
+
 GIT_VERSION = $$system(git --git-dir $$PWD/.git --work-tree $$PWD describe --always --tags)
 DEFINES += GIT_VERSION=\\\"$$GIT_VERSION\\\"
 DEFINES += USE_SPDLOG
@@ -62,6 +66,12 @@ win32 {
     # ---------- MSVC or clang‑cl ----------
     win32-msvc*|win32-clang-msvc {
         QMAKE_CXXFLAGS += /bigobj
+        QMAKE_CXXFLAGS += -Zc:templateScope
+        QMAKE_CXXFLAGS += -permissive-
+        
+        # Fix for AssocVector template issues in MSVC
+        DEFINES += NOMINMAX
+        DEFINES += _SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING
     }
 }
 

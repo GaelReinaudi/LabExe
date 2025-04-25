@@ -108,8 +108,7 @@ namespace Loki
         typedef typename Base::const_reverse_iterator const_reverse_iterator;
 
         class value_compare
-            : public std::binary_function<value_type, value_type, bool>
-            , private key_compare
+            : private key_compare
         {
             friend class AssocVector;
         
@@ -118,6 +117,10 @@ namespace Loki
             {}
 
         public:
+            typedef std::pair<K, V> first_argument_type;
+            typedef std::pair<K, V> second_argument_type;
+            typedef bool result_type;
+            
             bool operator()(const value_type& lhs, const value_type& rhs) const
             { return key_compare::operator()(lhs.first, rhs.first); }
         };
