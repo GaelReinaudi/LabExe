@@ -38,7 +38,7 @@ contains(TEMPLATE, lib) {
     contains(CONFIG, plugin) {
         DESTDIR = $${BUILD_ROOT}/bin/plugins/$$TARGET
     } else {
-        DESTDIR = $${BUILD_ROOT}/lib
+        DESTDIR = $${BUILD_ROOT}/bin
     }
 } else {
     DESTDIR = $${BUILD_ROOT}/bin
@@ -66,8 +66,6 @@ win32 {
     # ---------- MSVC or clang‑cl ----------
     win32-msvc*|win32-clang-msvc {
         QMAKE_CXXFLAGS += /bigobj
-        QMAKE_CXXFLAGS += -Zc:templateScope
-        QMAKE_CXXFLAGS += -permissive-
         
         # Fix for AssocVector template issues in MSVC
         DEFINES += NOMINMAX
