@@ -1,6 +1,6 @@
 #include "winlabexe.h"
 #include "labexeimaging/labexeimaging.h"
-// #include "LabExeOptimizing/labexeoptimizing.h"
+#include "LabExeOptimizing/labexeoptimizing.h"
 
 #include <WinSparkle/winsparkle.h>
 
@@ -9,7 +9,7 @@ WinLabexe::WinLabexe(QWidget *parent, Qt::WFlags flags)
 {
 	// that makes the code enter those respective dlls so that the workbenches get registered.
 	LabExeImaging();
-	// LabExeOptimizing();
+	LabExeOptimizing();
 
 	// Initialize WinSparkle as soon as the app itself is initialized, right before entering the event loop:
 	win_sparkle_set_appcast_url("http://labexe.com/WinLabexe32AutoUpdate.xml");
