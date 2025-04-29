@@ -38,7 +38,7 @@ contains(TEMPLATE, lib) {
     contains(CONFIG, plugin) {
         DESTDIR = $${BUILD_ROOT}/bin/plugins/$$TARGET
     } else {
-        DESTDIR = $${BUILD_ROOT}/bin
+        DESTDIR = $${BUILD_ROOT}/lib
     }
 } else {
     DESTDIR = $${BUILD_ROOT}/bin
