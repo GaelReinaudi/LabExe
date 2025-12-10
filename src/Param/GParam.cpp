@@ -41,20 +41,7 @@ GParam::~GParam()
 
 void GParam::ParamInit()
 {
-//	GDevice* pDev = qobject_cast<GDevice*>(parent());
-//	GSerializable* pSer = dynamic_cast<GSerializable*>(parent());
-	// test
-// 	if(!pDev)
-// 		qDebug() << Name() << "Param's parent is not a GDevice";
-// 	if(!pSer)
-// 		qDebug() << Name() << "Param's parent is not a GSerializable";
-
 	if(ParamManagerInstance()->Contains(UniqueSystemID())) {
-// 		if(pDev)
-// 			qWarning() << "In device" << pDev->Name() << "GParam has not been given a unique identifier:" << UniqueSystemID() << "already exists";
-// 		else if(pSer)
-// 			qWarning() << "In serialized" << "with ID" << pSer->UniqueSystemID() 
-// 			<< "GParam has not been given a unique identifier:" << UniqueSystemID() << "already exists";
 	}
 	else
 		ParamManagerInstance()->Add(this);
