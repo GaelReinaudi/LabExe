@@ -41,20 +41,7 @@ GParam::~GParam()
 
 void GParam::ParamInit()
 {
-//	GDevice* pDev = qobject_cast<GDevice*>(parent());
-//	GSerializable* pSer = dynamic_cast<GSerializable*>(parent());
-	// test
-// 	if(!pDev)
-// 		qDebug() << Name() << "Param's parent is not a GDevice";
-// 	if(!pSer)
-// 		qDebug() << Name() << "Param's parent is not a GSerializable";
-
 	if(ParamManagerInstance()->Contains(UniqueSystemID())) {
-// 		if(pDev)
-// 			qWarning() << "In device" << pDev->Name() << "GParam has not been given a unique identifier:" << UniqueSystemID() << "already exists";
-// 		else if(pSer)
-// 			qWarning() << "In serialized" << "with ID" << pSer->UniqueSystemID() 
-// 			<< "GParam has not been given a unique identifier:" << UniqueSystemID() << "already exists";
 	}
 	else
 		ParamManagerInstance()->Add(this);
@@ -164,20 +151,6 @@ void GParam::ShowUnits( bool doShowUnits )
 	m_DisplayUnits = doShowUnits;
  	emit UnitDisplayChanged(doShowUnits);
 }
-
-// QString GParam::StringContent( char format /*= 'g'*/, int precision /*= 6*/ )
-// {
-// 	QVariant::Type theType = type();
-// 	switch(theType) {
-// 		case QVariant::Double: 
-// 			return QString::number(toDouble(), format, precision);
-// 		case QVariant::String:
-// 			return toString();
-// 		case QVariant::Int:
-// 			return QString::number(toInt());
-// 	}
-// 	return "";
-// }
 
 void GParam::Event_UniqueSystemIDChanged()
 {
